@@ -26,7 +26,7 @@ namespace CameraControl
         {
             Controls.Add(xtraTabControl1);
             Add_UserControl(xtTabPage_KhamBenh, uc_KhamBenh);
-
+            formLoginCam = new FormLoginCamera(uc_KhamBenh.LoginStatus, uc_KhamBenh.Live_Status);
         }
         private void Add_UserControl(XtraTabPage tabPage, UserControl uc)
         {
@@ -38,7 +38,6 @@ namespace CameraControl
 
         private void btDangnhapCamera_Click(object sender, EventArgs e)
         {
-            formLoginCam = new FormLoginCamera(uc_KhamBenh.LoginStatus, uc_KhamBenh.Live_Status);
             formLoginCam.ShowDialog();
         }
     }

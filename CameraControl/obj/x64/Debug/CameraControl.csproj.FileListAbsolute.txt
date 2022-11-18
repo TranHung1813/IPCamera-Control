@@ -16,3 +16,16 @@ E:\Projects\IPCameraControl\CameraControl\obj\x64\Debug\CameraControl.csproj.Cop
 E:\Projects\IPCameraControl\CameraControl\obj\x64\Debug\CameraControl.exe
 E:\Projects\IPCameraControl\CameraControl\obj\x64\Debug\CameraControl.pdb
 E:\Projects\IPCameraControl\CameraControl\obj\x64\Debug\CameraControl.FormLoginCamera.resources
+E:\Projects\IPCamera Control\CameraControl\bin\x64\Debug\CameraControl.exe.config
+E:\Projects\IPCamera Control\CameraControl\bin\x64\Debug\CameraControl.exe
+E:\Projects\IPCamera Control\CameraControl\bin\x64\Debug\CameraControl.pdb
+E:\Projects\IPCamera Control\CameraControl\obj\x64\Debug\CameraControl.csproj.AssemblyReference.cache
+E:\Projects\IPCamera Control\CameraControl\obj\x64\Debug\CameraControl.Form1.resources
+E:\Projects\IPCamera Control\CameraControl\obj\x64\Debug\CameraControl.FormLoginCamera.resources
+E:\Projects\IPCamera Control\CameraControl\obj\x64\Debug\CameraControl.Properties.Resources.resources
+E:\Projects\IPCamera Control\CameraControl\obj\x64\Debug\CameraControl.UserControl_TabKhamBenh.resources
+E:\Projects\IPCamera Control\CameraControl\obj\x64\Debug\CameraControl.csproj.GenerateResource.cache
+E:\Projects\IPCamera Control\CameraControl\obj\x64\Debug\CameraControl.csproj.CoreCompileInputs.cache
+E:\Projects\IPCamera Control\CameraControl\obj\x64\Debug\CameraControl.csproj.CopyComplete
+E:\Projects\IPCamera Control\CameraControl\obj\x64\Debug\CameraControl.exe
+E:\Projects\IPCamera Control\CameraControl\obj\x64\Debug\CameraControl.pdb

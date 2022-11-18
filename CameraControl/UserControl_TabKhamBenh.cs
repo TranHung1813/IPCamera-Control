@@ -15,7 +15,15 @@ namespace CameraControl
         public UserControl_TabKhamBenh()
         {
             InitializeComponent();
+            Init_Button();
+            Init_IPCamera();
+        }
+        private bool InitCam_Status = false;
+        public Int32 Live_Status = -1;
+        public Int32 LoginStatus = -1;
 
+        private void Init_IPCamera()
+        {
             InitCam_Status = CHCNetSDK.NET_DVR_Init();
             if (InitCam_Status == false)
             {
@@ -28,9 +36,24 @@ namespace CameraControl
                 CHCNetSDK.NET_DVR_SetLogToFile(3, "C:\\SdkLog\\", true);
             }
         }
-        private bool InitCam_Status = false;
-        public Int32 Live_Status = -1;
-        public Int32 LoginStatus = -1;
+        private void Init_Button()
+        {
+            foreach (var button in this.Controls.OfType<RJButton>())
+            {
+                button.GotFocus += (s, a) =>
+                {
+                    var currentButton = s as RJButton;
+                    currentButton.BorderColor = Color.RoyalBlue;
+                    currentButton.BorderSize = 2;
+                };
+                button.LostFocus += (s, a) =>
+                {
+                    var currentButton = s as RJButton;
+                    currentButton.BorderSize = 1;
+                    currentButton.BorderColor = SystemColors.ControlDark;
+                };
+            }
+        }
 
         protected override void Dispose(bool disposing)
 		{
@@ -56,10 +79,8 @@ namespace CameraControl
 			base.Dispose(disposing);
 		}
 
-		private void btOpenCamMain_Click(object sender, EventArgs e)
+        private void btOpenMainCam_Click(object sender, EventArgs e)
         {
-            
-
 
         }
     }

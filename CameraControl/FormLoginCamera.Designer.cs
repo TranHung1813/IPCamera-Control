@@ -169,6 +169,7 @@ namespace CameraControl
             this.ClientSize = new System.Drawing.Size(328, 347);
             this.Controls.Add(this.gBox_CameraInfo);
             this.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.MaximizeBox = false;
             this.Name = "FormLoginCamera";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Đăng nhập";
