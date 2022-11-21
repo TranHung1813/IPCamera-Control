@@ -102,13 +102,17 @@ namespace IPCameraManager
                 {
                     var currentButton = s as Guna.UI2.WinForms.Guna2Button;
                     currentButton.BorderThickness = 1;
-                    currentButton.BorderColor = SystemColors.ControlDark;
+                    currentButton.BorderColor = SystemColors.ControlDarkDark;
                 };
             }
         }
 
-        private void btExit_F12_Click(object sender, EventArgs e)
+        public void btExit_F12_Click(object sender, EventArgs e)
         {
+            if(btExit_F12.CanFocus)
+            {
+                btExit_F12.Focus();
+            }
             if (MessageBox.Show("Bạn chắc chắn muốn thoát?", "Warning", MessageBoxButtons.OKCancel,
                                                             MessageBoxIcon.Question) == DialogResult.OK)
             {
@@ -119,7 +123,7 @@ namespace IPCameraManager
         {
             if (LoginStatus < 0)
             {
-                MessageBox.Show("Please login the device firstly");
+                MessageBox.Show("Camera chưa kết nối!\rHãy kết nối camera trước.", "Lỗi: Chưa kết nối camera", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return ERR_NOT_OK;
             }
 
@@ -160,16 +164,20 @@ namespace IPCameraManager
             }
             return ERR_NOT_OK;
         }
+
+        //Xoa hinh anh Loading gif trong picture box RealPlayWnd
         public void ResetImage()
         {
             RealPlayWnd.Image = null;
         }
-        public void RefreshImage()
+
+        public int Stop_PlayCam()
         {
-            RealPlayWnd.Refresh();
-        }
-        private int Stop_PlayCam()
-        {
+            if (LoginStatus < 0)
+            {
+                MessageBox.Show("Camera chưa kết nối!\rHãy kết nối camera trước.", "Lỗi: Chưa kết nối camera", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return ERR_NOT_OK;
+            }
             if (Live_Status < 0)
             {
                 return ERR_NOT_OK;
@@ -216,7 +224,7 @@ namespace IPCameraManager
                 }
                 else
                 {
-
+                    // Tu dong logout (chua viet duoc, bo sung sau)
                 }
             }
             else
@@ -254,64 +262,7 @@ namespace IPCameraManager
                 return ERR_OK;
             }
         }
-
-        private void btTakePicture_Click(object sender, MouseEventArgs e)
-        {
-            if(e.Button == MouseButtons.Left)
-            {
-                if (Live_Status == -1)
-                {
-                    if (DialogResult.OK == MessageBox.Show("Camera chưa kết nối!\rHãy kết nối camera trước.", "Lỗi: Chưa kết nối camera", MessageBoxButtons.OK, MessageBoxIcon.Warning))
-                    {
-                        return;
-                    }
-                }
-                if (tbMaBenhNhan.Text.Length == 0)
-                {
-                    MessageBox.Show("Chưa nhập mã bệnh nhân! \rĐề nghị nhập lại.", "Lỗi: Chưa nhập mã bệnh nhân", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                    return;
-                }
-                if (tbHoTen.Text.Length == 0)
-                {
-                    MessageBox.Show("Chưa nhập tên bệnh nhân! \rĐề nghị nhập lại.", "Lỗi: Chưa nhập tên bệnh nhân", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                    return;
-                }
-                if (tbTuoi.Text.Length == 0)
-                {
-                    MessageBox.Show("Chưa nhập tuổi bệnh nhân! \rĐề nghị nhập lại.", "Lỗi: Chưa nhập tuổi bệnh nhân", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                    return;
-                }
-                if (ERR_OK == TakePicture())
-                {
-                    if(FolderName_to_saveFile.Length == 0)
-                    {
-                        FolderName_to_saveFile = "D:\\Hinh_Anh";
-                    }
-                    string ImagePath = FolderName_to_saveFile + "\\Thang" + DateTime.Today.ToString("MM");
-                    ImagePath += "_" + DateTime.Today.ToString("yyyy");
-                    ImagePath += "\\Ngay" + DateTime.Today.ToString("dd") + "\\" + tbMaBenhNhan.Text;
-                    string FolderPath = ImagePath;
-                    string file_name = "\\" + DateTime.Now.ToString("HHmmss") + "_" + tbMaBenhNhan.Text;
-                    ImagePath += file_name + ".jpg";
-
-                    if (!Directory.Exists(FolderPath))
-                    {
-                        Directory.CreateDirectory(FolderPath);
-                    }
-                    //Copy & override file "JPEG_test.jpg" to ImagePath
-                    FileInfo fi = new FileInfo("JPEG_test.jpg");
-                    fi.CopyTo(ImagePath, true);
-                }
-            }
-            if (e.Button == MouseButtons.Right)
-            {
-                if(SetFolder_Form.ShowDialog() == DialogResult.OK)
-                {
-                    SetFolder_Form.GetFolderName(ref FolderName_to_saveFile);
-                    Save_FolderSaveFile_Info(FolderName_to_saveFile);
-                }
-            }
-        }
+        // Luu Folder Save File vao database
         private void Save_FolderSaveFile_Info(string FolderName)
         {
             DataUser_Other_Info InfoSave = new DataUser_Other_Info();
@@ -319,6 +270,70 @@ namespace IPCameraManager
             InfoSave.FolderSaveFile = FolderName;
 
             SqliteDataAccess.SaveInfo_Other(InfoSave);
+        }
+
+        private void btTakePicture_MouseUp(object sender, MouseEventArgs e)
+        {
+            if (e.Button == MouseButtons.Left)
+            {
+                btTakePicture_LeftClick();
+            }
+            if (e.Button == MouseButtons.Right)
+            {
+                if (SetFolder_Form.ShowDialog() == DialogResult.OK)
+                {
+                    SetFolder_Form.GetFolderName(ref FolderName_to_saveFile);
+                    Save_FolderSaveFile_Info(FolderName_to_saveFile);
+                }
+            }
+        }
+        public void btTakePicture_LeftClick()
+        {
+            if(btTakePicture.CanFocus)
+            {
+                btTakePicture.Focus();
+            }
+            if (Live_Status == -1)
+            {
+                MessageBox.Show("Camera chưa kết nối!\rHãy kết nối camera trước.", "Lỗi: Chưa kết nối camera", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+            if (tbMaBenhNhan.Text.Length == 0)
+            {
+                MessageBox.Show("Chưa nhập mã bệnh nhân! \rĐề nghị nhập lại.", "Lỗi: Chưa nhập mã bệnh nhân", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+            if (tbHoTen.Text.Length == 0)
+            {
+                MessageBox.Show("Chưa nhập tên bệnh nhân! \rĐề nghị nhập lại.", "Lỗi: Chưa nhập tên bệnh nhân", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+            if (tbTuoi.Text.Length == 0)
+            {
+                MessageBox.Show("Chưa nhập tuổi bệnh nhân! \rĐề nghị nhập lại.", "Lỗi: Chưa nhập tuổi bệnh nhân", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+            if (ERR_OK == TakePicture())
+            {
+                if (FolderName_to_saveFile.Length == 0)
+                {
+                    FolderName_to_saveFile = "D:\\Hinh_Anh";
+                }
+                string ImagePath = FolderName_to_saveFile + "\\Thang" + DateTime.Today.ToString("MM");
+                ImagePath += "_" + DateTime.Today.ToString("yyyy");
+                ImagePath += "\\Ngay" + DateTime.Today.ToString("dd") + "\\" + tbMaBenhNhan.Text;
+                string FolderPath = ImagePath;
+                string file_name = "\\" + DateTime.Now.ToString("HHmmss") + "_" + tbMaBenhNhan.Text;
+                ImagePath += file_name + ".jpg";
+
+                if (!Directory.Exists(FolderPath))
+                {
+                    Directory.CreateDirectory(FolderPath);
+                }
+                //Copy & override file "JPEG_test.jpg" to ImagePath
+                FileInfo fi = new FileInfo("JPEG_test.jpg");
+                fi.CopyTo(ImagePath, true);
+            }
         }
     }
 }

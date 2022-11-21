@@ -58,7 +58,6 @@ namespace IPCameraManager
             {
                 if (ERR_OK == Login_Camera(Login_Info))
                 {
-                    btLogin.Text = "Đăng xuất";
                     MessageBox.Show("Kết nối Camera thành công!");
                     DialogResult = DialogResult.OK;
                 }
@@ -67,7 +66,7 @@ namespace IPCameraManager
             {
                 if (ERR_OK == Logout_Camera(Login_Info))
                 {
-                    btLogin.Text = "Đăng nhập";
+
                 }
             }
 

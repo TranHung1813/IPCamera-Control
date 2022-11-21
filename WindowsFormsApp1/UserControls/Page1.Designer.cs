@@ -377,7 +377,7 @@ namespace IPCameraManager
             this.btTakePicture.TabIndex = 35;
             this.btTakePicture.Text = "Chụp Ảnh (F5)";
             this.btTakePicture.UseTransparentBackground = true;
-            this.btTakePicture.MouseUp += new System.Windows.Forms.MouseEventHandler(this.btTakePicture_Click);
+            this.btTakePicture.MouseUp += new System.Windows.Forms.MouseEventHandler(this.btTakePicture_MouseUp);
             // 
             // pictureBox2
             // 

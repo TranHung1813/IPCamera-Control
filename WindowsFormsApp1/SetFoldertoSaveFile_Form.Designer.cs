@@ -35,11 +35,11 @@ namespace IPCameraManager
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.tbFolderName = new Guna.UI2.WinForms.Guna2TextBox();
             this.guna2GroupBox1 = new Guna.UI2.WinForms.Guna2GroupBox();
-            this.guna2Elipse1 = new Guna.UI2.WinForms.Guna2Elipse(this.components);
-            this.btOK = new Guna.UI2.WinForms.Guna2Button();
-            this.btCancel = new Guna.UI2.WinForms.Guna2Button();
             this.panel_Top = new System.Windows.Forms.Panel();
             this.guna2ControlBox1 = new Guna.UI2.WinForms.Guna2ControlBox();
+            this.btCancel = new Guna.UI2.WinForms.Guna2Button();
+            this.btOK = new Guna.UI2.WinForms.Guna2Button();
+            this.guna2Elipse1 = new Guna.UI2.WinForms.Guna2Elipse(this.components);
             this.guna2DragControl1 = new Guna.UI2.WinForms.Guna2DragControl(this.components);
             this.groupBox1.SuspendLayout();
             this.guna2GroupBox1.SuspendLayout();
@@ -111,6 +111,7 @@ namespace IPCameraManager
             this.tbFolderName.PasswordChar = '\0';
             this.tbFolderName.PlaceholderText = "";
             this.tbFolderName.SelectedText = "";
+            this.tbFolderName.SelectionStart = 11;
             this.tbFolderName.ShadowDecoration.Parent = this.tbFolderName;
             this.tbFolderName.Size = new System.Drawing.Size(448, 26);
             this.tbFolderName.TabIndex = 3;
@@ -134,51 +135,6 @@ namespace IPCameraManager
             this.guna2GroupBox1.TabIndex = 6;
             this.guna2GroupBox1.Text = "Cài đặt tên Folder";
             // 
-            // guna2Elipse1
-            // 
-            this.guna2Elipse1.BorderRadius = 19;
-            this.guna2Elipse1.TargetControl = this;
-            // 
-            // btOK
-            // 
-            this.btOK.BackColor = System.Drawing.Color.Transparent;
-            this.btOK.BorderColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.btOK.BorderRadius = 4;
-            this.btOK.BorderThickness = 1;
-            this.btOK.CheckedState.Parent = this.btOK;
-            this.btOK.CustomImages.Parent = this.btOK;
-            this.btOK.FillColor = System.Drawing.Color.WhiteSmoke;
-            this.btOK.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btOK.ForeColor = System.Drawing.Color.Black;
-            this.btOK.HoverState.Parent = this.btOK;
-            this.btOK.Location = new System.Drawing.Point(458, 93);
-            this.btOK.Name = "btOK";
-            this.btOK.ShadowDecoration.Parent = this.btOK;
-            this.btOK.Size = new System.Drawing.Size(75, 25);
-            this.btOK.TabIndex = 6;
-            this.btOK.Text = "OK";
-            this.btOK.Click += new System.EventHandler(this.btOK_Click_1);
-            // 
-            // btCancel
-            // 
-            this.btCancel.BackColor = System.Drawing.Color.Transparent;
-            this.btCancel.BorderColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.btCancel.BorderRadius = 4;
-            this.btCancel.BorderThickness = 1;
-            this.btCancel.CheckedState.Parent = this.btCancel;
-            this.btCancel.CustomImages.Parent = this.btCancel;
-            this.btCancel.FillColor = System.Drawing.Color.WhiteSmoke;
-            this.btCancel.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btCancel.ForeColor = System.Drawing.Color.Black;
-            this.btCancel.HoverState.Parent = this.btCancel;
-            this.btCancel.Location = new System.Drawing.Point(550, 93);
-            this.btCancel.Name = "btCancel";
-            this.btCancel.ShadowDecoration.Parent = this.btCancel;
-            this.btCancel.Size = new System.Drawing.Size(75, 25);
-            this.btCancel.TabIndex = 7;
-            this.btCancel.Text = "Cancel";
-            this.btCancel.Click += new System.EventHandler(this.btCancel_Click_1);
-            // 
             // panel_Top
             // 
             this.panel_Top.BackColor = System.Drawing.Color.Transparent;
@@ -201,6 +157,51 @@ namespace IPCameraManager
             this.guna2ControlBox1.ShadowDecoration.Parent = this.guna2ControlBox1;
             this.guna2ControlBox1.Size = new System.Drawing.Size(45, 32);
             this.guna2ControlBox1.TabIndex = 31;
+            // 
+            // btCancel
+            // 
+            this.btCancel.BackColor = System.Drawing.Color.Transparent;
+            this.btCancel.BorderColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.btCancel.BorderRadius = 4;
+            this.btCancel.BorderThickness = 1;
+            this.btCancel.CheckedState.Parent = this.btCancel;
+            this.btCancel.CustomImages.Parent = this.btCancel;
+            this.btCancel.FillColor = System.Drawing.Color.WhiteSmoke;
+            this.btCancel.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btCancel.ForeColor = System.Drawing.Color.Black;
+            this.btCancel.HoverState.Parent = this.btCancel;
+            this.btCancel.Location = new System.Drawing.Point(550, 93);
+            this.btCancel.Name = "btCancel";
+            this.btCancel.ShadowDecoration.Parent = this.btCancel;
+            this.btCancel.Size = new System.Drawing.Size(75, 25);
+            this.btCancel.TabIndex = 7;
+            this.btCancel.Text = "Cancel";
+            this.btCancel.Click += new System.EventHandler(this.btCancel_Click_1);
+            // 
+            // btOK
+            // 
+            this.btOK.BackColor = System.Drawing.Color.Transparent;
+            this.btOK.BorderColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.btOK.BorderRadius = 4;
+            this.btOK.BorderThickness = 1;
+            this.btOK.CheckedState.Parent = this.btOK;
+            this.btOK.CustomImages.Parent = this.btOK;
+            this.btOK.FillColor = System.Drawing.Color.WhiteSmoke;
+            this.btOK.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btOK.ForeColor = System.Drawing.Color.Black;
+            this.btOK.HoverState.Parent = this.btOK;
+            this.btOK.Location = new System.Drawing.Point(458, 93);
+            this.btOK.Name = "btOK";
+            this.btOK.ShadowDecoration.Parent = this.btOK;
+            this.btOK.Size = new System.Drawing.Size(75, 25);
+            this.btOK.TabIndex = 6;
+            this.btOK.Text = "OK";
+            this.btOK.Click += new System.EventHandler(this.btOK_Click_1);
+            // 
+            // guna2Elipse1
+            // 
+            this.guna2Elipse1.BorderRadius = 19;
+            this.guna2Elipse1.TargetControl = this;
             // 
             // guna2DragControl1
             // 

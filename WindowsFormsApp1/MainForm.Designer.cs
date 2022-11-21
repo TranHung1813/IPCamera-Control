@@ -39,6 +39,7 @@ namespace IPCameraManager
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.guna2Elipse1 = new Guna.UI2.WinForms.Guna2Elipse(this.components);
             this.panel2 = new System.Windows.Forms.Panel();
+            this.btCamRefresh_R = new System.Windows.Forms.Button();
             this.btLogin_IPCamera = new Guna.UI2.WinForms.Guna2Button();
             this.tabPage_InPhieu = new Guna.UI2.WinForms.Guna2Button();
             this.tabPage_KhamBenh = new Guna.UI2.WinForms.Guna2Button();
@@ -49,7 +50,6 @@ namespace IPCameraManager
             this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
             this.panelBorder_Left = new System.Windows.Forms.Panel();
             this.panelBorder_Right = new System.Windows.Forms.Panel();
-            this.button1 = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel2.SuspendLayout();
@@ -151,7 +151,7 @@ namespace IPCameraManager
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.SystemColors.InactiveCaption;
-            this.panel2.Controls.Add(this.button1);
+            this.panel2.Controls.Add(this.btCamRefresh_R);
             this.panel2.Controls.Add(this.btLogin_IPCamera);
             this.panel2.Controls.Add(this.tabPage_InPhieu);
             this.panel2.Controls.Add(this.tabPage_KhamBenh);
@@ -160,6 +160,16 @@ namespace IPCameraManager
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(1044, 43);
             this.panel2.TabIndex = 7;
+            // 
+            // btCamRefresh_R
+            // 
+            this.btCamRefresh_R.Location = new System.Drawing.Point(471, 6);
+            this.btCamRefresh_R.Name = "btCamRefresh_R";
+            this.btCamRefresh_R.Size = new System.Drawing.Size(127, 31);
+            this.btCamRefresh_R.TabIndex = 3;
+            this.btCamRefresh_R.Text = "Refresh Camera (F7)";
+            this.btCamRefresh_R.UseVisualStyleBackColor = true;
+            this.btCamRefresh_R.Click += new System.EventHandler(this.btCamRefresh_Click);
             // 
             // btLogin_IPCamera
             // 
@@ -209,7 +219,7 @@ namespace IPCameraManager
             this.tabPage_InPhieu.ShadowDecoration.Parent = this.tabPage_InPhieu;
             this.tabPage_InPhieu.Size = new System.Drawing.Size(207, 43);
             this.tabPage_InPhieu.TabIndex = 1;
-            this.tabPage_InPhieu.Text = "  In Phiếu Khám (F14)";
+            this.tabPage_InPhieu.Text = "  In Phiếu Khám (F4)";
             this.tabPage_InPhieu.UseTransparentBackground = true;
             this.tabPage_InPhieu.Click += new System.EventHandler(this.tabPageInPhieu_Click);
             // 
@@ -236,7 +246,7 @@ namespace IPCameraManager
             this.tabPage_KhamBenh.ShadowDecoration.Parent = this.tabPage_KhamBenh;
             this.tabPage_KhamBenh.Size = new System.Drawing.Size(177, 43);
             this.tabPage_KhamBenh.TabIndex = 0;
-            this.tabPage_KhamBenh.Text = " KHÁM BỆNH (F13)";
+            this.tabPage_KhamBenh.Text = " KHÁM BỆNH (F3)";
             this.tabPage_KhamBenh.UseTransparentBackground = true;
             this.tabPage_KhamBenh.Click += new System.EventHandler(this.tabPage_KhamBenh_Click);
             // 
@@ -297,16 +307,6 @@ namespace IPCameraManager
             this.panelBorder_Right.Size = new System.Drawing.Size(2, 617);
             this.panelBorder_Right.TabIndex = 0;
             // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(471, 14);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 3;
-            this.button1.Text = "button1";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
-            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -355,7 +355,7 @@ namespace IPCameraManager
         private System.Windows.Forms.Panel panelBorder_Left;
         private Guna.UI2.WinForms.Guna2Button btLogin_IPCamera;
         private Guna.UI2.WinForms.Guna2Button btExit;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btCamRefresh_R;
     }
 }
 
