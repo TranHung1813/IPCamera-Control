@@ -18,4 +18,10 @@ namespace IPCameraManager
 
         public string Password { get; set; }
     }
+    public class DataUser_Other_Info
+    {
+        public int Id { get; set; }
+
+        public string FolderSaveFile { get; set; }
+    }
 }

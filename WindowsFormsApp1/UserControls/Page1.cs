@@ -17,6 +17,7 @@ namespace IPCameraManager
         public Page1()
         {
             InitializeComponent();
+            InitForm_Default();
             Init_Button();
             Init_IPCamera();
         }
@@ -30,6 +31,9 @@ namespace IPCameraManager
         private const int ERR_OK = 0;
         private const int ERR_NOT_OK = 1;
 
+        SetFoldertoSaveFile_Form SetFolder_Form = new SetFoldertoSaveFile_Form();
+        private string FolderName_to_saveFile = "";
+
         private void Init_IPCamera()
         {
             InitCam_Status = CHCNetSDK.NET_DVR_Init();
@@ -42,6 +46,21 @@ namespace IPCameraManager
             {
                 //Set Folder to save the SDK log
                 CHCNetSDK.NET_DVR_SetLogToFile(3, "C:\\SdkLog\\", true);
+            }
+        }
+        private void InitForm_Default()
+        {
+            // Get Folder Save File info
+            DataUser_Other_Info Info = SqliteDataAccess.Load_Other_Info();
+
+            if(Info != null)
+            {
+                FolderName_to_saveFile = Info.FolderSaveFile;
+                SetFolder_Form.SetFolderName(FolderName_to_saveFile);
+            }
+            else
+            {
+                // Handle when database = null
             }
         }
 
@@ -240,9 +259,35 @@ namespace IPCameraManager
         {
             if(e.Button == MouseButtons.Left)
             {
-                if(ERR_OK == TakePicture())
+                if (Live_Status == -1)
                 {
-                    string ImagePath = "D:\\Hinh_Anh\\Thang" + DateTime.Today.ToString("MM");
+                    if (DialogResult.OK == MessageBox.Show("Camera chưa kết nối!\rHãy kết nối camera trước.", "Lỗi: Chưa kết nối camera", MessageBoxButtons.OK, MessageBoxIcon.Warning))
+                    {
+                        return;
+                    }
+                }
+                if (tbMaBenhNhan.Text.Length == 0)
+                {
+                    MessageBox.Show("Chưa nhập mã bệnh nhân! \rĐề nghị nhập lại.", "Lỗi: Chưa nhập mã bệnh nhân", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+                }
+                if (tbHoTen.Text.Length == 0)
+                {
+                    MessageBox.Show("Chưa nhập tên bệnh nhân! \rĐề nghị nhập lại.", "Lỗi: Chưa nhập tên bệnh nhân", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+                }
+                if (tbTuoi.Text.Length == 0)
+                {
+                    MessageBox.Show("Chưa nhập tuổi bệnh nhân! \rĐề nghị nhập lại.", "Lỗi: Chưa nhập tuổi bệnh nhân", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+                }
+                if (ERR_OK == TakePicture())
+                {
+                    if(FolderName_to_saveFile.Length == 0)
+                    {
+                        FolderName_to_saveFile = "D:\\Hinh_Anh";
+                    }
+                    string ImagePath = FolderName_to_saveFile + "\\Thang" + DateTime.Today.ToString("MM");
                     ImagePath += "_" + DateTime.Today.ToString("yyyy");
                     ImagePath += "\\Ngay" + DateTime.Today.ToString("dd") + "\\" + tbMaBenhNhan.Text;
                     string FolderPath = ImagePath;
@@ -260,8 +305,20 @@ namespace IPCameraManager
             }
             if (e.Button == MouseButtons.Right)
             {
-
+                if(SetFolder_Form.ShowDialog() == DialogResult.OK)
+                {
+                    SetFolder_Form.GetFolderName(ref FolderName_to_saveFile);
+                    Save_FolderSaveFile_Info(FolderName_to_saveFile);
+                }
             }
+        }
+        private void Save_FolderSaveFile_Info(string FolderName)
+        {
+            DataUser_Other_Info InfoSave = new DataUser_Other_Info();
+            InfoSave.Id = 1;
+            InfoSave.FolderSaveFile = FolderName;
+
+            SqliteDataAccess.SaveInfo_Other(InfoSave);
         }
     }
 }

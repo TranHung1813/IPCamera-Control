@@ -19,3 +19,24 @@ E:\Projects\IPCamera Control ver custom\WindowsFormsApp1\obj\Debug\IPCamera_Mana
 E:\Projects\IPCamera Control ver custom\WindowsFormsApp1\obj\Debug\IPCamera_Manager.csproj.CopyComplete
 E:\Projects\IPCamera Control ver custom\WindowsFormsApp1\obj\Debug\IPCameraManager.exe
 E:\Projects\IPCamera Control ver custom\WindowsFormsApp1\obj\Debug\IPCameraManager.pdb
+E:\Projects\IPCamera Control\WindowsFormsApp1\bin\Debug\db\IPCameraManager.db
+E:\Projects\IPCamera Control\WindowsFormsApp1\bin\Debug\IPCameraManager.exe.config
+E:\Projects\IPCamera Control\WindowsFormsApp1\bin\Debug\IPCameraManager.exe
+E:\Projects\IPCamera Control\WindowsFormsApp1\bin\Debug\IPCameraManager.pdb
+E:\Projects\IPCamera Control\WindowsFormsApp1\bin\Debug\Dapper.dll
+E:\Projects\IPCamera Control\WindowsFormsApp1\bin\Debug\System.Data.SQLite.dll
+E:\Projects\IPCamera Control\WindowsFormsApp1\bin\Debug\System.Drawing.Common.dll
+E:\Projects\IPCamera Control\WindowsFormsApp1\bin\Debug\Dapper.xml
+E:\Projects\IPCamera Control\WindowsFormsApp1\bin\Debug\System.Data.SQLite.xml
+E:\Projects\IPCamera Control\WindowsFormsApp1\bin\Debug\System.Drawing.Common.xml
+E:\Projects\IPCamera Control\WindowsFormsApp1\obj\Debug\IPCamera_Manager.csproj.AssemblyReference.cache
+E:\Projects\IPCamera Control\WindowsFormsApp1\obj\Debug\IPCameraManager.FormLoginCamera.resources
+E:\Projects\IPCamera Control\WindowsFormsApp1\obj\Debug\IPCameraManager.MainForm.resources
+E:\Projects\IPCamera Control\WindowsFormsApp1\obj\Debug\IPCameraManager.Page1.resources
+E:\Projects\IPCamera Control\WindowsFormsApp1\obj\Debug\IPCameraManager.Properties.Resources.resources
+E:\Projects\IPCamera Control\WindowsFormsApp1\obj\Debug\IPCameraManager.Page2.resources
+E:\Projects\IPCamera Control\WindowsFormsApp1\obj\Debug\IPCamera_Manager.csproj.GenerateResource.cache
+E:\Projects\IPCamera Control\WindowsFormsApp1\obj\Debug\IPCamera_Manager.csproj.CoreCompileInputs.cache
+E:\Projects\IPCamera Control\WindowsFormsApp1\obj\Debug\IPCamera_Manager.csproj.CopyComplete
+E:\Projects\IPCamera Control\WindowsFormsApp1\obj\Debug\IPCameraManager.exe
+E:\Projects\IPCamera Control\WindowsFormsApp1\obj\Debug\IPCameraManager.pdb

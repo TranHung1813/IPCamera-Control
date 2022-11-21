@@ -21,14 +21,17 @@ namespace IPCameraManager
         //2. Tao form loading cho Camera (Done)
         //3. Xua ly tinh nang chup anh, in phieu, chon anh, lay duong dan, ...
         //4. Hien thi trang thai cam qua control Status (Done, need test)
-        //5. Luu vao git
+        //5. Luu vao git (Done)
         //6. Kiem tra do an toan cua Thread (Check xem cac nut co duoc nhan hay khong)
         //7. In barcode
-        //8. Them tinh nang nhan nut
+        //8. Them tinh nang nhan nut (F1,F2,...)
         //9. Them debug mode
-        //10. Check lai thong tin size anh
+        //10. Check lai thong tin size anh (Done, Auto is OK)
         //11. Them tinh nang phong to []
         //12. Them tinh nang Cam phu
+        //13. Xem xet tinh nang Refresh (logout-> login-> start live view)
+        //14. Chon Folder luu anh chup (done)
+        //15. Luu folder save file vao database
         private const int ERR_OK = 0;
         private const int ERR_NOT_OK = 1;
 
@@ -125,7 +128,7 @@ namespace IPCameraManager
         private void Connect2Camera_using_Database_Info()
         {
             btLogin_IPCamera.Visible = false;
-            //Get info number Items
+            //Get Login info
             DataUser_LoginCamera_Info loginInfo = SqliteDataAccess.Load_LoginCamera_Info();
 
             if (loginInfo != null)
@@ -167,8 +170,10 @@ namespace IPCameraManager
             }
             else
             {
-                btLogin_IPCamera.Visible = true;
                 // Xu ly khi chua co thong tin luu trong database
+                btLogin_IPCamera.Visible = true;
+                ucPage1.ResetImage();
+                TrangThaiCam.Text = "Hãy nhập thông tin để có thể kết nối Camera!";
             }
         }
 
