@@ -338,8 +338,12 @@ namespace IPCameraManager
             }
         }
         // Show camera phụ
-        private void btShowCamera2_Click(object sender, EventArgs e)
+        public void btShowCamera2_Click(object sender, EventArgs e)
         {
+            if(btShowCamera2.CanFocus)
+            {
+                btShowCamera2.Focus();
+            }
             LoginInfo.IP_Address = "192.168.2.247";
             LoginInfo.Port = "8000";
             LoginInfo.Username = "admin";

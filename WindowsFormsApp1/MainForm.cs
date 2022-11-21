@@ -105,7 +105,13 @@ namespace IPCameraManager
                         ucPage1.btTakePicture_LeftClick();
                     }
                     break;
-
+                case Keys.F6:
+                    if (TabPageID == PAGE1)
+                    {
+                        // Nhan nut Ca Phong
+                        ucPage1.btShowCamera2_Click(sender, e);
+                    }
+                    break;
                 case Keys.F12:
                     ucPage1.btExit_F12_Click(sender, e);
                     break;
