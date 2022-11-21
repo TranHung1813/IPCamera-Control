@@ -121,6 +121,12 @@
     <Compile Include="SetFoldertoSaveFile_Form.Designer.cs">
       <DependentUpon>SetFoldertoSaveFile_Form.cs</DependentUpon>
     </Compile>
+    <Compile Include="ShowCamera2Form.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ShowCamera2Form.Designer.cs">
+      <DependentUpon>ShowCamera2Form.cs</DependentUpon>
+    </Compile>
     <Compile Include="SqliteDataAccess.cs" />
     <Compile Include="FormLoginCamera.cs">
       <SubType>Form</SubType>
@@ -158,6 +164,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="SetFoldertoSaveFile_Form.resx">
       <DependentUpon>SetFoldertoSaveFile_Form.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ShowCamera2Form.resx">
+      <DependentUpon>ShowCamera2Form.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UserControls\Page1.resx">
       <DependentUpon>Page1.cs</DependentUpon>

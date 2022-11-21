@@ -71,3 +71,4 @@ E:\Projects\IPCamera Control\WindowsFormsApp1\bin\x64\Debug\System.Memory.xml
 E:\Projects\IPCamera Control\WindowsFormsApp1\bin\x64\Debug\System.Numerics.Vectors.xml
 E:\Projects\IPCamera Control\WindowsFormsApp1\bin\x64\Debug\System.Resources.Extensions.xml
 E:\Projects\IPCamera Control\WindowsFormsApp1\bin\x64\Debug\System.Runtime.CompilerServices.Unsafe.xml
+E:\Projects\IPCamera Control\WindowsFormsApp1\obj\x64\Debug\IPCameraManager.ShowCamera2Form.resources

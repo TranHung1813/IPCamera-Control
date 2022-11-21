@@ -34,6 +34,8 @@ namespace IPCameraManager
         SetFoldertoSaveFile_Form SetFolder_Form = new SetFoldertoSaveFile_Form();
         private string FolderName_to_saveFile = "";
 
+        LoginCameraInfo_Type LoginInfo;
+
         private void Init_IPCamera()
         {
             InitCam_Status = CHCNetSDK.NET_DVR_Init();
@@ -334,6 +336,16 @@ namespace IPCameraManager
                 FileInfo fi = new FileInfo("JPEG_test.jpg");
                 fi.CopyTo(ImagePath, true);
             }
+        }
+        // Show camera phụ
+        private void btShowCamera2_Click(object sender, EventArgs e)
+        {
+            LoginInfo.IP_Address = "192.168.2.247";
+            LoginInfo.Port = "8000";
+            LoginInfo.Username = "admin";
+            LoginInfo.Password = "abcd1234";
+            ShowCamera2Form form = new ShowCamera2Form(LoginInfo);
+            form.ShowDialog();
         }
     }
 }
