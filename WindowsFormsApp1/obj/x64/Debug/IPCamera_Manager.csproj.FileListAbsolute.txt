@@ -1,0 +1,39 @@
+C:\Users\Administrator\Desktop\Code dạo\C# Projects\WindowsFormsApp1\WindowsFormsApp1\obj\x64\Debug\IPCamera_Manager.csproj.AssemblyReference.cache
+C:\Users\Administrator\Desktop\Code dạo\C# Projects\WindowsFormsApp1\WindowsFormsApp1\obj\x64\Debug\WindowsFormsApp1.MainForm.resources
+C:\Users\Administrator\Desktop\Code dạo\C# Projects\WindowsFormsApp1\WindowsFormsApp1\obj\x64\Debug\WindowsFormsApp1.Page1.resources
+C:\Users\Administrator\Desktop\Code dạo\C# Projects\WindowsFormsApp1\WindowsFormsApp1\obj\x64\Debug\WindowsFormsApp1.Properties.Resources.resources
+C:\Users\Administrator\Desktop\Code dạo\C# Projects\WindowsFormsApp1\WindowsFormsApp1\obj\x64\Debug\WindowsFormsApp1.Page2.resources
+C:\Users\Administrator\Desktop\Code dạo\C# Projects\WindowsFormsApp1\WindowsFormsApp1\obj\x64\Debug\IPCamera_Manager.csproj.GenerateResource.cache
+C:\Users\Administrator\Desktop\Code dạo\C# Projects\WindowsFormsApp1\WindowsFormsApp1\obj\x64\Debug\IPCamera_Manager.csproj.CoreCompileInputs.cache
+C:\Users\Administrator\Desktop\Code dạo\C# Projects\WindowsFormsApp1\WindowsFormsApp1\obj\x64\Debug\WindowsFormsApp1.exe
+C:\Users\Administrator\Desktop\Code dạo\C# Projects\WindowsFormsApp1\WindowsFormsApp1\obj\x64\Debug\WindowsFormsApp1.pdb
+C:\Users\Administrator\Desktop\Code dạo\C# Projects\WindowsFormsApp1\WindowsFormsApp1\bin\x64\Debug\WindowsFormsApp1.exe.config
+C:\Users\Administrator\Desktop\Code dạo\C# Projects\WindowsFormsApp1\WindowsFormsApp1\bin\x64\Debug\WindowsFormsApp1.exe
+C:\Users\Administrator\Desktop\Code dạo\C# Projects\WindowsFormsApp1\WindowsFormsApp1\bin\x64\Debug\WindowsFormsApp1.pdb
+C:\Users\Administrator\Desktop\Code dạo\C# Projects\WindowsFormsApp1\WindowsFormsApp1\bin\x64\Debug\Guna.UI2.dll
+C:\Users\Administrator\Desktop\Code dạo\C# Projects\WindowsFormsApp1\WindowsFormsApp1\bin\x64\Debug\System.Drawing.Common.dll
+C:\Users\Administrator\Desktop\Code dạo\C# Projects\WindowsFormsApp1\WindowsFormsApp1\bin\x64\Debug\XanderUI.dll
+C:\Users\Administrator\Desktop\Code dạo\C# Projects\WindowsFormsApp1\WindowsFormsApp1\bin\x64\Debug\System.Drawing.Common.xml
+C:\Users\Administrator\Desktop\Code dạo\C# Projects\WindowsFormsApp1\WindowsFormsApp1\obj\x64\Debug\IPCamera_Manager.csproj.CopyComplete
+C:\Users\Administrator\Desktop\Code dạo\C# Projects\WindowsFormsApp1\WindowsFormsApp1\obj\x64\Debug\WindowsFormsApp1.FormLoginCamera.resources
+E:\Projects\IPCamera Control ver custom\WindowsFormsApp1\bin\x64\Debug\System.Drawing.Common.dll
+E:\Projects\IPCamera Control ver custom\WindowsFormsApp1\bin\x64\Debug\System.Drawing.Common.xml
+E:\Projects\IPCamera Control ver custom\WindowsFormsApp1\obj\x64\Debug\IPCamera_Manager.csproj.AssemblyReference.cache
+E:\Projects\IPCamera Control ver custom\WindowsFormsApp1\obj\x64\Debug\IPCamera_Manager.csproj.GenerateResource.cache
+E:\Projects\IPCamera Control ver custom\WindowsFormsApp1\obj\x64\Debug\IPCamera_Manager.csproj.CoreCompileInputs.cache
+E:\Projects\IPCamera Control ver custom\WindowsFormsApp1\obj\x64\Debug\IPCamera_Manager.csproj.CopyComplete
+E:\Projects\IPCamera Control ver custom\WindowsFormsApp1\obj\x64\Debug\IPCameraManager.FormLoginCamera.resources
+E:\Projects\IPCamera Control ver custom\WindowsFormsApp1\obj\x64\Debug\IPCameraManager.MainForm.resources
+E:\Projects\IPCamera Control ver custom\WindowsFormsApp1\obj\x64\Debug\IPCameraManager.Page1.resources
+E:\Projects\IPCamera Control ver custom\WindowsFormsApp1\obj\x64\Debug\IPCameraManager.Page2.resources
+E:\Projects\IPCamera Control ver custom\WindowsFormsApp1\bin\x64\Debug\IPCameraManager.exe.config
+E:\Projects\IPCamera Control ver custom\WindowsFormsApp1\bin\x64\Debug\IPCameraManager.exe
+E:\Projects\IPCamera Control ver custom\WindowsFormsApp1\bin\x64\Debug\IPCameraManager.pdb
+E:\Projects\IPCamera Control ver custom\WindowsFormsApp1\obj\x64\Debug\IPCameraManager.Properties.Resources.resources
+E:\Projects\IPCamera Control ver custom\WindowsFormsApp1\obj\x64\Debug\IPCameraManager.exe
+E:\Projects\IPCamera Control ver custom\WindowsFormsApp1\obj\x64\Debug\IPCameraManager.pdb
+E:\Projects\IPCamera Control ver custom\WindowsFormsApp1\bin\x64\Debug\db\IPCameraManager.db
+E:\Projects\IPCamera Control ver custom\WindowsFormsApp1\bin\x64\Debug\Dapper.dll
+E:\Projects\IPCamera Control ver custom\WindowsFormsApp1\bin\x64\Debug\System.Data.SQLite.dll
+E:\Projects\IPCamera Control ver custom\WindowsFormsApp1\bin\x64\Debug\Dapper.xml
+E:\Projects\IPCamera Control ver custom\WindowsFormsApp1\bin\x64\Debug\System.Data.SQLite.xml
