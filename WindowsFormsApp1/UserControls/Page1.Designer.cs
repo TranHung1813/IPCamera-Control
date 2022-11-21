@@ -45,12 +45,12 @@ namespace IPCameraManager
             this.tbDiaChi = new System.Windows.Forms.TextBox();
             this.guna2TextBox2 = new Guna.UI2.WinForms.Guna2TextBox();
             this.tbHoTen = new Guna.UI2.WinForms.Guna2TextBox();
-            this.guna2TextBox1 = new Guna.UI2.WinForms.Guna2TextBox();
+            this.tbMaBenhNhan = new Guna.UI2.WinForms.Guna2TextBox();
             this.imgPreview = new System.Windows.Forms.PictureBox();
             this.guna2AnimateWindow1 = new Guna.UI2.WinForms.Guna2AnimateWindow(this.components);
             this.btExit_F12 = new Guna.UI2.WinForms.Guna2Button();
             this.guna2Button4 = new Guna.UI2.WinForms.Guna2Button();
-            this.guna2Button3 = new Guna.UI2.WinForms.Guna2Button();
+            this.btTakePicture = new Guna.UI2.WinForms.Guna2Button();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.RealPlayWnd = new System.Windows.Forms.PictureBox();
             this.groupBox1.SuspendLayout();
@@ -159,7 +159,7 @@ namespace IPCameraManager
             this.groupBox1.Controls.Add(this.tbDiaChi);
             this.groupBox1.Controls.Add(this.guna2TextBox2);
             this.groupBox1.Controls.Add(this.tbHoTen);
-            this.groupBox1.Controls.Add(this.guna2TextBox1);
+            this.groupBox1.Controls.Add(this.tbMaBenhNhan);
             this.groupBox1.Controls.Add(this.label12);
             this.groupBox1.Controls.Add(this.imgPreview);
             this.groupBox1.Controls.Add(this.label4);
@@ -268,33 +268,33 @@ namespace IPCameraManager
             this.tbHoTen.Size = new System.Drawing.Size(226, 27);
             this.tbHoTen.TabIndex = 39;
             // 
-            // guna2TextBox1
+            // tbMaBenhNhan
             // 
-            this.guna2TextBox1.BackColor = System.Drawing.Color.Transparent;
-            this.guna2TextBox1.BorderColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.guna2TextBox1.BorderRadius = 4;
-            this.guna2TextBox1.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.guna2TextBox1.DefaultText = "";
-            this.guna2TextBox1.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
-            this.guna2TextBox1.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
-            this.guna2TextBox1.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.guna2TextBox1.DisabledState.Parent = this.guna2TextBox1;
-            this.guna2TextBox1.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.guna2TextBox1.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.guna2TextBox1.FocusedState.Parent = this.guna2TextBox1;
-            this.guna2TextBox1.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.guna2TextBox1.ForeColor = System.Drawing.Color.Black;
-            this.guna2TextBox1.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.guna2TextBox1.HoverState.Parent = this.guna2TextBox1;
-            this.guna2TextBox1.Location = new System.Drawing.Point(114, 31);
-            this.guna2TextBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.guna2TextBox1.Name = "guna2TextBox1";
-            this.guna2TextBox1.PasswordChar = '\0';
-            this.guna2TextBox1.PlaceholderText = "";
-            this.guna2TextBox1.SelectedText = "";
-            this.guna2TextBox1.ShadowDecoration.Parent = this.guna2TextBox1;
-            this.guna2TextBox1.Size = new System.Drawing.Size(226, 27);
-            this.guna2TextBox1.TabIndex = 38;
+            this.tbMaBenhNhan.BackColor = System.Drawing.Color.Transparent;
+            this.tbMaBenhNhan.BorderColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.tbMaBenhNhan.BorderRadius = 4;
+            this.tbMaBenhNhan.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.tbMaBenhNhan.DefaultText = "";
+            this.tbMaBenhNhan.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
+            this.tbMaBenhNhan.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
+            this.tbMaBenhNhan.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.tbMaBenhNhan.DisabledState.Parent = this.tbMaBenhNhan;
+            this.tbMaBenhNhan.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.tbMaBenhNhan.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.tbMaBenhNhan.FocusedState.Parent = this.tbMaBenhNhan;
+            this.tbMaBenhNhan.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbMaBenhNhan.ForeColor = System.Drawing.Color.Black;
+            this.tbMaBenhNhan.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.tbMaBenhNhan.HoverState.Parent = this.tbMaBenhNhan;
+            this.tbMaBenhNhan.Location = new System.Drawing.Point(114, 31);
+            this.tbMaBenhNhan.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tbMaBenhNhan.Name = "tbMaBenhNhan";
+            this.tbMaBenhNhan.PasswordChar = '\0';
+            this.tbMaBenhNhan.PlaceholderText = "";
+            this.tbMaBenhNhan.SelectedText = "";
+            this.tbMaBenhNhan.ShadowDecoration.Parent = this.tbMaBenhNhan;
+            this.tbMaBenhNhan.Size = new System.Drawing.Size(226, 27);
+            this.tbMaBenhNhan.TabIndex = 38;
             // 
             // imgPreview
             // 
@@ -355,28 +355,29 @@ namespace IPCameraManager
             this.guna2Button4.Text = "Cả Phòng (F6)";
             this.guna2Button4.UseTransparentBackground = true;
             // 
-            // guna2Button3
+            // btTakePicture
             // 
-            this.guna2Button3.BackColor = System.Drawing.Color.Transparent;
-            this.guna2Button3.BorderColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.guna2Button3.BorderRadius = 5;
-            this.guna2Button3.BorderThickness = 1;
-            this.guna2Button3.CheckedState.Parent = this.guna2Button3;
-            this.guna2Button3.CustomImages.Parent = this.guna2Button3;
-            this.guna2Button3.FillColor = System.Drawing.Color.WhiteSmoke;
-            this.guna2Button3.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.guna2Button3.ForeColor = System.Drawing.Color.Black;
-            this.guna2Button3.HoverState.FillColor = System.Drawing.Color.LightSteelBlue;
-            this.guna2Button3.HoverState.Parent = this.guna2Button3;
-            this.guna2Button3.Image = ((System.Drawing.Image)(resources.GetObject("guna2Button3.Image")));
-            this.guna2Button3.ImageSize = new System.Drawing.Size(35, 35);
-            this.guna2Button3.Location = new System.Drawing.Point(68, 526);
-            this.guna2Button3.Name = "guna2Button3";
-            this.guna2Button3.ShadowDecoration.Parent = this.guna2Button3;
-            this.guna2Button3.Size = new System.Drawing.Size(152, 61);
-            this.guna2Button3.TabIndex = 35;
-            this.guna2Button3.Text = "Chụp Ảnh (F5)";
-            this.guna2Button3.UseTransparentBackground = true;
+            this.btTakePicture.BackColor = System.Drawing.Color.Transparent;
+            this.btTakePicture.BorderColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.btTakePicture.BorderRadius = 5;
+            this.btTakePicture.BorderThickness = 1;
+            this.btTakePicture.CheckedState.Parent = this.btTakePicture;
+            this.btTakePicture.CustomImages.Parent = this.btTakePicture;
+            this.btTakePicture.FillColor = System.Drawing.Color.WhiteSmoke;
+            this.btTakePicture.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btTakePicture.ForeColor = System.Drawing.Color.Black;
+            this.btTakePicture.HoverState.FillColor = System.Drawing.Color.LightSteelBlue;
+            this.btTakePicture.HoverState.Parent = this.btTakePicture;
+            this.btTakePicture.Image = ((System.Drawing.Image)(resources.GetObject("btTakePicture.Image")));
+            this.btTakePicture.ImageSize = new System.Drawing.Size(35, 35);
+            this.btTakePicture.Location = new System.Drawing.Point(68, 526);
+            this.btTakePicture.Name = "btTakePicture";
+            this.btTakePicture.ShadowDecoration.Parent = this.btTakePicture;
+            this.btTakePicture.Size = new System.Drawing.Size(152, 61);
+            this.btTakePicture.TabIndex = 35;
+            this.btTakePicture.Text = "Chụp Ảnh (F5)";
+            this.btTakePicture.UseTransparentBackground = true;
+            this.btTakePicture.MouseUp += new System.Windows.Forms.MouseEventHandler(this.btTakePicture_Click);
             // 
             // pictureBox2
             // 
@@ -406,7 +407,7 @@ namespace IPCameraManager
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.btExit_F12);
             this.Controls.Add(this.guna2Button4);
-            this.Controls.Add(this.guna2Button3);
+            this.Controls.Add(this.btTakePicture);
             this.Controls.Add(this.pictureBox2);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.btOpen_Cam2);
@@ -439,8 +440,8 @@ namespace IPCameraManager
         private System.Windows.Forms.GroupBox groupBox1;
         private Guna.UI2.WinForms.Guna2Button btExit_F12;
         private Guna.UI2.WinForms.Guna2Button guna2Button4;
-        private Guna.UI2.WinForms.Guna2Button guna2Button3;
-        private Guna.UI2.WinForms.Guna2TextBox guna2TextBox1;
+        private Guna.UI2.WinForms.Guna2Button btTakePicture;
+        private Guna.UI2.WinForms.Guna2TextBox tbMaBenhNhan;
         private Guna.UI2.WinForms.Guna2TextBox tbHoTen;
         private Guna.UI2.WinForms.Guna2TextBox guna2TextBox2;
         private System.Windows.Forms.TextBox tbDiaChi;

@@ -24,6 +24,8 @@ namespace IPCameraManager
         public Int32 Live_Status = -1;
         public Int32 LoginStatus = -1;
         CHCNetSDK.REALDATACALLBACK RealData = null;
+        CHCNetSDK.NET_DVR_JPEGPARA lpJpegPara;
+
         private uint Err_Return;
         private const int ERR_OK = 0;
         private const int ERR_NOT_OK = 1;
@@ -108,12 +110,11 @@ namespace IPCameraManager
                 lpPreviewInfo.hPlayWnd = RealPlayWnd.Handle;
                 lpPreviewInfo.lChannel = 1;
                 lpPreviewInfo.dwStreamType = 0;
-                lpPreviewInfo.dwLinkMode = 0;
+                lpPreviewInfo.dwLinkMode = 0x0000;
                 lpPreviewInfo.bBlocked = true;
                 lpPreviewInfo.dwDisplayBufNum = 1;
                 lpPreviewInfo.byProtoType = 0;
                 lpPreviewInfo.byPreviewMode = 0;
-
 
                 if (RealData == null)
                 {
@@ -182,7 +183,8 @@ namespace IPCameraManager
                 fs.Close();
             }
         }
-
+        // Live_Status < 0: Không live
+        // else: Đang live
         public void btOpen_MainCam_Click(object sender, EventArgs e)
         {
             if (Live_Status < 0)
@@ -204,6 +206,61 @@ namespace IPCameraManager
                 {
                     btnOpen_MainCam.Text = "Bật Camera";
                 }
+            }
+        }
+        private int TakePicture()
+        {
+            string sJpegPicFileName;
+            //Set the path and file name to save
+            sJpegPicFileName = "JPEG_test.jpg";
+
+            int lChannel = 1;
+
+            lpJpegPara = new CHCNetSDK.NET_DVR_JPEGPARA();
+            lpJpegPara.wPicQuality = 0; //Set Image quality
+            lpJpegPara.wPicSize = 0xff; //Set Picture size (0xff: Auto)
+
+            //Capture a JPEG picture
+            if (!CHCNetSDK.NET_DVR_CaptureJPEGPicture(LoginStatus, lChannel, ref lpJpegPara, sJpegPicFileName))
+            {
+                uint LastErr = CHCNetSDK.NET_DVR_GetLastError();
+                string str = "NET_DVR_CaptureJPEGPicture failed, error code= " + LastErr;
+                MessageBox.Show(str);
+                return ERR_NOT_OK;
+            }
+            else
+            {
+                string str = "Successful to capture the JPEG file and the saved file is " + sJpegPicFileName;
+                MessageBox.Show(str);
+                return ERR_OK;
+            }
+        }
+
+        private void btTakePicture_Click(object sender, MouseEventArgs e)
+        {
+            if(e.Button == MouseButtons.Left)
+            {
+                if(ERR_OK == TakePicture())
+                {
+                    string ImagePath = "D:\\Hinh_Anh\\Thang" + DateTime.Today.ToString("MM");
+                    ImagePath += "_" + DateTime.Today.ToString("yyyy");
+                    ImagePath += "\\Ngay" + DateTime.Today.ToString("dd") + "\\" + tbMaBenhNhan.Text;
+                    string FolderPath = ImagePath;
+                    string file_name = "\\" + DateTime.Now.ToString("HHmmss") + "_" + tbMaBenhNhan.Text;
+                    ImagePath += file_name + ".jpg";
+
+                    if (!Directory.Exists(FolderPath))
+                    {
+                        Directory.CreateDirectory(FolderPath);
+                    }
+                    //Copy & override file "JPEG_test.jpg" to ImagePath
+                    FileInfo fi = new FileInfo("JPEG_test.jpg");
+                    fi.CopyTo(ImagePath, true);
+                }
+            }
+            if (e.Button == MouseButtons.Right)
+            {
+
             }
         }
     }

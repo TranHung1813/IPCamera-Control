@@ -22,6 +22,13 @@ namespace IPCameraManager
         //3. Xua ly tinh nang chup anh, in phieu, chon anh, lay duong dan, ...
         //4. Hien thi trang thai cam qua control Status (Done, need test)
         //5. Luu vao git
+        //6. Kiem tra do an toan cua Thread (Check xem cac nut co duoc nhan hay khong)
+        //7. In barcode
+        //8. Them tinh nang nhan nut
+        //9. Them debug mode
+        //10. Check lai thong tin size anh
+        //11. Them tinh nang phong to []
+        //12. Them tinh nang Cam phu
         private const int ERR_OK = 0;
         private const int ERR_NOT_OK = 1;
 
