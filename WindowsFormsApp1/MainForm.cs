@@ -32,6 +32,7 @@ namespace IPCameraManager
         //13. Xem xet tinh nang Refresh (logout-> login-> start live view) (done)
         //14. Chon Folder luu anh chup (done)
         //15. Luu folder save file vao database (done)
+        //16. Check box Luu thong tin trong Form Login
         private const int ERR_OK = 0;
         private const int ERR_NOT_OK = 1;
 

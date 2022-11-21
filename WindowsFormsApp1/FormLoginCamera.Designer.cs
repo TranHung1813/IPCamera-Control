@@ -45,8 +45,12 @@ namespace IPCameraManager
             this.textBoxIP = new Guna.UI2.WinForms.Guna2TextBox();
             this.guna2CheckBox1 = new Guna.UI2.WinForms.Guna2CheckBox();
             this.guna2GroupBox1 = new Guna.UI2.WinForms.Guna2GroupBox();
+            this.panelTabControl = new Guna.UI2.WinForms.Guna2Panel();
+            this.guna2Button1 = new Guna.UI2.WinForms.Guna2Button();
+            this.guna2Button2 = new Guna.UI2.WinForms.Guna2Button();
             this.panel_Top.SuspendLayout();
             this.guna2GroupBox1.SuspendLayout();
+            this.panelTabControl.SuspendLayout();
             this.SuspendLayout();
             // 
             // guna2Elipse1
@@ -98,7 +102,7 @@ namespace IPCameraManager
             this.textBoxUserName.ForeColor = System.Drawing.Color.Black;
             this.textBoxUserName.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.textBoxUserName.HoverState.Parent = this.textBoxUserName;
-            this.textBoxUserName.Location = new System.Drawing.Point(119, 160);
+            this.textBoxUserName.Location = new System.Drawing.Point(119, 194);
             this.textBoxUserName.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.textBoxUserName.Name = "textBoxUserName";
             this.textBoxUserName.PasswordChar = '\0';
@@ -115,7 +119,7 @@ namespace IPCameraManager
             this.label5.BackColor = System.Drawing.Color.Transparent;
             this.label5.Font = new System.Drawing.Font("Tahoma", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label5.ForeColor = System.Drawing.Color.Black;
-            this.label5.Location = new System.Drawing.Point(15, 213);
+            this.label5.Location = new System.Drawing.Point(15, 247);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(101, 23);
             this.label5.TabIndex = 18;
@@ -127,7 +131,7 @@ namespace IPCameraManager
             this.label6.BackColor = System.Drawing.Color.Transparent;
             this.label6.Font = new System.Drawing.Font("Tahoma", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label6.ForeColor = System.Drawing.Color.Black;
-            this.label6.Location = new System.Drawing.Point(9, 163);
+            this.label6.Location = new System.Drawing.Point(9, 197);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(107, 23);
             this.label6.TabIndex = 17;
@@ -139,7 +143,7 @@ namespace IPCameraManager
             this.label7.BackColor = System.Drawing.Color.Transparent;
             this.label7.Font = new System.Drawing.Font("Tahoma", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label7.ForeColor = System.Drawing.Color.Black;
-            this.label7.Location = new System.Drawing.Point(60, 113);
+            this.label7.Location = new System.Drawing.Point(60, 147);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(56, 23);
             this.label7.TabIndex = 16;
@@ -161,7 +165,7 @@ namespace IPCameraManager
             this.btLogin.HoverState.BorderColor = System.Drawing.Color.RoyalBlue;
             this.btLogin.HoverState.FillColor = System.Drawing.SystemColors.ActiveCaption;
             this.btLogin.HoverState.Parent = this.btLogin;
-            this.btLogin.Location = new System.Drawing.Point(52, 302);
+            this.btLogin.Location = new System.Drawing.Point(52, 336);
             this.btLogin.Name = "btLogin";
             this.btLogin.ShadowDecoration.Parent = this.btLogin;
             this.btLogin.Size = new System.Drawing.Size(192, 43);
@@ -186,7 +190,7 @@ namespace IPCameraManager
             this.textBoxPort.ForeColor = System.Drawing.Color.Black;
             this.textBoxPort.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.textBoxPort.HoverState.Parent = this.textBoxPort;
-            this.textBoxPort.Location = new System.Drawing.Point(119, 110);
+            this.textBoxPort.Location = new System.Drawing.Point(119, 144);
             this.textBoxPort.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.textBoxPort.Name = "textBoxPort";
             this.textBoxPort.PasswordChar = '\0';
@@ -213,7 +217,7 @@ namespace IPCameraManager
             this.textBoxPassword.ForeColor = System.Drawing.Color.Black;
             this.textBoxPassword.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.textBoxPassword.HoverState.Parent = this.textBoxPassword;
-            this.textBoxPassword.Location = new System.Drawing.Point(119, 210);
+            this.textBoxPassword.Location = new System.Drawing.Point(119, 244);
             this.textBoxPassword.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.textBoxPassword.Name = "textBoxPassword";
             this.textBoxPassword.PasswordChar = '*';
@@ -230,7 +234,7 @@ namespace IPCameraManager
             this.label8.BackColor = System.Drawing.Color.Transparent;
             this.label8.Font = new System.Drawing.Font("Tahoma", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label8.ForeColor = System.Drawing.Color.Black;
-            this.label8.Location = new System.Drawing.Point(13, 63);
+            this.label8.Location = new System.Drawing.Point(13, 97);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(103, 23);
             this.label8.TabIndex = 15;
@@ -253,7 +257,7 @@ namespace IPCameraManager
             this.textBoxIP.ForeColor = System.Drawing.Color.Black;
             this.textBoxIP.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.textBoxIP.HoverState.Parent = this.textBoxIP;
-            this.textBoxIP.Location = new System.Drawing.Point(119, 60);
+            this.textBoxIP.Location = new System.Drawing.Point(119, 94);
             this.textBoxIP.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.textBoxIP.Name = "textBoxIP";
             this.textBoxIP.PasswordChar = '\0';
@@ -275,7 +279,7 @@ namespace IPCameraManager
             this.guna2CheckBox1.CheckState = System.Windows.Forms.CheckState.Checked;
             this.guna2CheckBox1.Font = new System.Drawing.Font("Tahoma", 13F);
             this.guna2CheckBox1.ForeColor = System.Drawing.Color.Black;
-            this.guna2CheckBox1.Location = new System.Drawing.Point(74, 261);
+            this.guna2CheckBox1.Location = new System.Drawing.Point(74, 295);
             this.guna2CheckBox1.Name = "guna2CheckBox1";
             this.guna2CheckBox1.Size = new System.Drawing.Size(143, 26);
             this.guna2CheckBox1.TabIndex = 26;
@@ -291,6 +295,7 @@ namespace IPCameraManager
             this.guna2GroupBox1.BackColor = System.Drawing.Color.Transparent;
             this.guna2GroupBox1.BorderColor = System.Drawing.SystemColors.ControlDarkDark;
             this.guna2GroupBox1.BorderRadius = 5;
+            this.guna2GroupBox1.Controls.Add(this.panelTabControl);
             this.guna2GroupBox1.Controls.Add(this.panel_Top);
             this.guna2GroupBox1.Controls.Add(this.guna2CheckBox1);
             this.guna2GroupBox1.Controls.Add(this.textBoxIP);
@@ -308,16 +313,73 @@ namespace IPCameraManager
             this.guna2GroupBox1.Location = new System.Drawing.Point(0, 0);
             this.guna2GroupBox1.Name = "guna2GroupBox1";
             this.guna2GroupBox1.ShadowDecoration.Parent = this.guna2GroupBox1;
-            this.guna2GroupBox1.Size = new System.Drawing.Size(300, 367);
+            this.guna2GroupBox1.Size = new System.Drawing.Size(300, 402);
             this.guna2GroupBox1.TabIndex = 27;
             this.guna2GroupBox1.Text = "Thông tin kết nối Camera";
+            // 
+            // panelTabControl
+            // 
+            this.panelTabControl.BackColor = System.Drawing.SystemColors.InactiveCaption;
+            this.panelTabControl.Controls.Add(this.guna2Button2);
+            this.panelTabControl.Controls.Add(this.guna2Button1);
+            this.panelTabControl.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panelTabControl.Location = new System.Drawing.Point(0, 40);
+            this.panelTabControl.Name = "panelTabControl";
+            this.panelTabControl.ShadowDecoration.Parent = this.panelTabControl;
+            this.panelTabControl.Size = new System.Drawing.Size(300, 40);
+            this.panelTabControl.TabIndex = 30;
+            // 
+            // guna2Button1
+            // 
+            this.guna2Button1.BorderColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.guna2Button1.BorderRadius = 5;
+            this.guna2Button1.ButtonMode = Guna.UI2.WinForms.Enums.ButtonMode.RadioButton;
+            this.guna2Button1.Checked = true;
+            this.guna2Button1.CheckedState.CustomBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.guna2Button1.CheckedState.FillColor = System.Drawing.Color.White;
+            this.guna2Button1.CheckedState.Parent = this.guna2Button1;
+            this.guna2Button1.CustomBorderThickness = new System.Windows.Forms.Padding(0, 0, 0, 3);
+            this.guna2Button1.CustomImages.Parent = this.guna2Button1;
+            this.guna2Button1.Dock = System.Windows.Forms.DockStyle.Left;
+            this.guna2Button1.FillColor = System.Drawing.Color.White;
+            this.guna2Button1.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.guna2Button1.ForeColor = System.Drawing.Color.Black;
+            this.guna2Button1.HoverState.Parent = this.guna2Button1;
+            this.guna2Button1.Location = new System.Drawing.Point(0, 0);
+            this.guna2Button1.Name = "guna2Button1";
+            this.guna2Button1.ShadowDecoration.Parent = this.guna2Button1;
+            this.guna2Button1.Size = new System.Drawing.Size(150, 40);
+            this.guna2Button1.TabIndex = 0;
+            this.guna2Button1.Text = "Cam Chính";
+            // 
+            // guna2Button2
+            // 
+            this.guna2Button2.BorderColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.guna2Button2.BorderRadius = 5;
+            this.guna2Button2.ButtonMode = Guna.UI2.WinForms.Enums.ButtonMode.RadioButton;
+            this.guna2Button2.CheckedState.CustomBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.guna2Button2.CheckedState.FillColor = System.Drawing.Color.White;
+            this.guna2Button2.CheckedState.Parent = this.guna2Button2;
+            this.guna2Button2.CustomBorderThickness = new System.Windows.Forms.Padding(0, 0, 0, 3);
+            this.guna2Button2.CustomImages.Parent = this.guna2Button2;
+            this.guna2Button2.Dock = System.Windows.Forms.DockStyle.Right;
+            this.guna2Button2.FillColor = System.Drawing.Color.White;
+            this.guna2Button2.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.guna2Button2.ForeColor = System.Drawing.Color.Black;
+            this.guna2Button2.HoverState.Parent = this.guna2Button2;
+            this.guna2Button2.Location = new System.Drawing.Point(150, 0);
+            this.guna2Button2.Name = "guna2Button2";
+            this.guna2Button2.ShadowDecoration.Parent = this.guna2Button2;
+            this.guna2Button2.Size = new System.Drawing.Size(150, 40);
+            this.guna2Button2.TabIndex = 1;
+            this.guna2Button2.Text = "Cam Phụ";
             // 
             // FormLoginCamera
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.ClientSize = new System.Drawing.Size(301, 368);
+            this.ClientSize = new System.Drawing.Size(301, 403);
             this.Controls.Add(this.guna2GroupBox1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.MaximizeBox = false;
@@ -327,6 +389,7 @@ namespace IPCameraManager
             this.panel_Top.ResumeLayout(false);
             this.guna2GroupBox1.ResumeLayout(false);
             this.guna2GroupBox1.PerformLayout();
+            this.panelTabControl.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -347,5 +410,8 @@ namespace IPCameraManager
         private System.Windows.Forms.Label label5;
         private Guna.UI2.WinForms.Guna2TextBox textBoxUserName;
         private Guna.UI2.WinForms.Guna2ControlBox guna2ControlBox1;
+        private Guna.UI2.WinForms.Guna2Panel panelTabControl;
+        private Guna.UI2.WinForms.Guna2Button guna2Button1;
+        private Guna.UI2.WinForms.Guna2Button guna2Button2;
     }
 }
