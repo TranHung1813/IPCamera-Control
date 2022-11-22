@@ -14,33 +14,36 @@ namespace IPCameraManager
     {
         //*****************************************************************************************************************
         //****************************************** Access to Login Camera Infomation *******************************************
-        public static DataUser_LoginCamera_Info Load_LoginCamera_Info()
+        public static List<DataUser_LoginCamera_Info> Load_LoginCamera_Info()
+        {
+            using (IDbConnection cnn = new SQLiteConnection(LoadConnectionString()))
+            {
+                var output = cnn.Query<DataUser_LoginCamera_Info>("select * from LoginCamera_Info", new DynamicParameters());
+                return output.ToList();
+            }
+        }
+
+        public static void AddInfo_LoginCamera(DataUser_LoginCamera_Info info)
         {
             using (IDbConnection cnn = new SQLiteConnection(LoadConnectionString()))
             {
                 try
                 {
-                    DataUser_LoginCamera_Info output = cnn.Query<DataUser_LoginCamera_Info>("select * from LoginCamera_Info", new DynamicParameters()).FirstOrDefault();
-                    return output;
+                    cnn.Execute("insert into LoginCamera_Info ( IP_Address, Port, Username, Password) values ( @IP_Address, @Port, @Username, @Password)", info);
                 }
                 catch
-                {
-
-                }
-
-                return null;
+                { }
             }
         }
-
         public static void SaveInfo_LoginCamera(DataUser_LoginCamera_Info info)
         {
             using (IDbConnection cnn = new SQLiteConnection(LoadConnectionString()))
             {
-                int id = cnn.Query<int>("select Id from LoginCamera_Info where Id like @Id", new { Id = 1 }).FirstOrDefault();
+                int id = cnn.Query<int>("select Id from LoginCamera_Info where Id like @Id", new { Id = info.Id }).FirstOrDefault();
 
-                if (id != 0)
+                if (id == info.Id)
                 {
-                    cnn.Execute("update LoginCamera_Info set  IP_Address= @IP_Address, Port = @Port, Username = @Username, Password = @Password where Id = 1", info);
+                    cnn.Execute("update LoginCamera_Info set IP_Address= @IP_Address, Port = @Port, Username = @Username, Password = @Password where Id = @Id", info);
                 }
                 else
                 {

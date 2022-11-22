@@ -36,6 +36,7 @@ namespace IPCameraManager
         //17. Code them phan Secondary Camera
         //18. Bug chuyen tab tu dong load du lieu trong (Form Login) (done fix)
         //19. Them Camera Phu Info vao database
+        //20. Bo het gia dein UI ra khoi Thread
         private const int ERR_OK = 0;
         private const int ERR_NOT_OK = 1;
 
@@ -193,7 +194,7 @@ namespace IPCameraManager
                     }
 
                     // Luu thong tin Ket noi Camera vao database
-                    Save_LoginCamera_Info(ucPage1.MainCam_Manager.LoginInfo);
+                    Save_Login_MainCam_Info(ucPage1.MainCam_Manager.LoginInfo);
                 }
                 /* ---------- CAMERA PHU ---------- */
                 // Lay thong tin dang nhap Camera phu thanh cong hay that bai
@@ -215,14 +216,25 @@ namespace IPCameraManager
                     }
 
                     // Luu thong tin Ket noi Camera vao database
-                    Save_LoginCamera_Info(ucPage1.SecondaryCam_Manager.LoginInfo);
+                    Save_Login_Cam2_Info(ucPage1.SecondaryCam_Manager.LoginInfo);
                 }
             }
         }
-        private void Save_LoginCamera_Info(LoginCameraInfo_Type LoginInfo)
+        private void Save_Login_MainCam_Info(LoginCameraInfo_Type LoginInfo)
         {
             DataUser_LoginCamera_Info loginInfo_Save = new DataUser_LoginCamera_Info();
             loginInfo_Save.Id = 1;
+            loginInfo_Save.IP_Address = LoginInfo.IP_Address;
+            loginInfo_Save.Port = LoginInfo.Port;
+            loginInfo_Save.Username = LoginInfo.Username;
+            loginInfo_Save.Password = LoginInfo.Password;
+
+            SqliteDataAccess.SaveInfo_LoginCamera(loginInfo_Save);
+        }
+        private void Save_Login_Cam2_Info(LoginCameraInfo_Type LoginInfo)
+        {
+            DataUser_LoginCamera_Info loginInfo_Save = new DataUser_LoginCamera_Info();
+            loginInfo_Save.Id = 2;
             loginInfo_Save.IP_Address = LoginInfo.IP_Address;
             loginInfo_Save.Port = LoginInfo.Port;
             loginInfo_Save.Username = LoginInfo.Username;
@@ -235,15 +247,15 @@ namespace IPCameraManager
         {
             btLogin_IPCamera.Visible = false;
             //Get Login info
-            DataUser_LoginCamera_Info loginInfo = SqliteDataAccess.Load_LoginCamera_Info();
+            List<DataUser_LoginCamera_Info> loginInfo = SqliteDataAccess.Load_LoginCamera_Info();
 
-            if (loginInfo != null)
+            if (loginInfo[0] != null)
             {
                 // Get info Login Camera and Login_Status
-                ucPage1.MainCam_Manager.LoginInfo.IP_Address = loginInfo.IP_Address;
-                ucPage1.MainCam_Manager.LoginInfo.Port = loginInfo.Port;
-                ucPage1.MainCam_Manager.LoginInfo.Username = loginInfo.Username;
-                ucPage1.MainCam_Manager.LoginInfo.Password = loginInfo.Password;
+                ucPage1.MainCam_Manager.LoginInfo.IP_Address = loginInfo[0].IP_Address;
+                ucPage1.MainCam_Manager.LoginInfo.Port = loginInfo[0].Port;
+                ucPage1.MainCam_Manager.LoginInfo.Username = loginInfo[0].Username;
+                ucPage1.MainCam_Manager.LoginInfo.Password = loginInfo[0].Password;
 
                 formLoginCam.Load_Database_Info(ucPage1.MainCam_Manager.LoginInfo);
 
@@ -352,15 +364,15 @@ namespace IPCameraManager
         {
             btLogin_IPCamera.Visible = false;
             //Get Login info
-            DataUser_LoginCamera_Info loginInfo = SqliteDataAccess.Load_LoginCamera_Info();
+            List<DataUser_LoginCamera_Info> loginInfo = SqliteDataAccess.Load_LoginCamera_Info();
 
-            if (loginInfo != null)
+            if (loginInfo[1] != null)
             {
                 // Get info Login Camera and Login_Status
-                ucPage1.SecondaryCam_Manager.LoginInfo.IP_Address = loginInfo.IP_Address;
-                ucPage1.SecondaryCam_Manager.LoginInfo.Port = loginInfo.Port;
-                ucPage1.SecondaryCam_Manager.LoginInfo.Username = loginInfo.Username;
-                ucPage1.SecondaryCam_Manager.LoginInfo.Password = loginInfo.Password;
+                ucPage1.SecondaryCam_Manager.LoginInfo.IP_Address = loginInfo[1].IP_Address;
+                ucPage1.SecondaryCam_Manager.LoginInfo.Port = loginInfo[1].Port;
+                ucPage1.SecondaryCam_Manager.LoginInfo.Username = loginInfo[1].Username;
+                ucPage1.SecondaryCam_Manager.LoginInfo.Password = loginInfo[1].Password;
 
                 formLoginCam.Load_Database_Info(ucPage1.SecondaryCam_Manager.LoginInfo);
 
