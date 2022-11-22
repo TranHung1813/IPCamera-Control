@@ -139,8 +139,8 @@ namespace IPCameraManager
                 if (LoginInfo_MainCAM.LoginStatus < 0)
                 {
                     Err_Return = CHCNetSDK.NET_DVR_GetLastError();
-                    string str = "NET_DVR_Login_V30 failed, error code= " + Err_Return; // Print Error Name through Message Box
-                    MessageBox.Show(str);
+                    string str = "Camera chính: Đăng nhập thất bại, error code = " + Err_Return; // Print Error Name through Message Box
+                    MessageBox.Show(str, "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return ERR_NOT_OK;
                 }
                 else
@@ -190,8 +190,8 @@ namespace IPCameraManager
                 if (LoginInfo_CAM2.LoginStatus < 0)
                 {
                     Err_Return = CHCNetSDK.NET_DVR_GetLastError();
-                    string str = "NET_DVR_Login_V30 failed, error code= " + Err_Return; // Print Error Name through Message Box
-                    MessageBox.Show(str);
+                    string str = "Camera phụ: Đăng nhập thất bại, error code = " + Err_Return; // Print Error Name through Message Box
+                    MessageBox.Show(str, "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return ERR_NOT_OK;
                 }
                 else
@@ -226,8 +226,8 @@ namespace IPCameraManager
                 if (!CHCNetSDK.NET_DVR_Logout(info.LoginStatus))
                 {
                     Err_Return = CHCNetSDK.NET_DVR_GetLastError();
-                    string str = "NET_DVR_Logout failed, error code= " + Err_Return;
-                    MessageBox.Show(str);
+                    string str = "Camera chính: Đăng xuất thất bại, error code = " + Err_Return;
+                    MessageBox.Show(str, "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return ERR_NOT_OK;
                 }
                 else
@@ -257,8 +257,8 @@ namespace IPCameraManager
                 if (!CHCNetSDK.NET_DVR_Logout(info.LoginStatus))
                 {
                     Err_Return = CHCNetSDK.NET_DVR_GetLastError();
-                    string str = "NET_DVR_Logout failed, error code= " + Err_Return;
-                    MessageBox.Show(str);
+                    string str = "Camera phụ: Đăng xuất thất bại, error code = " + Err_Return;
+                    MessageBox.Show(str, "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return ERR_NOT_OK;
                 }
                 else
@@ -269,9 +269,13 @@ namespace IPCameraManager
                 }
             }
         }
-        public void Load_Database_Info(LoginCameraInfo_Type info)
+        public void Load_MainCAM_Database_Info(LoginCameraInfo_Type info)
         {
             LoginInfo_MainCAM = info;
+        }
+        public void Load_SecondCAM_Database_Info(LoginCameraInfo_Type info)
+        {
+            LoginInfo_CAM2 = info;
         }
         public void Get_LoginStatus_MainCam(ref LoginCameraInfo_Type info)
         {

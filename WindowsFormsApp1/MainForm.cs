@@ -43,7 +43,8 @@ namespace IPCameraManager
         Page1 ucPage1 = new Page1();
         Page2 ucPage2 = new Page2();
         FormLoginCamera formLoginCam;
-        Thread Loading_Trd;
+        Thread Loading_MainCam_Trd;
+        Thread Loading_Cam2_Trd;
 
         private const int PAGE1 = 1;
         private const int PAGE2 = 2;
@@ -249,7 +250,7 @@ namespace IPCameraManager
             //Get Login info
             List<DataUser_LoginCamera_Info> loginInfo = SqliteDataAccess.Load_LoginCamera_Info();
 
-            if (loginInfo[0] != null)
+            if (loginInfo != null && (loginInfo.Count >= 1))
             {
                 // Get info Login Camera and Login_Status
                 ucPage1.MainCam_Manager.LoginInfo.IP_Address = loginInfo[0].IP_Address;
@@ -257,7 +258,7 @@ namespace IPCameraManager
                 ucPage1.MainCam_Manager.LoginInfo.Username = loginInfo[0].Username;
                 ucPage1.MainCam_Manager.LoginInfo.Password = loginInfo[0].Password;
 
-                formLoginCam.Load_Database_Info(ucPage1.MainCam_Manager.LoginInfo);
+                formLoginCam.Load_MainCAM_Database_Info(ucPage1.MainCam_Manager.LoginInfo);
 
                 // Login Camera roi Bat Live
                 if (ERR_OK == formLoginCam.Login_Main_Camera(ucPage1.MainCam_Manager.LoginInfo))
@@ -302,14 +303,24 @@ namespace IPCameraManager
         private void MainForm_Shown(object sender, EventArgs e)
         {
             Application.DoEvents();
-            Loading_Trd = new Thread(new ThreadStart(this.ThreadTask));
-            Loading_Trd.IsBackground = true;
-            Loading_Trd.Start();
+            // Thread load Main Camera
+            Loading_MainCam_Trd = new Thread(new ThreadStart(this.ThreadTask_LoadMainCam));
+            Loading_MainCam_Trd.IsBackground = true;
+            Loading_MainCam_Trd.Start();
+            // Thread load Secondary Camera
+            Loading_Cam2_Trd = new Thread(new ThreadStart(this.ThreadTask_LoadCam2));
+            Loading_Cam2_Trd.IsBackground = true;
+            Loading_Cam2_Trd.Start();
         }
-        private void ThreadTask()
+        private void ThreadTask_LoadMainCam()
         {
             Connect2MainCam_using_Database_Info();
-            Loading_Trd.Abort();
+            Loading_MainCam_Trd.Abort();
+        }
+        private void ThreadTask_LoadCam2()
+        {
+            Connect2Cam2_using_Database_Info();
+            Loading_Cam2_Trd.Abort();
         }
         private void btCamRefresh_Click(object sender, EventArgs e)
         {
@@ -366,7 +377,7 @@ namespace IPCameraManager
             //Get Login info
             List<DataUser_LoginCamera_Info> loginInfo = SqliteDataAccess.Load_LoginCamera_Info();
 
-            if (loginInfo[1] != null)
+            if (loginInfo != null && (loginInfo.Count >= 2))
             {
                 // Get info Login Camera and Login_Status
                 ucPage1.SecondaryCam_Manager.LoginInfo.IP_Address = loginInfo[1].IP_Address;
@@ -374,7 +385,7 @@ namespace IPCameraManager
                 ucPage1.SecondaryCam_Manager.LoginInfo.Username = loginInfo[1].Username;
                 ucPage1.SecondaryCam_Manager.LoginInfo.Password = loginInfo[1].Password;
 
-                formLoginCam.Load_Database_Info(ucPage1.SecondaryCam_Manager.LoginInfo);
+                formLoginCam.Load_SecondCAM_Database_Info(ucPage1.SecondaryCam_Manager.LoginInfo);
 
                 // Login Camera roi Bat Live
                 if (ERR_OK == formLoginCam.Login_Second_Camera(ucPage1.SecondaryCam_Manager.LoginInfo))

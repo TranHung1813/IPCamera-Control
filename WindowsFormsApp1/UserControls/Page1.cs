@@ -42,7 +42,7 @@ namespace IPCameraManager
             MainCam_Manager.InitCam_Status = CHCNetSDK.NET_DVR_Init();
             if (MainCam_Manager.InitCam_Status == false)
             {
-                MessageBox.Show("NET_DVR_Init error!");
+                MessageBox.Show("NET_DVR_Init error!", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
             else
@@ -181,8 +181,8 @@ namespace IPCameraManager
                 if (MainCam_Manager.Live_Status < 0)
                 {
                     Err_Return = CHCNetSDK.NET_DVR_GetLastError();
-                    string str = "NET_DVR_RealPlay_V40 failed, error code= " + Err_Return;
-                    MessageBox.Show(str);
+                    string str = "Camera chính: Load video thất bại, error code = " + Err_Return;
+                    MessageBox.Show(str, "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     ResetImage_Main();
                     return ERR_NOT_OK;
                 }
@@ -216,8 +216,8 @@ namespace IPCameraManager
             if (!CHCNetSDK.NET_DVR_StopRealPlay(MainCam_Manager.Live_Status))
             {
                 Err_Return = CHCNetSDK.NET_DVR_GetLastError();
-                string str = "NET_DVR_StopRealPlay failed, error code= " + Err_Return;
-                MessageBox.Show(str);
+                string str = "Camera chính: Dừng video thất bại, error code = " + Err_Return;
+                MessageBox.Show(str, "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return ERR_NOT_OK;
             }
             else
@@ -415,8 +415,8 @@ namespace IPCameraManager
                 if (SecondaryCam_Manager.Live_Status < 0)
                 {
                     Err_Return = CHCNetSDK.NET_DVR_GetLastError();
-                    string str = "NET_DVR_RealPlay_V40 failed, error code= " + Err_Return;
-                    MessageBox.Show(str);
+                    string str = "Camera phụ: Load video thất bại, error code = " + Err_Return;
+                    MessageBox.Show(str, "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     ResetImage_Second();
                     return ERR_NOT_OK;
                 }
@@ -449,8 +449,8 @@ namespace IPCameraManager
             if (!CHCNetSDK.NET_DVR_StopRealPlay(SecondaryCam_Manager.Live_Status))
             {
                 Err_Return = CHCNetSDK.NET_DVR_GetLastError();
-                string str = "NET_DVR_StopRealPlay failed, error code= " + Err_Return;
-                MessageBox.Show(str);
+                string str = "Camera chính: Dừng video thất bại, error code = " + Err_Return;
+                MessageBox.Show(str, "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return ERR_NOT_OK;
             }
             else

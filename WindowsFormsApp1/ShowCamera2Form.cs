@@ -101,7 +101,7 @@ namespace IPCameraManager
                 if (Live_Status < 0)
                 {
                     Err_Return = CHCNetSDK.NET_DVR_GetLastError();
-                    string str = "NET_DVR_RealPlay_V40 failed, error code= " + Err_Return;
+                    string str = "Camera phụ: Load video thất bại, error code = " + Err_Return;
                     MessageBox.Show(str);
                     ResetImage();
                     return ERR_NOT_OK;
@@ -147,7 +147,7 @@ namespace IPCameraManager
             if (!CHCNetSDK.NET_DVR_StopRealPlay(Live_Status))
             {
                 Err_Return = CHCNetSDK.NET_DVR_GetLastError();
-                string str = "NET_DVR_StopRealPlay failed, error code= " + Err_Return;
+                string str = "Camera phụ: Dừng video thất bại, error code = " + Err_Return;
                 MessageBox.Show(str);
                 return ERR_NOT_OK;
             }
@@ -183,7 +183,7 @@ namespace IPCameraManager
                 if (LoginStatus < 0)
                 {
                     Err_Return = CHCNetSDK.NET_DVR_GetLastError();
-                    string str = "NET_DVR_Login_V30 failed, error code= " + Err_Return; // Print Error Name through Message Box
+                    string str = "Camera phụ: Đăng nhập thất bại, error code = " + Err_Return; // Print Error Name through Message Box
                     MessageBox.Show(str);
                     return ERR_NOT_OK;
                 }
@@ -219,7 +219,7 @@ namespace IPCameraManager
                 if (!CHCNetSDK.NET_DVR_Logout(info.LoginStatus))
                 {
                     Err_Return = CHCNetSDK.NET_DVR_GetLastError();
-                    string str = "NET_DVR_Logout failed, error code= " + Err_Return;
+                    string str = "Camera phụ: Đăng xuất thất bại, error code = " + Err_Return;
                     MessageBox.Show(str);
                     return ERR_NOT_OK;
                 }
