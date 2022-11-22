@@ -77,6 +77,9 @@ namespace IPCameraManager
             {
                 // Handle when database = null
             }
+
+            // Set ngay kham bang real time
+            tbNgayKham.Text = DateTime.Now.ToString("dd/MM/yyyy");
         }
 
         protected override void Dispose(bool disposing)
@@ -472,6 +475,17 @@ namespace IPCameraManager
                 fs.Write(sData, 0, iLen);
                 fs.Close();
             }
+        }
+        //*****************************************************************************************************************
+        //****************************************** Contact with Page 2 *******************************************
+        public void Get_Patient_Info(ref PatientInfo_Type info)
+        {
+            info.MaBN = tbMaBenhNhan.Text;
+            info.HoTenBN = tbHoTen.Text;
+            info.GioiTinh = cbGioiTinh.Text.Replace(" ","");
+            info.Tuoi = tbTuoi.Text;
+            info.NgayKham = tbNgayKham.Text;
+            info.DiaChi = tbDiaChi.Text;
         }
     }
 }

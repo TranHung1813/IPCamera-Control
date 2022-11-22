@@ -102,7 +102,7 @@ namespace IPCameraManager
                 {
                     Err_Return = CHCNetSDK.NET_DVR_GetLastError();
                     string str = "Camera phụ: Load video thất bại, error code = " + Err_Return;
-                    MessageBox.Show(str);
+                    MessageBox.Show(str, "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     ResetImage();
                     return ERR_NOT_OK;
                 }
@@ -148,7 +148,7 @@ namespace IPCameraManager
             {
                 Err_Return = CHCNetSDK.NET_DVR_GetLastError();
                 string str = "Camera phụ: Dừng video thất bại, error code = " + Err_Return;
-                MessageBox.Show(str);
+                MessageBox.Show(str, "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return ERR_NOT_OK;
             }
             else
@@ -184,7 +184,7 @@ namespace IPCameraManager
                 {
                     Err_Return = CHCNetSDK.NET_DVR_GetLastError();
                     string str = "Camera phụ: Đăng nhập thất bại, error code = " + Err_Return; // Print Error Name through Message Box
-                    MessageBox.Show(str);
+                    MessageBox.Show(str, "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return ERR_NOT_OK;
                 }
                 else
@@ -220,7 +220,7 @@ namespace IPCameraManager
                 {
                     Err_Return = CHCNetSDK.NET_DVR_GetLastError();
                     string str = "Camera phụ: Đăng xuất thất bại, error code = " + Err_Return;
-                    MessageBox.Show(str);
+                    MessageBox.Show(str, "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return ERR_NOT_OK;
                 }
                 else

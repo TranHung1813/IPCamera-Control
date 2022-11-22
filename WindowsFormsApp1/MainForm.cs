@@ -22,21 +22,24 @@ namespace IPCameraManager
         //3. Xua ly tinh nang chup anh, in phieu, chon anh, lay duong dan, ...
         //4. Hien thi trang thai cam qua control Status (Done, need test)
         //5. Luu vao git (Done)
-        //6. Kiem tra do an toan cua Thread (Check xem cac nut co duoc nhan hay khong)
+        //6. Kiem tra do an toan cua Thread (Check xem cac nut co duoc nhan hay khong) (Done)
         //7. In barcode
         //8. Them tinh nang nhan nut (F1,F2,...) (half)
         //9. Them debug mode
         //10. Check lai thong tin size anh (Done, Auto is OK)
         //11. Them tinh nang phong to []
-        //12. Them tinh nang Cam phu
+        //12. Them tinh nang Cam phu (done, testing)
         //13. Xem xet tinh nang Refresh (logout-> login-> start live view) (done)
         //14. Chon Folder luu anh chup (done)
         //15. Luu folder save file vao database (done)
         //16. Check box Luu thong tin trong Form Login
-        //17. Code them phan Secondary Camera
-        //18. Bug chuyen tab tu dong load du lieu trong (Form Login) (done fix)
-        //19. Them Camera Phu Info vao database
-        //20. Bo het gia dein UI ra khoi Thread
+        //17. Code them phan Secondary Camera (done, testing)
+        //18. Bug chuyen tab tu dong load du lieu trong (Form Login) (done)
+        //19. Them Camera Phu Info vao database (done)
+        //20. Bo het gia dein UI ra khoi Thread (Hard)
+        //21. Fix 2 bug: 1. F7 ton nhieu thoi gian, 2. Login status = 1 cua Camera Phu (done)
+        //22. Patient Info add to database
+        //23. Check xem k can login lai sau khi ket noi lai camera thi co chay k
         private const int ERR_OK = 0;
         private const int ERR_NOT_OK = 1;
 
@@ -150,14 +153,20 @@ namespace IPCameraManager
 
         private void tabPage_KhamBenh_Click(object sender, EventArgs e)
         {
-            Add_UserControl(ucPage1);
-            TabPageID = PAGE1;
+            if(TabPageID != PAGE1)
+            {
+                Add_UserControl(ucPage1);
+                TabPageID = PAGE1;
+            }
         }
 
         private void tabPageInPhieu_Click(object sender, EventArgs e)
         {
-            Add_UserControl(ucPage2);
-            TabPageID = PAGE2;
+            if (TabPageID != PAGE2)
+            {
+                Add_UserControl(ucPage2);
+                TabPageID = PAGE2;
+            }
         }
 
         private void btLogin_IPCamera_Click(object sender, EventArgs e)
@@ -325,7 +334,7 @@ namespace IPCameraManager
         private void btCamRefresh_Click(object sender, EventArgs e)
         {
             btLogin_IPCamera.Visible = false;
-            TrangThaiCam.Text = "Đang kết nối lại Camera!";
+            TrangThaiCam.Text = "Camera chính: Đang kết nối lại Camera!";
             if (ERR_OK == ucPage1.Stop_PlayMainCam())
             {
                 if (ERR_OK == ucPage1.Start_PlayMainCam())
@@ -335,7 +344,7 @@ namespace IPCameraManager
                 else
                 {
                     btLogin_IPCamera.Visible = true;
-                    TrangThaiCam.Text = "Camera chính: Lỗi không xem được video!";
+                    TrangThaiCam.Text = "Camera chính: Lỗi không xem được video! Tự động đăng xuất ...";
                     // Tu dong Dang xuat
                     formLoginCam.Logout_Main_Camera(ucPage1.MainCam_Manager.LoginInfo);
                     // Lay thong tin dang xuat thanh cong hay that bai
@@ -347,6 +356,7 @@ namespace IPCameraManager
                 btLogin_IPCamera.Visible = true;
                 TrangThaiCam.Text = "Camera chính: Kết nối thất bại. Hãy kiểm tra cáp kết nối!";
             }
+            TrangThaiCam.Text = "Camera phụ: Đang kết nối lại Camera!";
             if (ERR_OK == ucPage1.Stop_PlayCam2())
             {
                 if (ERR_OK == ucPage1.Start_PlayCam2())
@@ -356,9 +366,9 @@ namespace IPCameraManager
                 else
                 {
                     btLogin_IPCamera.Visible = true;
-                    TrangThaiCam.Text = "Camera phụ: Lỗi không xem được video!";
+                    TrangThaiCam.Text = "Camera phụ: Lỗi không xem được video! Tự động đăng xuất ...";
                     // Tu dong Dang xuat
-                    formLoginCam.Login_Second_Camera(ucPage1.SecondaryCam_Manager.LoginInfo);
+                    formLoginCam.Logout_Second_Camera(ucPage1.SecondaryCam_Manager.LoginInfo);
                     // Lay thong tin dang xuat thanh cong hay that bai
                     formLoginCam.Get_LoginStatus_Cam2(ref ucPage1.SecondaryCam_Manager.LoginInfo);
                 }
@@ -425,6 +435,13 @@ namespace IPCameraManager
                 ucPage1.ResetImage_Second();
                 TrangThaiCam.Text = "Hãy nhập thông tin để có thể kết nối Camera!";
             }
+        }
+
+        private void timer_Update_PatientInfo_to_Page2_Tick(object sender, EventArgs e)
+        {
+            PatientInfo_Type info = new PatientInfo_Type();
+            ucPage1.Get_Patient_Info(ref info);
+            ucPage2.Load_Patient_Info(info);
         }
     }
 

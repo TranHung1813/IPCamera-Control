@@ -36,12 +36,12 @@ namespace IPCameraManager
             this.picBox1 = new System.Windows.Forms.PictureBox();
             this.txtPath1 = new System.Windows.Forms.TextBox();
             this.groupBox5 = new System.Windows.Forms.GroupBox();
-            this.txtNgayKham_IN = new Guna.UI2.WinForms.Guna2TextBox();
-            this.txtTuoi_IN = new Guna.UI2.WinForms.Guna2TextBox();
-            this.txtGioiTinh_IN = new Guna.UI2.WinForms.Guna2TextBox();
-            this.txtHoTenBN_IN = new Guna.UI2.WinForms.Guna2TextBox();
+            this.tbNgayKham_IN = new Guna.UI2.WinForms.Guna2TextBox();
+            this.tbTuoi_IN = new Guna.UI2.WinForms.Guna2TextBox();
+            this.tbGioiTinh_IN = new Guna.UI2.WinForms.Guna2TextBox();
+            this.tbHoTenBN_IN = new Guna.UI2.WinForms.Guna2TextBox();
             this.tbMaBN_IN = new Guna.UI2.WinForms.Guna2TextBox();
-            this.txtDiaChi_IN = new System.Windows.Forms.TextBox();
+            this.tbDiaChi_IN = new System.Windows.Forms.TextBox();
             this.label13 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
@@ -88,7 +88,7 @@ namespace IPCameraManager
             this.guna2Button2.BorderThickness = 1;
             this.guna2Button2.CheckedState.Parent = this.guna2Button2;
             this.guna2Button2.CustomImages.Parent = this.guna2Button2;
-            this.guna2Button2.FillColor = System.Drawing.Color.WhiteSmoke;
+            this.guna2Button2.FillColor = System.Drawing.Color.White;
             this.guna2Button2.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.guna2Button2.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.guna2Button2.HoverState.FillColor = System.Drawing.Color.LightSteelBlue;
@@ -108,7 +108,7 @@ namespace IPCameraManager
             this.guna2Button1.BorderThickness = 1;
             this.guna2Button1.CheckedState.Parent = this.guna2Button1;
             this.guna2Button1.CustomImages.Parent = this.guna2Button1;
-            this.guna2Button1.FillColor = System.Drawing.Color.WhiteSmoke;
+            this.guna2Button1.FillColor = System.Drawing.Color.White;
             this.guna2Button1.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.guna2Button1.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.guna2Button1.HoverState.FillColor = System.Drawing.Color.LightSteelBlue;
@@ -150,12 +150,12 @@ namespace IPCameraManager
             // 
             // groupBox5
             // 
-            this.groupBox5.Controls.Add(this.txtNgayKham_IN);
-            this.groupBox5.Controls.Add(this.txtTuoi_IN);
-            this.groupBox5.Controls.Add(this.txtGioiTinh_IN);
-            this.groupBox5.Controls.Add(this.txtHoTenBN_IN);
+            this.groupBox5.Controls.Add(this.tbNgayKham_IN);
+            this.groupBox5.Controls.Add(this.tbTuoi_IN);
+            this.groupBox5.Controls.Add(this.tbGioiTinh_IN);
+            this.groupBox5.Controls.Add(this.tbHoTenBN_IN);
             this.groupBox5.Controls.Add(this.tbMaBN_IN);
-            this.groupBox5.Controls.Add(this.txtDiaChi_IN);
+            this.groupBox5.Controls.Add(this.tbDiaChi_IN);
             this.groupBox5.Controls.Add(this.label13);
             this.groupBox5.Controls.Add(this.label1);
             this.groupBox5.Controls.Add(this.label2);
@@ -170,125 +170,125 @@ namespace IPCameraManager
             this.groupBox5.TabStop = false;
             this.groupBox5.Text = "Thông Tin Bệnh Nhân (F3 để sửa)";
             // 
-            // txtNgayKham_IN
+            // tbNgayKham_IN
             // 
-            this.txtNgayKham_IN.BackColor = System.Drawing.Color.Transparent;
-            this.txtNgayKham_IN.BorderColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.txtNgayKham_IN.BorderRadius = 4;
-            this.txtNgayKham_IN.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.txtNgayKham_IN.DefaultText = "";
-            this.txtNgayKham_IN.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
-            this.txtNgayKham_IN.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
-            this.txtNgayKham_IN.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.txtNgayKham_IN.DisabledState.Parent = this.txtNgayKham_IN;
-            this.txtNgayKham_IN.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.txtNgayKham_IN.FillColor = System.Drawing.SystemColors.ControlLight;
-            this.txtNgayKham_IN.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txtNgayKham_IN.FocusedState.Parent = this.txtNgayKham_IN;
-            this.txtNgayKham_IN.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtNgayKham_IN.ForeColor = System.Drawing.Color.Black;
-            this.txtNgayKham_IN.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txtNgayKham_IN.HoverState.Parent = this.txtNgayKham_IN;
-            this.txtNgayKham_IN.Location = new System.Drawing.Point(114, 155);
-            this.txtNgayKham_IN.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.txtNgayKham_IN.Name = "txtNgayKham_IN";
-            this.txtNgayKham_IN.PasswordChar = '\0';
-            this.txtNgayKham_IN.PlaceholderForeColor = System.Drawing.Color.Empty;
-            this.txtNgayKham_IN.PlaceholderText = "";
-            this.txtNgayKham_IN.SelectedText = "";
-            this.txtNgayKham_IN.ShadowDecoration.Parent = this.txtNgayKham_IN;
-            this.txtNgayKham_IN.Size = new System.Drawing.Size(226, 27);
-            this.txtNgayKham_IN.TabIndex = 20;
+            this.tbNgayKham_IN.BackColor = System.Drawing.Color.Transparent;
+            this.tbNgayKham_IN.BorderColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.tbNgayKham_IN.BorderRadius = 4;
+            this.tbNgayKham_IN.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.tbNgayKham_IN.DefaultText = "";
+            this.tbNgayKham_IN.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
+            this.tbNgayKham_IN.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
+            this.tbNgayKham_IN.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.tbNgayKham_IN.DisabledState.Parent = this.tbNgayKham_IN;
+            this.tbNgayKham_IN.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.tbNgayKham_IN.FillColor = System.Drawing.SystemColors.ControlLight;
+            this.tbNgayKham_IN.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.tbNgayKham_IN.FocusedState.Parent = this.tbNgayKham_IN;
+            this.tbNgayKham_IN.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbNgayKham_IN.ForeColor = System.Drawing.Color.Black;
+            this.tbNgayKham_IN.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.tbNgayKham_IN.HoverState.Parent = this.tbNgayKham_IN;
+            this.tbNgayKham_IN.Location = new System.Drawing.Point(114, 155);
+            this.tbNgayKham_IN.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tbNgayKham_IN.Name = "tbNgayKham_IN";
+            this.tbNgayKham_IN.PasswordChar = '\0';
+            this.tbNgayKham_IN.PlaceholderForeColor = System.Drawing.Color.Empty;
+            this.tbNgayKham_IN.PlaceholderText = "";
+            this.tbNgayKham_IN.ReadOnly = true;
+            this.tbNgayKham_IN.SelectedText = "";
+            this.tbNgayKham_IN.ShadowDecoration.Parent = this.tbNgayKham_IN;
+            this.tbNgayKham_IN.Size = new System.Drawing.Size(226, 27);
+            this.tbNgayKham_IN.TabIndex = 20;
             // 
-            // txtTuoi_IN
+            // tbTuoi_IN
             // 
-            this.txtTuoi_IN.BackColor = System.Drawing.Color.Transparent;
-            this.txtTuoi_IN.BorderColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.txtTuoi_IN.BorderRadius = 4;
-            this.txtTuoi_IN.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.txtTuoi_IN.DefaultText = "";
-            this.txtTuoi_IN.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
-            this.txtTuoi_IN.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
-            this.txtTuoi_IN.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.txtTuoi_IN.DisabledState.Parent = this.txtTuoi_IN;
-            this.txtTuoi_IN.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.txtTuoi_IN.FillColor = System.Drawing.SystemColors.ControlLight;
-            this.txtTuoi_IN.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txtTuoi_IN.FocusedState.Parent = this.txtTuoi_IN;
-            this.txtTuoi_IN.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtTuoi_IN.ForeColor = System.Drawing.Color.Black;
-            this.txtTuoi_IN.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txtTuoi_IN.HoverState.Parent = this.txtTuoi_IN;
-            this.txtTuoi_IN.Location = new System.Drawing.Point(114, 124);
-            this.txtTuoi_IN.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.txtTuoi_IN.Name = "txtTuoi_IN";
-            this.txtTuoi_IN.PasswordChar = '\0';
-            this.txtTuoi_IN.PlaceholderForeColor = System.Drawing.Color.Empty;
-            this.txtTuoi_IN.PlaceholderText = "";
-            this.txtTuoi_IN.SelectedText = "";
-            this.txtTuoi_IN.ShadowDecoration.Parent = this.txtTuoi_IN;
-            this.txtTuoi_IN.Size = new System.Drawing.Size(226, 27);
-            this.txtTuoi_IN.TabIndex = 19;
+            this.tbTuoi_IN.BackColor = System.Drawing.Color.Transparent;
+            this.tbTuoi_IN.BorderColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.tbTuoi_IN.BorderRadius = 4;
+            this.tbTuoi_IN.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.tbTuoi_IN.DefaultText = "";
+            this.tbTuoi_IN.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
+            this.tbTuoi_IN.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
+            this.tbTuoi_IN.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.tbTuoi_IN.DisabledState.Parent = this.tbTuoi_IN;
+            this.tbTuoi_IN.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.tbTuoi_IN.FillColor = System.Drawing.SystemColors.ControlLight;
+            this.tbTuoi_IN.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.tbTuoi_IN.FocusedState.Parent = this.tbTuoi_IN;
+            this.tbTuoi_IN.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbTuoi_IN.ForeColor = System.Drawing.Color.Black;
+            this.tbTuoi_IN.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.tbTuoi_IN.HoverState.Parent = this.tbTuoi_IN;
+            this.tbTuoi_IN.Location = new System.Drawing.Point(114, 124);
+            this.tbTuoi_IN.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tbTuoi_IN.Name = "tbTuoi_IN";
+            this.tbTuoi_IN.PasswordChar = '\0';
+            this.tbTuoi_IN.PlaceholderForeColor = System.Drawing.Color.Empty;
+            this.tbTuoi_IN.PlaceholderText = "";
+            this.tbTuoi_IN.ReadOnly = true;
+            this.tbTuoi_IN.SelectedText = "";
+            this.tbTuoi_IN.ShadowDecoration.Parent = this.tbTuoi_IN;
+            this.tbTuoi_IN.Size = new System.Drawing.Size(226, 27);
+            this.tbTuoi_IN.TabIndex = 19;
             // 
-            // txtGioiTinh_IN
+            // tbGioiTinh_IN
             // 
-            this.txtGioiTinh_IN.BackColor = System.Drawing.Color.Transparent;
-            this.txtGioiTinh_IN.BorderColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.txtGioiTinh_IN.BorderRadius = 4;
-            this.txtGioiTinh_IN.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.txtGioiTinh_IN.DefaultText = "";
-            this.txtGioiTinh_IN.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
-            this.txtGioiTinh_IN.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
-            this.txtGioiTinh_IN.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.txtGioiTinh_IN.DisabledState.Parent = this.txtGioiTinh_IN;
-            this.txtGioiTinh_IN.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.txtGioiTinh_IN.FillColor = System.Drawing.SystemColors.ControlLight;
-            this.txtGioiTinh_IN.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txtGioiTinh_IN.FocusedState.Parent = this.txtGioiTinh_IN;
-            this.txtGioiTinh_IN.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtGioiTinh_IN.ForeColor = System.Drawing.Color.Black;
-            this.txtGioiTinh_IN.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txtGioiTinh_IN.HoverState.Parent = this.txtGioiTinh_IN;
-            this.txtGioiTinh_IN.Location = new System.Drawing.Point(114, 93);
-            this.txtGioiTinh_IN.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.txtGioiTinh_IN.Name = "txtGioiTinh_IN";
-            this.txtGioiTinh_IN.PasswordChar = '\0';
-            this.txtGioiTinh_IN.PlaceholderForeColor = System.Drawing.Color.Empty;
-            this.txtGioiTinh_IN.PlaceholderText = "";
-            this.txtGioiTinh_IN.SelectedText = "";
-            this.txtGioiTinh_IN.ShadowDecoration.Parent = this.txtGioiTinh_IN;
-            this.txtGioiTinh_IN.Size = new System.Drawing.Size(226, 27);
-            this.txtGioiTinh_IN.TabIndex = 18;
+            this.tbGioiTinh_IN.BackColor = System.Drawing.Color.Transparent;
+            this.tbGioiTinh_IN.BorderColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.tbGioiTinh_IN.BorderRadius = 4;
+            this.tbGioiTinh_IN.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.tbGioiTinh_IN.DefaultText = "";
+            this.tbGioiTinh_IN.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
+            this.tbGioiTinh_IN.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
+            this.tbGioiTinh_IN.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.tbGioiTinh_IN.DisabledState.Parent = this.tbGioiTinh_IN;
+            this.tbGioiTinh_IN.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.tbGioiTinh_IN.FillColor = System.Drawing.SystemColors.ControlLight;
+            this.tbGioiTinh_IN.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.tbGioiTinh_IN.FocusedState.Parent = this.tbGioiTinh_IN;
+            this.tbGioiTinh_IN.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbGioiTinh_IN.ForeColor = System.Drawing.Color.Black;
+            this.tbGioiTinh_IN.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.tbGioiTinh_IN.HoverState.Parent = this.tbGioiTinh_IN;
+            this.tbGioiTinh_IN.Location = new System.Drawing.Point(114, 93);
+            this.tbGioiTinh_IN.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tbGioiTinh_IN.Name = "tbGioiTinh_IN";
+            this.tbGioiTinh_IN.PasswordChar = '\0';
+            this.tbGioiTinh_IN.PlaceholderForeColor = System.Drawing.Color.Empty;
+            this.tbGioiTinh_IN.PlaceholderText = "";
+            this.tbGioiTinh_IN.ReadOnly = true;
+            this.tbGioiTinh_IN.SelectedText = "";
+            this.tbGioiTinh_IN.ShadowDecoration.Parent = this.tbGioiTinh_IN;
+            this.tbGioiTinh_IN.Size = new System.Drawing.Size(226, 27);
+            this.tbGioiTinh_IN.TabIndex = 18;
             // 
-            // txtHoTenBN_IN
+            // tbHoTenBN_IN
             // 
-            this.txtHoTenBN_IN.BackColor = System.Drawing.Color.Transparent;
-            this.txtHoTenBN_IN.BorderColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.txtHoTenBN_IN.BorderRadius = 4;
-            this.txtHoTenBN_IN.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.txtHoTenBN_IN.DefaultText = "";
-            this.txtHoTenBN_IN.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
-            this.txtHoTenBN_IN.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
-            this.txtHoTenBN_IN.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.txtHoTenBN_IN.DisabledState.Parent = this.txtHoTenBN_IN;
-            this.txtHoTenBN_IN.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.txtHoTenBN_IN.FillColor = System.Drawing.SystemColors.ControlLight;
-            this.txtHoTenBN_IN.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txtHoTenBN_IN.FocusedState.Parent = this.txtHoTenBN_IN;
-            this.txtHoTenBN_IN.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtHoTenBN_IN.ForeColor = System.Drawing.Color.Black;
-            this.txtHoTenBN_IN.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txtHoTenBN_IN.HoverState.Parent = this.txtHoTenBN_IN;
-            this.txtHoTenBN_IN.Location = new System.Drawing.Point(114, 62);
-            this.txtHoTenBN_IN.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.txtHoTenBN_IN.Name = "txtHoTenBN_IN";
-            this.txtHoTenBN_IN.PasswordChar = '\0';
-            this.txtHoTenBN_IN.PlaceholderForeColor = System.Drawing.Color.Empty;
-            this.txtHoTenBN_IN.PlaceholderText = "";
-            this.txtHoTenBN_IN.SelectedText = "";
-            this.txtHoTenBN_IN.ShadowDecoration.Parent = this.txtHoTenBN_IN;
-            this.txtHoTenBN_IN.Size = new System.Drawing.Size(226, 27);
-            this.txtHoTenBN_IN.TabIndex = 17;
+            this.tbHoTenBN_IN.BackColor = System.Drawing.Color.Transparent;
+            this.tbHoTenBN_IN.BorderColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.tbHoTenBN_IN.BorderRadius = 4;
+            this.tbHoTenBN_IN.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.tbHoTenBN_IN.DefaultText = "";
+            this.tbHoTenBN_IN.DisabledState.Parent = this.tbHoTenBN_IN;
+            this.tbHoTenBN_IN.FillColor = System.Drawing.SystemColors.ControlLight;
+            this.tbHoTenBN_IN.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.tbHoTenBN_IN.FocusedState.Parent = this.tbHoTenBN_IN;
+            this.tbHoTenBN_IN.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbHoTenBN_IN.ForeColor = System.Drawing.Color.Black;
+            this.tbHoTenBN_IN.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.tbHoTenBN_IN.HoverState.Parent = this.tbHoTenBN_IN;
+            this.tbHoTenBN_IN.Location = new System.Drawing.Point(114, 62);
+            this.tbHoTenBN_IN.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tbHoTenBN_IN.Name = "tbHoTenBN_IN";
+            this.tbHoTenBN_IN.PasswordChar = '\0';
+            this.tbHoTenBN_IN.PlaceholderForeColor = System.Drawing.Color.Empty;
+            this.tbHoTenBN_IN.PlaceholderText = "";
+            this.tbHoTenBN_IN.ReadOnly = true;
+            this.tbHoTenBN_IN.SelectedText = "";
+            this.tbHoTenBN_IN.ShadowDecoration.Parent = this.tbHoTenBN_IN;
+            this.tbHoTenBN_IN.Size = new System.Drawing.Size(226, 27);
+            this.tbHoTenBN_IN.TabIndex = 17;
             // 
             // tbMaBN_IN
             // 
@@ -315,20 +315,22 @@ namespace IPCameraManager
             this.tbMaBN_IN.PasswordChar = '\0';
             this.tbMaBN_IN.PlaceholderForeColor = System.Drawing.Color.Empty;
             this.tbMaBN_IN.PlaceholderText = "";
+            this.tbMaBN_IN.ReadOnly = true;
             this.tbMaBN_IN.SelectedText = "";
             this.tbMaBN_IN.ShadowDecoration.Parent = this.tbMaBN_IN;
             this.tbMaBN_IN.Size = new System.Drawing.Size(226, 27);
             this.tbMaBN_IN.TabIndex = 16;
             // 
-            // txtDiaChi_IN
+            // tbDiaChi_IN
             // 
-            this.txtDiaChi_IN.BackColor = System.Drawing.SystemColors.ControlLight;
-            this.txtDiaChi_IN.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtDiaChi_IN.Location = new System.Drawing.Point(114, 187);
-            this.txtDiaChi_IN.Multiline = true;
-            this.txtDiaChi_IN.Name = "txtDiaChi_IN";
-            this.txtDiaChi_IN.Size = new System.Drawing.Size(226, 104);
-            this.txtDiaChi_IN.TabIndex = 21;
+            this.tbDiaChi_IN.BackColor = System.Drawing.SystemColors.ControlLight;
+            this.tbDiaChi_IN.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.tbDiaChi_IN.Location = new System.Drawing.Point(114, 187);
+            this.tbDiaChi_IN.Multiline = true;
+            this.tbDiaChi_IN.Name = "tbDiaChi_IN";
+            this.tbDiaChi_IN.ReadOnly = true;
+            this.tbDiaChi_IN.Size = new System.Drawing.Size(226, 104);
+            this.tbDiaChi_IN.TabIndex = 21;
             // 
             // label13
             // 
@@ -451,7 +453,7 @@ namespace IPCameraManager
             this.guna2Button3.BorderThickness = 1;
             this.guna2Button3.CheckedState.Parent = this.guna2Button3;
             this.guna2Button3.CustomImages.Parent = this.guna2Button3;
-            this.guna2Button3.FillColor = System.Drawing.Color.WhiteSmoke;
+            this.guna2Button3.FillColor = System.Drawing.Color.White;
             this.guna2Button3.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.guna2Button3.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.guna2Button3.HoverState.FillColor = System.Drawing.Color.LightSteelBlue;
@@ -471,7 +473,7 @@ namespace IPCameraManager
             this.guna2Button4.BorderThickness = 1;
             this.guna2Button4.CheckedState.Parent = this.guna2Button4;
             this.guna2Button4.CustomImages.Parent = this.guna2Button4;
-            this.guna2Button4.FillColor = System.Drawing.Color.WhiteSmoke;
+            this.guna2Button4.FillColor = System.Drawing.Color.White;
             this.guna2Button4.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.guna2Button4.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.guna2Button4.HoverState.FillColor = System.Drawing.Color.LightSteelBlue;
@@ -491,7 +493,7 @@ namespace IPCameraManager
             this.guna2Button5.BorderThickness = 1;
             this.guna2Button5.CheckedState.Parent = this.guna2Button5;
             this.guna2Button5.CustomImages.Parent = this.guna2Button5;
-            this.guna2Button5.FillColor = System.Drawing.Color.WhiteSmoke;
+            this.guna2Button5.FillColor = System.Drawing.Color.White;
             this.guna2Button5.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.guna2Button5.ForeColor = System.Drawing.Color.Black;
             this.guna2Button5.HoverState.FillColor = System.Drawing.Color.LightSteelBlue;
@@ -515,7 +517,7 @@ namespace IPCameraManager
             this.guna2Button6.CheckedState.BorderColor = System.Drawing.Color.Blue;
             this.guna2Button6.CheckedState.Parent = this.guna2Button6;
             this.guna2Button6.CustomImages.Parent = this.guna2Button6;
-            this.guna2Button6.FillColor = System.Drawing.Color.WhiteSmoke;
+            this.guna2Button6.FillColor = System.Drawing.Color.White;
             this.guna2Button6.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.guna2Button6.ForeColor = System.Drawing.Color.Black;
             this.guna2Button6.HoverState.FillColor = System.Drawing.Color.LightSteelBlue;
@@ -562,7 +564,7 @@ namespace IPCameraManager
         private System.Windows.Forms.PictureBox picBox1;
         private System.Windows.Forms.TextBox txtPath1;
         private System.Windows.Forms.GroupBox groupBox5;
-        private System.Windows.Forms.TextBox txtDiaChi_IN;
+        private System.Windows.Forms.TextBox tbDiaChi_IN;
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
@@ -581,9 +583,9 @@ namespace IPCameraManager
         private Guna.UI2.WinForms.Guna2Button guna2Button5;
         private Guna.UI2.WinForms.Guna2Button guna2Button6;
         private Guna.UI2.WinForms.Guna2TextBox tbMaBN_IN;
-        private Guna.UI2.WinForms.Guna2TextBox txtHoTenBN_IN;
-        private Guna.UI2.WinForms.Guna2TextBox txtGioiTinh_IN;
-        private Guna.UI2.WinForms.Guna2TextBox txtTuoi_IN;
-        private Guna.UI2.WinForms.Guna2TextBox txtNgayKham_IN;
+        private Guna.UI2.WinForms.Guna2TextBox tbHoTenBN_IN;
+        private Guna.UI2.WinForms.Guna2TextBox tbGioiTinh_IN;
+        private Guna.UI2.WinForms.Guna2TextBox tbTuoi_IN;
+        private Guna.UI2.WinForms.Guna2TextBox tbNgayKham_IN;
     }
 }

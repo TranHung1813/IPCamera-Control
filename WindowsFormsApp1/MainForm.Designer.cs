@@ -50,6 +50,7 @@ namespace IPCameraManager
             this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
             this.panelBorder_Left = new System.Windows.Forms.Panel();
             this.panelBorder_Right = new System.Windows.Forms.Panel();
+            this.timer_Update_PatientInfo_to_Page2 = new System.Windows.Forms.Timer(this.components);
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel2.SuspendLayout();
@@ -169,6 +170,7 @@ namespace IPCameraManager
             this.btCamRefresh_R.TabIndex = 3;
             this.btCamRefresh_R.Text = "Refresh Camera (F7)";
             this.btCamRefresh_R.UseVisualStyleBackColor = true;
+            this.btCamRefresh_R.Visible = false;
             this.btCamRefresh_R.Click += new System.EventHandler(this.btCamRefresh_Click);
             // 
             // btLogin_IPCamera
@@ -280,6 +282,7 @@ namespace IPCameraManager
             this.TrangThaiCam.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.TrangThaiCam.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
             this.TrangThaiCam.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TrangThaiCam.Margin = new System.Windows.Forms.Padding(10, 3, 0, 2);
             this.TrangThaiCam.Name = "TrangThaiCam";
             this.TrangThaiCam.Size = new System.Drawing.Size(192, 18);
             this.TrangThaiCam.Text = " Camera: Không có kết nối! ";
@@ -307,10 +310,16 @@ namespace IPCameraManager
             this.panelBorder_Right.Size = new System.Drawing.Size(2, 617);
             this.panelBorder_Right.TabIndex = 0;
             // 
+            // timer_Update_PatientInfo_to_Page2
+            // 
+            this.timer_Update_PatientInfo_to_Page2.Enabled = true;
+            this.timer_Update_PatientInfo_to_Page2.Tick += new System.EventHandler(this.timer_Update_PatientInfo_to_Page2_Tick);
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoSize = true;
             this.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.ClientSize = new System.Drawing.Size(1044, 720);
             this.Controls.Add(this.panelBorder_Right);
@@ -356,6 +365,7 @@ namespace IPCameraManager
         private Guna.UI2.WinForms.Guna2Button btLogin_IPCamera;
         private Guna.UI2.WinForms.Guna2Button btExit;
         private System.Windows.Forms.Button btCamRefresh_R;
+        private System.Windows.Forms.Timer timer_Update_PatientInfo_to_Page2;
     }
 }
 

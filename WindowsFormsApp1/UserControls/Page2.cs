@@ -16,6 +16,7 @@ namespace IPCameraManager
         {
             InitializeComponent();
             Init_Button();
+            this.ActiveControl = null;
         }
         private void Init_Button()
         {
@@ -35,5 +36,31 @@ namespace IPCameraManager
                 };
             }
         }
+        public void Load_Patient_Info( PatientInfo_Type info)
+        {
+            tbMaBN_IN.Text = info.MaBN;
+            tbHoTenBN_IN.Text = info.HoTenBN;
+            tbGioiTinh_IN.Text = info.GioiTinh;
+            tbTuoi_IN.Text = info.Tuoi;
+            tbNgayKham_IN.Text = info.NgayKham;
+            tbDiaChi_IN.Text = info.DiaChi;
+        }
+    }
+    public struct PatientInfo_Type
+    {
+        private string _MaBN;
+        private string _HoTenBN;
+        private string _GioiTinh;
+        private string _Tuoi;
+        private string _NgayKham;
+        private string _DiaChi;
+
+        public string MaBN { get { return _MaBN; } set => _MaBN = value; }
+        public string HoTenBN { get { return _HoTenBN; } set => _HoTenBN = value; }
+        public string GioiTinh { get { return _GioiTinh; } set => _GioiTinh = value; }
+        public string Tuoi { get { return _Tuoi; } set => _Tuoi = value; }
+        public string NgayKham { get { return _NgayKham; } set => _NgayKham = value; }
+        public string DiaChi { get { return _DiaChi; } set => _DiaChi = value; }
+
     }
 }
