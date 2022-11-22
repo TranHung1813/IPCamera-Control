@@ -202,7 +202,7 @@ namespace IPCameraManager
             this.tabPage_InPhieu.BackColor = System.Drawing.Color.Transparent;
             this.tabPage_InPhieu.BorderRadius = 5;
             this.tabPage_InPhieu.ButtonMode = Guna.UI2.WinForms.Enums.ButtonMode.RadioButton;
-            this.tabPage_InPhieu.CheckedState.CustomBorderColor = System.Drawing.Color.SlateBlue;
+            this.tabPage_InPhieu.CheckedState.CustomBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.tabPage_InPhieu.CheckedState.FillColor = System.Drawing.Color.White;
             this.tabPage_InPhieu.CheckedState.Parent = this.tabPage_InPhieu;
             this.tabPage_InPhieu.CustomBorderThickness = new System.Windows.Forms.Padding(0, 0, 0, 3);
@@ -210,7 +210,7 @@ namespace IPCameraManager
             this.tabPage_InPhieu.FillColor = System.Drawing.Color.White;
             this.tabPage_InPhieu.Font = new System.Drawing.Font("Tahoma", 10.5F);
             this.tabPage_InPhieu.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.tabPage_InPhieu.HoverState.CustomBorderColor = System.Drawing.Color.SlateBlue;
+            this.tabPage_InPhieu.HoverState.CustomBorderColor = System.Drawing.Color.Transparent;
             this.tabPage_InPhieu.HoverState.Parent = this.tabPage_InPhieu;
             this.tabPage_InPhieu.Image = ((System.Drawing.Image)(resources.GetObject("tabPage_InPhieu.Image")));
             this.tabPage_InPhieu.ImageSize = new System.Drawing.Size(33, 33);
@@ -229,7 +229,7 @@ namespace IPCameraManager
             this.tabPage_KhamBenh.BorderRadius = 5;
             this.tabPage_KhamBenh.ButtonMode = Guna.UI2.WinForms.Enums.ButtonMode.RadioButton;
             this.tabPage_KhamBenh.Checked = true;
-            this.tabPage_KhamBenh.CheckedState.CustomBorderColor = System.Drawing.Color.SlateBlue;
+            this.tabPage_KhamBenh.CheckedState.CustomBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.tabPage_KhamBenh.CheckedState.FillColor = System.Drawing.Color.White;
             this.tabPage_KhamBenh.CheckedState.Parent = this.tabPage_KhamBenh;
             this.tabPage_KhamBenh.CustomBorderThickness = new System.Windows.Forms.Padding(0, 0, 0, 3);
@@ -237,7 +237,7 @@ namespace IPCameraManager
             this.tabPage_KhamBenh.FillColor = System.Drawing.Color.White;
             this.tabPage_KhamBenh.Font = new System.Drawing.Font("Tahoma", 10.5F);
             this.tabPage_KhamBenh.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.tabPage_KhamBenh.HoverState.CustomBorderColor = System.Drawing.Color.SlateBlue;
+            this.tabPage_KhamBenh.HoverState.CustomBorderColor = System.Drawing.Color.Transparent;
             this.tabPage_KhamBenh.HoverState.Parent = this.tabPage_KhamBenh;
             this.tabPage_KhamBenh.Image = ((System.Drawing.Image)(resources.GetObject("tabPage_KhamBenh.Image")));
             this.tabPage_KhamBenh.ImageSize = new System.Drawing.Size(32, 32);

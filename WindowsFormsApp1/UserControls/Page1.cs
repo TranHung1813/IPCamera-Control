@@ -21,9 +21,8 @@ namespace IPCameraManager
             Init_Button();
             Init_IPCamera();
         }
-        private bool InitCam_Status = false;
-        public Int32 Live_Status = -1;
-        public Int32 LoginStatus = -1;
+        public CameraManager_Type MainCam_Manager = new CameraManager_Type();
+        public CameraManager_Type SecondaryCam_Manager = new CameraManager_Type();
         CHCNetSDK.REALDATACALLBACK RealData = null;
         CHCNetSDK.NET_DVR_JPEGPARA lpJpegPara;
 
@@ -38,8 +37,9 @@ namespace IPCameraManager
 
         private void Init_IPCamera()
         {
-            InitCam_Status = CHCNetSDK.NET_DVR_Init();
-            if (InitCam_Status == false)
+            /* Init Cam chinh */
+            MainCam_Manager.InitCam_Status = CHCNetSDK.NET_DVR_Init();
+            if (MainCam_Manager.InitCam_Status == false)
             {
                 MessageBox.Show("NET_DVR_Init error!");
                 return;
@@ -48,6 +48,18 @@ namespace IPCameraManager
             {
                 //Set Folder to save the SDK log
                 CHCNetSDK.NET_DVR_SetLogToFile(3, "C:\\SdkLog\\", true);
+            }
+            /* Init Cam phu */
+            SecondaryCam_Manager.InitCam_Status = CHCNetSDK.NET_DVR_Init();
+            if (SecondaryCam_Manager.InitCam_Status == false)
+            {
+                MessageBox.Show("NET_DVR_Init error!");
+                return;
+            }
+            else
+            {
+                //Set Folder to save the SDK log
+                CHCNetSDK.NET_DVR_SetLogToFile(3, "C:\\SdkLog_Cam2\\", true);
             }
         }
         private void InitForm_Default()
@@ -68,17 +80,17 @@ namespace IPCameraManager
 
         protected override void Dispose(bool disposing)
         {
-            if (Live_Status >= 0)
+            if (MainCam_Manager.Live_Status >= 0)
             {
-                CHCNetSDK.NET_DVR_StopRealPlay(Live_Status);
+                CHCNetSDK.NET_DVR_StopRealPlay(MainCam_Manager.Live_Status);
             }
-            if (InitCam_Status == true)
+            if (MainCam_Manager.InitCam_Status == true)
             {
                 CHCNetSDK.NET_DVR_Cleanup();
             }
-            if (LoginStatus >= 0)
+            if (MainCam_Manager.LoginInfo.LoginStatus >= 0)
             {
-                CHCNetSDK.NET_DVR_Logout(LoginStatus);
+                CHCNetSDK.NET_DVR_Logout(MainCam_Manager.LoginInfo.LoginStatus);
             }
             if (disposing)
             {
@@ -123,13 +135,13 @@ namespace IPCameraManager
         }
         public int Start_PlayCam()
         {
-            if (LoginStatus < 0)
+            if (MainCam_Manager.LoginInfo.LoginStatus < 0)
             {
                 MessageBox.Show("Camera chưa kết nối!\rHãy kết nối camera trước.", "Lỗi: Chưa kết nối camera", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return ERR_NOT_OK;
             }
 
-            if (Live_Status < 0)
+            if (MainCam_Manager.Live_Status < 0)
             {
                 CHCNetSDK.NET_DVR_PREVIEWINFO lpPreviewInfo = new CHCNetSDK.NET_DVR_PREVIEWINFO();
                 lpPreviewInfo.hPlayWnd = RealPlayWnd.Handle;
@@ -149,8 +161,9 @@ namespace IPCameraManager
                 IntPtr pUser = new IntPtr();
 
                 //Start live view 
-                Live_Status = CHCNetSDK.NET_DVR_RealPlay_V40(LoginStatus, ref lpPreviewInfo, null/*RealData*/, pUser);
-                if (Live_Status < 0)
+                MainCam_Manager.Live_Status = CHCNetSDK.NET_DVR_RealPlay_V40(MainCam_Manager.LoginInfo.LoginStatus,
+                                                                        ref lpPreviewInfo, null/*RealData*/, pUser);
+                if (MainCam_Manager.Live_Status < 0)
                 {
                     Err_Return = CHCNetSDK.NET_DVR_GetLastError();
                     string str = "NET_DVR_RealPlay_V40 failed, error code= " + Err_Return;
@@ -175,17 +188,17 @@ namespace IPCameraManager
 
         public int Stop_PlayCam()
         {
-            if (LoginStatus < 0)
+            if (MainCam_Manager.LoginInfo.LoginStatus < 0)
             {
                 MessageBox.Show("Camera chưa kết nối!\rHãy kết nối camera trước.", "Lỗi: Chưa kết nối camera", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return ERR_NOT_OK;
             }
-            if (Live_Status < 0)
+            if (MainCam_Manager.Live_Status < 0)
             {
                 return ERR_NOT_OK;
             }
             // Stop live view 
-            if (!CHCNetSDK.NET_DVR_StopRealPlay(Live_Status))
+            if (!CHCNetSDK.NET_DVR_StopRealPlay(MainCam_Manager.Live_Status))
             {
                 Err_Return = CHCNetSDK.NET_DVR_GetLastError();
                 string str = "NET_DVR_StopRealPlay failed, error code= " + Err_Return;
@@ -194,7 +207,7 @@ namespace IPCameraManager
             }
             else
             {
-                Live_Status = -1;
+                MainCam_Manager.Live_Status = -1;
                 return ERR_OK;
             }
         }
@@ -216,7 +229,7 @@ namespace IPCameraManager
         // else: Đang live
         public void btOpen_MainCam_Click(object sender, EventArgs e)
         {
-            if (Live_Status < 0)
+            if (MainCam_Manager.Live_Status < 0)
             {
                 if (ERR_OK == Start_PlayCam())
                 {
@@ -250,7 +263,8 @@ namespace IPCameraManager
             lpJpegPara.wPicSize = 0xff; //Set Picture size (0xff: Auto)
 
             //Capture a JPEG picture
-            if (!CHCNetSDK.NET_DVR_CaptureJPEGPicture(LoginStatus, lChannel, ref lpJpegPara, sJpegPicFileName))
+            if (!CHCNetSDK.NET_DVR_CaptureJPEGPicture(MainCam_Manager.LoginInfo.LoginStatus,
+                                                        lChannel, ref lpJpegPara, sJpegPicFileName))
             {
                 uint LastErr = CHCNetSDK.NET_DVR_GetLastError();
                 string str = "NET_DVR_CaptureJPEGPicture failed, error code= " + LastErr;
@@ -295,7 +309,7 @@ namespace IPCameraManager
             {
                 btTakePicture.Focus();
             }
-            if (Live_Status == -1)
+            if (MainCam_Manager.Live_Status == -1)
             {
                 MessageBox.Show("Camera chưa kết nối!\rHãy kết nối camera trước.", "Lỗi: Chưa kết nối camera", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;

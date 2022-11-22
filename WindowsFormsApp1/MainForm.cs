@@ -33,6 +33,7 @@ namespace IPCameraManager
         //14. Chon Folder luu anh chup (done)
         //15. Luu folder save file vao database (done)
         //16. Check box Luu thong tin trong Form Login
+        //17. Code them phan Secondary Camera
         private const int ERR_OK = 0;
         private const int ERR_NOT_OK = 1;
 
@@ -55,7 +56,7 @@ namespace IPCameraManager
             Add_UserControl(ucPage1);
             TabPageID = PAGE1;
             // Setup default status for controls
-            formLoginCam = new FormLoginCamera(ucPage1.LoginStatus, ucPage1.Live_Status);
+            formLoginCam = new FormLoginCamera( ucPage1.MainCam_Manager, ucPage1.SecondaryCam_Manager);
             TrangThaiCam.Text = "Đang kết nối camera, xin vui lòng chờ!";
             Login_Info.LoginStatus = -1;
             Control.CheckForIllegalCrossThreadCalls = false;
@@ -168,7 +169,7 @@ namespace IPCameraManager
                 formLoginCam.Get_Login_Status(ref Login_Info);
 
                 // Start Live view
-                ucPage1.LoginStatus = Login_Info.LoginStatus;
+                ucPage1.MainCam_Manager.LoginInfo.LoginStatus = Login_Info.LoginStatus;
                 if (ERR_OK == ucPage1.Start_PlayCam())
                 {
                     TrangThaiCam.Text = "Camera: Đã kết nối!";
@@ -211,14 +212,14 @@ namespace IPCameraManager
                 formLoginCam.Load_Database_Info(Login_Info);
 
                 // Login Camera roi Bat Live
-                if (ERR_OK == formLoginCam.Login_Camera(Login_Info))
+                if (ERR_OK == formLoginCam.Login_Main_Camera(Login_Info))
                 {
                     btLogin_IPCamera.Visible = false;
                     TrangThaiCam.Text = "Camera: Kết nối Camera thành công. Đang tải hình ảnh ...";
 
                     // Lay thong tin dang nhap thanh cong hay that bai
                     formLoginCam.Get_Login_Status(ref Login_Info);
-                    ucPage1.LoginStatus = Login_Info.LoginStatus;
+                    ucPage1.MainCam_Manager.LoginInfo.LoginStatus = Login_Info.LoginStatus;
 
                     //Start live view
                     if (ERR_OK == ucPage1.Start_PlayCam())
@@ -230,10 +231,10 @@ namespace IPCameraManager
                         btLogin_IPCamera.Visible = true;
                         TrangThaiCam.Text = "Camera: Lỗi không xem được video!";
                         // Tu dong Dang xuat
-                        formLoginCam.Logout_Camera(Login_Info);
+                        formLoginCam.Logout_Main_Camera(Login_Info);
                         // Lay thong tin dang xuat thanh cong hay that bai
                         formLoginCam.Get_Login_Status(ref Login_Info);
-                        ucPage1.LoginStatus = Login_Info.LoginStatus;
+                        ucPage1.MainCam_Manager.LoginInfo.LoginStatus = Login_Info.LoginStatus;
                     }
                 }
                 else
@@ -279,10 +280,10 @@ namespace IPCameraManager
                     btLogin_IPCamera.Visible = true;
                     TrangThaiCam.Text = "Camera: Lỗi không xem được video!";
                     // Tu dong Dang xuat
-                    formLoginCam.Logout_Camera(Login_Info);
+                    formLoginCam.Logout_Main_Camera(Login_Info);
                     // Lay thong tin dang xuat thanh cong hay that bai
                     formLoginCam.Get_Login_Status(ref Login_Info);
-                    ucPage1.LoginStatus = Login_Info.LoginStatus;
+                    ucPage1.MainCam_Manager.LoginInfo.LoginStatus = Login_Info.LoginStatus;
                 }
             }
             else
@@ -291,6 +292,12 @@ namespace IPCameraManager
                 TrangThaiCam.Text = "Camera: Kết nối thất bại. Hãy kiểm tra cáp kết nối!";
             }
         }
+    }
+    public class CameraManager_Type
+    {
+        public bool InitCam_Status { get; set; } = false;
+        public Int32 Live_Status { get; set; } = -1;
+        public LoginCameraInfo_Type LoginInfo;
     }
 
 }
