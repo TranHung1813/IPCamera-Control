@@ -23,7 +23,8 @@ namespace IPCameraManager
         }
         public CameraManager_Type MainCam_Manager = new CameraManager_Type();
         public CameraManager_Type SecondaryCam_Manager = new CameraManager_Type();
-        CHCNetSDK.REALDATACALLBACK RealData = null;
+        CHCNetSDK.REALDATACALLBACK RealData_Main = null;
+        CHCNetSDK.REALDATACALLBACK RealData_Second = null;
         CHCNetSDK.NET_DVR_JPEGPARA lpJpegPara;
 
         private uint Err_Return;
@@ -80,6 +81,7 @@ namespace IPCameraManager
 
         protected override void Dispose(bool disposing)
         {
+            // End Main Cam
             if (MainCam_Manager.Live_Status >= 0)
             {
                 CHCNetSDK.NET_DVR_StopRealPlay(MainCam_Manager.Live_Status);
@@ -91,6 +93,19 @@ namespace IPCameraManager
             if (MainCam_Manager.LoginInfo.LoginStatus >= 0)
             {
                 CHCNetSDK.NET_DVR_Logout(MainCam_Manager.LoginInfo.LoginStatus);
+            }
+            // End Secondary Cam
+            if (SecondaryCam_Manager.Live_Status >= 0)
+            {
+                CHCNetSDK.NET_DVR_StopRealPlay(MainCam_Manager.Live_Status);
+            }
+            if (SecondaryCam_Manager.InitCam_Status == true)
+            {
+                CHCNetSDK.NET_DVR_Cleanup();
+            }
+            if (SecondaryCam_Manager.LoginInfo.LoginStatus >= 0)
+            {
+                CHCNetSDK.NET_DVR_Logout(SecondaryCam_Manager.LoginInfo.LoginStatus);
             }
             if (disposing)
             {
@@ -133,7 +148,7 @@ namespace IPCameraManager
                 Application.Exit();
             }
         }
-        public int Start_PlayCam()
+        public int Start_PlayMainCam()
         {
             if (MainCam_Manager.LoginInfo.LoginStatus < 0)
             {
@@ -153,9 +168,9 @@ namespace IPCameraManager
                 lpPreviewInfo.byProtoType = 0;
                 lpPreviewInfo.byPreviewMode = 0;
 
-                if (RealData == null)
+                if (RealData_Main == null)
                 {
-                    RealData = new CHCNetSDK.REALDATACALLBACK(RealDataCallBack);
+                    RealData_Main = new CHCNetSDK.REALDATACALLBACK(RealDataCallBack_Main);
                 }
 
                 IntPtr pUser = new IntPtr();
@@ -168,12 +183,12 @@ namespace IPCameraManager
                     Err_Return = CHCNetSDK.NET_DVR_GetLastError();
                     string str = "NET_DVR_RealPlay_V40 failed, error code= " + Err_Return;
                     MessageBox.Show(str);
-                    ResetImage();
+                    ResetImage_Main();
                     return ERR_NOT_OK;
                 }
                 else
                 {
-                    ResetImage();
+                    ResetImage_Main();
                     return ERR_OK;
                 }
             }
@@ -181,12 +196,12 @@ namespace IPCameraManager
         }
 
         //Xoa hinh anh Loading gif trong picture box RealPlayWnd
-        public void ResetImage()
+        public void ResetImage_Main()
         {
             RealPlayWnd.Image = null;
         }
 
-        public int Stop_PlayCam()
+        public int Stop_PlayMainCam()
         {
             if (MainCam_Manager.LoginInfo.LoginStatus < 0)
             {
@@ -211,7 +226,7 @@ namespace IPCameraManager
                 return ERR_OK;
             }
         }
-        public void RealDataCallBack(Int32 lRealHandle, UInt32 dwDataType, IntPtr pBuffer, UInt32 dwBufSize, IntPtr pUser)
+        public void RealDataCallBack_Main(Int32 lRealHandle, UInt32 dwDataType, IntPtr pBuffer, UInt32 dwBufSize, IntPtr pUser)
         {
             if (dwBufSize > 0)
             {
@@ -231,7 +246,7 @@ namespace IPCameraManager
         {
             if (MainCam_Manager.Live_Status < 0)
             {
-                if (ERR_OK == Start_PlayCam())
+                if (ERR_OK == Start_PlayMainCam())
                 {
                     btnOpen_MainCam.Text = "Tắt Camera";
                     btnOpen_MainCam.Visible = false;
@@ -244,7 +259,7 @@ namespace IPCameraManager
             }
             else
             {
-                if (ERR_OK == Stop_PlayCam())
+                if (ERR_OK == Stop_PlayMainCam())
                 {
                     btnOpen_MainCam.Text = "Bật Camera";
                 }
@@ -351,6 +366,8 @@ namespace IPCameraManager
                 fi.CopyTo(ImagePath, true);
             }
         }
+        //*****************************************************************************************************************
+        //****************************************** Access to Secondary Camera *******************************************
         // Show camera phụ
         public void btShowCamera2_Click(object sender, EventArgs e)
         {
@@ -364,6 +381,97 @@ namespace IPCameraManager
             LoginInfo.Password = "abcd1234";
             ShowCamera2Form form = new ShowCamera2Form(LoginInfo);
             form.ShowDialog();
+        }
+        public int Start_PlayCam2()
+        {
+            if (SecondaryCam_Manager.LoginInfo.LoginStatus < 0)
+            {
+                MessageBox.Show("Camera chưa kết nối!\rHãy kết nối camera trước.", "Lỗi: Chưa kết nối camera", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return ERR_NOT_OK;
+            }
+
+            if (SecondaryCam_Manager.Live_Status < 0)
+            {
+                CHCNetSDK.NET_DVR_PREVIEWINFO lpPreviewInfo = new CHCNetSDK.NET_DVR_PREVIEWINFO();
+                lpPreviewInfo.hPlayWnd = RealPlayWnd.Handle;
+                lpPreviewInfo.lChannel = 1;
+                lpPreviewInfo.dwStreamType = 0;
+                lpPreviewInfo.dwLinkMode = 0x0000;
+                lpPreviewInfo.bBlocked = true;
+                lpPreviewInfo.dwDisplayBufNum = 1;
+                lpPreviewInfo.byProtoType = 0;
+                lpPreviewInfo.byPreviewMode = 0;
+
+                if (RealData_Second == null)
+                {
+                    RealData_Second = new CHCNetSDK.REALDATACALLBACK(RealDataCallBack_Cam2);
+                }
+
+                IntPtr pUser = new IntPtr();
+
+                //Start live view 
+                SecondaryCam_Manager.Live_Status = CHCNetSDK.NET_DVR_RealPlay_V40(SecondaryCam_Manager.LoginInfo.LoginStatus,
+                                                                        ref lpPreviewInfo, null/*RealData*/, pUser);
+                if (SecondaryCam_Manager.Live_Status < 0)
+                {
+                    Err_Return = CHCNetSDK.NET_DVR_GetLastError();
+                    string str = "NET_DVR_RealPlay_V40 failed, error code= " + Err_Return;
+                    MessageBox.Show(str);
+                    ResetImage_Second();
+                    return ERR_NOT_OK;
+                }
+                else
+                {
+                    ResetImage_Second();
+                    return ERR_OK;
+                }
+            }
+            return ERR_NOT_OK;
+        }
+        //Xoa hinh anh Loading gif trong picture box imgPreview
+        public void ResetImage_Second()
+        {
+            imgPreview.Image = null;
+        }
+
+        public int Stop_PlayCam2()
+        {
+            if (SecondaryCam_Manager.LoginInfo.LoginStatus < 0)
+            {
+                MessageBox.Show("Camera chưa kết nối!\rHãy kết nối camera trước.", "Lỗi: Chưa kết nối camera", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return ERR_NOT_OK;
+            }
+            if (SecondaryCam_Manager.Live_Status < 0)
+            {
+                return ERR_NOT_OK;
+            }
+            // Stop live view 
+            if (!CHCNetSDK.NET_DVR_StopRealPlay(SecondaryCam_Manager.Live_Status))
+            {
+                Err_Return = CHCNetSDK.NET_DVR_GetLastError();
+                string str = "NET_DVR_StopRealPlay failed, error code= " + Err_Return;
+                MessageBox.Show(str);
+                return ERR_NOT_OK;
+            }
+            else
+            {
+                SecondaryCam_Manager.Live_Status = -1;
+                return ERR_OK;
+            }
+        }
+        public void RealDataCallBack_Cam2(Int32 lRealHandle, UInt32 dwDataType, IntPtr pBuffer, UInt32 dwBufSize, IntPtr pUser)
+        {
+            if (dwBufSize > 0)
+            {
+                byte[] sData = new byte[dwBufSize];
+                Marshal.Copy(pBuffer, sData, 0, (Int32)dwBufSize);
+
+                string str = "Hola.ps";
+                FileStream fs = new FileStream(str, FileMode.Create);
+                int iLen = (int)dwBufSize;
+                fs.Write(sData, 0, iLen);
+                fs.Close();
+            }
         }
     }
 }

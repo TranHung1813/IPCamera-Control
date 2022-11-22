@@ -154,6 +154,7 @@
     <Compile Include="UserControls\Page2.Designer.cs">
       <DependentUpon>Page2.cs</DependentUpon>
     </Compile>
+    <None Include="Resources\Loading_Cam2.gif" />
     <None Include="Resources\Loading.gif" />
     <EmbeddedResource Include="FormLoginCamera.resx">
       <DependentUpon>FormLoginCamera.cs</DependentUpon>

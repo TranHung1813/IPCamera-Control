@@ -259,7 +259,11 @@ namespace IPCameraManager
         {
             LoginInfo_MainCAM = info;
         }
-        public void Get_Login_Status(ref LoginCameraInfo_Type info)
+        public void Get_LoginStatus_MainCam(ref LoginCameraInfo_Type info)
+        {
+            info = LoginInfo_MainCAM;
+        }
+        public void Get_LoginStatus_Cam2(ref LoginCameraInfo_Type info)
         {
             info = LoginInfo_MainCAM;
         }

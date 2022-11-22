@@ -383,10 +383,11 @@ namespace IPCameraManager
             // imgPreview
             // 
             this.imgPreview.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.imgPreview.Image = global::IPCameraManager.Properties.Resources.Loading_Cam2;
             this.imgPreview.Location = new System.Drawing.Point(55, 246);
             this.imgPreview.Name = "imgPreview";
-            this.imgPreview.Size = new System.Drawing.Size(254, 194);
-            this.imgPreview.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.imgPreview.Size = new System.Drawing.Size(285, 194);
+            this.imgPreview.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
             this.imgPreview.TabIndex = 21;
             this.imgPreview.TabStop = false;
             // 
