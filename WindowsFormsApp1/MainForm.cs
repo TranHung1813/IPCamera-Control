@@ -34,6 +34,7 @@ namespace IPCameraManager
         //15. Luu folder save file vao database (done)
         //16. Check box Luu thong tin trong Form Login
         //17. Code them phan Secondary Camera
+        //18. Bug chuyen tab tu dong load du lieu trong (Form Login)
         private const int ERR_OK = 0;
         private const int ERR_NOT_OK = 1;
 
@@ -160,24 +161,56 @@ namespace IPCameraManager
         {
             if(formLoginCam.ShowDialog() == DialogResult.OK)
             {
-                btLogin_IPCamera.Visible = false;
-                TrangThaiCam.Text = "Camera chính: Kết nối Camera thành công. Đang tải hình ảnh ...";
-
-                // Lay thong tin dang nhap thanh cong hay that bai
+                /* ---------- CAMERA CHINH ---------- */
+                // Lay thong tin dang nhap Camera chinh thanh cong hay that bai
                 formLoginCam.Get_LoginStatus_MainCam(ref ucPage1.MainCam_Manager.LoginInfo);
-
-                // Start Live view
-                if (ERR_OK == ucPage1.Start_PlayMainCam())
+                if(ucPage1.MainCam_Manager.LoginInfo.LoginStatus < 0)
                 {
-                    TrangThaiCam.Text = "Camera chính: Đã kết nối!";
+                    // Login fail hoac khong login
                 }
                 else
                 {
-                    TrangThaiCam.Text = "Camera chính: Lỗi không xem được video!";
-                }
+                    // Login thanh cong
+                    btLogin_IPCamera.Visible = false;
+                    TrangThaiCam.Text = "Camera chính: Kết nối Camera thành công. Đang tải hình ảnh ...";
+                    // Start Live view
+                    if (ERR_OK == ucPage1.Start_PlayMainCam())
+                    {
+                        TrangThaiCam.Text = "Camera chính: Đã kết nối!";
+                    }
+                    else
+                    {
+                        TrangThaiCam.Text = "Camera chính: Lỗi không xem được video!";
+                    }
 
-                // Luu thong tin Ket noi Camera vao database
-                Save_LoginCamera_Info(ucPage1.MainCam_Manager.LoginInfo);
+                    // Luu thong tin Ket noi Camera vao database
+                    Save_LoginCamera_Info(ucPage1.MainCam_Manager.LoginInfo);
+                }
+                /* ---------- CAMERA PHU ---------- */
+                // Lay thong tin dang nhap Camera phu thanh cong hay that bai
+                formLoginCam.Get_LoginStatus_Cam2(ref ucPage1.SecondaryCam_Manager.LoginInfo);
+                if (ucPage1.SecondaryCam_Manager.LoginInfo.LoginStatus < 0)
+                {
+                    // Login fail hoac khong login
+                }
+                else
+                {
+                    // Login thanh cong
+                    btLogin_IPCamera.Visible = false;
+                    TrangThaiCam.Text = "Camera phụ: Kết nối Camera thành công. Đang tải hình ảnh ...";
+                    // Start Live view
+                    if (ERR_OK == ucPage1.Start_PlayCam2())
+                    {
+                        TrangThaiCam.Text = "Camera phụ: Đã kết nối!";
+                    }
+                    else
+                    {
+                        TrangThaiCam.Text = "Camera phụ: Lỗi không xem được video!";
+                    }
+
+                    // Luu thong tin Ket noi Camera vao database
+                    Save_LoginCamera_Info(ucPage1.SecondaryCam_Manager.LoginInfo);
+                }
             }
         }
         private void Save_LoginCamera_Info(LoginCameraInfo_Type LoginInfo)

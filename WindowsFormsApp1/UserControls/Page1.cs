@@ -393,7 +393,7 @@ namespace IPCameraManager
             if (SecondaryCam_Manager.Live_Status < 0)
             {
                 CHCNetSDK.NET_DVR_PREVIEWINFO lpPreviewInfo = new CHCNetSDK.NET_DVR_PREVIEWINFO();
-                lpPreviewInfo.hPlayWnd = RealPlayWnd.Handle;
+                lpPreviewInfo.hPlayWnd = imgPreview.Handle;
                 lpPreviewInfo.lChannel = 1;
                 lpPreviewInfo.dwStreamType = 0;
                 lpPreviewInfo.dwLinkMode = 0x0000;

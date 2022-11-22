@@ -84,6 +84,7 @@ namespace IPCameraManager
             this.guna2ControlBox1.ShadowDecoration.Parent = this.guna2ControlBox1;
             this.guna2ControlBox1.Size = new System.Drawing.Size(45, 40);
             this.guna2ControlBox1.TabIndex = 30;
+            this.guna2ControlBox1.Click += new System.EventHandler(this.guna2ControlBox1_Click);
             // 
             // textBoxUserName
             // 
@@ -332,7 +333,7 @@ namespace IPCameraManager
             // btTabCam2
             // 
             this.btTabCam2.BorderColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.btTabCam2.BorderRadius = 5;
+            this.btTabCam2.BorderRadius = 2;
             this.btTabCam2.ButtonMode = Guna.UI2.WinForms.Enums.ButtonMode.RadioButton;
             this.btTabCam2.CheckedState.CustomBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.btTabCam2.CheckedState.FillColor = System.Drawing.Color.White;
@@ -355,7 +356,7 @@ namespace IPCameraManager
             // btTabMainCam
             // 
             this.btTabMainCam.BorderColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.btTabMainCam.BorderRadius = 5;
+            this.btTabMainCam.BorderRadius = 2;
             this.btTabMainCam.ButtonMode = Guna.UI2.WinForms.Enums.ButtonMode.RadioButton;
             this.btTabMainCam.Checked = true;
             this.btTabMainCam.CheckedState.CustomBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
@@ -371,7 +372,7 @@ namespace IPCameraManager
             this.btTabMainCam.Location = new System.Drawing.Point(0, 0);
             this.btTabMainCam.Name = "btTabMainCam";
             this.btTabMainCam.ShadowDecoration.Parent = this.btTabMainCam;
-            this.btTabMainCam.Size = new System.Drawing.Size(150, 40);
+            this.btTabMainCam.Size = new System.Drawing.Size(151, 40);
             this.btTabMainCam.TabIndex = 0;
             this.btTabMainCam.Text = "Cam Chính";
             this.btTabMainCam.Click += new System.EventHandler(this.btTabMainCam_Click);

@@ -70,15 +70,14 @@ namespace IPCameraManager
                     if (ERR_OK == Login_Main_Camera(LoginInfo_MainCAM))
                     {
                         MessageBox.Show("Kết nối Camera thành công!");
-                        DialogResult = DialogResult.OK;
                     }
                 }
                 else
                 {
-                    if (ERR_OK == Logout_Main_Camera(LoginInfo_MainCAM))
-                    {
+                    //if (ERR_OK == Logout_Main_Camera(LoginInfo_MainCAM))
+                    //{
 
-                    }
+                    //}
                 }
             }
             else if (_Current_tabID == SECONDTAB)
@@ -88,20 +87,19 @@ namespace IPCameraManager
                 LoginInfo_CAM2.Port = textBoxPort.Text;
                 LoginInfo_CAM2.Username = textBoxUserName.Text;
                 LoginInfo_CAM2.Password = textBoxPassword.Text;
-                if (LoginInfo_MainCAM.LoginStatus < 0)
+                if (LoginInfo_CAM2.LoginStatus < 0)
                 {
-                    if (ERR_OK == Login_Second_Camera(LoginInfo_MainCAM))
+                    if (ERR_OK == Login_Second_Camera(LoginInfo_CAM2))
                     {
                         MessageBox.Show("Kết nối Camera thành công!");
-                        DialogResult = DialogResult.OK;
                     }
                 }
                 else
                 {
-                    if (ERR_OK == Logout_Second_Camera(LoginInfo_MainCAM))
-                    {
+                    //if (ERR_OK == Logout_Second_Camera(LoginInfo_MainCAM))
+                    //{
 
-                    }
+                    //}
                 }
             }
             
@@ -275,6 +273,7 @@ namespace IPCameraManager
 
         private void btTabMainCam_Click(object sender, EventArgs e)
         {
+            _Current_tabID = MAINTAB;
             textBoxIP.Text = LoginInfo_MainCAM.IP_Address;
             textBoxPort.Text = LoginInfo_MainCAM.Port;
             textBoxUserName.Text = LoginInfo_MainCAM.Username;
@@ -282,6 +281,7 @@ namespace IPCameraManager
         }
         private void btTabCam2_Click(object sender, EventArgs e)
         {
+            _Current_tabID = SECONDTAB;
             textBoxIP.Text = LoginInfo_CAM2.IP_Address;
             textBoxPort.Text = LoginInfo_CAM2.Port;
             textBoxUserName.Text = LoginInfo_CAM2.Username;
@@ -299,6 +299,11 @@ namespace IPCameraManager
                 btTabCam2_Click(sender, e);
             }
         }
+
+        private void guna2ControlBox1_Click(object sender, EventArgs e)
+        {
+            DialogResult = DialogResult.OK;
+        }
     }
     public struct LoginCameraInfo_Type
     {
@@ -311,7 +316,7 @@ namespace IPCameraManager
         public int LoginStatus { get { return _LoginStatus ?? -1; } set => _LoginStatus = value; }
         public string IP_Address { get { return _IP_Address ?? ""; } set => _IP_Address = value; }
         public string Port { get { return _Port ?? ""; } set => _Port = value; }
-        public string Username { get { return _Username ?? ""; } set => _Username = value; }
-        public string Password { get { return _Password ?? ""; } set => _Password = value; }
+        public string Username { get { return _Username ?? "admin"; } set => _Username = value; }
+        public string Password { get { return _Password ?? "abcd1234"; } set => _Password = value; }
     }
 }
