@@ -34,7 +34,8 @@ namespace IPCameraManager
         //15. Luu folder save file vao database (done)
         //16. Check box Luu thong tin trong Form Login
         //17. Code them phan Secondary Camera
-        //18. Bug chuyen tab tu dong load du lieu trong (Form Login)
+        //18. Bug chuyen tab tu dong load du lieu trong (Form Login) (done fix)
+        //19. Them Camera Phu Info vao database
         private const int ERR_OK = 0;
         private const int ERR_NOT_OK = 1;
 
@@ -159,16 +160,24 @@ namespace IPCameraManager
 
         private void btLogin_IPCamera_Click(object sender, EventArgs e)
         {
-            if(formLoginCam.ShowDialog() == DialogResult.OK)
+            // Check trang thai login truoc khi mo form
+            bool MainCam_Already_Login = false;
+            bool Cam2_Already_Login = false;
+            if (ucPage1.MainCam_Manager.LoginInfo.LoginStatus >= 0)
+            {
+                MainCam_Already_Login = true;
+            }
+            if (ucPage1.SecondaryCam_Manager.LoginInfo.LoginStatus >= 0)
+            {
+                Cam2_Already_Login = true;
+            }
+            if (formLoginCam.ShowDialog() == DialogResult.OK)
             {
                 /* ---------- CAMERA CHINH ---------- */
                 // Lay thong tin dang nhap Camera chinh thanh cong hay that bai
                 formLoginCam.Get_LoginStatus_MainCam(ref ucPage1.MainCam_Manager.LoginInfo);
-                if(ucPage1.MainCam_Manager.LoginInfo.LoginStatus < 0)
-                {
-                    // Login fail hoac khong login
-                }
-                else
+                // Login thanh cong va already login = false
+                if (ucPage1.MainCam_Manager.LoginInfo.LoginStatus >= 0 && (MainCam_Already_Login == false))
                 {
                     // Login thanh cong
                     btLogin_IPCamera.Visible = false;
@@ -189,11 +198,8 @@ namespace IPCameraManager
                 /* ---------- CAMERA PHU ---------- */
                 // Lay thong tin dang nhap Camera phu thanh cong hay that bai
                 formLoginCam.Get_LoginStatus_Cam2(ref ucPage1.SecondaryCam_Manager.LoginInfo);
-                if (ucPage1.SecondaryCam_Manager.LoginInfo.LoginStatus < 0)
-                {
-                    // Login fail hoac khong login
-                }
-                else
+                // Login thanh cong va already login = false
+                if (ucPage1.SecondaryCam_Manager.LoginInfo.LoginStatus >= 0 && (Cam2_Already_Login == false))
                 {
                     // Login thanh cong
                     btLogin_IPCamera.Visible = false;

@@ -113,6 +113,7 @@ namespace IPCameraManager
             this.textBoxUserName.ShadowDecoration.Parent = this.textBoxUserName;
             this.textBoxUserName.Size = new System.Drawing.Size(160, 30);
             this.textBoxUserName.TabIndex = 24;
+            this.textBoxUserName.TextChanged += new System.EventHandler(this.textBoxUserName_TextChanged);
             // 
             // label5
             // 
@@ -200,6 +201,7 @@ namespace IPCameraManager
             this.textBoxPort.ShadowDecoration.Parent = this.textBoxPort;
             this.textBoxPort.Size = new System.Drawing.Size(160, 30);
             this.textBoxPort.TabIndex = 22;
+            this.textBoxPort.TextChanged += new System.EventHandler(this.textBoxPort_TextChanged);
             // 
             // textBoxPassword
             // 
@@ -228,6 +230,7 @@ namespace IPCameraManager
             this.textBoxPassword.ShadowDecoration.Parent = this.textBoxPassword;
             this.textBoxPassword.Size = new System.Drawing.Size(160, 30);
             this.textBoxPassword.TabIndex = 25;
+            this.textBoxPassword.TextChanged += new System.EventHandler(this.textBoxPassword_TextChanged);
             // 
             // label8
             // 
@@ -267,6 +270,7 @@ namespace IPCameraManager
             this.textBoxIP.ShadowDecoration.Parent = this.textBoxIP;
             this.textBoxIP.Size = new System.Drawing.Size(160, 30);
             this.textBoxIP.TabIndex = 21;
+            this.textBoxIP.TextChanged += new System.EventHandler(this.textBoxIP_TextChanged);
             // 
             // guna2CheckBox1
             // 

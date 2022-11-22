@@ -110,7 +110,15 @@ namespace IPCameraManager
             if (info.LoginStatus < 0)
             {
                 string DVRIPAddress = info.IP_Address;
-                Int16 DVRPortNumber = Int16.Parse(info.Port);
+                Int16 DVRPortNumber;
+                try
+                {
+                    DVRPortNumber = Int16.Parse(info.Port);
+                }
+                catch
+                {
+                    return ERR_NOT_OK;
+                }
                 string DVRUserName = info.Username;
                 string DVRPassword = info.Password;
 
@@ -153,7 +161,15 @@ namespace IPCameraManager
             if (info.LoginStatus < 0)
             {
                 string DVRIPAddress = info.IP_Address;
-                Int16 DVRPortNumber = Int16.Parse(info.Port);
+                Int16 DVRPortNumber;
+                try
+                {
+                    DVRPortNumber = Int16.Parse(info.Port);
+                }
+                catch
+                {
+                    return ERR_NOT_OK;
+                }
                 string DVRUserName = info.Username;
                 string DVRPassword = info.Password;
 
@@ -263,7 +279,7 @@ namespace IPCameraManager
         }
         public void Get_LoginStatus_Cam2(ref LoginCameraInfo_Type info)
         {
-            info = LoginInfo_MainCAM;
+            info = LoginInfo_CAM2;
         }
 
         private void guna2Button1_Click(object sender, EventArgs e)
@@ -303,6 +319,54 @@ namespace IPCameraManager
         private void guna2ControlBox1_Click(object sender, EventArgs e)
         {
             DialogResult = DialogResult.OK;
+        }
+
+        private void textBoxIP_TextChanged(object sender, EventArgs e)
+        {
+            if (_Current_tabID == MAINTAB)
+            {
+                LoginInfo_MainCAM.IP_Address = textBoxIP.Text;
+            }
+            else if (_Current_tabID == SECONDTAB)
+            {
+                LoginInfo_CAM2.IP_Address = textBoxIP.Text;
+            }
+        }
+
+        private void textBoxPort_TextChanged(object sender, EventArgs e)
+        {
+            if (_Current_tabID == MAINTAB)
+            {
+                LoginInfo_MainCAM.Port = textBoxPort.Text;
+            }
+            else if (_Current_tabID == SECONDTAB)
+            {
+                LoginInfo_CAM2.Port = textBoxPort.Text;
+            }
+        }
+
+        private void textBoxUserName_TextChanged(object sender, EventArgs e)
+        {
+            if (_Current_tabID == MAINTAB)
+            {
+                LoginInfo_MainCAM.Username = textBoxUserName.Text;
+            }
+            else if (_Current_tabID == SECONDTAB)
+            {
+                LoginInfo_CAM2.Username = textBoxUserName.Text;
+            }
+        }
+
+        private void textBoxPassword_TextChanged(object sender, EventArgs e)
+        {
+            if (_Current_tabID == MAINTAB)
+            {
+                LoginInfo_MainCAM.Password = textBoxPassword.Text;
+            }
+            else if (_Current_tabID == SECONDTAB)
+            {
+                LoginInfo_CAM2.Password = textBoxPassword.Text;
+            }
         }
     }
     public struct LoginCameraInfo_Type
