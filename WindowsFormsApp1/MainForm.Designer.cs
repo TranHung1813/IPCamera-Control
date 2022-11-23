@@ -51,6 +51,7 @@ namespace IPCameraManager
             this.panelBorder_Left = new System.Windows.Forms.Panel();
             this.panelBorder_Right = new System.Windows.Forms.Panel();
             this.timer_Update_PatientInfo_to_Page2 = new System.Windows.Forms.Timer(this.components);
+            this.timer_GetCamStatus = new System.Windows.Forms.Timer(this.components);
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel2.SuspendLayout();
@@ -315,6 +316,11 @@ namespace IPCameraManager
             this.timer_Update_PatientInfo_to_Page2.Enabled = true;
             this.timer_Update_PatientInfo_to_Page2.Tick += new System.EventHandler(this.timer_Update_PatientInfo_to_Page2_Tick);
             // 
+            // timer_GetCamStatus
+            // 
+            this.timer_GetCamStatus.Interval = 1000;
+            this.timer_GetCamStatus.Tick += new System.EventHandler(this.timer_GetCamStatus_Tick);
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -366,6 +372,7 @@ namespace IPCameraManager
         private Guna.UI2.WinForms.Guna2Button btExit;
         private System.Windows.Forms.Button btCamRefresh_R;
         private System.Windows.Forms.Timer timer_Update_PatientInfo_to_Page2;
+        private System.Windows.Forms.Timer timer_GetCamStatus;
     }
 }
 

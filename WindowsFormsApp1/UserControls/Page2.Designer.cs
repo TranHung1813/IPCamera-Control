@@ -30,8 +30,8 @@ namespace IPCameraManager
         private void InitializeComponent()
         {
             this.groupBox6 = new System.Windows.Forms.GroupBox();
-            this.guna2Button2 = new Guna.UI2.WinForms.Guna2Button();
-            this.guna2Button1 = new Guna.UI2.WinForms.Guna2Button();
+            this.btXoaChonAnh1 = new Guna.UI2.WinForms.Guna2Button();
+            this.btChonAnh1 = new Guna.UI2.WinForms.Guna2Button();
             this.label10 = new System.Windows.Forms.Label();
             this.picBox1 = new System.Windows.Forms.PictureBox();
             this.txtPath1 = new System.Windows.Forms.TextBox();
@@ -53,10 +53,10 @@ namespace IPCameraManager
             this.picBox2 = new System.Windows.Forms.PictureBox();
             this.txtPath2 = new System.Windows.Forms.TextBox();
             this.groupBox7 = new System.Windows.Forms.GroupBox();
-            this.guna2Button3 = new Guna.UI2.WinForms.Guna2Button();
-            this.guna2Button4 = new Guna.UI2.WinForms.Guna2Button();
-            this.guna2Button5 = new Guna.UI2.WinForms.Guna2Button();
-            this.guna2Button6 = new Guna.UI2.WinForms.Guna2Button();
+            this.btXoaChonAnh2 = new Guna.UI2.WinForms.Guna2Button();
+            this.btChonAnh2 = new Guna.UI2.WinForms.Guna2Button();
+            this.btInPhieu_F9 = new Guna.UI2.WinForms.Guna2Button();
+            this.btExit_F12 = new Guna.UI2.WinForms.Guna2Button();
             this.groupBox6.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picBox1)).BeginInit();
             this.groupBox5.SuspendLayout();
@@ -67,8 +67,8 @@ namespace IPCameraManager
             // 
             // groupBox6
             // 
-            this.groupBox6.Controls.Add(this.guna2Button2);
-            this.groupBox6.Controls.Add(this.guna2Button1);
+            this.groupBox6.Controls.Add(this.btXoaChonAnh1);
+            this.groupBox6.Controls.Add(this.btChonAnh1);
             this.groupBox6.Controls.Add(this.label10);
             this.groupBox6.Controls.Add(this.picBox1);
             this.groupBox6.Controls.Add(this.txtPath1);
@@ -80,45 +80,47 @@ namespace IPCameraManager
             this.groupBox6.TabStop = false;
             this.groupBox6.Text = "KỲ RẶN";
             // 
-            // guna2Button2
+            // btXoaChonAnh1
             // 
-            this.guna2Button2.BackColor = System.Drawing.Color.Transparent;
-            this.guna2Button2.BorderColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.guna2Button2.BorderRadius = 5;
-            this.guna2Button2.BorderThickness = 1;
-            this.guna2Button2.CheckedState.Parent = this.guna2Button2;
-            this.guna2Button2.CustomImages.Parent = this.guna2Button2;
-            this.guna2Button2.FillColor = System.Drawing.Color.White;
-            this.guna2Button2.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.guna2Button2.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.guna2Button2.HoverState.FillColor = System.Drawing.Color.LightSteelBlue;
-            this.guna2Button2.HoverState.Parent = this.guna2Button2;
-            this.guna2Button2.Location = new System.Drawing.Point(461, 180);
-            this.guna2Button2.Name = "guna2Button2";
-            this.guna2Button2.ShadowDecoration.Parent = this.guna2Button2;
-            this.guna2Button2.Size = new System.Drawing.Size(119, 54);
-            this.guna2Button2.TabIndex = 5;
-            this.guna2Button2.Text = "Xóa chọn";
+            this.btXoaChonAnh1.BackColor = System.Drawing.Color.Transparent;
+            this.btXoaChonAnh1.BorderColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.btXoaChonAnh1.BorderRadius = 5;
+            this.btXoaChonAnh1.BorderThickness = 1;
+            this.btXoaChonAnh1.CheckedState.Parent = this.btXoaChonAnh1;
+            this.btXoaChonAnh1.CustomImages.Parent = this.btXoaChonAnh1;
+            this.btXoaChonAnh1.FillColor = System.Drawing.Color.White;
+            this.btXoaChonAnh1.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btXoaChonAnh1.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.btXoaChonAnh1.HoverState.FillColor = System.Drawing.Color.LightSteelBlue;
+            this.btXoaChonAnh1.HoverState.Parent = this.btXoaChonAnh1;
+            this.btXoaChonAnh1.Location = new System.Drawing.Point(461, 180);
+            this.btXoaChonAnh1.Name = "btXoaChonAnh1";
+            this.btXoaChonAnh1.ShadowDecoration.Parent = this.btXoaChonAnh1;
+            this.btXoaChonAnh1.Size = new System.Drawing.Size(119, 54);
+            this.btXoaChonAnh1.TabIndex = 5;
+            this.btXoaChonAnh1.Text = "Xóa chọn";
+            this.btXoaChonAnh1.Click += new System.EventHandler(this.btXoaChonAnh1_Click);
             // 
-            // guna2Button1
+            // btChonAnh1
             // 
-            this.guna2Button1.BackColor = System.Drawing.Color.Transparent;
-            this.guna2Button1.BorderColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.guna2Button1.BorderRadius = 5;
-            this.guna2Button1.BorderThickness = 1;
-            this.guna2Button1.CheckedState.Parent = this.guna2Button1;
-            this.guna2Button1.CustomImages.Parent = this.guna2Button1;
-            this.guna2Button1.FillColor = System.Drawing.Color.White;
-            this.guna2Button1.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.guna2Button1.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.guna2Button1.HoverState.FillColor = System.Drawing.Color.LightSteelBlue;
-            this.guna2Button1.HoverState.Parent = this.guna2Button1;
-            this.guna2Button1.Location = new System.Drawing.Point(461, 90);
-            this.guna2Button1.Name = "guna2Button1";
-            this.guna2Button1.ShadowDecoration.Parent = this.guna2Button1;
-            this.guna2Button1.Size = new System.Drawing.Size(119, 54);
-            this.guna2Button1.TabIndex = 4;
-            this.guna2Button1.Text = "Chọn ảnh";
+            this.btChonAnh1.BackColor = System.Drawing.Color.Transparent;
+            this.btChonAnh1.BorderColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.btChonAnh1.BorderRadius = 5;
+            this.btChonAnh1.BorderThickness = 1;
+            this.btChonAnh1.CheckedState.Parent = this.btChonAnh1;
+            this.btChonAnh1.CustomImages.Parent = this.btChonAnh1;
+            this.btChonAnh1.FillColor = System.Drawing.Color.White;
+            this.btChonAnh1.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btChonAnh1.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.btChonAnh1.HoverState.FillColor = System.Drawing.Color.LightSteelBlue;
+            this.btChonAnh1.HoverState.Parent = this.btChonAnh1;
+            this.btChonAnh1.Location = new System.Drawing.Point(461, 90);
+            this.btChonAnh1.Name = "btChonAnh1";
+            this.btChonAnh1.ShadowDecoration.Parent = this.btChonAnh1;
+            this.btChonAnh1.Size = new System.Drawing.Size(119, 54);
+            this.btChonAnh1.TabIndex = 4;
+            this.btChonAnh1.Text = "Chọn ảnh";
+            this.btChonAnh1.Click += new System.EventHandler(this.btChonAnh1_Click);
             // 
             // label10
             // 
@@ -142,6 +144,7 @@ namespace IPCameraManager
             // 
             // txtPath1
             // 
+            this.txtPath1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtPath1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtPath1.Location = new System.Drawing.Point(117, 28);
             this.txtPath1.Name = "txtPath1";
@@ -424,6 +427,7 @@ namespace IPCameraManager
             // 
             // txtPath2
             // 
+            this.txtPath2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtPath2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtPath2.Location = new System.Drawing.Point(117, 28);
             this.txtPath2.Name = "txtPath2";
@@ -432,8 +436,8 @@ namespace IPCameraManager
             // 
             // groupBox7
             // 
-            this.groupBox7.Controls.Add(this.guna2Button3);
-            this.groupBox7.Controls.Add(this.guna2Button4);
+            this.groupBox7.Controls.Add(this.btXoaChonAnh2);
+            this.groupBox7.Controls.Add(this.btChonAnh2);
             this.groupBox7.Controls.Add(this.label11);
             this.groupBox7.Controls.Add(this.picBox2);
             this.groupBox7.Controls.Add(this.txtPath2);
@@ -445,99 +449,103 @@ namespace IPCameraManager
             this.groupBox7.TabStop = false;
             this.groupBox7.Text = "KỲ NÍN";
             // 
-            // guna2Button3
+            // btXoaChonAnh2
             // 
-            this.guna2Button3.BackColor = System.Drawing.Color.Transparent;
-            this.guna2Button3.BorderColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.guna2Button3.BorderRadius = 5;
-            this.guna2Button3.BorderThickness = 1;
-            this.guna2Button3.CheckedState.Parent = this.guna2Button3;
-            this.guna2Button3.CustomImages.Parent = this.guna2Button3;
-            this.guna2Button3.FillColor = System.Drawing.Color.White;
-            this.guna2Button3.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.guna2Button3.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.guna2Button3.HoverState.FillColor = System.Drawing.Color.LightSteelBlue;
-            this.guna2Button3.HoverState.Parent = this.guna2Button3;
-            this.guna2Button3.Location = new System.Drawing.Point(461, 180);
-            this.guna2Button3.Name = "guna2Button3";
-            this.guna2Button3.ShadowDecoration.Parent = this.guna2Button3;
-            this.guna2Button3.Size = new System.Drawing.Size(119, 54);
-            this.guna2Button3.TabIndex = 7;
-            this.guna2Button3.Text = "Xóa chọn";
+            this.btXoaChonAnh2.BackColor = System.Drawing.Color.Transparent;
+            this.btXoaChonAnh2.BorderColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.btXoaChonAnh2.BorderRadius = 5;
+            this.btXoaChonAnh2.BorderThickness = 1;
+            this.btXoaChonAnh2.CheckedState.Parent = this.btXoaChonAnh2;
+            this.btXoaChonAnh2.CustomImages.Parent = this.btXoaChonAnh2;
+            this.btXoaChonAnh2.FillColor = System.Drawing.Color.White;
+            this.btXoaChonAnh2.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btXoaChonAnh2.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.btXoaChonAnh2.HoverState.FillColor = System.Drawing.Color.LightSteelBlue;
+            this.btXoaChonAnh2.HoverState.Parent = this.btXoaChonAnh2;
+            this.btXoaChonAnh2.Location = new System.Drawing.Point(461, 180);
+            this.btXoaChonAnh2.Name = "btXoaChonAnh2";
+            this.btXoaChonAnh2.ShadowDecoration.Parent = this.btXoaChonAnh2;
+            this.btXoaChonAnh2.Size = new System.Drawing.Size(119, 54);
+            this.btXoaChonAnh2.TabIndex = 7;
+            this.btXoaChonAnh2.Text = "Xóa chọn";
+            this.btXoaChonAnh2.Click += new System.EventHandler(this.btXoaChonAnh2_Click);
             // 
-            // guna2Button4
+            // btChonAnh2
             // 
-            this.guna2Button4.BackColor = System.Drawing.Color.Transparent;
-            this.guna2Button4.BorderColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.guna2Button4.BorderRadius = 5;
-            this.guna2Button4.BorderThickness = 1;
-            this.guna2Button4.CheckedState.Parent = this.guna2Button4;
-            this.guna2Button4.CustomImages.Parent = this.guna2Button4;
-            this.guna2Button4.FillColor = System.Drawing.Color.White;
-            this.guna2Button4.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.guna2Button4.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.guna2Button4.HoverState.FillColor = System.Drawing.Color.LightSteelBlue;
-            this.guna2Button4.HoverState.Parent = this.guna2Button4;
-            this.guna2Button4.Location = new System.Drawing.Point(461, 90);
-            this.guna2Button4.Name = "guna2Button4";
-            this.guna2Button4.ShadowDecoration.Parent = this.guna2Button4;
-            this.guna2Button4.Size = new System.Drawing.Size(119, 54);
-            this.guna2Button4.TabIndex = 6;
-            this.guna2Button4.Text = "Chọn ảnh";
+            this.btChonAnh2.BackColor = System.Drawing.Color.Transparent;
+            this.btChonAnh2.BorderColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.btChonAnh2.BorderRadius = 5;
+            this.btChonAnh2.BorderThickness = 1;
+            this.btChonAnh2.CheckedState.Parent = this.btChonAnh2;
+            this.btChonAnh2.CustomImages.Parent = this.btChonAnh2;
+            this.btChonAnh2.FillColor = System.Drawing.Color.White;
+            this.btChonAnh2.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btChonAnh2.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.btChonAnh2.HoverState.FillColor = System.Drawing.Color.LightSteelBlue;
+            this.btChonAnh2.HoverState.Parent = this.btChonAnh2;
+            this.btChonAnh2.Location = new System.Drawing.Point(461, 90);
+            this.btChonAnh2.Name = "btChonAnh2";
+            this.btChonAnh2.ShadowDecoration.Parent = this.btChonAnh2;
+            this.btChonAnh2.Size = new System.Drawing.Size(119, 54);
+            this.btChonAnh2.TabIndex = 6;
+            this.btChonAnh2.Text = "Chọn ảnh";
+            this.btChonAnh2.Click += new System.EventHandler(this.btChonAnh2_Click);
             // 
-            // guna2Button5
+            // btInPhieu_F9
             // 
-            this.guna2Button5.BackColor = System.Drawing.Color.Transparent;
-            this.guna2Button5.BorderColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.guna2Button5.BorderRadius = 5;
-            this.guna2Button5.BorderThickness = 1;
-            this.guna2Button5.CheckedState.Parent = this.guna2Button5;
-            this.guna2Button5.CustomImages.Parent = this.guna2Button5;
-            this.guna2Button5.FillColor = System.Drawing.Color.White;
-            this.guna2Button5.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.guna2Button5.ForeColor = System.Drawing.Color.Black;
-            this.guna2Button5.HoverState.FillColor = System.Drawing.Color.LightSteelBlue;
-            this.guna2Button5.HoverState.Parent = this.guna2Button5;
-            this.guna2Button5.Image = global::IPCameraManager.Properties.Resources.Printer;
-            this.guna2Button5.ImageSize = new System.Drawing.Size(35, 35);
-            this.guna2Button5.Location = new System.Drawing.Point(784, 464);
-            this.guna2Button5.Name = "guna2Button5";
-            this.guna2Button5.ShadowDecoration.Parent = this.guna2Button5;
-            this.guna2Button5.Size = new System.Drawing.Size(152, 61);
-            this.guna2Button5.TabIndex = 39;
-            this.guna2Button5.Text = " In Phiếu (F9)";
-            this.guna2Button5.UseTransparentBackground = true;
+            this.btInPhieu_F9.BackColor = System.Drawing.Color.Transparent;
+            this.btInPhieu_F9.BorderColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.btInPhieu_F9.BorderRadius = 5;
+            this.btInPhieu_F9.BorderThickness = 1;
+            this.btInPhieu_F9.CheckedState.Parent = this.btInPhieu_F9;
+            this.btInPhieu_F9.CustomImages.Parent = this.btInPhieu_F9;
+            this.btInPhieu_F9.FillColor = System.Drawing.Color.White;
+            this.btInPhieu_F9.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btInPhieu_F9.ForeColor = System.Drawing.Color.Black;
+            this.btInPhieu_F9.HoverState.FillColor = System.Drawing.Color.LightSteelBlue;
+            this.btInPhieu_F9.HoverState.Parent = this.btInPhieu_F9;
+            this.btInPhieu_F9.Image = global::IPCameraManager.Properties.Resources.Printer;
+            this.btInPhieu_F9.ImageSize = new System.Drawing.Size(35, 35);
+            this.btInPhieu_F9.Location = new System.Drawing.Point(784, 464);
+            this.btInPhieu_F9.Name = "btInPhieu_F9";
+            this.btInPhieu_F9.ShadowDecoration.Parent = this.btInPhieu_F9;
+            this.btInPhieu_F9.Size = new System.Drawing.Size(152, 61);
+            this.btInPhieu_F9.TabIndex = 39;
+            this.btInPhieu_F9.Text = " In Phiếu (F9)";
+            this.btInPhieu_F9.UseTransparentBackground = true;
+            this.btInPhieu_F9.Click += new System.EventHandler(this.btInPhieu_F9_Click);
             // 
-            // guna2Button6
+            // btExit_F12
             // 
-            this.guna2Button6.BackColor = System.Drawing.Color.Transparent;
-            this.guna2Button6.BorderColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.guna2Button6.BorderRadius = 5;
-            this.guna2Button6.BorderThickness = 1;
-            this.guna2Button6.CheckedState.BorderColor = System.Drawing.Color.Blue;
-            this.guna2Button6.CheckedState.Parent = this.guna2Button6;
-            this.guna2Button6.CustomImages.Parent = this.guna2Button6;
-            this.guna2Button6.FillColor = System.Drawing.Color.White;
-            this.guna2Button6.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.guna2Button6.ForeColor = System.Drawing.Color.Black;
-            this.guna2Button6.HoverState.FillColor = System.Drawing.Color.LightSteelBlue;
-            this.guna2Button6.HoverState.Parent = this.guna2Button6;
-            this.guna2Button6.Image = global::IPCameraManager.Properties.Resources.exit;
-            this.guna2Button6.ImageSize = new System.Drawing.Size(35, 35);
-            this.guna2Button6.Location = new System.Drawing.Point(785, 534);
-            this.guna2Button6.Name = "guna2Button6";
-            this.guna2Button6.ShadowDecoration.Parent = this.guna2Button6;
-            this.guna2Button6.Size = new System.Drawing.Size(152, 61);
-            this.guna2Button6.TabIndex = 40;
-            this.guna2Button6.Text = "  Thoát (F12)";
-            this.guna2Button6.UseTransparentBackground = true;
+            this.btExit_F12.BackColor = System.Drawing.Color.Transparent;
+            this.btExit_F12.BorderColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.btExit_F12.BorderRadius = 5;
+            this.btExit_F12.BorderThickness = 1;
+            this.btExit_F12.CheckedState.BorderColor = System.Drawing.Color.Blue;
+            this.btExit_F12.CheckedState.Parent = this.btExit_F12;
+            this.btExit_F12.CustomImages.Parent = this.btExit_F12;
+            this.btExit_F12.FillColor = System.Drawing.Color.White;
+            this.btExit_F12.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btExit_F12.ForeColor = System.Drawing.Color.Black;
+            this.btExit_F12.HoverState.FillColor = System.Drawing.Color.LightSteelBlue;
+            this.btExit_F12.HoverState.Parent = this.btExit_F12;
+            this.btExit_F12.Image = global::IPCameraManager.Properties.Resources.exit;
+            this.btExit_F12.ImageSize = new System.Drawing.Size(35, 35);
+            this.btExit_F12.Location = new System.Drawing.Point(785, 534);
+            this.btExit_F12.Name = "btExit_F12";
+            this.btExit_F12.ShadowDecoration.Parent = this.btExit_F12;
+            this.btExit_F12.Size = new System.Drawing.Size(152, 61);
+            this.btExit_F12.TabIndex = 40;
+            this.btExit_F12.Text = "  Thoát (F12)";
+            this.btExit_F12.UseTransparentBackground = true;
+            this.btExit_F12.Click += new System.EventHandler(this.btExit_F12_Click);
             // 
             // Page2
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Controls.Add(this.guna2Button6);
-            this.Controls.Add(this.guna2Button5);
+            this.Controls.Add(this.btExit_F12);
+            this.Controls.Add(this.btInPhieu_F9);
             this.Controls.Add(this.groupBox7);
             this.Controls.Add(this.pictureBox2);
             this.Controls.Add(this.groupBox5);
@@ -576,12 +584,12 @@ namespace IPCameraManager
         private System.Windows.Forms.PictureBox picBox2;
         private System.Windows.Forms.TextBox txtPath2;
         private System.Windows.Forms.GroupBox groupBox7;
-        private Guna.UI2.WinForms.Guna2Button guna2Button1;
-        private Guna.UI2.WinForms.Guna2Button guna2Button2;
-        private Guna.UI2.WinForms.Guna2Button guna2Button3;
-        private Guna.UI2.WinForms.Guna2Button guna2Button4;
-        private Guna.UI2.WinForms.Guna2Button guna2Button5;
-        private Guna.UI2.WinForms.Guna2Button guna2Button6;
+        private Guna.UI2.WinForms.Guna2Button btChonAnh1;
+        private Guna.UI2.WinForms.Guna2Button btXoaChonAnh1;
+        private Guna.UI2.WinForms.Guna2Button btXoaChonAnh2;
+        private Guna.UI2.WinForms.Guna2Button btChonAnh2;
+        private Guna.UI2.WinForms.Guna2Button btInPhieu_F9;
+        private Guna.UI2.WinForms.Guna2Button btExit_F12;
         private Guna.UI2.WinForms.Guna2TextBox tbMaBN_IN;
         private Guna.UI2.WinForms.Guna2TextBox tbHoTenBN_IN;
         private Guna.UI2.WinForms.Guna2TextBox tbGioiTinh_IN;

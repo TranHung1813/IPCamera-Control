@@ -72,3 +72,6 @@ E:\Projects\IPCamera Control\WindowsFormsApp1\bin\x64\Debug\System.Numerics.Vect
 E:\Projects\IPCamera Control\WindowsFormsApp1\bin\x64\Debug\System.Resources.Extensions.xml
 E:\Projects\IPCamera Control\WindowsFormsApp1\bin\x64\Debug\System.Runtime.CompilerServices.Unsafe.xml
 E:\Projects\IPCamera Control\WindowsFormsApp1\obj\x64\Debug\IPCameraManager.ShowCamera2Form.resources
+E:\Projects\IPCamera Control\WindowsFormsApp1\bin\x64\Debug\USB-Barcode-Scanner.dll
+E:\Projects\IPCamera Control\WindowsFormsApp1\obj\x64\Debug\IPCamera_Manager.csproj.ResolveComReference.cache
+E:\Projects\IPCamera Control\WindowsFormsApp1\obj\x64\Debug\IPCameraManager.UserControls.PageSearchPatient.resources

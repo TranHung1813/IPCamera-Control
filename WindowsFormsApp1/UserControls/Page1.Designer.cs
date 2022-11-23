@@ -113,14 +113,15 @@ namespace IPCameraManager
             // cbGioiTinh
             // 
             this.cbGioiTinh.Items.AddRange(new object[] {
-            " KHÁC",
             " NAM",
-            " NỮ"});
+            " NỮ",
+            " KHÁC"});
             this.cbGioiTinh.Location = new System.Drawing.Point(114, 93);
             this.cbGioiTinh.Name = "cbGioiTinh";
             this.cbGioiTinh.Size = new System.Drawing.Size(106, 27);
             this.cbGioiTinh.TabIndex = 40;
             this.cbGioiTinh.Text = " NAM";
+            this.cbGioiTinh.Click += new System.EventHandler(this.cbGioiTinh_Click);
             // 
             // label5
             // 

@@ -9,6 +9,7 @@ using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using USB_Barcode_Scanner;
 
 namespace IPCameraManager
 {
@@ -33,8 +34,6 @@ namespace IPCameraManager
 
         SetFoldertoSaveFile_Form SetFolder_Form = new SetFoldertoSaveFile_Form();
         private string FolderName_to_saveFile = "";
-
-        LoginCameraInfo_Type LoginInfo;
 
         private void Init_IPCamera()
         {
@@ -80,6 +79,10 @@ namespace IPCameraManager
 
             // Set ngay kham bang real time
             tbNgayKham.Text = DateTime.Now.ToString("dd/MM/yyyy");
+
+            // Barcode Scanner
+            BarcodeScanner barcodeScanner = new BarcodeScanner(tbMaBenhNhan);
+            barcodeScanner.BarcodeScanned += Barcode_Scanned;  
         }
 
         protected override void Dispose(bool disposing)
@@ -138,6 +141,14 @@ namespace IPCameraManager
                 };
             }
         }
+        public void GetFolderName_to_SaveFile (ref string FolderName)
+        {
+            FolderName = FolderName_to_saveFile;
+        }
+        private void Barcode_Scanned(object sender, BarcodeScannerEventArgs e)
+        {
+            tbMaBenhNhan.Text = e.Barcode;
+        }
 
         public void btExit_F12_Click(object sender, EventArgs e)
         {
@@ -183,6 +194,7 @@ namespace IPCameraManager
                                                                         ref lpPreviewInfo, null/*RealData*/, pUser);
                 if (MainCam_Manager.Live_Status < 0)
                 {
+
                     Err_Return = CHCNetSDK.NET_DVR_GetLastError();
                     string str = "Camera chính: Load video thất bại, error code = " + Err_Return;
                     MessageBox.Show(str, "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -378,11 +390,7 @@ namespace IPCameraManager
             {
                 btShowCamera2.Focus();
             }
-            LoginInfo.IP_Address = "192.168.2.247";
-            LoginInfo.Port = "8000";
-            LoginInfo.Username = "admin";
-            LoginInfo.Password = "abcd1234";
-            ShowCamera2Form form = new ShowCamera2Form(LoginInfo);
+            ShowCamera2Form form = new ShowCamera2Form(SecondaryCam_Manager.LoginInfo);
             form.ShowDialog();
         }
         public int Start_PlayCam2()
@@ -475,6 +483,11 @@ namespace IPCameraManager
                 fs.Write(sData, 0, iLen);
                 fs.Close();
             }
+        }
+        private void cbGioiTinh_Click(object sender, EventArgs e)
+        {
+            cbGioiTinh.DroppedDown = true;
+            cbGioiTinh.Cursor = Cursors.Arrow;
         }
         //*****************************************************************************************************************
         //****************************************** Contact with Page 2 *******************************************

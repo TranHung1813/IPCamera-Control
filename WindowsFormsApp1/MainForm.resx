@@ -9658,4 +9658,7 @@
   <metadata name="timer_Update_PatientInfo_to_Page2.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>400, 3</value>
   </metadata>
+  <metadata name="timer_GetCamStatus.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>645, 3</value>
+  </metadata>
 </root>
