@@ -68,8 +68,20 @@ namespace IPCameraManager
             ucPage1.GetFolderName_to_SaveFile(ref FolderName);
             ucPage2.SetFolderName(FolderName);
             Control.CheckForIllegalCrossThreadCalls = false;
-
+            // Register event button Ket no Camera click
+            ucPage1.NotifyConnect_MainCam += UcPage1_NotifyConnect_MainCam;
+            ucPage1.NotifyConnect_SecondaryCam += UcPage1_NotifyConnect_SecondaryCam;
         }
+
+        private void UcPage1_NotifyConnect_MainCam(object sender, NotifyConnectMainCam e)
+        {
+            btLogin_IPCamera_Click(sender, e);
+        }
+        private void UcPage1_NotifyConnect_SecondaryCam(object sender, NotifyConnectSecondaryCam e)
+        {
+            btLogin_IPCamera_Click(sender, e);
+        }
+
         void RoomView_KeyUp(object sender, KeyEventArgs e)
         {
             switch (e.KeyCode)

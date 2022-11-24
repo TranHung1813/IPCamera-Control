@@ -1,13 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
 using System.IO;
 using System.Linq;
-using System.Runtime.InteropServices;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using USB_Barcode_Scanner;
 
@@ -70,7 +64,7 @@ namespace IPCameraManager
             // Get Folder Save File info
             DataUser_Other_Info Info = SqliteDataAccess.Load_Other_Info();
 
-            if(Info != null)
+            if (Info != null)
             {
                 FolderName_to_saveFile = Info.FolderSaveFile;
                 SetFolder_Form.SetFolderName(FolderName_to_saveFile);
@@ -85,9 +79,46 @@ namespace IPCameraManager
 
             // Barcode Scanner
             BarcodeScanner barcodeScanner = new BarcodeScanner(tbMaBenhNhan);
-            barcodeScanner.BarcodeScanned += Barcode_Scanned;  
+            barcodeScanner.BarcodeScanned += Barcode_Scanned;
         }
-
+        private event EventHandler<NotifyConnectMainCam> _NotifyConnect_MainCam;
+        public event EventHandler<NotifyConnectMainCam> NotifyConnect_MainCam
+        {
+            add
+            {
+                _NotifyConnect_MainCam += value;
+            }
+            remove
+            {
+                _NotifyConnect_MainCam -= value;
+            }
+        }
+        private event EventHandler<NotifyConnectSecondaryCam> _NotifyConnect_SecondaryCam;
+        public event EventHandler<NotifyConnectSecondaryCam> NotifyConnect_SecondaryCam
+        {
+            add
+            {
+                _NotifyConnect_SecondaryCam += value;
+            }
+            remove
+            {
+                _NotifyConnect_SecondaryCam -= value;
+            }
+        }
+        protected virtual void OnNotifyConnect_MainCam()
+        {
+            if (_NotifyConnect_MainCam != null)
+            {
+                _NotifyConnect_MainCam(this, new NotifyConnectMainCam());
+            }
+        }
+        protected virtual void OnNotifyConnect_SecondaryCam()
+        {
+            if (_NotifyConnect_SecondaryCam != null)
+            {
+                _NotifyConnect_SecondaryCam(this, new NotifyConnectSecondaryCam());
+            }
+        }
         protected override void Dispose(bool disposing)
         {
             // End Main Cam
@@ -144,7 +175,7 @@ namespace IPCameraManager
                 };
             }
         }
-        public void GetFolderName_to_SaveFile (ref string FolderName)
+        public void GetFolderName_to_SaveFile(ref string FolderName)
         {
             FolderName = FolderName_to_saveFile;
         }
@@ -155,7 +186,7 @@ namespace IPCameraManager
 
         public void btExit_F12_Click(object sender, EventArgs e)
         {
-            if(btExit_F12.CanFocus)
+            if (btExit_F12.CanFocus)
             {
                 btExit_F12.Focus();
             }
@@ -331,7 +362,7 @@ namespace IPCameraManager
         }
         public void btTakePicture_LeftClick()
         {
-            if(btTakePicture.CanFocus)
+            if (btTakePicture.CanFocus)
             {
                 btTakePicture.Focus();
             }
@@ -382,7 +413,7 @@ namespace IPCameraManager
         // Show camera phụ
         public void btShowCamera2_Click(object sender, EventArgs e)
         {
-            if(btShowCamera2.CanFocus)
+            if (btShowCamera2.CanFocus)
             {
                 btShowCamera2.Focus();
             }
@@ -484,10 +515,50 @@ namespace IPCameraManager
         {
             info.MaBN = tbMaBenhNhan.Text;
             info.HoTenBN = tbHoTen.Text;
-            info.GioiTinh = cbGioiTinh.Text.Replace(" ","");
+            info.GioiTinh = cbGioiTinh.Text.Replace(" ", "");
             info.Tuoi = tbTuoi.Text;
             info.NgayKham = tbNgayKham.Text;
             info.DiaChi = tbDiaChi.Text;
+        }
+        //*****************************************************************************************************************
+        //****************************************** Context Menu Strip *******************************************
+        private void imgPreview_MouseDown(object sender, MouseEventArgs e)
+        {
+            if(e.Button == MouseButtons.Right)
+            {
+                Point point = groupBox1.PointToScreen(imgPreview.Location);
+                point.X += imgPreview.Width;
+                cMStrip_SecondCAM.Show(point);
+            }
+        }
+
+        private void RealPlayWnd_MouseDown(object sender, MouseEventArgs e)
+        {
+            if (e.Button == MouseButtons.Right)
+            {
+                Point point = this.PointToScreen(RealPlayWnd.Location);
+                point.X += RealPlayWnd.Width;
+                cMStrip_MainCAM.Show(point);
+            }
+        }
+
+        private void btConnectMainCam_Click(object sender, EventArgs e)
+        {
+            OnNotifyConnect_MainCam();
+        }
+    }
+    public class NotifyConnectMainCam : EventArgs
+    {
+        public NotifyConnectMainCam()
+        {
+
+        }
+    }
+    public class NotifyConnectSecondaryCam : EventArgs
+    {
+        public NotifyConnectSecondaryCam()
+        {
+
         }
     }
 }
