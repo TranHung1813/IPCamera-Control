@@ -31,7 +31,6 @@ namespace IPCameraManager
         {
             this.checkBoxPreview = new System.Windows.Forms.CheckBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.comboBoxSpeed = new System.Windows.Forms.ComboBox();
             this.label5 = new System.Windows.Forms.Label();
             this.btnDown = new System.Windows.Forms.Button();
             this.PtzGet = new System.Windows.Forms.Button();
@@ -52,6 +51,7 @@ namespace IPCameraManager
             this.label12 = new System.Windows.Forms.Label();
             this.PtzRange = new System.Windows.Forms.Button();
             this.label_PZTRange = new System.Windows.Forms.Label();
+            this.comboBoxSpeed = new System.Windows.Forms.ComboBox();
             this.groupBox2.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -60,7 +60,7 @@ namespace IPCameraManager
             this.checkBoxPreview.AutoSize = true;
             this.checkBoxPreview.Enabled = false;
             this.checkBoxPreview.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.checkBoxPreview.Location = new System.Drawing.Point(110, 174);
+            this.checkBoxPreview.Location = new System.Drawing.Point(110, 175);
             this.checkBoxPreview.Name = "checkBoxPreview";
             this.checkBoxPreview.Size = new System.Drawing.Size(114, 20);
             this.checkBoxPreview.TabIndex = 20;
@@ -69,8 +69,8 @@ namespace IPCameraManager
             // 
             // groupBox2
             // 
-            this.groupBox2.Controls.Add(this.checkBoxPreview);
             this.groupBox2.Controls.Add(this.comboBoxSpeed);
+            this.groupBox2.Controls.Add(this.checkBoxPreview);
             this.groupBox2.Controls.Add(this.label5);
             this.groupBox2.Controls.Add(this.btnDown);
             this.groupBox2.Controls.Add(this.PtzGet);
@@ -95,29 +95,13 @@ namespace IPCameraManager
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "PTZ control";
             // 
-            // comboBoxSpeed
-            // 
-            this.comboBoxSpeed.FormattingEnabled = true;
-            this.comboBoxSpeed.Items.AddRange(new object[] {
-            "1",
-            "2",
-            "3",
-            "4",
-            "5",
-            "6",
-            "7"});
-            this.comboBoxSpeed.Location = new System.Drawing.Point(151, 141);
-            this.comboBoxSpeed.Name = "comboBoxSpeed";
-            this.comboBoxSpeed.Size = new System.Drawing.Size(92, 26);
-            this.comboBoxSpeed.TabIndex = 19;
-            // 
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(83, 144);
+            this.label5.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.Location = new System.Drawing.Point(91, 143);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(63, 18);
+            this.label5.Size = new System.Drawing.Size(66, 19);
             this.label5.TabIndex = 18;
             this.label5.Text = "Tốc độ：";
             // 
@@ -141,6 +125,7 @@ namespace IPCameraManager
             this.PtzGet.TabIndex = 23;
             this.PtzGet.Text = "PTZ Get";
             this.PtzGet.UseVisualStyleBackColor = true;
+            this.PtzGet.Click += new System.EventHandler(this.PtzGet_Click);
             // 
             // PtzSet
             // 
@@ -150,6 +135,7 @@ namespace IPCameraManager
             this.PtzSet.TabIndex = 24;
             this.PtzSet.Text = "PTZ Set";
             this.PtzSet.UseVisualStyleBackColor = true;
+            this.PtzSet.Click += new System.EventHandler(this.PtzSet_Click);
             // 
             // comboBox2
             // 
@@ -202,6 +188,7 @@ namespace IPCameraManager
             this.btnAuto.TabIndex = 15;
             this.btnAuto.Text = "Auto";
             this.btnAuto.UseVisualStyleBackColor = true;
+            this.btnAuto.Click += new System.EventHandler(this.btnAuto_Click);
             // 
             // btnLeft
             // 
@@ -315,7 +302,24 @@ namespace IPCameraManager
             this.label_PZTRange.Size = new System.Drawing.Size(0, 17);
             this.label_PZTRange.TabIndex = 43;
             // 
-            // FormSetupPZT
+            // comboBoxSpeed
+            // 
+            this.comboBoxSpeed.FormattingEnabled = true;
+            this.comboBoxSpeed.Items.AddRange(new object[] {
+            "1",
+            "2",
+            "3",
+            "4",
+            "5",
+            "6",
+            "7"});
+            this.comboBoxSpeed.Location = new System.Drawing.Point(164, 140);
+            this.comboBoxSpeed.Name = "comboBoxSpeed";
+            this.comboBoxSpeed.Size = new System.Drawing.Size(55, 26);
+            this.comboBoxSpeed.TabIndex = 29;
+            this.comboBoxSpeed.Text = "4";
+            // 
+            // FormSetupPTZ
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -325,7 +329,8 @@ namespace IPCameraManager
             this.Controls.Add(this.label6);
             this.Controls.Add(this.label12);
             this.Controls.Add(this.PtzRange);
-            this.Name = "FormSetupPZT";
+            this.MaximizeBox = false;
+            this.Name = "FormSetupPTZ";
             this.Text = "FormSetupPTZ";
             this.Load += new System.EventHandler(this.FormSetupPZT_Load);
             this.groupBox2.ResumeLayout(false);
@@ -339,7 +344,6 @@ namespace IPCameraManager
 
         private System.Windows.Forms.CheckBox checkBoxPreview;
         private System.Windows.Forms.GroupBox groupBox2;
-        private System.Windows.Forms.ComboBox comboBoxSpeed;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Button btnDown;
         private System.Windows.Forms.Button PtzGet;
@@ -360,5 +364,6 @@ namespace IPCameraManager
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.Button PtzRange;
         private System.Windows.Forms.Label label_PZTRange;
+        private System.Windows.Forms.ComboBox comboBoxSpeed;
     }
 }

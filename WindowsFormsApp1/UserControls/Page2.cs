@@ -36,7 +36,7 @@ namespace IPCameraManager
                 {
                     var currentButton = s as Guna.UI2.WinForms.Guna2Button;
                     currentButton.BorderThickness = 1;
-                    currentButton.BorderColor = SystemColors.ControlDark;
+                    currentButton.BorderColor = SystemColors.ControlDarkDark;
                 };
             }
         }
