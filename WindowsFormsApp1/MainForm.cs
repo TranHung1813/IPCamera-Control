@@ -192,24 +192,13 @@ namespace IPCameraManager
 
         private void btLogin_IPCamera_Click(object sender, EventArgs e)
         {
-            // Check trang thai login truoc khi mo form
-            bool MainCam_Already_Login = false;
-            bool Cam2_Already_Login = false;
-            if (ucPage1.MainCam_Manager.LoginInfo.LoginStatus >= 0)
-            {
-                MainCam_Already_Login = true;
-            }
-            if (ucPage1.SecondaryCam_Manager.LoginInfo.LoginStatus >= 0)
-            {
-                Cam2_Already_Login = true;
-            }
             if (formLoginCam.ShowDialog() == DialogResult.OK)
             {
                 /* ---------- CAMERA CHINH ---------- */
                 // Lay thong tin dang nhap Camera chinh thanh cong hay that bai
                 formLoginCam.Get_LoginStatus_MainCam(ref ucPage1.MainCam_Manager.LoginInfo);
                 // Login thanh cong va already login = false
-                if (ucPage1.MainCam_Manager.LoginInfo.LoginStatus >= 0 && (MainCam_Already_Login == false))
+                if (ucPage1.MainCam_Manager.LoginInfo.LoginStatus >= 0)
                 {
                     // Login thanh cong
                     btLogin_IPCamera.Visible = false;
@@ -229,11 +218,23 @@ namespace IPCameraManager
                     // Luu thong tin Ket noi Camera vao database
                     Save_Login_MainCam_Info(ucPage1.MainCam_Manager.LoginInfo);
                 }
+                else if(ucPage1.MainCam_Manager.LoginInfo.LoginStatus < 0)
+                {
+                    // Da dang xuat
+                    TrangThaiCamChinh.Text = "Camera chính: Đã đăng xuất!";
+                    if (ucPage1.MainCam_Manager.Live_Status >= 0)
+                    {
+                        if (ERR_OK == ucPage1.Stop_PlayMainCam())
+                        {
+
+                        }
+                    }    
+                }
                 /* ---------- CAMERA PHU ---------- */
                 // Lay thong tin dang nhap Camera phu thanh cong hay that bai
                 formLoginCam.Get_LoginStatus_Cam2(ref ucPage1.SecondaryCam_Manager.LoginInfo);
                 // Login thanh cong va already login = false
-                if (ucPage1.SecondaryCam_Manager.LoginInfo.LoginStatus >= 0 && (Cam2_Already_Login == false))
+                if (ucPage1.SecondaryCam_Manager.LoginInfo.LoginStatus >= 0)
                 {
                     // Login thanh cong
                     btLogin_IPCamera.Visible = false;
@@ -251,6 +252,18 @@ namespace IPCameraManager
 
                     // Luu thong tin Ket noi Camera vao database
                     Save_Login_Cam2_Info(ucPage1.SecondaryCam_Manager.LoginInfo);
+                }
+                else if (ucPage1.SecondaryCam_Manager.LoginInfo.LoginStatus < 0)
+                {
+                    // Da dang xuat
+                    TrangThaiCamPhu.Text = "Camera phụ: Đã đăng xuất!";
+                    if (ucPage1.SecondaryCam_Manager.Live_Status >= 0)
+                    {
+                        if (ERR_OK == ucPage1.Stop_PlayCam2())
+                        {
+
+                        }
+                    }
                 }
             }
         }

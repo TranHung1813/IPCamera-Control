@@ -69,15 +69,26 @@ namespace IPCameraManager
                 {
                     if (ERR_OK == Login_Main_Camera(LoginInfo_MainCAM))
                     {
+                        btLogin.Text = "Đăng xuất";
+                        // Dang nhap thanh cong thi khong cho ghi thong tin vao textbox
+                        textBoxIP.ReadOnly = true;
+                        textBoxPassword.ReadOnly = true;
+                        textBoxPort.ReadOnly = true;
+                        textBoxUserName.ReadOnly = true;
                         MessageBox.Show("Kết nối Camera thành công!");
                     }
                 }
                 else
                 {
-                    //if (ERR_OK == Logout_Main_Camera(LoginInfo_MainCAM))
-                    //{
-
-                    //}
+                    if (ERR_OK == Logout_Main_Camera(LoginInfo_MainCAM))
+                    {
+                        btLogin.Text = "Đăng nhập";
+                        // Dang xuat thanh cong thi cho ghi thong tin vao textbox
+                        textBoxIP.ReadOnly = false;
+                        textBoxPassword.ReadOnly = false;
+                        textBoxPort.ReadOnly = false;
+                        textBoxUserName.ReadOnly = false;
+                    }
                 }
             }
             else if (_Current_tabID == SECONDTAB)
@@ -91,15 +102,26 @@ namespace IPCameraManager
                 {
                     if (ERR_OK == Login_Second_Camera(LoginInfo_CAM2))
                     {
+                        btLogin.Text = "Đăng xuất";
+                        // Dang nhap thanh cong thi khong cho ghi thong tin vao textbox
+                        textBoxIP.ReadOnly = true;
+                        textBoxPassword.ReadOnly = true;
+                        textBoxPort.ReadOnly = true;
+                        textBoxUserName.ReadOnly = true;
                         MessageBox.Show("Kết nối Camera thành công!");
                     }
                 }
                 else
                 {
-                    //if (ERR_OK == Logout_Second_Camera(LoginInfo_MainCAM))
-                    //{
-
-                    //}
+                    if (ERR_OK == Logout_Second_Camera(LoginInfo_CAM2))
+                    {
+                        btLogin.Text = "Đăng nhập";
+                        // Dang xuat thanh cong thi cho ghi thong tin vao textbox
+                        textBoxIP.ReadOnly = false;
+                        textBoxPassword.ReadOnly = false;
+                        textBoxPort.ReadOnly = false;
+                        textBoxUserName.ReadOnly = false;
+                    }
                 }
             }
             
@@ -298,6 +320,22 @@ namespace IPCameraManager
             textBoxPort.Text = LoginInfo_MainCAM.Port;
             textBoxUserName.Text = LoginInfo_MainCAM.Username;
             textBoxPassword.Text = LoginInfo_MainCAM.Password;
+            if(LoginInfo_MainCAM.LoginStatus >= 0)
+            {
+                btLogin.Text = "Đăng xuất";
+                textBoxIP.ReadOnly = true;
+                textBoxPassword.ReadOnly = true;
+                textBoxPort.ReadOnly = true;
+                textBoxUserName.ReadOnly = true;
+            }
+            else
+            {
+                btLogin.Text = "Đăng nhập";
+                textBoxIP.ReadOnly = false;
+                textBoxPassword.ReadOnly = false;
+                textBoxPort.ReadOnly = false;
+                textBoxUserName.ReadOnly = false;
+            }    
         }
         private void btTabCam2_Click(object sender, EventArgs e)
         {
@@ -306,6 +344,22 @@ namespace IPCameraManager
             textBoxPort.Text = LoginInfo_CAM2.Port;
             textBoxUserName.Text = LoginInfo_CAM2.Username;
             textBoxPassword.Text = LoginInfo_CAM2.Password;
+            if (LoginInfo_CAM2.LoginStatus >= 0)
+            {
+                btLogin.Text = "Đăng xuất";
+                textBoxIP.ReadOnly = true;
+                textBoxPassword.ReadOnly = true;
+                textBoxPort.ReadOnly = true;
+                textBoxUserName.ReadOnly = true;
+            }
+            else
+            {
+                btLogin.Text = "Đăng nhập";
+                textBoxIP.ReadOnly = false;
+                textBoxPassword.ReadOnly = false;
+                textBoxPort.ReadOnly = false;
+                textBoxUserName.ReadOnly = false;
+            }
         }
 
         private void FormLoginCamera_Load(object sender, EventArgs e)

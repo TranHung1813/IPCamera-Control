@@ -252,11 +252,11 @@ namespace IPCameraManager
 
         public int Stop_PlayMainCam()
         {
-            if (MainCam_Manager.LoginInfo.LoginStatus < 0)
-            {
-                MessageBox.Show("Camera chưa kết nối!\rHãy kết nối camera trước.", "Lỗi: Chưa kết nối camera", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                return ERR_NOT_OK;
-            }
+            //if (MainCam_Manager.LoginInfo.LoginStatus < 0)
+            //{
+            //    MessageBox.Show("Camera chưa kết nối!\rHãy kết nối camera trước.", "Lỗi: Chưa kết nối camera", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            //    return ERR_NOT_OK;
+            //}
             if (MainCam_Manager.Live_Status < 0)
             {
                 return ERR_NOT_OK;
@@ -272,6 +272,7 @@ namespace IPCameraManager
             else
             {
                 MainCam_Manager.Live_Status = -1;
+                RealPlayWnd.Refresh();
                 return ERR_OK;
             }
         }
@@ -474,11 +475,11 @@ namespace IPCameraManager
 
         public int Stop_PlayCam2()
         {
-            if (SecondaryCam_Manager.LoginInfo.LoginStatus < 0)
-            {
-                MessageBox.Show("Camera chưa kết nối!\rHãy kết nối camera trước.", "Lỗi: Chưa kết nối camera", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                return ERR_NOT_OK;
-            }
+            //if (SecondaryCam_Manager.LoginInfo.LoginStatus < 0)
+            //{
+            //    MessageBox.Show("Camera chưa kết nối!\rHãy kết nối camera trước.", "Lỗi: Chưa kết nối camera", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            //    return ERR_NOT_OK;
+            //}
             if (SecondaryCam_Manager.Live_Status < 0)
             {
                 return ERR_NOT_OK;
@@ -494,6 +495,7 @@ namespace IPCameraManager
             else
             {
                 SecondaryCam_Manager.Live_Status = -1;
+                imgPreview.Refresh();
                 return ERR_OK;
             }
         }
@@ -522,16 +524,6 @@ namespace IPCameraManager
         }
         //*****************************************************************************************************************
         //****************************************** Context Menu Strip *******************************************
-        private void imgPreview_MouseDown(object sender, MouseEventArgs e)
-        {
-            if(e.Button == MouseButtons.Right)
-            {
-                Point point = groupBox1.PointToScreen(imgPreview.Location);
-                point.X += imgPreview.Width;
-                cMStrip_SecondCAM.Show(point);
-            }
-        }
-
         private void RealPlayWnd_MouseDown(object sender, MouseEventArgs e)
         {
             if (e.Button == MouseButtons.Right)
@@ -541,10 +533,24 @@ namespace IPCameraManager
                 cMStrip_MainCAM.Show(point);
             }
         }
+        private void imgPreview_MouseDown(object sender, MouseEventArgs e)
+        {
+            if (e.Button == MouseButtons.Right)
+            {
+                Point point = groupBox1.PointToScreen(imgPreview.Location);
+                point.X += imgPreview.Width;
+                cMStrip_SecondCAM.Show(point);
+            }
+        }
 
         private void btConnectMainCam_Click(object sender, EventArgs e)
         {
             OnNotifyConnect_MainCam();
+        }
+
+        private void btConnectCam2_Click(object sender, EventArgs e)
+        {
+            OnNotifyConnect_SecondaryCam();
         }
     }
     public class NotifyConnectMainCam : EventArgs

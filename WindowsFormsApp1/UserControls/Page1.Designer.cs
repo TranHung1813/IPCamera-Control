@@ -47,7 +47,6 @@ namespace IPCameraManager
             this.tbHoTen = new Guna.UI2.WinForms.Guna2TextBox();
             this.tbMaBenhNhan = new Guna.UI2.WinForms.Guna2TextBox();
             this.imgPreview = new System.Windows.Forms.PictureBox();
-            this.guna2AnimateWindow1 = new Guna.UI2.WinForms.Guna2AnimateWindow(this.components);
             this.btExit_F12 = new Guna.UI2.WinForms.Guna2Button();
             this.btShowCamera2 = new Guna.UI2.WinForms.Guna2Button();
             this.btTakePicture = new Guna.UI2.WinForms.Guna2Button();
@@ -428,7 +427,7 @@ namespace IPCameraManager
             // 
             this.btConnectMainCam.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btConnectMainCam.Name = "btConnectMainCam";
-            this.btConnectMainCam.Size = new System.Drawing.Size(180, 22);
+            this.btConnectMainCam.Size = new System.Drawing.Size(177, 22);
             this.btConnectMainCam.Text = "Kết nối Camera";
             this.btConnectMainCam.Click += new System.EventHandler(this.btConnectMainCam_Click);
             // 
@@ -456,6 +455,7 @@ namespace IPCameraManager
             this.btConnectCam2.Name = "btConnectCam2";
             this.btConnectCam2.Size = new System.Drawing.Size(180, 22);
             this.btConnectCam2.Text = "Kết nối Camera";
+            this.btConnectCam2.Click += new System.EventHandler(this.btConnectCam2_Click);
             // 
             // càiĐặtPZTToolStripMenuItem
             // 
@@ -510,7 +510,6 @@ namespace IPCameraManager
         private Guna.UI2.WinForms.Guna2TextBox tbNgayKham;
         private System.Windows.Forms.TextBox tbDiaChi;
         private Guna.UI2.WinForms.Guna2TextBox tbTuoi;
-        private Guna.UI2.WinForms.Guna2AnimateWindow guna2AnimateWindow1;
         private System.Windows.Forms.ContextMenuStrip cMStrip_MainCAM;
         private System.Windows.Forms.ToolStripMenuItem btConnectMainCam;
         private System.Windows.Forms.ToolStripMenuItem btSetupPZT_MainCAM;
