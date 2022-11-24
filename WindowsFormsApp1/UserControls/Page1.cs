@@ -35,6 +35,9 @@ namespace IPCameraManager
         SetFoldertoSaveFile_Form SetFolder_Form = new SetFoldertoSaveFile_Form();
         private string FolderName_to_saveFile = "";
 
+        public bool MAINCAM_Data_Available = false;
+        public bool CAM2_Data_Available = false;
+
         private void Init_IPCamera()
         {
             /* Init Cam chinh */
@@ -191,7 +194,7 @@ namespace IPCameraManager
 
                 //Start live view 
                 MainCam_Manager.Live_Status = CHCNetSDK.NET_DVR_RealPlay_V40(MainCam_Manager.LoginInfo.LoginStatus,
-                                                                        ref lpPreviewInfo, null/*RealData*/, pUser);
+                                                                        ref lpPreviewInfo, RealData_Main, pUser);
                 if (MainCam_Manager.Live_Status < 0)
                 {
 
@@ -245,14 +248,7 @@ namespace IPCameraManager
         {
             if (dwBufSize > 0)
             {
-                byte[] sData = new byte[dwBufSize];
-                Marshal.Copy(pBuffer, sData, 0, (Int32)dwBufSize);
-
-                string str = "Hello.ps";
-                FileStream fs = new FileStream(str, FileMode.Create);
-                int iLen = (int)dwBufSize;
-                fs.Write(sData, 0, iLen);
-                fs.Close();
+                MAINCAM_Data_Available = true;
             }
         }
         // Live_Status < 0: Không live
@@ -422,7 +418,7 @@ namespace IPCameraManager
 
                 //Start live view 
                 SecondaryCam_Manager.Live_Status = CHCNetSDK.NET_DVR_RealPlay_V40(SecondaryCam_Manager.LoginInfo.LoginStatus,
-                                                                        ref lpPreviewInfo, null/*RealData*/, pUser);
+                                                                        ref lpPreviewInfo, RealData_Second, pUser);
                 if (SecondaryCam_Manager.Live_Status < 0)
                 {
                     Err_Return = CHCNetSDK.NET_DVR_GetLastError();
@@ -474,14 +470,7 @@ namespace IPCameraManager
         {
             if (dwBufSize > 0)
             {
-                byte[] sData = new byte[dwBufSize];
-                Marshal.Copy(pBuffer, sData, 0, (Int32)dwBufSize);
-
-                string str = "Hola.ps";
-                FileStream fs = new FileStream(str, FileMode.Create);
-                int iLen = (int)dwBufSize;
-                fs.Write(sData, 0, iLen);
-                fs.Close();
+                CAM2_Data_Available = true;
             }
         }
         private void cbGioiTinh_Click(object sender, EventArgs e)

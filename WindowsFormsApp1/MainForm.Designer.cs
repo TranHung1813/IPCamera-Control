@@ -39,15 +39,17 @@ namespace IPCameraManager
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.guna2Elipse1 = new Guna.UI2.WinForms.Guna2Elipse(this.components);
             this.panel2 = new System.Windows.Forms.Panel();
-            this.btCamRefresh_R = new System.Windows.Forms.Button();
+            this.btSecondCamRefresh = new System.Windows.Forms.Button();
+            this.btMainCamRefresh_R = new System.Windows.Forms.Button();
             this.btLogin_IPCamera = new Guna.UI2.WinForms.Guna2Button();
             this.tabPage_InPhieu = new Guna.UI2.WinForms.Guna2Button();
             this.tabPage_KhamBenh = new Guna.UI2.WinForms.Guna2Button();
             this.guna2DragControl1 = new Guna.UI2.WinForms.Guna2DragControl(this.components);
             this.panelContainer = new System.Windows.Forms.Panel();
             this.Status1 = new System.Windows.Forms.StatusStrip();
-            this.TrangThaiCam = new System.Windows.Forms.ToolStripStatusLabel();
+            this.TrangThaiCamChinh = new System.Windows.Forms.ToolStripStatusLabel();
             this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
+            this.TrangThaiCamPhu = new System.Windows.Forms.ToolStripStatusLabel();
             this.panelBorder_Left = new System.Windows.Forms.Panel();
             this.panelBorder_Right = new System.Windows.Forms.Panel();
             this.timer_Update_PatientInfo_to_Page2 = new System.Windows.Forms.Timer(this.components);
@@ -153,7 +155,8 @@ namespace IPCameraManager
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.SystemColors.InactiveCaption;
-            this.panel2.Controls.Add(this.btCamRefresh_R);
+            this.panel2.Controls.Add(this.btSecondCamRefresh);
+            this.panel2.Controls.Add(this.btMainCamRefresh_R);
             this.panel2.Controls.Add(this.btLogin_IPCamera);
             this.panel2.Controls.Add(this.tabPage_InPhieu);
             this.panel2.Controls.Add(this.tabPage_KhamBenh);
@@ -163,16 +166,27 @@ namespace IPCameraManager
             this.panel2.Size = new System.Drawing.Size(1044, 43);
             this.panel2.TabIndex = 7;
             // 
-            // btCamRefresh_R
+            // btSecondCamRefresh
             // 
-            this.btCamRefresh_R.Location = new System.Drawing.Point(471, 6);
-            this.btCamRefresh_R.Name = "btCamRefresh_R";
-            this.btCamRefresh_R.Size = new System.Drawing.Size(127, 31);
-            this.btCamRefresh_R.TabIndex = 3;
-            this.btCamRefresh_R.Text = "Refresh Camera (F7)";
-            this.btCamRefresh_R.UseVisualStyleBackColor = true;
-            this.btCamRefresh_R.Visible = false;
-            this.btCamRefresh_R.Click += new System.EventHandler(this.btCamRefresh_Click);
+            this.btSecondCamRefresh.Location = new System.Drawing.Point(618, 6);
+            this.btSecondCamRefresh.Name = "btSecondCamRefresh";
+            this.btSecondCamRefresh.Size = new System.Drawing.Size(155, 31);
+            this.btSecondCamRefresh.TabIndex = 4;
+            this.btSecondCamRefresh.Text = "Refresh Second Camera (F7)";
+            this.btSecondCamRefresh.UseVisualStyleBackColor = true;
+            this.btSecondCamRefresh.Visible = false;
+            this.btSecondCamRefresh.Click += new System.EventHandler(this.btSecondCamRefresh_Click);
+            // 
+            // btMainCamRefresh_R
+            // 
+            this.btMainCamRefresh_R.Location = new System.Drawing.Point(471, 6);
+            this.btMainCamRefresh_R.Name = "btMainCamRefresh_R";
+            this.btMainCamRefresh_R.Size = new System.Drawing.Size(141, 31);
+            this.btMainCamRefresh_R.TabIndex = 3;
+            this.btMainCamRefresh_R.Text = "Refresh Main Camera (F7)";
+            this.btMainCamRefresh_R.UseVisualStyleBackColor = true;
+            this.btMainCamRefresh_R.Visible = false;
+            this.btMainCamRefresh_R.Click += new System.EventHandler(this.btMainCamRefresh_Click);
             // 
             // btLogin_IPCamera
             // 
@@ -270,28 +284,39 @@ namespace IPCameraManager
             this.Status1.BackColor = System.Drawing.Color.Gainsboro;
             this.Status1.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Status1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.TrangThaiCam,
-            this.toolStripStatusLabel1});
-            this.Status1.Location = new System.Drawing.Point(0, 697);
+            this.TrangThaiCamChinh,
+            this.toolStripStatusLabel1,
+            this.TrangThaiCamPhu});
+            this.Status1.Location = new System.Drawing.Point(0, 696);
             this.Status1.Name = "Status1";
-            this.Status1.Size = new System.Drawing.Size(1044, 23);
+            this.Status1.Size = new System.Drawing.Size(1044, 24);
             this.Status1.TabIndex = 0;
             this.Status1.Text = "Status1";
             // 
-            // TrangThaiCam
+            // TrangThaiCamChinh
             // 
-            this.TrangThaiCam.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.TrangThaiCam.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
-            this.TrangThaiCam.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TrangThaiCam.Margin = new System.Windows.Forms.Padding(10, 3, 0, 2);
-            this.TrangThaiCam.Name = "TrangThaiCam";
-            this.TrangThaiCam.Size = new System.Drawing.Size(192, 18);
-            this.TrangThaiCam.Text = " Camera: Không có kết nối! ";
+            this.TrangThaiCamChinh.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.TrangThaiCamChinh.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
+            this.TrangThaiCamChinh.Font = new System.Drawing.Font("Tahoma", 12F);
+            this.TrangThaiCamChinh.Margin = new System.Windows.Forms.Padding(10, 3, 0, 2);
+            this.TrangThaiCamChinh.Name = "TrangThaiCamChinh";
+            this.TrangThaiCamChinh.Size = new System.Drawing.Size(250, 19);
+            this.TrangThaiCamChinh.Text = " Camera chính: Không có kết nối! ";
             // 
             // toolStripStatusLabel1
             // 
             this.toolStripStatusLabel1.Name = "toolStripStatusLabel1";
-            this.toolStripStatusLabel1.Size = new System.Drawing.Size(0, 18);
+            this.toolStripStatusLabel1.Size = new System.Drawing.Size(0, 19);
+            // 
+            // TrangThaiCamPhu
+            // 
+            this.TrangThaiCamPhu.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.TrangThaiCamPhu.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
+            this.TrangThaiCamPhu.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TrangThaiCamPhu.Margin = new System.Windows.Forms.Padding(10, 3, 0, 2);
+            this.TrangThaiCamPhu.Name = "TrangThaiCamPhu";
+            this.TrangThaiCamPhu.Size = new System.Drawing.Size(239, 19);
+            this.TrangThaiCamPhu.Text = " Camera phụ: Không có kết nối! ";
             // 
             // panelBorder_Left
             // 
@@ -299,7 +324,7 @@ namespace IPCameraManager
             this.panelBorder_Left.Dock = System.Windows.Forms.DockStyle.Left;
             this.panelBorder_Left.Location = new System.Drawing.Point(0, 80);
             this.panelBorder_Left.Name = "panelBorder_Left";
-            this.panelBorder_Left.Size = new System.Drawing.Size(1, 617);
+            this.panelBorder_Left.Size = new System.Drawing.Size(1, 616);
             this.panelBorder_Left.TabIndex = 9;
             // 
             // panelBorder_Right
@@ -308,7 +333,7 @@ namespace IPCameraManager
             this.panelBorder_Right.Dock = System.Windows.Forms.DockStyle.Right;
             this.panelBorder_Right.Location = new System.Drawing.Point(1042, 80);
             this.panelBorder_Right.Name = "panelBorder_Right";
-            this.panelBorder_Right.Size = new System.Drawing.Size(2, 617);
+            this.panelBorder_Right.Size = new System.Drawing.Size(2, 616);
             this.panelBorder_Right.TabIndex = 0;
             // 
             // timer_Update_PatientInfo_to_Page2
@@ -318,7 +343,7 @@ namespace IPCameraManager
             // 
             // timer_GetCamStatus
             // 
-            this.timer_GetCamStatus.Interval = 1000;
+            this.timer_GetCamStatus.Interval = 3000;
             this.timer_GetCamStatus.Tick += new System.EventHandler(this.timer_GetCamStatus_Tick);
             // 
             // MainForm
@@ -364,15 +389,17 @@ namespace IPCameraManager
         private Guna.UI2.WinForms.Guna2Button btMaximize;
         private System.Windows.Forms.Panel panelContainer;
         private System.Windows.Forms.StatusStrip Status1;
-        private System.Windows.Forms.ToolStripStatusLabel TrangThaiCam;
+        private System.Windows.Forms.ToolStripStatusLabel TrangThaiCamChinh;
         private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel1;
         private System.Windows.Forms.Panel panelBorder_Right;
         private System.Windows.Forms.Panel panelBorder_Left;
         private Guna.UI2.WinForms.Guna2Button btLogin_IPCamera;
         private Guna.UI2.WinForms.Guna2Button btExit;
-        private System.Windows.Forms.Button btCamRefresh_R;
+        private System.Windows.Forms.Button btMainCamRefresh_R;
         private System.Windows.Forms.Timer timer_Update_PatientInfo_to_Page2;
         private System.Windows.Forms.Timer timer_GetCamStatus;
+        private System.Windows.Forms.ToolStripStatusLabel TrangThaiCamPhu;
+        private System.Windows.Forms.Button btSecondCamRefresh;
     }
 }
 
