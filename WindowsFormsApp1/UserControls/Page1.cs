@@ -552,6 +552,16 @@ namespace IPCameraManager
         {
             OnNotifyConnect_SecondaryCam();
         }
+
+        private void btSetupPZT_MainCAM_Click(object sender, EventArgs e)
+        {
+            FormSetupPTZ formSetupPZT = new FormSetupPTZ(MainCam_Manager, SecondaryCam_Manager);
+            Point point = this.PointToScreen(RealPlayWnd.Location);
+            point.X += RealPlayWnd.Width - 5;
+            formSetupPZT.StartPosition = FormStartPosition.Manual;
+            formSetupPZT.Location = point;
+            formSetupPZT.Show();
+        }
     }
     public class NotifyConnectMainCam : EventArgs
     {

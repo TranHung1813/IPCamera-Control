@@ -37,7 +37,9 @@ namespace IPCameraManager
         //24. Them try catch vao button In Phieu Kham
         //25. Van de load lai thong tin benh nhan cu: Can load thong tin gi?
         //26. Them tinh nang PZT, chinh sua Do sang, contrast, ... vao menu Setting
-        //27. Kiem tra ket noi Camera tu dong
+        //27. Kiem tra ket noi Camera tu dong (done)
+        //28. Popup canh bao Message khi mat ket noi
+        //29. Day Form Setup PTZ xuong MainForm
         private const int ERR_OK = 0;
         private const int ERR_NOT_OK = 1;
 

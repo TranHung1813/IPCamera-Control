@@ -1,19 +1,13 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
-using System.Linq;
 using System.Net;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace IPCameraManager
 {
     public partial class FormLoginCamera : Form
     {
-        public FormLoginCamera( CameraManager_Type MainCam, CameraManager_Type Cam2)
+        public FormLoginCamera(CameraManager_Type MainCam, CameraManager_Type Cam2)
         {
             InitializeComponent();
             Init_Button();
@@ -58,7 +52,7 @@ namespace IPCameraManager
                                               MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
-            if(_Current_tabID == MAINTAB)
+            if (_Current_tabID == MAINTAB)
             {
                 // Luu thong tin tu textbox vao Login_Info de xu ly Login_Camera
                 LoginInfo_MainCAM.IP_Address = textBoxIP.Text;
@@ -124,7 +118,7 @@ namespace IPCameraManager
                     }
                 }
             }
-            
+
 
         }
         public int Login_Main_Camera(LoginCameraInfo_Type info)
@@ -320,7 +314,7 @@ namespace IPCameraManager
             textBoxPort.Text = LoginInfo_MainCAM.Port;
             textBoxUserName.Text = LoginInfo_MainCAM.Username;
             textBoxPassword.Text = LoginInfo_MainCAM.Password;
-            if(LoginInfo_MainCAM.LoginStatus >= 0)
+            if (LoginInfo_MainCAM.LoginStatus >= 0)
             {
                 btLogin.Text = "Đăng xuất";
                 textBoxIP.ReadOnly = true;
@@ -335,7 +329,7 @@ namespace IPCameraManager
                 textBoxPassword.ReadOnly = false;
                 textBoxPort.ReadOnly = false;
                 textBoxUserName.ReadOnly = false;
-            }    
+            }
         }
         private void btTabCam2_Click(object sender, EventArgs e)
         {
@@ -364,7 +358,7 @@ namespace IPCameraManager
 
         private void FormLoginCamera_Load(object sender, EventArgs e)
         {
-            if(_Current_tabID == MAINTAB)
+            if (_Current_tabID == MAINTAB)
             {
                 btTabMainCam_Click(sender, e);
             }

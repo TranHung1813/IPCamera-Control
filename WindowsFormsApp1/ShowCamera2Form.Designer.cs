@@ -39,7 +39,7 @@ namespace IPCameraManager
             this.pictureBox1.Image = global::IPCameraManager.Properties.Resources.Loading;
             this.pictureBox1.Location = new System.Drawing.Point(0, 0);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(984, 749);
+            this.pictureBox1.Size = new System.Drawing.Size(984, 711);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
@@ -48,7 +48,7 @@ namespace IPCameraManager
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(984, 749);
+            this.ClientSize = new System.Drawing.Size(984, 711);
             this.Controls.Add(this.pictureBox1);
             this.Name = "ShowCamera2Form";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
