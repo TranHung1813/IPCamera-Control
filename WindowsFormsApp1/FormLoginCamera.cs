@@ -29,6 +29,7 @@ namespace IPCameraManager
         private uint Err_Return;
         private const int ERR_OK = 0;
         private const int ERR_NOT_OK = 1;
+        private bool is_ButtonLogin_Pressed = false;
         private void Init_Button()
         {
             btLogin.GotFocus += (s, a) =>
@@ -45,6 +46,7 @@ namespace IPCameraManager
 
         private void btLogin_Click(object sender, EventArgs e)
         {
+            is_ButtonLogin_Pressed = true;
             if (textBoxIP.Text == "" || textBoxPort.Text == "" ||
                 textBoxUserName.Text == "" || textBoxPassword.Text == "")
             {
@@ -358,6 +360,7 @@ namespace IPCameraManager
 
         private void FormLoginCamera_Load(object sender, EventArgs e)
         {
+            is_ButtonLogin_Pressed = false;
             if (_Current_tabID == MAINTAB)
             {
                 btTabMainCam_Click(sender, e);
@@ -370,7 +373,14 @@ namespace IPCameraManager
 
         private void guna2ControlBox1_Click(object sender, EventArgs e)
         {
-            DialogResult = DialogResult.OK;
+            if(is_ButtonLogin_Pressed == true)
+            {
+                DialogResult = DialogResult.OK;
+            }
+            else
+            {
+                DialogResult = DialogResult.Cancel;
+            }
         }
 
         private void textBoxIP_TextChanged(object sender, EventArgs e)

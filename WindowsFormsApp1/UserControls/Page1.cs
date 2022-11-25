@@ -25,6 +25,7 @@ namespace IPCameraManager
         private uint Err_Return;
         private const int ERR_OK = 0;
         private const int ERR_NOT_OK = 1;
+        private const int ERR_NONE = -1;
 
         SetFoldertoSaveFile_Form SetFolder_Form = new SetFoldertoSaveFile_Form();
         private string FolderName_to_saveFile = "";
@@ -241,7 +242,10 @@ namespace IPCameraManager
                     return ERR_OK;
                 }
             }
-            return ERR_NOT_OK;
+            else
+            {
+                return ERR_NONE;
+            }
         }
 
         //Xoa hinh anh Loading gif trong picture box RealPlayWnd
@@ -259,7 +263,7 @@ namespace IPCameraManager
             //}
             if (MainCam_Manager.Live_Status < 0)
             {
-                return ERR_NOT_OK;
+                return ERR_NONE;
             }
             // Stop live view 
             if (!CHCNetSDK.NET_DVR_StopRealPlay(MainCam_Manager.Live_Status))
@@ -465,7 +469,10 @@ namespace IPCameraManager
                     return ERR_OK;
                 }
             }
-            return ERR_NOT_OK;
+            else
+            {
+                return ERR_NONE;
+            }
         }
         //Xoa hinh anh Loading gif trong picture box imgPreview
         public void ResetImage_Second()
@@ -482,7 +489,7 @@ namespace IPCameraManager
             //}
             if (SecondaryCam_Manager.Live_Status < 0)
             {
-                return ERR_NOT_OK;
+                return ERR_NONE;
             }
             // Stop live view 
             if (!CHCNetSDK.NET_DVR_StopRealPlay(SecondaryCam_Manager.Live_Status))
