@@ -1,0 +1,14 @@
+﻿2022-11-26 02:24:29> Program: Starting Squirrel Updater: --releasify E:\Projects\IPCameraControl\Deployment\GeneratedNugets\IPCamera_Manager.1.0.0.nupkg --releaseDir=E:\Projects\IPCameraControl\Deployment\Releases
+2022-11-26 02:24:29> Program: Bootstrapper EXE found at:E:\Projects\IPCameraControl\packages\squirrel.windows.1.9.0\tools\Setup.exe
+2022-11-26 02:24:29> Program: Creating release package: E:\Projects\IPCameraControl\Deployment\Releases\IPCamera_Manager.1.0.0.nupkg
+2022-11-26 02:24:29> ReleasePackage: Creating release package: E:\Projects\IPCameraControl\Deployment\Releases\IPCamera_Manager.1.0.0.nupkg => E:\Projects\IPCameraControl\Deployment\Releases\IPCamera_Manager-1.0.0-full.nupkg
+2022-11-26 02:24:31> ReleasePackage: Extracting dependent packages: []
+2022-11-26 02:24:31> ReleasePackage: Removing unnecessary data
+2022-11-26 02:24:35> Program: Building embedded zip file for Setup.exe
+2022-11-26 02:52:27> Program: Starting Squirrel Updater: --releasify E:\Projects\IPCameraControl\Deployment\GeneratedNugets\IPCamera_Manager.1.0.0.nupkg --releaseDir=E:\Projects\IPCameraControl\Deployment\Releases
+2022-11-26 02:52:27> Program: Bootstrapper EXE found at:E:\Projects\IPCameraControl\packages\squirrel.windows.1.9.0\tools\Setup.exe
+2022-11-26 02:52:27> Program: Creating release package: E:\Projects\IPCameraControl\Deployment\Releases\IPCamera_Manager.1.0.0.nupkg
+2022-11-26 02:52:27> ReleasePackage: Creating release package: E:\Projects\IPCameraControl\Deployment\Releases\IPCamera_Manager.1.0.0.nupkg => E:\Projects\IPCameraControl\Deployment\Releases\IPCamera_Manager-1.0.0-full.nupkg
+2022-11-26 02:52:28> ReleasePackage: Extracting dependent packages: []
+2022-11-26 02:52:28> ReleasePackage: Removing unnecessary data
+2022-11-26 02:52:34> Program: Building embedded zip file for Setup.exe

@@ -72,7 +72,7 @@ namespace IPCameraManager
             OpenFileDialog openFileDialog = new OpenFileDialog();
             openFileDialog.Filter = "File ảnh (*.jpg)|*.jpg|Other Image Files (*.*)|*.jpg;*.jpeg;*.png;*.gif;*.tif;...";
             openFileDialog.Title = "Chọn file ảnh";
-            openFileDialog.Multiselect = true;
+            openFileDialog.Multiselect = false;
             openFileDialog.FileName = "";
 
             if (FolderPath != "")
@@ -96,7 +96,7 @@ namespace IPCameraManager
             OpenFileDialog openFileDialog = new OpenFileDialog();
             openFileDialog.Filter = "File ảnh (*.jpg)|*.jpg|Other Image Files (*.*)|*.jpg;*.jpeg;*.png;*.gif;*.tif;...";
             openFileDialog.Title = "Chọn file ảnh";
-            openFileDialog.Multiselect = true;
+            openFileDialog.Multiselect = false;
             openFileDialog.FileName = "";
 
             if (FolderPath != "")
@@ -129,22 +129,7 @@ namespace IPCameraManager
 
         private void btInPhieu_F9_Click(object sender, EventArgs e)
         {
-            if (tbMaBN_IN.Text.Length == 0)
-            {
-                MessageBox.Show("Chưa nhập mã bệnh nhân! \rĐề nghị nhập lại.", "Lỗi: Chưa nhập mã bệnh nhân", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                return;
-            }
-            if (tbHoTenBN_IN.Text.Length == 0)
-            {
-                MessageBox.Show("Chưa nhập tên bệnh nhân! \rĐề nghị nhập lại.", "Lỗi: Chưa nhập tên bệnh nhân", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                return;
-            }
-            if (tbTuoi_IN.Text.Length == 0)
-            {
-                MessageBox.Show("Chưa nhập tuổi bệnh nhân! \rĐề nghị nhập lại.", "Lỗi: Chưa nhập tuổi bệnh nhân", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                return;
-            }
-            TaoPhieuKhamVaIn();
+            
         }
         private void TaoPhieuKhamVaIn()
         {
@@ -313,6 +298,34 @@ namespace IPCameraManager
                 ref replaceText, ref replace, ref matchKashida,
                         ref matchDiacritics,
                 ref matchAlefHamza, ref matchControl);
+        }
+
+        private void btInPhieu_F9_MouseUp(object sender, MouseEventArgs e)
+        {
+            if(e.Button == MouseButtons.Left)
+            {
+                if (tbMaBN_IN.Text.Length == 0)
+                {
+                    MessageBox.Show("Chưa nhập mã bệnh nhân! \rĐề nghị nhập lại.", "Lỗi: Chưa nhập mã bệnh nhân", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+                }
+                if (tbHoTenBN_IN.Text.Length == 0)
+                {
+                    MessageBox.Show("Chưa nhập tên bệnh nhân! \rĐề nghị nhập lại.", "Lỗi: Chưa nhập tên bệnh nhân", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+                }
+                if (tbTuoi_IN.Text.Length == 0)
+                {
+                    MessageBox.Show("Chưa nhập tuổi bệnh nhân! \rĐề nghị nhập lại.", "Lỗi: Chưa nhập tuổi bệnh nhân", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+                }
+                TaoPhieuKhamVaIn();
+            }
+            else if(e.Button == MouseButtons.Right)
+            {
+                FormSetTemplateDirectory formSetTemplateDirectory = new FormSetTemplateDirectory();
+                formSetTemplateDirectory.ShowDialog();
+            }    
         }
     }
     public struct PatientInfo_Type

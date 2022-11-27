@@ -1,0 +1,114 @@
+E:\Projects\IPCamera Control\WindowsFormsApp1\obj\x64\Release\IPCamera_Manager.csproj.ResolveComReference.cache
+E:\Projects\IPCamera Control\WindowsFormsApp1\obj\x64\Release\IPCameraManager.FormSetupPTZ.resources
+E:\Projects\IPCamera Control\WindowsFormsApp1\obj\x64\Release\IPCameraManager.UserControls.PageSearchPatient.resources
+E:\Projects\IPCamera Control\WindowsFormsApp1\obj\x64\Release\IPCameraManager.FormLoginCamera.resources
+E:\Projects\IPCamera Control\WindowsFormsApp1\obj\x64\Release\IPCameraManager.MainForm.resources
+E:\Projects\IPCamera Control\WindowsFormsApp1\obj\x64\Release\IPCameraManager.SetFoldertoSaveFile_Form.resources
+E:\Projects\IPCamera Control\WindowsFormsApp1\obj\x64\Release\IPCameraManager.ShowCamera2Form.resources
+E:\Projects\IPCamera Control\WindowsFormsApp1\obj\x64\Release\IPCameraManager.Page1.resources
+E:\Projects\IPCamera Control\WindowsFormsApp1\obj\x64\Release\IPCameraManager.Properties.Resources.resources
+E:\Projects\IPCamera Control\WindowsFormsApp1\obj\x64\Release\IPCameraManager.Page2.resources
+E:\Projects\IPCamera Control\WindowsFormsApp1\obj\x64\Release\IPCamera_Manager.csproj.GenerateResource.cache
+E:\Projects\IPCamera Control\WindowsFormsApp1\obj\x64\Release\IPCamera_Manager.csproj.CoreCompileInputs.cache
+E:\Projects\IPCamera Control\WindowsFormsApp1\bin\x64\Release\db\IPCameraManager.db
+E:\Projects\IPCamera Control\WindowsFormsApp1\bin\x64\Release\IPCameraManager.exe.config
+E:\Projects\IPCamera Control\WindowsFormsApp1\bin\x64\Release\IPCameraManager.exe
+E:\Projects\IPCamera Control\WindowsFormsApp1\bin\x64\Release\IPCameraManager.pdb
+E:\Projects\IPCamera Control\WindowsFormsApp1\bin\x64\Release\Dapper.dll
+E:\Projects\IPCamera Control\WindowsFormsApp1\bin\x64\Release\Ookii.Dialogs.WinForms.dll
+E:\Projects\IPCamera Control\WindowsFormsApp1\bin\x64\Release\System.Buffers.dll
+E:\Projects\IPCamera Control\WindowsFormsApp1\bin\x64\Release\System.Data.SQLite.dll
+E:\Projects\IPCamera Control\WindowsFormsApp1\bin\x64\Release\System.Drawing.Common.dll
+E:\Projects\IPCamera Control\WindowsFormsApp1\bin\x64\Release\System.Memory.dll
+E:\Projects\IPCamera Control\WindowsFormsApp1\bin\x64\Release\System.Numerics.Vectors.dll
+E:\Projects\IPCamera Control\WindowsFormsApp1\bin\x64\Release\System.Resources.Extensions.dll
+E:\Projects\IPCamera Control\WindowsFormsApp1\bin\x64\Release\System.Runtime.CompilerServices.Unsafe.dll
+E:\Projects\IPCamera Control\WindowsFormsApp1\bin\x64\Release\USB-Barcode-Scanner.dll
+E:\Projects\IPCamera Control\WindowsFormsApp1\bin\x64\Release\Dapper.xml
+E:\Projects\IPCamera Control\WindowsFormsApp1\bin\x64\Release\Ookii.Dialogs.WinForms.pdb
+E:\Projects\IPCamera Control\WindowsFormsApp1\bin\x64\Release\System.Buffers.xml
+E:\Projects\IPCamera Control\WindowsFormsApp1\bin\x64\Release\System.Data.SQLite.xml
+E:\Projects\IPCamera Control\WindowsFormsApp1\bin\x64\Release\System.Drawing.Common.xml
+E:\Projects\IPCamera Control\WindowsFormsApp1\bin\x64\Release\System.Memory.xml
+E:\Projects\IPCamera Control\WindowsFormsApp1\bin\x64\Release\System.Numerics.Vectors.xml
+E:\Projects\IPCamera Control\WindowsFormsApp1\bin\x64\Release\System.Resources.Extensions.xml
+E:\Projects\IPCamera Control\WindowsFormsApp1\bin\x64\Release\System.Runtime.CompilerServices.Unsafe.xml
+E:\Projects\IPCamera Control\WindowsFormsApp1\obj\x64\Release\IPCamera_Manager.csproj.CopyComplete
+E:\Projects\IPCamera Control\WindowsFormsApp1\obj\x64\Release\IPCameraManager.exe
+E:\Projects\IPCamera Control\WindowsFormsApp1\obj\x64\Release\IPCameraManager.pdb
+E:\Projects\IPCamera Control\WindowsFormsApp1\bin\x64\Release\DeltaCompressionDotNet.dll
+E:\Projects\IPCamera Control\WindowsFormsApp1\bin\x64\Release\DeltaCompressionDotNet.MsDelta.dll
+E:\Projects\IPCamera Control\WindowsFormsApp1\bin\x64\Release\DeltaCompressionDotNet.PatchApi.dll
+E:\Projects\IPCamera Control\WindowsFormsApp1\bin\x64\Release\Mono.Cecil.dll
+E:\Projects\IPCamera Control\WindowsFormsApp1\bin\x64\Release\Mono.Cecil.Mdb.dll
+E:\Projects\IPCamera Control\WindowsFormsApp1\bin\x64\Release\Mono.Cecil.Pdb.dll
+E:\Projects\IPCamera Control\WindowsFormsApp1\bin\x64\Release\Mono.Cecil.Rocks.dll
+E:\Projects\IPCamera Control\WindowsFormsApp1\bin\x64\Release\NuGet.Squirrel.dll
+E:\Projects\IPCamera Control\WindowsFormsApp1\bin\x64\Release\SharpCompress.dll
+E:\Projects\IPCamera Control\WindowsFormsApp1\bin\x64\Release\Squirrel.dll
+E:\Projects\IPCamera Control\WindowsFormsApp1\bin\x64\Release\Mono.Cecil.pdb
+E:\Projects\IPCamera Control\WindowsFormsApp1\bin\x64\Release\Mono.Cecil.Mdb.pdb
+E:\Projects\IPCamera Control\WindowsFormsApp1\bin\x64\Release\Mono.Cecil.Pdb.pdb
+E:\Projects\IPCamera Control\WindowsFormsApp1\bin\x64\Release\Mono.Cecil.Rocks.pdb
+E:\Projects\IPCamera Control\WindowsFormsApp1\bin\x64\Release\NuGet.Squirrel.pdb
+E:\Projects\IPCamera Control\WindowsFormsApp1\bin\x64\Release\Squirrel.pdb
+E:\Projects\IPCamera Control\WindowsFormsApp1\bin\x64\Release\Splat.dll
+E:\Projects\IPCamera Control\WindowsFormsApp1\bin\x64\Release\Splat.pdb
+E:\Projects\IPCamera Control\WindowsFormsApp1\obj\x64\Release\IPCamera_Manager.csproj.AssemblyReference.cache
+E:\Projects\IPCameraControl\WindowsFormsApp1\bin\x64\Release\db\IPCameraManager.db
+E:\Projects\IPCameraControl\WindowsFormsApp1\bin\x64\Release\IPCameraManager.exe.config
+E:\Projects\IPCameraControl\WindowsFormsApp1\bin\x64\Release\IPCameraManager.exe
+E:\Projects\IPCameraControl\WindowsFormsApp1\bin\x64\Release\IPCameraManager.pdb
+E:\Projects\IPCameraControl\WindowsFormsApp1\bin\x64\Release\Dapper.dll
+E:\Projects\IPCameraControl\WindowsFormsApp1\bin\x64\Release\DeltaCompressionDotNet.dll
+E:\Projects\IPCameraControl\WindowsFormsApp1\bin\x64\Release\DeltaCompressionDotNet.MsDelta.dll
+E:\Projects\IPCameraControl\WindowsFormsApp1\bin\x64\Release\DeltaCompressionDotNet.PatchApi.dll
+E:\Projects\IPCameraControl\WindowsFormsApp1\bin\x64\Release\Mono.Cecil.dll
+E:\Projects\IPCameraControl\WindowsFormsApp1\bin\x64\Release\Mono.Cecil.Mdb.dll
+E:\Projects\IPCameraControl\WindowsFormsApp1\bin\x64\Release\Mono.Cecil.Pdb.dll
+E:\Projects\IPCameraControl\WindowsFormsApp1\bin\x64\Release\Mono.Cecil.Rocks.dll
+E:\Projects\IPCameraControl\WindowsFormsApp1\bin\x64\Release\NuGet.Squirrel.dll
+E:\Projects\IPCameraControl\WindowsFormsApp1\bin\x64\Release\Ookii.Dialogs.WinForms.dll
+E:\Projects\IPCameraControl\WindowsFormsApp1\bin\x64\Release\SharpCompress.dll
+E:\Projects\IPCameraControl\WindowsFormsApp1\bin\x64\Release\Splat.dll
+E:\Projects\IPCameraControl\WindowsFormsApp1\bin\x64\Release\Squirrel.dll
+E:\Projects\IPCameraControl\WindowsFormsApp1\bin\x64\Release\System.Buffers.dll
+E:\Projects\IPCameraControl\WindowsFormsApp1\bin\x64\Release\System.Data.SQLite.dll
+E:\Projects\IPCameraControl\WindowsFormsApp1\bin\x64\Release\System.Drawing.Common.dll
+E:\Projects\IPCameraControl\WindowsFormsApp1\bin\x64\Release\System.Memory.dll
+E:\Projects\IPCameraControl\WindowsFormsApp1\bin\x64\Release\System.Numerics.Vectors.dll
+E:\Projects\IPCameraControl\WindowsFormsApp1\bin\x64\Release\System.Resources.Extensions.dll
+E:\Projects\IPCameraControl\WindowsFormsApp1\bin\x64\Release\System.Runtime.CompilerServices.Unsafe.dll
+E:\Projects\IPCameraControl\WindowsFormsApp1\bin\x64\Release\USB-Barcode-Scanner.dll
+E:\Projects\IPCameraControl\WindowsFormsApp1\bin\x64\Release\Dapper.xml
+E:\Projects\IPCameraControl\WindowsFormsApp1\bin\x64\Release\Mono.Cecil.pdb
+E:\Projects\IPCameraControl\WindowsFormsApp1\bin\x64\Release\Mono.Cecil.Mdb.pdb
+E:\Projects\IPCameraControl\WindowsFormsApp1\bin\x64\Release\Mono.Cecil.Pdb.pdb
+E:\Projects\IPCameraControl\WindowsFormsApp1\bin\x64\Release\Mono.Cecil.Rocks.pdb
+E:\Projects\IPCameraControl\WindowsFormsApp1\bin\x64\Release\NuGet.Squirrel.pdb
+E:\Projects\IPCameraControl\WindowsFormsApp1\bin\x64\Release\Ookii.Dialogs.WinForms.pdb
+E:\Projects\IPCameraControl\WindowsFormsApp1\bin\x64\Release\Splat.pdb
+E:\Projects\IPCameraControl\WindowsFormsApp1\bin\x64\Release\Squirrel.pdb
+E:\Projects\IPCameraControl\WindowsFormsApp1\bin\x64\Release\System.Buffers.xml
+E:\Projects\IPCameraControl\WindowsFormsApp1\bin\x64\Release\System.Data.SQLite.xml
+E:\Projects\IPCameraControl\WindowsFormsApp1\bin\x64\Release\System.Drawing.Common.xml
+E:\Projects\IPCameraControl\WindowsFormsApp1\bin\x64\Release\System.Memory.xml
+E:\Projects\IPCameraControl\WindowsFormsApp1\bin\x64\Release\System.Numerics.Vectors.xml
+E:\Projects\IPCameraControl\WindowsFormsApp1\bin\x64\Release\System.Resources.Extensions.xml
+E:\Projects\IPCameraControl\WindowsFormsApp1\bin\x64\Release\System.Runtime.CompilerServices.Unsafe.xml
+E:\Projects\IPCameraControl\WindowsFormsApp1\obj\x64\Release\IPCamera_Manager.csproj.AssemblyReference.cache
+E:\Projects\IPCameraControl\WindowsFormsApp1\obj\x64\Release\IPCamera_Manager.csproj.ResolveComReference.cache
+E:\Projects\IPCameraControl\WindowsFormsApp1\obj\x64\Release\IPCameraManager.FormSetupPTZ.resources
+E:\Projects\IPCameraControl\WindowsFormsApp1\obj\x64\Release\IPCameraManager.UserControls.PageSearchPatient.resources
+E:\Projects\IPCameraControl\WindowsFormsApp1\obj\x64\Release\IPCameraManager.FormLoginCamera.resources
+E:\Projects\IPCameraControl\WindowsFormsApp1\obj\x64\Release\IPCameraManager.MainForm.resources
+E:\Projects\IPCameraControl\WindowsFormsApp1\obj\x64\Release\IPCameraManager.SetFoldertoSaveFile_Form.resources
+E:\Projects\IPCameraControl\WindowsFormsApp1\obj\x64\Release\IPCameraManager.ShowCamera2Form.resources
+E:\Projects\IPCameraControl\WindowsFormsApp1\obj\x64\Release\IPCameraManager.Page1.resources
+E:\Projects\IPCameraControl\WindowsFormsApp1\obj\x64\Release\IPCameraManager.Properties.Resources.resources
+E:\Projects\IPCameraControl\WindowsFormsApp1\obj\x64\Release\IPCameraManager.Page2.resources
+E:\Projects\IPCameraControl\WindowsFormsApp1\obj\x64\Release\IPCamera_Manager.csproj.GenerateResource.cache
+E:\Projects\IPCameraControl\WindowsFormsApp1\obj\x64\Release\IPCamera_Manager.csproj.CoreCompileInputs.cache
+E:\Projects\IPCameraControl\WindowsFormsApp1\obj\x64\Release\IPCamera_Manager.csproj.CopyComplete
+E:\Projects\IPCameraControl\WindowsFormsApp1\obj\x64\Release\IPCameraManager.exe
+E:\Projects\IPCameraControl\WindowsFormsApp1\obj\x64\Release\IPCameraManager.pdb

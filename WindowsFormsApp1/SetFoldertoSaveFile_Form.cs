@@ -19,15 +19,11 @@ namespace IPCameraManager
         }
         public void SetFolderName(string FolderPath)
         {
-            string str = FolderPath;
-            str.Replace("//", "\\");
-            tbFolderName.Text = str;
+            tbFolderName.Text = FolderPath;
         }
         public void GetFolderName(ref string FolderName)
         {
-            string str = tbFolderName.Text;
-            str.Replace("\\", "//");
-            FolderName = str;
+            FolderName = tbFolderName.Text;
         }
 
         private void btBrowse_Click(object sender, EventArgs e)
@@ -38,9 +34,7 @@ namespace IPCameraManager
 
                 if (result == DialogResult.OK && !string.IsNullOrWhiteSpace(fbd.SelectedPath))
                 {
-                    string str = fbd.SelectedPath;
-                    str.Replace("//", "\\");
-                    tbFolderName.Text = str;
+                    tbFolderName.Text = fbd.SelectedPath;
                 }
             }
         }

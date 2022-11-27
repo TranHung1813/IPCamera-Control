@@ -1,7 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Threading;
+using System.Threading.Tasks;
 using System.Windows.Forms;
+using Squirrel;
 namespace IPCameraManager
 {
     public partial class MainForm : Form
@@ -10,6 +12,7 @@ namespace IPCameraManager
         {
             InitializeComponent();
             InitForm_Default();
+            //CheckForUpdates();
         }
         //1. Luu thong tin dang nhap (Done)
         //2. Tao form loading cho Camera (Done)
@@ -53,6 +56,23 @@ namespace IPCameraManager
         private const int PAGE2 = 2;
         private int TabPageID = PAGE1;
 
+        //private async void CheckForUpdates()
+        //{
+        //    //UpdateManager manager = await UpdateManager.GitHubUpdateManager(@"https://github.com/TranHung1813/IPCamera-Control");
+        //    //var updateInfo = await manager.CheckForUpdate();
+        //    //if (updateInfo.ReleasesToApply.Count > 0)
+        //    //{
+        //    //    if(MessageBox.Show($"New version available ({updateInfo.ReleasesToApply[0].Version}). Update?", "Update?", MessageBoxButtons.YesNo) == DialogResult.Yes)
+        //    //    {
+        //    //        await manager.UpdateApp();
+        //    //        MessageBox.Show("Update complete, please restart application.");
+        //    //    }
+        //    //}
+        //    //else
+        //    //{
+        //    //    MessageBox.Show("No update.");
+        //    //}
+        //}
         private void InitForm_Default()
         {
             //Init key press event

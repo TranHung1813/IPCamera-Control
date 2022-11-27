@@ -514,6 +514,7 @@ namespace IPCameraManager
             this.btInPhieu_F9.Text = " In Phiếu (F9)";
             this.btInPhieu_F9.UseTransparentBackground = true;
             this.btInPhieu_F9.Click += new System.EventHandler(this.btInPhieu_F9_Click);
+            this.btInPhieu_F9.MouseUp += new System.Windows.Forms.MouseEventHandler(this.btInPhieu_F9_MouseUp);
             // 
             // btExit_F12
             // 

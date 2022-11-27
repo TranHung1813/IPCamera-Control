@@ -93,7 +93,7 @@ namespace IPCameraManager
             // 
             this.tbFolderName.BorderRadius = 3;
             this.tbFolderName.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.tbFolderName.DefaultText = "D:/Hinh_Anh";
+            this.tbFolderName.DefaultText = "D:\\Hinh_Anh";
             this.tbFolderName.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
             this.tbFolderName.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
             this.tbFolderName.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
@@ -111,7 +111,6 @@ namespace IPCameraManager
             this.tbFolderName.PasswordChar = '\0';
             this.tbFolderName.PlaceholderText = "";
             this.tbFolderName.SelectedText = "";
-            this.tbFolderName.SelectionStart = 11;
             this.tbFolderName.ShadowDecoration.Parent = this.tbFolderName;
             this.tbFolderName.Size = new System.Drawing.Size(448, 26);
             this.tbFolderName.TabIndex = 3;
