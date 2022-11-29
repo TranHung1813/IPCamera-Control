@@ -621,12 +621,37 @@ namespace IPCameraManager
         }
         private void btMainCam_Click(object sender, EventArgs e)
         {
-            CurrentCamID = CAM1;
-            PtzRange_MainCam_Click(sender, e);
-            Load_VideoEffect();
-            if (SecondaryCam_Manager.Live_Status >= 0)
+            if(CurrentCamID != CAM1)
             {
-                if (ERR_OK == Stop_PlayCam2())
+                CurrentCamID = CAM1;
+                // Get PTZ range
+                PtzRange_MainCam_Click(sender, e);
+                // Get Brightness, contrast, ... value
+                Load_VideoEffect();
+                // Get PTZ value
+                PtzGet_Click(sender, e);
+                if (SecondaryCam_Manager.Live_Status >= 0)
+                {
+                    if (ERR_OK == Stop_PlayCam2())
+                    {
+                        if (MainCam_Manager.Live_Status < 0)
+                        {
+                            if (ERR_OK == Start_PlayMainCam())
+                            {
+
+                            }
+                            else
+                            {
+                                //this.Dispose();
+                            }
+                        }
+                    }
+                    else
+                    {
+                        //this.Dispose();
+                    }
+                }
+                else
                 {
                     if (MainCam_Manager.Live_Status < 0)
                     {
@@ -640,35 +665,42 @@ namespace IPCameraManager
                         }
                     }
                 }
-                else
-                {
-                    //this.Dispose();
-                }
-            }
-            else
-            {
-                if (MainCam_Manager.Live_Status < 0)
-                {
-                    if (ERR_OK == Start_PlayMainCam())
-                    {
+            }    
+        }
 
+        private void btCam2_Click(object sender, EventArgs e)
+        {
+            if(CurrentCamID != CAM2)
+            {
+                CurrentCamID = CAM2;
+                // Get PTZ range
+                PtzRange_SecondaryCam_Click(sender, e);
+                // Get Brightness, contrast, ... value
+                Load_VideoEffect();
+                // Get PTZ value
+                PtzGet_Click(sender, e);
+                if (MainCam_Manager.Live_Status >= 0)
+                {
+                    if (ERR_OK == Stop_PlayMainCam())
+                    {
+                        if (SecondaryCam_Manager.Live_Status < 0)
+                        {
+                            if (ERR_OK == Start_PlayCam2())
+                            {
+
+                            }
+                            else
+                            {
+                                //this.Dispose();
+                            }
+                        }
                     }
                     else
                     {
                         //this.Dispose();
                     }
                 }
-            }    
-        }
-
-        private void btCam2_Click(object sender, EventArgs e)
-        {
-            CurrentCamID = CAM2;
-            PtzRange_SecondaryCam_Click(sender, e);
-            Load_VideoEffect();
-            if (MainCam_Manager.Live_Status >= 0)
-            {
-                if (ERR_OK == Stop_PlayMainCam())
+                else
                 {
                     if (SecondaryCam_Manager.Live_Status < 0)
                     {
@@ -680,24 +712,6 @@ namespace IPCameraManager
                         {
                             //this.Dispose();
                         }
-                    }
-                }
-                else
-                {
-                    //this.Dispose();
-                }
-            }
-            else
-            {
-                if (SecondaryCam_Manager.Live_Status < 0)
-                {
-                    if (ERR_OK == Start_PlayCam2())
-                    {
-
-                    }
-                    else
-                    {
-                        //this.Dispose();
                     }
                 }
             }
@@ -1051,6 +1065,94 @@ namespace IPCameraManager
 
             }
         }
+        private void PtzGet_Click(object sender, EventArgs e)
+        {
+            if (CurrentCamID == CAM1)
+            {
+                UInt32 dwReturn = 0;
+                Int32 nSize = Marshal.SizeOf(m_struPtzCfg_main);
+                IntPtr ptrPtzCfg = Marshal.AllocHGlobal(nSize);
+                Marshal.StructureToPtr(m_struPtzCfg_main, ptrPtzCfg, false);
+                // Get information fail
+                if (!CHCNetSDK.NET_DVR_GetDVRConfig(MainCam_Manager.LoginInfo.LoginStatus, CHCNetSDK.NET_DVR_GET_PTZPOS, -1, ptrPtzCfg, (UInt32)nSize, ref dwReturn))
+                {
+                    uint Err_return = CHCNetSDK.NET_DVR_GetLastError();
+                    string str = "NET_DVR_GetDVRConfig failed, error code= " + Err_return;
+                    MessageBox.Show(str);
+                    return;
+                }
+                else
+                {
+                    m_struPtzCfg_main = (CHCNetSDK.NET_DVR_PTZPOS)Marshal.PtrToStructure(ptrPtzCfg, typeof(CHCNetSDK.NET_DVR_PTZPOS));
+                    //Get PTZ parameters success
+                    ushort wPanPos = Convert.ToUInt16(Convert.ToString(m_struPtzCfg_main.wPanPos, 16));
+                    float WPanPos = wPanPos * 0.1f;
+                    //textBoxPanPos.Text = Convert.ToString(WPanPos);
+                    ushort wTiltPos = Convert.ToUInt16(Convert.ToString(m_struPtzCfg_main.wTiltPos, 16));
+                    float WTiltPos = wTiltPos * 0.1f;
+                    //textBoxTiltPos.Text = Convert.ToString(WTiltPos);
+                    ushort wZoomPos = Convert.ToUInt16(Convert.ToString(m_struPtzCfg_main.wZoomPos, 16));
+                    float WZoomPos = wZoomPos * 0.1f;
+                    //textBoxZoomPos.Text = Convert.ToString(WZoomPos);
+                    if((int)WZoomPos < tB_Zoom.Minimum)
+                    {
+                        tB_Zoom.Value = tB_Zoom.Minimum;
+                    }
+                    else if((int)WZoomPos > tB_Zoom.Maximum)
+                    {
+                        tB_Zoom.Value = tB_Zoom.Maximum;
+                    }
+                    else
+                    {
+                        tB_Zoom.Value = (int)WZoomPos;
+                    }
+                }
+                return;
+            }
+            else if (CurrentCamID == CAM2)
+            {
+                UInt32 dwReturn = 0;
+                Int32 nSize = Marshal.SizeOf(m_struPtzCfg_second);
+                IntPtr ptrPtzCfg = Marshal.AllocHGlobal(nSize);
+                Marshal.StructureToPtr(m_struPtzCfg_second, ptrPtzCfg, false);
+                // Get information fail
+                if (!CHCNetSDK.NET_DVR_GetDVRConfig(SecondaryCam_Manager.LoginInfo.LoginStatus, CHCNetSDK.NET_DVR_GET_PTZPOS, -1, ptrPtzCfg, (UInt32)nSize, ref dwReturn))
+                {
+                    uint Err_return = CHCNetSDK.NET_DVR_GetLastError();
+                    string str = "NET_DVR_GetDVRConfig failed, error code= " + Err_return;
+                    MessageBox.Show(str);
+                    return;
+                }
+                else
+                {
+                    m_struPtzCfg_second = (CHCNetSDK.NET_DVR_PTZPOS)Marshal.PtrToStructure(ptrPtzCfg, typeof(CHCNetSDK.NET_DVR_PTZPOS));
+                    //Get PTZ parameters success
+                    ushort wPanPos = Convert.ToUInt16(Convert.ToString(m_struPtzCfg_second.wPanPos, 16));
+                    float WPanPos = wPanPos * 0.1f;
+                    //textBoxPanPos.Text = Convert.ToString(WPanPos);
+                    ushort wTiltPos = Convert.ToUInt16(Convert.ToString(m_struPtzCfg_second.wTiltPos, 16));
+                    float WTiltPos = wTiltPos * 0.1f;
+                    //textBoxTiltPos.Text = Convert.ToString(WTiltPos);
+                    ushort wZoomPos = Convert.ToUInt16(Convert.ToString(m_struPtzCfg_second.wZoomPos, 16));
+                    float WZoomPos = wZoomPos * 0.1f;
+                    //textBoxZoomPos.Text = Convert.ToString(WZoomPos);
+                    if ((int)WZoomPos < tB_Zoom.Minimum)
+                    {
+                        tB_Zoom.Value = tB_Zoom.Minimum;
+                    }
+                    else if ((int)WZoomPos > tB_Zoom.Maximum)
+                    {
+                        tB_Zoom.Value = tB_Zoom.Maximum;
+                    }
+                    else
+                    {
+                        tB_Zoom.Value = (int)WZoomPos;
+                    }
+
+                }
+                return;
+            }
+        }
         private void Load_VideoEffect()
         {
             if(CurrentCamID == CAM1)
@@ -1075,7 +1177,6 @@ namespace IPCameraManager
                 Slide_Saturation.Percentage = (int)Saturation_Cam2 * 10;
                 Slide_hue.Percentage = (int)hue_Cam2 * 10;
             }
-
         }
         private void Change_Brightness()
         {
