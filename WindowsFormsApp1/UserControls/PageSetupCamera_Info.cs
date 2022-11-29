@@ -7,6 +7,7 @@ using System.Linq;
 using System.Net;
 using System.Runtime.InteropServices;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -50,6 +51,7 @@ namespace IPCameraManager
         private int Cam2_MaxTilt = 0;
         private int Cam2_MinTilt = 0;
 
+        Thread LoadingCamera_Trd;
         private int CurrentCamID = 0;
         private const int CAM1 = 1;
         private const int CAM2 = 2;
@@ -63,10 +65,10 @@ namespace IPCameraManager
         uint Saturation_Cam2 = 0;
         uint hue_Cam2 = 0;
 
-        Timer timerBrightness = new Timer();
-        Timer timerContrast = new Timer();
-        Timer timerSaturation = new Timer();
-        Timer timerhue = new Timer();
+        System.Windows.Forms.Timer timerBrightness;
+        System.Windows.Forms.Timer timerContrast;
+        System.Windows.Forms.Timer timerSaturation;
+        System.Windows.Forms.Timer timerhue;
         private void Init_IPCamera()
         {
             /* Init Cam chinh */
@@ -529,7 +531,16 @@ namespace IPCameraManager
 
         private void PageSetupCamera_Info_Load(object sender, EventArgs e)
         {
-            btMainCam_Click(sender, e);
+            Application.DoEvents();
+            // Thread load Main Camera
+            LoadingCamera_Trd = new Thread(new ThreadStart(this.ThreadTask_LoadCam));
+            LoadingCamera_Trd.IsBackground = true;
+            LoadingCamera_Trd.Start();
+        }
+        private void ThreadTask_LoadCam()
+        {
+            btMainCam_Click (btMainCam, null);
+            LoadingCamera_Trd.Abort();
         }
         private void PtzRange_MainCam_Click(object sender, EventArgs e)
         {
@@ -1213,16 +1224,25 @@ namespace IPCameraManager
         }
         private void Slide_Brightness_Scroll(object sender, EventArgs e)
         {
-            timerBrightness.Enabled = true;
-            timerBrightness.Interval = 400;
-            timerBrightness.Tick += Timer_BrightNess_Tick;
-            timerBrightness.Start();
-        }
+            this.Invoke(new MethodInvoker(() => {
+                if(timerBrightness == null)
+                {
+                    timerBrightness = new System.Windows.Forms.Timer();
+                    timerBrightness.Tick += new EventHandler(Timer_BrightNess_Tick);
 
+                    timerBrightness.Interval = 400;
+                    timerBrightness.Start();
+                }
+            }));
+        }
         private void Timer_BrightNess_Tick(object sender, EventArgs e)
         {
-            Change_Brightness();
-            timerBrightness.Stop();
+            this.Invoke(new MethodInvoker(() =>
+            {
+                Change_Brightness();
+                timerBrightness.Stop();
+                timerBrightness = null;
+            }));
         }
         private void ChangeContrast()
         {
@@ -1259,15 +1279,25 @@ namespace IPCameraManager
         }
         private void Slide_Contrast_Scroll(object sender, EventArgs e)
         {
-            timerContrast.Enabled = true;
-            timerContrast.Interval = 400;
-            timerContrast.Tick += Timer_Contrast_Tick;
-            timerContrast.Start();
+            this.Invoke(new MethodInvoker(() => {
+                if (timerContrast == null)
+                {
+                    timerContrast = new System.Windows.Forms.Timer();
+                    timerContrast.Tick += new EventHandler(Timer_Contrast_Tick);
+
+                    timerContrast.Interval = 400;
+                    timerContrast.Start();
+                }
+            }));
         }
         private void Timer_Contrast_Tick(object sender, EventArgs e)
         {
-            ChangeContrast();
-            timerContrast.Stop();
+            this.Invoke(new MethodInvoker(() =>
+            {
+                ChangeContrast();
+                timerContrast.Stop();
+                timerContrast = null;
+            }));
         }
         private void ChangeSaturation()
         {
@@ -1304,15 +1334,25 @@ namespace IPCameraManager
         }
         private void Slide_Saturation_Scroll(object sender, EventArgs e)
         {
-            timerSaturation.Enabled = true;
-            timerSaturation.Interval = 400;
-            timerSaturation.Tick += Timer_Saturation_Tick;
-            timerSaturation.Start();
+            this.Invoke(new MethodInvoker(() => {
+                if (timerSaturation == null)
+                {
+                    timerSaturation = new System.Windows.Forms.Timer();
+                    timerSaturation.Tick += new EventHandler(Timer_Saturation_Tick);
+
+                    timerSaturation.Interval = 400;
+                    timerSaturation.Start();
+                }
+            }));
         }
         private void Timer_Saturation_Tick(object sender, EventArgs e)
         {
-            ChangeSaturation();
-            timerSaturation.Stop();
+            this.Invoke(new MethodInvoker(() =>
+            {
+                ChangeSaturation();
+                timerSaturation.Stop();
+                timerSaturation = null;
+            }));
         }
 
         private void Change_hue()
@@ -1350,15 +1390,25 @@ namespace IPCameraManager
         }
         private void Slide_hue_Scroll(object sender, EventArgs e)
         {
-            timerhue.Enabled = true;
-            timerhue.Interval = 400;
-            timerhue.Tick += Timer_hue_Tick;
-            timerhue.Start();
+            this.Invoke(new MethodInvoker(() => {
+                if (timerhue == null)
+                {
+                    timerhue = new System.Windows.Forms.Timer();
+                    timerhue.Tick += new EventHandler(Timer_hue_Tick);
+
+                    timerhue.Interval = 400;
+                    timerhue.Start();
+                }
+            }));
         }
         private void Timer_hue_Tick(object sender, EventArgs e)
         {
-            Change_hue();
-            timerhue.Stop();
+            this.Invoke(new MethodInvoker(() =>
+            {
+                Change_hue();
+                timerhue.Stop();
+                timerhue = null;
+            }));
         }
     }
 }

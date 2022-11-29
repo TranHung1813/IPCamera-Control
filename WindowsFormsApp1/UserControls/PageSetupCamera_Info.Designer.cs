@@ -107,18 +107,19 @@ namespace IPCameraManager
             this.btZoomOut.CheckedState.CustomBorderColor = System.Drawing.Color.Transparent;
             this.btZoomOut.CheckedState.FillColor = System.Drawing.Color.White;
             this.btZoomOut.CheckedState.Parent = this.btZoomOut;
-            this.btZoomOut.CustomBorderThickness = new System.Windows.Forms.Padding(0, 0, 0, 3);
             this.btZoomOut.CustomImages.Parent = this.btZoomOut;
             this.btZoomOut.FillColor = System.Drawing.Color.White;
             this.btZoomOut.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btZoomOut.ForeColor = System.Drawing.Color.Black;
             this.btZoomOut.HoverState.Parent = this.btZoomOut;
+            this.btZoomOut.Image = global::IPCameraManager.Properties.Resources.Zoom_Out_icon;
+            this.btZoomOut.ImageSize = new System.Drawing.Size(40, 40);
             this.btZoomOut.Location = new System.Drawing.Point(69, 329);
             this.btZoomOut.Name = "btZoomOut";
             this.btZoomOut.ShadowDecoration.Parent = this.btZoomOut;
             this.btZoomOut.Size = new System.Drawing.Size(99, 44);
             this.btZoomOut.TabIndex = 57;
-            this.btZoomOut.Text = "Zoom Out";
+            this.btZoomOut.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.btZoomOut.Click += new System.EventHandler(this.btZoomOut_Click);
             // 
             // btZoomIn
@@ -136,12 +137,13 @@ namespace IPCameraManager
             this.btZoomIn.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btZoomIn.ForeColor = System.Drawing.Color.Black;
             this.btZoomIn.HoverState.Parent = this.btZoomIn;
+            this.btZoomIn.Image = global::IPCameraManager.Properties.Resources.Zoom_In_icon;
+            this.btZoomIn.ImageSize = new System.Drawing.Size(40, 40);
             this.btZoomIn.Location = new System.Drawing.Point(198, 329);
             this.btZoomIn.Name = "btZoomIn";
             this.btZoomIn.ShadowDecoration.Parent = this.btZoomIn;
             this.btZoomIn.Size = new System.Drawing.Size(99, 44);
             this.btZoomIn.TabIndex = 56;
-            this.btZoomIn.Text = "Zoom In";
             this.btZoomIn.Click += new System.EventHandler(this.btZoomIn_Click);
             // 
             // label11
@@ -149,7 +151,7 @@ namespace IPCameraManager
             this.label11.AutoSize = true;
             this.label11.BackColor = System.Drawing.Color.Transparent;
             this.label11.Font = new System.Drawing.Font("Tahoma", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label11.Location = new System.Drawing.Point(311, 262);
+            this.label11.Location = new System.Drawing.Point(306, 262);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(30, 29);
             this.label11.TabIndex = 55;
@@ -159,7 +161,7 @@ namespace IPCameraManager
             // 
             this.tB_Zoom.BackColor = System.Drawing.Color.White;
             this.tB_Zoom.LargeChange = 1;
-            this.tB_Zoom.Location = new System.Drawing.Point(95, 266);
+            this.tB_Zoom.Location = new System.Drawing.Point(90, 266);
             this.tB_Zoom.Name = "tB_Zoom";
             this.tB_Zoom.Size = new System.Drawing.Size(216, 45);
             this.tB_Zoom.TabIndex = 54;
@@ -169,7 +171,7 @@ namespace IPCameraManager
             // 
             this.tB_Focus.BackColor = System.Drawing.Color.White;
             this.tB_Focus.LargeChange = 1;
-            this.tB_Focus.Location = new System.Drawing.Point(95, 215);
+            this.tB_Focus.Location = new System.Drawing.Point(90, 215);
             this.tB_Focus.Name = "tB_Focus";
             this.tB_Focus.Size = new System.Drawing.Size(216, 45);
             this.tB_Focus.TabIndex = 53;
@@ -395,7 +397,7 @@ namespace IPCameraManager
             this.label10.AutoSize = true;
             this.label10.BackColor = System.Drawing.Color.Transparent;
             this.label10.Font = new System.Drawing.Font("Tahoma", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label10.Location = new System.Drawing.Point(73, 262);
+            this.label10.Location = new System.Drawing.Point(68, 262);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(25, 33);
             this.label10.TabIndex = 39;
@@ -404,7 +406,7 @@ namespace IPCameraManager
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(17, 272);
+            this.label9.Location = new System.Drawing.Point(12, 272);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(56, 19);
             this.label9.TabIndex = 38;
@@ -415,7 +417,7 @@ namespace IPCameraManager
             this.label8.AutoSize = true;
             this.label8.BackColor = System.Drawing.Color.Transparent;
             this.label8.Font = new System.Drawing.Font("Tahoma", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.Location = new System.Drawing.Point(311, 209);
+            this.label8.Location = new System.Drawing.Point(306, 209);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(30, 29);
             this.label8.TabIndex = 37;
@@ -426,7 +428,7 @@ namespace IPCameraManager
             this.label5.AutoSize = true;
             this.label5.BackColor = System.Drawing.Color.Transparent;
             this.label5.Font = new System.Drawing.Font("Tahoma", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(73, 208);
+            this.label5.Location = new System.Drawing.Point(68, 208);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(25, 33);
             this.label5.TabIndex = 36;
@@ -435,7 +437,7 @@ namespace IPCameraManager
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(18, 218);
+            this.label1.Location = new System.Drawing.Point(13, 218);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(55, 19);
             this.label1.TabIndex = 35;
@@ -462,7 +464,7 @@ namespace IPCameraManager
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(28, 142);
+            this.label6.Location = new System.Drawing.Point(24, 142);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(65, 19);
             this.label6.TabIndex = 8;
@@ -471,7 +473,7 @@ namespace IPCameraManager
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(27, 110);
+            this.label4.Location = new System.Drawing.Point(23, 110);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(66, 19);
             this.label4.TabIndex = 7;
@@ -480,7 +482,7 @@ namespace IPCameraManager
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(-3, 75);
+            this.label3.Location = new System.Drawing.Point(-7, 75);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(96, 19);
             this.label3.TabIndex = 6;
@@ -489,7 +491,7 @@ namespace IPCameraManager
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(26, 40);
+            this.label2.Location = new System.Drawing.Point(22, 40);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(67, 19);
             this.label2.TabIndex = 5;
@@ -502,7 +504,7 @@ namespace IPCameraManager
             this.Slide_hue.FilledColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(119)))), ((int)(((byte)(215)))));
             this.Slide_hue.KnobColor = System.Drawing.Color.Gray;
             this.Slide_hue.KnobImage = null;
-            this.Slide_hue.Location = new System.Drawing.Point(90, 142);
+            this.Slide_hue.Location = new System.Drawing.Point(86, 142);
             this.Slide_hue.Name = "Slide_hue";
             this.Slide_hue.Percentage = 0;
             this.Slide_hue.QuickHopping = true;
@@ -520,7 +522,7 @@ namespace IPCameraManager
             this.Slide_Saturation.FilledColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(119)))), ((int)(((byte)(215)))));
             this.Slide_Saturation.KnobColor = System.Drawing.Color.Gray;
             this.Slide_Saturation.KnobImage = null;
-            this.Slide_Saturation.Location = new System.Drawing.Point(90, 108);
+            this.Slide_Saturation.Location = new System.Drawing.Point(86, 108);
             this.Slide_Saturation.Name = "Slide_Saturation";
             this.Slide_Saturation.Percentage = 0;
             this.Slide_Saturation.QuickHopping = true;
@@ -538,7 +540,7 @@ namespace IPCameraManager
             this.Slide_Contrast.FilledColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(119)))), ((int)(((byte)(215)))));
             this.Slide_Contrast.KnobColor = System.Drawing.Color.Gray;
             this.Slide_Contrast.KnobImage = null;
-            this.Slide_Contrast.Location = new System.Drawing.Point(90, 74);
+            this.Slide_Contrast.Location = new System.Drawing.Point(86, 74);
             this.Slide_Contrast.Name = "Slide_Contrast";
             this.Slide_Contrast.Percentage = 0;
             this.Slide_Contrast.QuickHopping = true;
@@ -557,7 +559,7 @@ namespace IPCameraManager
             this.Slide_Brightness.FilledColor = System.Drawing.Color.Silver;
             this.Slide_Brightness.KnobColor = System.Drawing.Color.Blue;
             this.Slide_Brightness.KnobImage = null;
-            this.Slide_Brightness.Location = new System.Drawing.Point(90, 40);
+            this.Slide_Brightness.Location = new System.Drawing.Point(86, 40);
             this.Slide_Brightness.Name = "Slide_Brightness";
             this.Slide_Brightness.Percentage = 50;
             this.Slide_Brightness.QuickHopping = true;

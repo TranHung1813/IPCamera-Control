@@ -251,6 +251,8 @@
       <DependentUpon>PageSetupCamera_Info.cs</DependentUpon>
     </Compile>
     <Content Include="Doctor-icon.ico" />
+    <None Include="Resources\Zoom-In-icon.png" />
+    <None Include="Resources\Zoom-Out-icon.png" />
     <None Include="Resources\arrow_crossru.png" />
     <None Include="Resources\arrow_crossld1.png" />
     <None Include="Resources\arrow_crossrd3.png" />
