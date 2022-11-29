@@ -199,6 +199,11 @@
     <Compile Include="FormSetupPTZ.Designer.cs">
       <DependentUpon>FormSetupPTZ.cs</DependentUpon>
     </Compile>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
     <Compile Include="SetFoldertoSaveFile_Form.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -251,8 +256,10 @@
       <DependentUpon>PageSetupCamera_Info.cs</DependentUpon>
     </Compile>
     <Content Include="Doctor-icon.ico" />
-    <None Include="Resources\Zoom-In-icon.png" />
-    <None Include="Resources\Zoom-Out-icon.png" />
+    <None Include="Resources\zoom-out-icon2.png" />
+    <None Include="Resources\zoom-in-icon2.png" />
+    <None Include="Resources\setting_Icon1.png" />
+    <None Include="Resources\LookingIcon1.png" />
     <None Include="Resources\arrow_crossru.png" />
     <None Include="Resources\arrow_crossld1.png" />
     <None Include="Resources\arrow_crossrd3.png" />
@@ -261,11 +268,9 @@
     <None Include="Resources\arrow_right1.png" />
     <None Include="Resources\arrow_left1.png" />
     <None Include="Resources\arrow_down2.png" />
-    <None Include="Resources\SettingIcon_White.png" />
     <EmbeddedResource Include="UserControls\PageSetupCamera_Info.resx">
       <DependentUpon>PageSetupCamera_Info.cs</DependentUpon>
     </EmbeddedResource>
-    <None Include="Resources\LookingIcon.jpg" />
     <EmbeddedResource Include="FormSetTemplateDirectory.resx">
       <DependentUpon>FormSetTemplateDirectory.cs</DependentUpon>
     </EmbeddedResource>
@@ -295,14 +300,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <Compile Include="Properties\Resources.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DependentUpon>Resources.resx</DependentUpon>
-      <DesignTime>True</DesignTime>
-    </Compile>
     <EmbeddedResource Include="UserControls\Page2.resx">
       <DependentUpon>Page2.cs</DependentUpon>
     </EmbeddedResource>

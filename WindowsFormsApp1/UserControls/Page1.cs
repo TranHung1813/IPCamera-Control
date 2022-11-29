@@ -27,7 +27,6 @@ namespace IPCameraManager
         private const int ERR_NOT_OK = 1;
         private const int ERR_NONE = -1;
 
-        SetFoldertoSaveFile_Form SetFolder_Form = new SetFoldertoSaveFile_Form();
         private string FolderName_to_saveFile = "";
 
         public bool MAINCAM_Data_Available = false;
@@ -166,7 +165,6 @@ namespace IPCameraManager
         public void SetFolderName_to_SaveFile(string FolderName)
         {
             FolderName_to_saveFile = FolderName;
-            SetFolder_Form.SetFolderName(FolderName_to_saveFile);
         }
         private void Barcode_Scanned(object sender, BarcodeScannerEventArgs e)
         {
@@ -328,15 +326,6 @@ namespace IPCameraManager
                 return ERR_OK;
             }
         }
-        // Luu Folder Save File vao database
-        private void Save_FolderSaveFile_Info(string FolderName)
-        {
-            DataUser_Other_Info InfoSave = new DataUser_Other_Info();
-            InfoSave.Id = 1;
-            InfoSave.FolderSaveFile = FolderName;
-
-            SqliteDataAccess.SaveInfo_Other(InfoSave);
-        }
 
         private void btTakePicture_MouseUp(object sender, MouseEventArgs e)
         {
@@ -346,11 +335,11 @@ namespace IPCameraManager
             }
             if (e.Button == MouseButtons.Right)
             {
-                if (SetFolder_Form.ShowDialog() == DialogResult.OK)
-                {
-                    SetFolder_Form.GetFolderName(ref FolderName_to_saveFile);
-                    Save_FolderSaveFile_Info(FolderName_to_saveFile);
-                }
+                //if (SetFolder_Form.ShowDialog() == DialogResult.OK)
+                //{
+                //    SetFolder_Form.GetFolderName(ref FolderName_to_saveFile);
+                //    Save_FolderSaveFile_Info(FolderName_to_saveFile);
+                //}
             }
         }
         public void btTakePicture_LeftClick()

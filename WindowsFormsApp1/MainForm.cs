@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -75,6 +76,8 @@ namespace IPCameraManager
         private const int PAGE4 = 4;
         private int TabPageID = PAGE1;
 
+        SetFoldertoSaveFile_Form SetFolder_Form = new SetFoldertoSaveFile_Form();
+
         //private async void CheckForUpdates()
         //{
         //    //UpdateManager manager = await UpdateManager.GitHubUpdateManager(@"https://github.com/TranHung1813/IPCamera-Control");
@@ -113,6 +116,7 @@ namespace IPCameraManager
             {
                 // Set Folder Name to Save File to ucPage1, ucPage2
                 ucPage1.SetFolderName_to_SaveFile(Info.FolderSaveFile);
+                SetFolder_Form.SetFolderName(Info.FolderSaveFile);
                 ucPage2.SetFolderName(Info.FolderSaveFile);
             }
             else
@@ -174,17 +178,6 @@ namespace IPCameraManager
                         }
                     }
                     break;
-                case Keys.F7:
-                    if (TabPageID == PAGE1)
-                    {
-                        // Nhan nut Refresh Cam
-                        //btCamRefresh_Click(sender, e);
-                        //if (btCamRefresh_R.CanFocus)
-                        //{
-                        //    btCamRefresh_R.Focus();
-                        //}
-                    }
-                    break;
                 case Keys.F5:
                     if (TabPageID == PAGE1)
                     {
@@ -197,6 +190,30 @@ namespace IPCameraManager
                     {
                         // Nhan nut Ca Phong
                         ucPage1.btShowCamera2_Click(sender, e);
+                    }
+                    break;
+                case Keys.F7:
+                    if (TabPageID != PAGE3)
+                    {
+                        // Chuyen sang tab Setup Camera
+                        tabPageCaidatCamera_Click(sender, e);
+                        if (tabPageCaidatCamera.CanFocus)
+                        {
+                            tabPageCaidatCamera.Focus();
+                            tabPageCaidatCamera.Checked = true;
+                        }
+                    }
+                    break;
+                case Keys.F8:
+                    if (TabPageID != PAGE4)
+                    {
+                        // Chuyen sang tab Tim kiem Phieu kham
+                        tabPageTimPhieu_Click(sender, e);
+                        if (tabPageTimPhieu.CanFocus)
+                        {
+                            tabPageTimPhieu.Focus();
+                            tabPageTimPhieu.Checked = true;
+                        }
                     }
                     break;
                 case Keys.F9:
@@ -214,8 +231,8 @@ namespace IPCameraManager
         private void Add_UserControl(UserControl uc)
         {
             uc.Dock = DockStyle.Fill;
-            panelContainer.Controls.Clear();
-            panelContainer.Controls.Add(uc);
+            panelUnknown.Controls.Clear();
+            panelUnknown.Controls.Add(uc);
             uc.BringToFront();
         }
 
@@ -291,7 +308,6 @@ namespace IPCameraManager
                 if (ucPage1.MainCam_Manager.LoginInfo.LoginStatus >= 0)
                 {
                     // Login thanh cong
-                    btLogin_IPCamera.Visible = false;
                     TrangThaiCamChinh.Text = "Camera chính: Kết nối Camera thành công. Đang tải hình ảnh ...";
                     // Start Live view
                     if (ucPage1.MainCam_Manager.Live_Status < 0)
@@ -322,7 +338,6 @@ namespace IPCameraManager
                         }
                         else
                         {
-                            btLogin_IPCamera.Visible = true;
                             TrangThaiCamChinh.Text = "Camera chính: Kết nối thất bại. Hãy kiểm tra cáp kết nối!";
                         }
                     }
@@ -349,7 +364,6 @@ namespace IPCameraManager
                 if (ucPage1.SecondaryCam_Manager.LoginInfo.LoginStatus >= 0)
                 {
                     // Login thanh cong
-                    btLogin_IPCamera.Visible = false;
                     TrangThaiCamPhu.Text = "Camera phụ: Kết nối Camera thành công. Đang tải hình ảnh ...";
                     // Start Live view
                     if (ucPage1.SecondaryCam_Manager.Live_Status < 0)
@@ -380,7 +394,6 @@ namespace IPCameraManager
                         }
                         else
                         {
-                            btLogin_IPCamera.Visible = true;
                             TrangThaiCamPhu.Text = "Camera phụ: Kết nối thất bại. Hãy kiểm tra cáp kết nối!";
                         }
                     }
@@ -427,7 +440,6 @@ namespace IPCameraManager
 
         private void Connect2MainCam_using_Database_Info()
         {
-            btLogin_IPCamera.Visible = false;
             //Get Login info
             List<DataUser_LoginCamera_Info> loginInfo = SqliteDataAccess.Load_LoginCamera_Info();
 
@@ -444,7 +456,6 @@ namespace IPCameraManager
                 // Login Camera roi Bat Live
                 if (ERR_OK == formLoginCam.Login_Main_Camera(ucPage1.MainCam_Manager.LoginInfo))
                 {
-                    btLogin_IPCamera.Visible = false;
                     TrangThaiCamChinh.Text = "Camera chính: Kết nối Camera thành công. Đang tải hình ảnh ...";
 
                     // Lay thong tin dang nhap thanh cong hay that bai
@@ -468,7 +479,6 @@ namespace IPCameraManager
                     }
                     else
                     {
-                        btLogin_IPCamera.Visible = true;
                         TrangThaiCamChinh.Text = "Camera chính: Lỗi không xem được video!";
                         // Tu dong Dang xuat
                         formLoginCam.Logout_Main_Camera(ucPage1.MainCam_Manager.LoginInfo);
@@ -478,7 +488,6 @@ namespace IPCameraManager
                 }
                 else
                 {
-                    btLogin_IPCamera.Visible = true;
                     ucPage1.ResetImage_Main();
                     TrangThaiCamChinh.Text = "Camera chính: Kết nối thất bại. Hãy kiểm tra cáp kết nối!";
                 }
@@ -486,7 +495,6 @@ namespace IPCameraManager
             else
             {
                 // Xu ly khi chua co thong tin luu trong database
-                btLogin_IPCamera.Visible = true;
                 ucPage1.ResetImage_Main();
                 TrangThaiCamChinh.Text = "Hãy nhập thông tin để có thể kết nối Camera!";
             }
@@ -518,7 +526,6 @@ namespace IPCameraManager
         }
         private void btMainCamRefresh_Click(object sender, EventArgs e)
         {
-            btLogin_IPCamera.Visible = false;
             TrangThaiCamChinh.Text = "Camera chính: Đang kết nối lại Camera!";
             if (ucPage1.MainCam_Manager.Live_Status < 0)
             {
@@ -546,7 +553,6 @@ namespace IPCameraManager
                 }
                 else
                 {
-                    btLogin_IPCamera.Visible = true;
                     TrangThaiCamChinh.Text = "Camera chính: Kết nối thất bại. Hãy kiểm tra cáp kết nối!";
                 }
             }
@@ -554,7 +560,6 @@ namespace IPCameraManager
 
         private void btSecondCamRefresh_Click(object sender, EventArgs e)
         {
-            btLogin_IPCamera.Visible = false;
             TrangThaiCamPhu.Text = "Camera phụ: Đang kết nối lại Camera!";
             if (ucPage1.SecondaryCam_Manager.Live_Status < 0)
             {
@@ -582,7 +587,6 @@ namespace IPCameraManager
                 }
                 else
                 {
-                    btLogin_IPCamera.Visible = true;
                     TrangThaiCamPhu.Text = "Camera phụ: Kết nối thất bại. Hãy kiểm tra cáp kết nối!";
                 }
             }
@@ -591,7 +595,6 @@ namespace IPCameraManager
         //****************************************** Access to Secondary Camera *******************************************
         private void Connect2Cam2_using_Database_Info()
         {
-            btLogin_IPCamera.Visible = false;
             //Get Login info
             List<DataUser_LoginCamera_Info> loginInfo = SqliteDataAccess.Load_LoginCamera_Info();
 
@@ -608,7 +611,6 @@ namespace IPCameraManager
                 // Login Camera roi Bat Live
                 if (ERR_OK == formLoginCam.Login_Second_Camera(ucPage1.SecondaryCam_Manager.LoginInfo))
                 {
-                    btLogin_IPCamera.Visible = false;
                     TrangThaiCamPhu.Text = "Camera phụ: Kết nối Camera thành công. Đang tải hình ảnh ...";
 
                     // Lay thong tin dang nhap thanh cong hay that bai
@@ -632,7 +634,6 @@ namespace IPCameraManager
                     }
                     else
                     {
-                        btLogin_IPCamera.Visible = true;
                         TrangThaiCamPhu.Text = "Camera phụ: Lỗi không xem được video!";
                         // Tu dong Dang xuat
                         formLoginCam.Login_Second_Camera(ucPage1.SecondaryCam_Manager.LoginInfo);
@@ -642,7 +643,6 @@ namespace IPCameraManager
                 }
                 else
                 {
-                    btLogin_IPCamera.Visible = true;
                     ucPage1.ResetImage_Second();
                     TrangThaiCamPhu.Text = "Camera phụ: Kết nối thất bại. Hãy kiểm tra cáp kết nối!";
                 }
@@ -650,7 +650,6 @@ namespace IPCameraManager
             else
             {
                 // Xu ly khi chua co thong tin luu trong database
-                btLogin_IPCamera.Visible = true;
                 ucPage1.ResetImage_Second();
                 TrangThaiCamPhu.Text = "Hãy nhập thông tin để có thể kết nối Camera!";
             }
@@ -688,6 +687,33 @@ namespace IPCameraManager
                     TrangThaiCamPhu.Text = "Camera phụ: Mất kết nối. Hãy kiểm tra cáp kết nối!";
                 }
             }
+        }
+        // Cài đặt Context Menu Strip
+        private void btSystemSetting_Click(object sender, EventArgs e)
+        {
+            Point point = this.PointToScreen(btSystemSetting.Location);
+            point.Y += btSystemSetting.Height;
+            cMStrip_Setting.Show(point);
+        }
+
+        private void btSetFolderchuaAnh_Click(object sender, EventArgs e)
+        {
+            string FolderName = "";
+            if (SetFolder_Form.ShowDialog() == DialogResult.OK)
+            {
+                SetFolder_Form.GetFolderName(ref FolderName);
+                ucPage1.SetFolderName_to_SaveFile(FolderName);
+                Save_FolderSaveFile_Info(FolderName);
+            }
+        }
+        // Luu Folder Save File vao database
+        private void Save_FolderSaveFile_Info(string FolderName)
+        {
+            DataUser_Other_Info InfoSave = new DataUser_Other_Info();
+            InfoSave.Id = 1;
+            InfoSave.FolderSaveFile = FolderName;
+
+            SqliteDataAccess.SaveInfo_Other(InfoSave);
         }
     }
 

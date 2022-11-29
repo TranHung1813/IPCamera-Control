@@ -100,6 +100,7 @@ namespace IPCameraManager
             // btZoomOut
             // 
             this.btZoomOut.BackColor = System.Drawing.Color.Transparent;
+            this.btZoomOut.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.btZoomOut.BorderColor = System.Drawing.SystemColors.ControlDarkDark;
             this.btZoomOut.BorderRadius = 6;
             this.btZoomOut.BorderThickness = 1;
@@ -111,9 +112,10 @@ namespace IPCameraManager
             this.btZoomOut.FillColor = System.Drawing.Color.White;
             this.btZoomOut.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btZoomOut.ForeColor = System.Drawing.Color.Black;
+            this.btZoomOut.HoverState.FillColor = System.Drawing.Color.LightSteelBlue;
             this.btZoomOut.HoverState.Parent = this.btZoomOut;
-            this.btZoomOut.Image = global::IPCameraManager.Properties.Resources.Zoom_Out_icon;
-            this.btZoomOut.ImageSize = new System.Drawing.Size(40, 40);
+            this.btZoomOut.Image = global::IPCameraManager.Properties.Resources.zoom_out_icon2;
+            this.btZoomOut.ImageSize = new System.Drawing.Size(60, 45);
             this.btZoomOut.Location = new System.Drawing.Point(69, 329);
             this.btZoomOut.Name = "btZoomOut";
             this.btZoomOut.ShadowDecoration.Parent = this.btZoomOut;
@@ -125,6 +127,7 @@ namespace IPCameraManager
             // btZoomIn
             // 
             this.btZoomIn.BackColor = System.Drawing.Color.Transparent;
+            this.btZoomIn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.btZoomIn.BorderColor = System.Drawing.SystemColors.ControlDarkDark;
             this.btZoomIn.BorderRadius = 6;
             this.btZoomIn.BorderThickness = 1;
@@ -136,9 +139,10 @@ namespace IPCameraManager
             this.btZoomIn.FillColor = System.Drawing.Color.White;
             this.btZoomIn.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btZoomIn.ForeColor = System.Drawing.Color.Black;
+            this.btZoomIn.HoverState.FillColor = System.Drawing.Color.LightSteelBlue;
             this.btZoomIn.HoverState.Parent = this.btZoomIn;
-            this.btZoomIn.Image = global::IPCameraManager.Properties.Resources.Zoom_In_icon;
-            this.btZoomIn.ImageSize = new System.Drawing.Size(40, 40);
+            this.btZoomIn.Image = global::IPCameraManager.Properties.Resources.zoom_in_icon2;
+            this.btZoomIn.ImageSize = new System.Drawing.Size(60, 45);
             this.btZoomIn.Location = new System.Drawing.Point(198, 329);
             this.btZoomIn.Name = "btZoomIn";
             this.btZoomIn.ShadowDecoration.Parent = this.btZoomIn;
@@ -190,6 +194,7 @@ namespace IPCameraManager
             this.btCross_LU.FillColor = System.Drawing.Color.White;
             this.btCross_LU.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btCross_LU.ForeColor = System.Drawing.Color.Black;
+            this.btCross_LU.HoverState.FillColor = System.Drawing.Color.LightSteelBlue;
             this.btCross_LU.HoverState.Parent = this.btCross_LU;
             this.btCross_LU.Image = global::IPCameraManager.Properties.Resources.arrow_crosslu4;
             this.btCross_LU.ImageAlign = System.Windows.Forms.HorizontalAlignment.Right;
@@ -216,6 +221,7 @@ namespace IPCameraManager
             this.btCrossRU.FillColor = System.Drawing.Color.White;
             this.btCrossRU.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btCrossRU.ForeColor = System.Drawing.Color.Black;
+            this.btCrossRU.HoverState.FillColor = System.Drawing.Color.LightSteelBlue;
             this.btCrossRU.HoverState.Parent = this.btCrossRU;
             this.btCrossRU.Image = global::IPCameraManager.Properties.Resources.arrow_crossru;
             this.btCrossRU.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
@@ -242,6 +248,7 @@ namespace IPCameraManager
             this.btCross_LD.FillColor = System.Drawing.Color.White;
             this.btCross_LD.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btCross_LD.ForeColor = System.Drawing.Color.Black;
+            this.btCross_LD.HoverState.FillColor = System.Drawing.Color.LightSteelBlue;
             this.btCross_LD.HoverState.Parent = this.btCross_LD;
             this.btCross_LD.Image = global::IPCameraManager.Properties.Resources.arrow_crossld1;
             this.btCross_LD.ImageAlign = System.Windows.Forms.HorizontalAlignment.Right;
@@ -268,6 +275,7 @@ namespace IPCameraManager
             this.btCross_RD.FillColor = System.Drawing.Color.White;
             this.btCross_RD.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btCross_RD.ForeColor = System.Drawing.Color.Black;
+            this.btCross_RD.HoverState.FillColor = System.Drawing.Color.LightSteelBlue;
             this.btCross_RD.HoverState.Parent = this.btCross_RD;
             this.btCross_RD.Image = global::IPCameraManager.Properties.Resources.arrow_crossrd3;
             this.btCross_RD.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
@@ -304,6 +312,7 @@ namespace IPCameraManager
             this.btUp.FillColor = System.Drawing.Color.White;
             this.btUp.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btUp.ForeColor = System.Drawing.Color.Black;
+            this.btUp.HoverState.FillColor = System.Drawing.Color.LightSteelBlue;
             this.btUp.HoverState.Parent = this.btUp;
             this.btUp.Image = global::IPCameraManager.Properties.Resources.arrow_up31;
             this.btUp.ImageSize = new System.Drawing.Size(30, 30);
@@ -329,6 +338,7 @@ namespace IPCameraManager
             this.btRight.FillColor = System.Drawing.Color.White;
             this.btRight.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btRight.ForeColor = System.Drawing.Color.Black;
+            this.btRight.HoverState.FillColor = System.Drawing.Color.LightSteelBlue;
             this.btRight.HoverState.Parent = this.btRight;
             this.btRight.Image = global::IPCameraManager.Properties.Resources.arrow_right1;
             this.btRight.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
@@ -355,6 +365,7 @@ namespace IPCameraManager
             this.btLeft.FillColor = System.Drawing.Color.White;
             this.btLeft.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btLeft.ForeColor = System.Drawing.Color.Black;
+            this.btLeft.HoverState.FillColor = System.Drawing.Color.LightSteelBlue;
             this.btLeft.HoverState.Parent = this.btLeft;
             this.btLeft.Image = global::IPCameraManager.Properties.Resources.arrow_left1;
             this.btLeft.ImageAlign = System.Windows.Forms.HorizontalAlignment.Right;
@@ -381,6 +392,7 @@ namespace IPCameraManager
             this.btDown.FillColor = System.Drawing.Color.White;
             this.btDown.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btDown.ForeColor = System.Drawing.Color.Black;
+            this.btDown.HoverState.FillColor = System.Drawing.Color.LightSteelBlue;
             this.btDown.HoverState.Parent = this.btDown;
             this.btDown.Image = global::IPCameraManager.Properties.Resources.arrow_down2;
             this.btDown.ImageSize = new System.Drawing.Size(32, 32);
@@ -506,7 +518,7 @@ namespace IPCameraManager
             this.Slide_hue.KnobImage = null;
             this.Slide_hue.Location = new System.Drawing.Point(86, 142);
             this.Slide_hue.Name = "Slide_hue";
-            this.Slide_hue.Percentage = 0;
+            this.Slide_hue.Percentage = 40;
             this.Slide_hue.QuickHopping = true;
             this.Slide_hue.Size = new System.Drawing.Size(250, 20);
             this.Slide_hue.SliderStyle = XanderUI.XUISlider.Style.Material;
@@ -524,7 +536,7 @@ namespace IPCameraManager
             this.Slide_Saturation.KnobImage = null;
             this.Slide_Saturation.Location = new System.Drawing.Point(86, 108);
             this.Slide_Saturation.Name = "Slide_Saturation";
-            this.Slide_Saturation.Percentage = 0;
+            this.Slide_Saturation.Percentage = 70;
             this.Slide_Saturation.QuickHopping = true;
             this.Slide_Saturation.Size = new System.Drawing.Size(250, 20);
             this.Slide_Saturation.SliderStyle = XanderUI.XUISlider.Style.Material;
@@ -542,7 +554,7 @@ namespace IPCameraManager
             this.Slide_Contrast.KnobImage = null;
             this.Slide_Contrast.Location = new System.Drawing.Point(86, 74);
             this.Slide_Contrast.Name = "Slide_Contrast";
-            this.Slide_Contrast.Percentage = 0;
+            this.Slide_Contrast.Percentage = 60;
             this.Slide_Contrast.QuickHopping = true;
             this.Slide_Contrast.Size = new System.Drawing.Size(250, 20);
             this.Slide_Contrast.SliderStyle = XanderUI.XUISlider.Style.Material;

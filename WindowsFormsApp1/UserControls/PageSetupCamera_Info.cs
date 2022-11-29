@@ -553,8 +553,8 @@ namespace IPCameraManager
             if (!CHCNetSDK.NET_DVR_GetDVRConfig(MainCam_Manager.LoginInfo.LoginStatus, CHCNetSDK.NET_DVR_GET_PTZSCOPE, -1, ptrPtzCfg, (UInt32)nSize, ref dwReturn))
             {
                 uint Err_return = CHCNetSDK.NET_DVR_GetLastError();
-                string str = "Lấy thông tin PTZ thất bại, error code= " + Err_return;
-                MessageBox.Show(str);
+                string str = "Lấy thông tin PTZ thất bại, error code = " + Err_return;
+                MessageBox.Show(str, "WARNING", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
             else
@@ -597,8 +597,8 @@ namespace IPCameraManager
             if (!CHCNetSDK.NET_DVR_GetDVRConfig(SecondaryCam_Manager.LoginInfo.LoginStatus, CHCNetSDK.NET_DVR_GET_PTZSCOPE, -1, ptrPtzCfg, (UInt32)nSize, ref dwReturn))
             {
                 uint Err_return = CHCNetSDK.NET_DVR_GetLastError();
-                string str = "Lấy thông tin PTZ thất bại, error code= " + Err_return;
-                MessageBox.Show(str);
+                string str = "Lấy thông tin PTZ thất bại, error code = " + Err_return;
+                MessageBox.Show(str, "WARNING", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
             else
@@ -997,15 +997,15 @@ namespace IPCameraManager
                     if (!CHCNetSDK.NET_DVR_SetDVRConfig(MainCam_Manager.LoginInfo.LoginStatus, CHCNetSDK.NET_DVR_SET_PTZPOS, 1, ptrPtzCfg, (UInt32)nSize))
                     {
                         uint Err_Return = CHCNetSDK.NET_DVR_GetLastError();
-                        string str = "NET_DVR_SetDVRConfig failed, error code= " + Err_Return;
+                        string str = "Cài đặt giá trị Zoom thất bại, error code= " + Err_Return;
                         // Khong the dat tham so PTZ
-                        MessageBox.Show(str);
+                        MessageBox.Show(str, "WARNING", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                         Marshal.FreeHGlobal(ptrPtzCfg);
                         return;
                     }
                     else
                     {
-                        MessageBox.Show("Cài đặt thành công!");
+                        //MessageBox.Show("Cài đặt thành công!");
                         Marshal.FreeHGlobal(ptrPtzCfg);
                         break;
                     }
@@ -1034,15 +1034,15 @@ namespace IPCameraManager
                     if (!CHCNetSDK.NET_DVR_SetDVRConfig(SecondaryCam_Manager.LoginInfo.LoginStatus, CHCNetSDK.NET_DVR_SET_PTZPOS, 1, ptrPtzCfg, (UInt32)nSize))
                     {
                         uint Err_Return = CHCNetSDK.NET_DVR_GetLastError();
-                        string str = "NET_DVR_SetDVRConfig failed, error code= " + Err_Return;
+                        string str = "Cài đặt giá trị Zoom thất bại, error code= " + Err_Return;
                         // Khong the dat tham so PTZ
-                        MessageBox.Show(str);
+                        MessageBox.Show(str, "WARNING", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                         Marshal.FreeHGlobal(ptrPtzCfg);
                         return;
                     }
                     else
                     {
-                        MessageBox.Show("Cài đặt thành công!");
+                        //MessageBox.Show("Cài đặt thành công!");
                         Marshal.FreeHGlobal(ptrPtzCfg);
                         break;
                     }
@@ -1088,8 +1088,8 @@ namespace IPCameraManager
                 if (!CHCNetSDK.NET_DVR_GetDVRConfig(MainCam_Manager.LoginInfo.LoginStatus, CHCNetSDK.NET_DVR_GET_PTZPOS, -1, ptrPtzCfg, (UInt32)nSize, ref dwReturn))
                 {
                     uint Err_return = CHCNetSDK.NET_DVR_GetLastError();
-                    string str = "NET_DVR_GetDVRConfig failed, error code= " + Err_return;
-                    MessageBox.Show(str);
+                    string str = "Lấy giá trị Zoom không thành công, error code = " + Err_return;
+                    MessageBox.Show(str, "WARNING", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     return;
                 }
                 else
@@ -1130,8 +1130,8 @@ namespace IPCameraManager
                 if (!CHCNetSDK.NET_DVR_GetDVRConfig(SecondaryCam_Manager.LoginInfo.LoginStatus, CHCNetSDK.NET_DVR_GET_PTZPOS, -1, ptrPtzCfg, (UInt32)nSize, ref dwReturn))
                 {
                     uint Err_return = CHCNetSDK.NET_DVR_GetLastError();
-                    string str = "NET_DVR_GetDVRConfig failed, error code= " + Err_return;
-                    MessageBox.Show(str);
+                    string str = "Lấy giá trị Zoom không thành công, error code = " + Err_return;
+                    MessageBox.Show(str, "WARNING", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     return;
                 }
                 else
@@ -1169,24 +1169,44 @@ namespace IPCameraManager
             if(CurrentCamID == CAM1)
             {
                 // Get value from Main Camera
-                CHCNetSDK.NET_DVR_GetVideoEffect(MainCam_Manager.LoginInfo.LoginStatus, 1,
-                            ref Brightness_MainCam, ref Contrast_MainCam, ref Saturation_MainCam, ref hue_MainCam);
-                //Set value for Slider
-                Slide_Brightness.Percentage = (int)Brightness_MainCam * 10;
-                Slide_Contrast.Percentage = (int)Contrast_MainCam * 10;
-                Slide_Saturation.Percentage = (int)Saturation_MainCam * 10;
-                Slide_hue.Percentage = (int)hue_MainCam * 10;
+                if(true == CHCNetSDK.NET_DVR_GetVideoEffect(MainCam_Manager.LoginInfo.LoginStatus, 1,
+                            ref Brightness_MainCam, ref Contrast_MainCam, ref Saturation_MainCam, ref hue_MainCam))
+                {
+                    //Set value for Slider
+                    Slide_Brightness.Percentage = (int)Brightness_MainCam * 10;
+                    Slide_Contrast.Percentage = (int)Contrast_MainCam * 10;
+                    Slide_Saturation.Percentage = (int)Saturation_MainCam * 10;
+                    Slide_hue.Percentage = (int)hue_MainCam * 10;
+                }
+                else
+                {
+                    //Set default value for Slider
+                    Slide_Brightness.Percentage = 50;
+                    Slide_Contrast.Percentage = 60;
+                    Slide_Saturation.Percentage = 70;
+                    Slide_hue.Percentage = 40;
+                }
             }
             else if(CurrentCamID == CAM2)
             {
                 // Get value from Secondary Camera
-                CHCNetSDK.NET_DVR_GetVideoEffect(SecondaryCam_Manager.LoginInfo.LoginStatus, 1,
-                            ref Brightness_Cam2, ref Contrast_Cam2, ref Saturation_Cam2, ref hue_Cam2);
-                //Set value for Slider
-                Slide_Brightness.Percentage = (int)Brightness_Cam2 * 10;
-                Slide_Contrast.Percentage = (int)Contrast_Cam2 * 10;
-                Slide_Saturation.Percentage = (int)Saturation_Cam2 * 10;
-                Slide_hue.Percentage = (int)hue_Cam2 * 10;
+                if(true == CHCNetSDK.NET_DVR_GetVideoEffect(SecondaryCam_Manager.LoginInfo.LoginStatus, 1,
+                            ref Brightness_Cam2, ref Contrast_Cam2, ref Saturation_Cam2, ref hue_Cam2))
+                {
+                    //Set value for Slider
+                    Slide_Brightness.Percentage = (int)Brightness_Cam2 * 10;
+                    Slide_Contrast.Percentage = (int)Contrast_Cam2 * 10;
+                    Slide_Saturation.Percentage = (int)Saturation_Cam2 * 10;
+                    Slide_hue.Percentage = (int)hue_Cam2 * 10;
+                }
+                else
+                {
+                    //Set default value for Slider
+                    Slide_Brightness.Percentage = 50;
+                    Slide_Contrast.Percentage = 60;
+                    Slide_Saturation.Percentage = 70;
+                    Slide_hue.Percentage = 40;
+                }
             }
         }
         private void Change_Brightness()

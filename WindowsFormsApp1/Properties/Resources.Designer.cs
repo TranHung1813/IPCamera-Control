@@ -203,9 +203,9 @@ namespace IPCameraManager.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap LookingIcon {
+        internal static System.Drawing.Bitmap LookingIcon1 {
             get {
-                object obj = ResourceManager.GetObject("LookingIcon", resourceCulture);
+                object obj = ResourceManager.GetObject("LookingIcon1", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -233,9 +233,9 @@ namespace IPCameraManager.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap SettingIcon_White {
+        internal static System.Drawing.Bitmap setting_Icon1 {
             get {
-                object obj = ResourceManager.GetObject("SettingIcon_White", resourceCulture);
+                object obj = ResourceManager.GetObject("setting_Icon1", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -243,9 +243,9 @@ namespace IPCameraManager.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap Zoom_In_icon {
+        internal static System.Drawing.Bitmap zoom_in_icon2 {
             get {
-                object obj = ResourceManager.GetObject("Zoom-In-icon", resourceCulture);
+                object obj = ResourceManager.GetObject("zoom-in-icon2", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -253,9 +253,9 @@ namespace IPCameraManager.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap Zoom_Out_icon {
+        internal static System.Drawing.Bitmap zoom_out_icon2 {
             get {
-                object obj = ResourceManager.GetObject("Zoom-Out-icon", resourceCulture);
+                object obj = ResourceManager.GetObject("zoom-out-icon2", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
