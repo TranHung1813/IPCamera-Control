@@ -37,23 +37,42 @@ namespace IPCameraManager
         //21. Fix 2 bug: 1. F7 ton nhieu thoi gian, 2. Login status = 1 cua Camera Phu (done)
         //22. Patient Info add to database
         //23. Check xem k can login lai sau khi ket noi lai camera thi co chay k (Done, Co chay)
-        //24. Them try catch vao button In Phieu Kham
-        //25. Van de load lai thong tin benh nhan cu: Can load thong tin gi?
-        //26. Them tinh nang PZT, chinh sua Do sang, contrast, ... vao menu Setting
+        //24. Them try catch vao button In Phieu Kham (done)
+        //25. Van de load lai thong tin benh nhan cu: Can load thong tin gi? (done)
+        //26. Them tinh nang PZT, chinh sua Do sang, contrast, ... vao menu Setting (done)
         //27. Kiem tra ket noi Camera tu dong (done)
         //28. Popup canh bao Message khi mat ket noi
-        //29. Day Form Setup PTZ xuong MainForm
+        //29. Day Form Setup PTZ xuong MainForm (done)
+        //30. Save thong tin File Mau Phieu Kham (done)
+        //31. In barcode vao trong file Phieu Kham (no need)
+        //32. Sua lai tinh nang khong cho mo 2 form cung luc
+        //33. Thêm tab Cài đặt Camera
+        //34. Thêm tab Xem lai phieu kham cu, bam vao anh thì phóng to
+        //35. Thêm nút cài đặt trong Mainform: cài đặt folder chứa ảnh, mẫu khám, kết nối Camera
+        //36. Hỏi lại bệnh viện về thông tin nhập vào Phiếu khám (mã BN, mã phiếu khám) (done, nothing change)
+        //37. Xem lại Đường dẫn file ảnh (có thể tìm kiếm tông qua đương dẫn)
+        //38. Thêm thứ ngày tháng vào thanh StatusBar
+        //39. Thêm giờ khám vào thông tin bênh nhân
+        //40. Thêm thông tin bênh nhân vào trong ảnh chụp từ Camera chính (impossible)
+        //41. Config brightness, constrat, ... bằng hàm CHCNetSDK.CLIENT_SDK_SetVideoEffect() (done)
+        //42. Chuyen Tab khac -> dừng Camera -> Giảm CPU
+        //43. Them hướng Pan/Title chéo (= ngang + dọc) (done) 
+        //44. Them Timer de dieu chinh thanh Slide Bar cho muot (done)
         private const int ERR_OK = 0;
         private const int ERR_NOT_OK = 1;
 
         Page1 ucPage1 = new Page1();
         Page2 ucPage2 = new Page2();
+        PageSearchPatient ucPageSearchPatient = new PageSearchPatient();
+        PageSetupCamera_Info ucPageSetupCamera_Info;
         FormLoginCamera formLoginCam;
         Thread Loading_MainCam_Trd;
         Thread Loading_Cam2_Trd;
 
         private const int PAGE1 = 1;
         private const int PAGE2 = 2;
+        private const int PAGE3 = 3;
+        private const int PAGE4 = 4;
         private int TabPageID = PAGE1;
 
         //private async void CheckForUpdates()
@@ -82,13 +101,36 @@ namespace IPCameraManager
             Add_UserControl(ucPage1);
             TabPageID = PAGE1;
             // Setup default status for controls
+            ucPageSetupCamera_Info = new PageSetupCamera_Info();
             formLoginCam = new FormLoginCamera(ucPage1.MainCam_Manager, ucPage1.SecondaryCam_Manager);
             TrangThaiCamChinh.Text = "Camera chính: Đang kết nối, xin vui lòng chờ!";
             TrangThaiCamPhu.Text = "Camera phụ: Đang kết nối, xin vui lòng chờ!";
-            //Setup Folder name for Page2
-            string FolderName = "";
-            ucPage1.GetFolderName_to_SaveFile(ref FolderName);
-            ucPage2.SetFolderName(FolderName);
+            //Setup Folder name for Page1, Page2
+            // Get Folder Save File info
+            DataUser_Other_Info Info = SqliteDataAccess.Load_Other_Info();
+
+            if (Info != null)
+            {
+                // Set Folder Name to Save File to ucPage1, ucPage2
+                ucPage1.SetFolderName_to_SaveFile(Info.FolderSaveFile);
+                ucPage2.SetFolderName(Info.FolderSaveFile);
+            }
+            else
+            {
+                // Handle when database = null
+            }
+            // Get File Mau Phieu Kham info
+            DataUser_MauPhieuKham_Info Template_Info = SqliteDataAccess.Load_MauPhieuKham_Info();
+
+            if (Template_Info != null)
+            {
+                // Set File Mau Phieu Kham
+                ucPage2.SetMauPhieuKham(Template_Info.MauPhieuKham1, Template_Info.MauPhieuKham2);
+            }
+            else
+            {
+                // Handle when database = null
+            }
             Control.CheckForIllegalCrossThreadCalls = false;
             // Register event button Ket no Camera click
             ucPage1.NotifyConnect_MainCam += UcPage1_NotifyConnect_MainCam;
@@ -157,6 +199,13 @@ namespace IPCameraManager
                         ucPage1.btShowCamera2_Click(sender, e);
                     }
                     break;
+                case Keys.F9:
+                    if(TabPageID == PAGE2)
+                    {
+                        // Nhan nut In Phieu Kham
+                        ucPage2.btInPhieu_F9_MouseUp_Click();
+                    }
+                    break;
                 case Keys.F12:
                     ucPage1.btExit_F12_Click(sender, e);
                     break;
@@ -209,6 +258,25 @@ namespace IPCameraManager
             {
                 Add_UserControl(ucPage2);
                 TabPageID = PAGE2;
+            }
+        }
+        private void tabPageCaidatCamera_Click(object sender, EventArgs e)
+        {
+            if (TabPageID != PAGE3)
+            {
+                ucPageSetupCamera_Info.SetLoginCamera_Info(ucPage1.MainCam_Manager.LoginInfo,
+                                                           ucPage1.SecondaryCam_Manager.LoginInfo);
+                Add_UserControl(ucPageSetupCamera_Info);
+                TabPageID = PAGE3;
+            }
+        }
+
+        private void tabPageTimPhieu_Click(object sender, EventArgs e)
+        {
+            if (TabPageID != PAGE4)
+            {
+                Add_UserControl(ucPageSearchPatient);
+                TabPageID = PAGE4;
             }
         }
 

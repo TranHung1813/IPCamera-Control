@@ -381,5 +381,10 @@ namespace IPCameraManager
             }
             return;
         }
+
+        private void btnUp_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

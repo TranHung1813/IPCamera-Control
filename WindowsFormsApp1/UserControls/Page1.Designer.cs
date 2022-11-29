@@ -46,6 +46,7 @@ namespace IPCameraManager
             this.tbNgayKham = new Guna.UI2.WinForms.Guna2TextBox();
             this.tbHoTen = new Guna.UI2.WinForms.Guna2TextBox();
             this.tbMaBenhNhan = new Guna.UI2.WinForms.Guna2TextBox();
+            this.imgPreview = new System.Windows.Forms.PictureBox();
             this.cMStrip_MainCAM = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.btConnectMainCam = new System.Windows.Forms.ToolStripMenuItem();
             this.btSetupPZT_MainCAM = new System.Windows.Forms.ToolStripMenuItem();
@@ -56,13 +57,12 @@ namespace IPCameraManager
             this.btShowCamera2 = new Guna.UI2.WinForms.Guna2Button();
             this.btTakePicture = new Guna.UI2.WinForms.Guna2Button();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
-            this.imgPreview = new System.Windows.Forms.PictureBox();
             this.RealPlayWnd = new System.Windows.Forms.PictureBox();
             this.groupBox1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.imgPreview)).BeginInit();
             this.cMStrip_MainCAM.SuspendLayout();
             this.cMStrip_SecondCAM.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.imgPreview)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.RealPlayWnd)).BeginInit();
             this.SuspendLayout();
             // 
@@ -304,6 +304,18 @@ namespace IPCameraManager
             this.tbMaBenhNhan.Size = new System.Drawing.Size(226, 27);
             this.tbMaBenhNhan.TabIndex = 38;
             // 
+            // imgPreview
+            // 
+            this.imgPreview.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.imgPreview.Image = global::IPCameraManager.Properties.Resources.Loading_Cam2;
+            this.imgPreview.Location = new System.Drawing.Point(55, 246);
+            this.imgPreview.Name = "imgPreview";
+            this.imgPreview.Size = new System.Drawing.Size(285, 194);
+            this.imgPreview.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
+            this.imgPreview.TabIndex = 21;
+            this.imgPreview.TabStop = false;
+            this.imgPreview.MouseDown += new System.Windows.Forms.MouseEventHandler(this.imgPreview_MouseDown);
+            // 
             // cMStrip_MainCAM
             // 
             this.cMStrip_MainCAM.AutoSize = false;
@@ -320,7 +332,7 @@ namespace IPCameraManager
             this.btConnectMainCam.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
             this.btConnectMainCam.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btConnectMainCam.Name = "btConnectMainCam";
-            this.btConnectMainCam.Size = new System.Drawing.Size(180, 22);
+            this.btConnectMainCam.Size = new System.Drawing.Size(177, 22);
             this.btConnectMainCam.Text = "Kết nối Camera";
             this.btConnectMainCam.Click += new System.EventHandler(this.btConnectMainCam_Click);
             // 
@@ -330,7 +342,7 @@ namespace IPCameraManager
             this.btSetupPZT_MainCAM.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
             this.btSetupPZT_MainCAM.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btSetupPZT_MainCAM.Name = "btSetupPZT_MainCAM";
-            this.btSetupPZT_MainCAM.Size = new System.Drawing.Size(180, 22);
+            this.btSetupPZT_MainCAM.Size = new System.Drawing.Size(177, 22);
             this.btSetupPZT_MainCAM.Text = "Cài đặt PZT";
             this.btSetupPZT_MainCAM.Click += new System.EventHandler(this.btSetupPZT_MainCAM_Click);
             // 
@@ -447,18 +459,6 @@ namespace IPCameraManager
             this.pictureBox2.TabIndex = 34;
             this.pictureBox2.TabStop = false;
             // 
-            // imgPreview
-            // 
-            this.imgPreview.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.imgPreview.Image = global::IPCameraManager.Properties.Resources.Loading_Cam2;
-            this.imgPreview.Location = new System.Drawing.Point(55, 246);
-            this.imgPreview.Name = "imgPreview";
-            this.imgPreview.Size = new System.Drawing.Size(285, 194);
-            this.imgPreview.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
-            this.imgPreview.TabIndex = 21;
-            this.imgPreview.TabStop = false;
-            this.imgPreview.MouseDown += new System.Windows.Forms.MouseEventHandler(this.imgPreview_MouseDown);
-            // 
             // RealPlayWnd
             // 
             this.RealPlayWnd.BackColor = System.Drawing.SystemColors.ControlLightLight;
@@ -488,10 +488,10 @@ namespace IPCameraManager
             this.Size = new System.Drawing.Size(1044, 614);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.imgPreview)).EndInit();
             this.cMStrip_MainCAM.ResumeLayout(false);
             this.cMStrip_SecondCAM.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.imgPreview)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.RealPlayWnd)).EndInit();
             this.ResumeLayout(false);
 

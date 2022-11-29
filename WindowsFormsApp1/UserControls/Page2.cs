@@ -21,7 +21,11 @@ namespace IPCameraManager
             this.ActiveControl = null;
         }
         private string MauPhieuKham_Path = @"D:\Hinh_Anh\MauPhieuKham\";
+        private string MauPhieuKham1_Path = "";
+        private string MauPhieuKham2_Path = "";
         private string FolderPath = "";
+
+        FormSetTemplateDirectory formSetTemplateDirectory = new FormSetTemplateDirectory();
         private void Init_Button()
         {
             foreach (var button in this.Controls.OfType<Guna.UI2.WinForms.Guna2Button>())
@@ -53,7 +57,12 @@ namespace IPCameraManager
         {
             FolderPath = FolderName;
         }
-
+        public void SetMauPhieuKham (string FileName1, string FileName2)
+        {
+            MauPhieuKham1_Path = FileName1;
+            MauPhieuKham2_Path = FileName2;
+            formSetTemplateDirectory.SetMauPhieuKhamPath(FileName1, FileName2);
+        }
         private void btExit_F12_Click(object sender, EventArgs e)
         {
             if (btExit_F12.CanFocus)
@@ -126,17 +135,12 @@ namespace IPCameraManager
             txtPath2.Text = "";
             picBox2.Image = null;
         }
-
-        private void btInPhieu_F9_Click(object sender, EventArgs e)
-        {
-            
-        }
         private void TaoPhieuKhamVaIn()
         {
             Word.Application wordApp = new Word.Application();
             if (txtPath2.Text == "")
             {
-                string file_word_mau_1 = MauPhieuKham_Path + "MauPhieuDC.doc";
+                string file_word_mau_1 = MauPhieuKham1_Path;
                 Word.Document oDoc = wordApp.Documents.Add(file_word_mau_1);
                 wordApp.Visible = false;
                 oDoc.Activate();
@@ -195,7 +199,7 @@ namespace IPCameraManager
             }
             else
             {
-                string file_word_mau_2 = MauPhieuKham_Path + "MauPhieuDC2.doc";
+                string file_word_mau_2 = MauPhieuKham2_Path;
                 Word.Document oDoc = wordApp.Documents.Add(file_word_mau_2);
                 wordApp.Visible = false;
                 oDoc.Activate();
@@ -304,28 +308,53 @@ namespace IPCameraManager
         {
             if(e.Button == MouseButtons.Left)
             {
-                if (tbMaBN_IN.Text.Length == 0)
-                {
-                    MessageBox.Show("Chưa nhập mã bệnh nhân! \rĐề nghị nhập lại.", "Lỗi: Chưa nhập mã bệnh nhân", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                    return;
-                }
-                if (tbHoTenBN_IN.Text.Length == 0)
-                {
-                    MessageBox.Show("Chưa nhập tên bệnh nhân! \rĐề nghị nhập lại.", "Lỗi: Chưa nhập tên bệnh nhân", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                    return;
-                }
-                if (tbTuoi_IN.Text.Length == 0)
-                {
-                    MessageBox.Show("Chưa nhập tuổi bệnh nhân! \rĐề nghị nhập lại.", "Lỗi: Chưa nhập tuổi bệnh nhân", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                    return;
-                }
-                TaoPhieuKhamVaIn();
+                btInPhieu_F9_MouseUp_Click();
             }
             else if(e.Button == MouseButtons.Right)
             {
-                FormSetTemplateDirectory formSetTemplateDirectory = new FormSetTemplateDirectory();
-                formSetTemplateDirectory.ShowDialog();
+                if(DialogResult.OK == formSetTemplateDirectory.ShowDialog())
+                {
+                    string FileName1 = "";
+                    string FileName2 = "";
+                    formSetTemplateDirectory.GetMauPhieuKhamPath(ref FileName1, ref FileName2);
+                    MauPhieuKham1_Path = FileName1;
+                    MauPhieuKham2_Path = FileName2;
+
+                    DataUser_MauPhieuKham_Info InfoSave = new DataUser_MauPhieuKham_Info();
+                    InfoSave.Id = 1;
+                    InfoSave.MauPhieuKham1 = FileName1;
+                    InfoSave.MauPhieuKham2 = FileName2;
+
+                    SqliteDataAccess.SaveInfo_MauPhieuKham(InfoSave);
+                }
             }    
+        }
+        public void btInPhieu_F9_MouseUp_Click()
+        {
+            if (tbMaBN_IN.Text.Length == 0)
+            {
+                MessageBox.Show("Chưa nhập mã bệnh nhân! \rĐề nghị nhập lại.", "Lỗi: Chưa nhập mã bệnh nhân", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+            if (tbHoTenBN_IN.Text.Length == 0)
+            {
+                MessageBox.Show("Chưa nhập tên bệnh nhân! \rĐề nghị nhập lại.", "Lỗi: Chưa nhập tên bệnh nhân", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+            if (tbTuoi_IN.Text.Length == 0)
+            {
+                MessageBox.Show("Chưa nhập tuổi bệnh nhân! \rĐề nghị nhập lại.", "Lỗi: Chưa nhập tuổi bệnh nhân", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+            try
+            {
+                TaoPhieuKhamVaIn();
+            }
+            catch
+            {
+                MessageBox.Show("In phiếu khám không thành công. Hãy xem lại mẫu phiếu khám.", "Warning",
+                                        MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
         }
     }
     public struct PatientInfo_Type

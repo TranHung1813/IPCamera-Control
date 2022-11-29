@@ -17,8 +17,24 @@ namespace IPCameraManager
             InitializeComponent();
         }
         private string MauPhieuKham_Path = @"D:\Hinh_Anh\MauPhieuKham\";
-        private string FolderPath = "";
+        private string MauPhieuKham1_Path = "";
+        private string MauPhieuKham2_Path = "";
 
+        public void SetMauPhieuKhamPath (string FileName1, string FileName2)
+        {
+            MauPhieuKham1_Path = FileName1;
+            MauPhieuKham2_Path = FileName2;
+            tbFileTemplate1.Text = MauPhieuKham1_Path;
+            tbFileTemplate2.Text = MauPhieuKham2_Path;
+
+        }
+        public void GetMauPhieuKhamPath(ref string FileName1, ref string FileName2)
+        {
+            MauPhieuKham1_Path = tbFileTemplate1.Text;
+            MauPhieuKham2_Path = tbFileTemplate2.Text;
+            FileName1 = MauPhieuKham1_Path;
+            FileName2 = MauPhieuKham2_Path;
+        }
         private void btOK_Click(object sender, EventArgs e)
         {
             DialogResult = DialogResult.OK;
@@ -38,9 +54,9 @@ namespace IPCameraManager
                 openFileDialog.Multiselect = false;
                 openFileDialog.FileName = "";
 
-                if (FolderPath != "")
+                if (MauPhieuKham1_Path != "")
                 {
-                    openFileDialog.InitialDirectory = FolderPath;
+                    openFileDialog.InitialDirectory = MauPhieuKham_Path;
                 }
                 else
                 {
@@ -65,9 +81,9 @@ namespace IPCameraManager
                 openFileDialog.Multiselect = false;
                 openFileDialog.FileName = "";
 
-                if (FolderPath != "")
+                if (MauPhieuKham2_Path != "")
                 {
-                    openFileDialog.InitialDirectory = FolderPath;
+                    openFileDialog.InitialDirectory = MauPhieuKham_Path;
                 }
                 else
                 {

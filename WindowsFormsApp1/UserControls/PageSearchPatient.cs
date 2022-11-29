@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace IPCameraManager.UserControls
+namespace IPCameraManager
 {
     public partial class PageSearchPatient : UserControl
     {

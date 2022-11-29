@@ -36,14 +36,11 @@ namespace IPCameraManager
             this.btMinimize = new Guna.UI2.WinForms.Guna2Button();
             this.btExit = new Guna.UI2.WinForms.Guna2Button();
             this.label1 = new System.Windows.Forms.Label();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.guna2Elipse1 = new Guna.UI2.WinForms.Guna2Elipse(this.components);
             this.panel2 = new System.Windows.Forms.Panel();
             this.btSecondCamRefresh = new System.Windows.Forms.Button();
             this.btMainCamRefresh_R = new System.Windows.Forms.Button();
             this.btLogin_IPCamera = new Guna.UI2.WinForms.Guna2Button();
-            this.tabPage_InPhieu = new Guna.UI2.WinForms.Guna2Button();
-            this.tabPage_KhamBenh = new Guna.UI2.WinForms.Guna2Button();
             this.guna2DragControl1 = new Guna.UI2.WinForms.Guna2DragControl(this.components);
             this.panelContainer = new System.Windows.Forms.Panel();
             this.Status1 = new System.Windows.Forms.StatusStrip();
@@ -54,15 +51,22 @@ namespace IPCameraManager
             this.panelBorder_Right = new System.Windows.Forms.Panel();
             this.timer_Update_PatientInfo_to_Page2 = new System.Windows.Forms.Timer(this.components);
             this.timer_GetCamStatus = new System.Windows.Forms.Timer(this.components);
+            this.guna2Button2 = new Guna.UI2.WinForms.Guna2Button();
+            this.guna2Button1 = new Guna.UI2.WinForms.Guna2Button();
+            this.tabPage_InPhieu = new Guna.UI2.WinForms.Guna2Button();
+            this.tabPage_KhamBenh = new Guna.UI2.WinForms.Guna2Button();
+            this.guna2Button3 = new Guna.UI2.WinForms.Guna2Button();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel2.SuspendLayout();
             this.Status1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(50)))), ((int)(((byte)(70)))));
+            this.panel1.Controls.Add(this.guna2Button3);
             this.panel1.Controls.Add(this.btMaximize);
             this.panel1.Controls.Add(this.btMinimize);
             this.panel1.Controls.Add(this.btExit);
@@ -137,16 +141,6 @@ namespace IPCameraManager
             this.label1.TabIndex = 1;
             this.label1.Text = "Phần mềm quản lý Camera";
             // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(3, 3);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(40, 31);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox1.TabIndex = 0;
-            this.pictureBox1.TabStop = false;
-            // 
             // guna2Elipse1
             // 
             this.guna2Elipse1.BorderRadius = 22;
@@ -155,6 +149,8 @@ namespace IPCameraManager
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.SystemColors.InactiveCaption;
+            this.panel2.Controls.Add(this.guna2Button2);
+            this.panel2.Controls.Add(this.guna2Button1);
             this.panel2.Controls.Add(this.btSecondCamRefresh);
             this.panel2.Controls.Add(this.btMainCamRefresh_R);
             this.panel2.Controls.Add(this.btLogin_IPCamera);
@@ -168,9 +164,9 @@ namespace IPCameraManager
             // 
             // btSecondCamRefresh
             // 
-            this.btSecondCamRefresh.Location = new System.Drawing.Point(618, 6);
+            this.btSecondCamRefresh.Location = new System.Drawing.Point(815, 6);
             this.btSecondCamRefresh.Name = "btSecondCamRefresh";
-            this.btSecondCamRefresh.Size = new System.Drawing.Size(155, 31);
+            this.btSecondCamRefresh.Size = new System.Drawing.Size(56, 31);
             this.btSecondCamRefresh.TabIndex = 4;
             this.btSecondCamRefresh.Text = "Refresh Second Camera (F7)";
             this.btSecondCamRefresh.UseVisualStyleBackColor = true;
@@ -179,9 +175,9 @@ namespace IPCameraManager
             // 
             // btMainCamRefresh_R
             // 
-            this.btMainCamRefresh_R.Location = new System.Drawing.Point(471, 6);
+            this.btMainCamRefresh_R.Location = new System.Drawing.Point(758, 6);
             this.btMainCamRefresh_R.Name = "btMainCamRefresh_R";
-            this.btMainCamRefresh_R.Size = new System.Drawing.Size(141, 31);
+            this.btMainCamRefresh_R.Size = new System.Drawing.Size(58, 31);
             this.btMainCamRefresh_R.TabIndex = 3;
             this.btMainCamRefresh_R.Text = "Refresh Main Camera (F7)";
             this.btMainCamRefresh_R.UseVisualStyleBackColor = true;
@@ -213,59 +209,6 @@ namespace IPCameraManager
             this.btLogin_IPCamera.Text = "Kết nối Camera";
             this.btLogin_IPCamera.UseTransparentBackground = true;
             this.btLogin_IPCamera.Click += new System.EventHandler(this.btLogin_IPCamera_Click);
-            // 
-            // tabPage_InPhieu
-            // 
-            this.tabPage_InPhieu.BackColor = System.Drawing.Color.Transparent;
-            this.tabPage_InPhieu.BorderRadius = 5;
-            this.tabPage_InPhieu.ButtonMode = Guna.UI2.WinForms.Enums.ButtonMode.RadioButton;
-            this.tabPage_InPhieu.CheckedState.CustomBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.tabPage_InPhieu.CheckedState.FillColor = System.Drawing.Color.White;
-            this.tabPage_InPhieu.CheckedState.Parent = this.tabPage_InPhieu;
-            this.tabPage_InPhieu.CustomBorderThickness = new System.Windows.Forms.Padding(0, 0, 0, 3);
-            this.tabPage_InPhieu.CustomImages.Parent = this.tabPage_InPhieu;
-            this.tabPage_InPhieu.FillColor = System.Drawing.Color.White;
-            this.tabPage_InPhieu.Font = new System.Drawing.Font("Tahoma", 10.5F);
-            this.tabPage_InPhieu.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.tabPage_InPhieu.HoverState.CustomBorderColor = System.Drawing.Color.Transparent;
-            this.tabPage_InPhieu.HoverState.Parent = this.tabPage_InPhieu;
-            this.tabPage_InPhieu.Image = ((System.Drawing.Image)(resources.GetObject("tabPage_InPhieu.Image")));
-            this.tabPage_InPhieu.ImageSize = new System.Drawing.Size(33, 33);
-            this.tabPage_InPhieu.Location = new System.Drawing.Point(178, 0);
-            this.tabPage_InPhieu.Name = "tabPage_InPhieu";
-            this.tabPage_InPhieu.ShadowDecoration.Parent = this.tabPage_InPhieu;
-            this.tabPage_InPhieu.Size = new System.Drawing.Size(207, 43);
-            this.tabPage_InPhieu.TabIndex = 1;
-            this.tabPage_InPhieu.Text = "  In Phiếu Khám (F4)";
-            this.tabPage_InPhieu.UseTransparentBackground = true;
-            this.tabPage_InPhieu.Click += new System.EventHandler(this.tabPageInPhieu_Click);
-            // 
-            // tabPage_KhamBenh
-            // 
-            this.tabPage_KhamBenh.BackColor = System.Drawing.Color.Transparent;
-            this.tabPage_KhamBenh.BorderRadius = 5;
-            this.tabPage_KhamBenh.ButtonMode = Guna.UI2.WinForms.Enums.ButtonMode.RadioButton;
-            this.tabPage_KhamBenh.Checked = true;
-            this.tabPage_KhamBenh.CheckedState.CustomBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.tabPage_KhamBenh.CheckedState.FillColor = System.Drawing.Color.White;
-            this.tabPage_KhamBenh.CheckedState.Parent = this.tabPage_KhamBenh;
-            this.tabPage_KhamBenh.CustomBorderThickness = new System.Windows.Forms.Padding(0, 0, 0, 3);
-            this.tabPage_KhamBenh.CustomImages.Parent = this.tabPage_KhamBenh;
-            this.tabPage_KhamBenh.FillColor = System.Drawing.Color.White;
-            this.tabPage_KhamBenh.Font = new System.Drawing.Font("Tahoma", 10.5F);
-            this.tabPage_KhamBenh.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.tabPage_KhamBenh.HoverState.CustomBorderColor = System.Drawing.Color.Transparent;
-            this.tabPage_KhamBenh.HoverState.Parent = this.tabPage_KhamBenh;
-            this.tabPage_KhamBenh.Image = ((System.Drawing.Image)(resources.GetObject("tabPage_KhamBenh.Image")));
-            this.tabPage_KhamBenh.ImageSize = new System.Drawing.Size(32, 32);
-            this.tabPage_KhamBenh.Location = new System.Drawing.Point(2, 0);
-            this.tabPage_KhamBenh.Name = "tabPage_KhamBenh";
-            this.tabPage_KhamBenh.ShadowDecoration.Parent = this.tabPage_KhamBenh;
-            this.tabPage_KhamBenh.Size = new System.Drawing.Size(177, 43);
-            this.tabPage_KhamBenh.TabIndex = 0;
-            this.tabPage_KhamBenh.Text = " KHÁM BỆNH (F3)";
-            this.tabPage_KhamBenh.UseTransparentBackground = true;
-            this.tabPage_KhamBenh.Click += new System.EventHandler(this.tabPage_KhamBenh_Click);
             // 
             // guna2DragControl1
             // 
@@ -346,6 +289,138 @@ namespace IPCameraManager
             this.timer_GetCamStatus.Interval = 3000;
             this.timer_GetCamStatus.Tick += new System.EventHandler(this.timer_GetCamStatus_Tick);
             // 
+            // guna2Button2
+            // 
+            this.guna2Button2.BackColor = System.Drawing.Color.Transparent;
+            this.guna2Button2.BorderRadius = 5;
+            this.guna2Button2.ButtonMode = Guna.UI2.WinForms.Enums.ButtonMode.RadioButton;
+            this.guna2Button2.CheckedState.CustomBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.guna2Button2.CheckedState.FillColor = System.Drawing.Color.White;
+            this.guna2Button2.CheckedState.Parent = this.guna2Button2;
+            this.guna2Button2.CustomBorderThickness = new System.Windows.Forms.Padding(0, 0, 0, 3);
+            this.guna2Button2.CustomImages.Parent = this.guna2Button2;
+            this.guna2Button2.FillColor = System.Drawing.Color.White;
+            this.guna2Button2.Font = new System.Drawing.Font("Tahoma", 10.5F);
+            this.guna2Button2.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.guna2Button2.HoverState.CustomBorderColor = System.Drawing.Color.Transparent;
+            this.guna2Button2.HoverState.Parent = this.guna2Button2;
+            this.guna2Button2.Image = global::IPCameraManager.Properties.Resources.LookingIcon;
+            this.guna2Button2.ImageSize = new System.Drawing.Size(33, 33);
+            this.guna2Button2.Location = new System.Drawing.Point(555, 0);
+            this.guna2Button2.Name = "guna2Button2";
+            this.guna2Button2.ShadowDecoration.Parent = this.guna2Button2;
+            this.guna2Button2.Size = new System.Drawing.Size(186, 43);
+            this.guna2Button2.TabIndex = 6;
+            this.guna2Button2.Text = "Tìm phiếu khám (F8)";
+            this.guna2Button2.UseTransparentBackground = true;
+            this.guna2Button2.Click += new System.EventHandler(this.tabPageTimPhieu_Click);
+            // 
+            // guna2Button1
+            // 
+            this.guna2Button1.BackColor = System.Drawing.Color.Transparent;
+            this.guna2Button1.BorderRadius = 5;
+            this.guna2Button1.ButtonMode = Guna.UI2.WinForms.Enums.ButtonMode.RadioButton;
+            this.guna2Button1.CheckedState.CustomBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.guna2Button1.CheckedState.FillColor = System.Drawing.Color.White;
+            this.guna2Button1.CheckedState.Parent = this.guna2Button1;
+            this.guna2Button1.CustomBorderThickness = new System.Windows.Forms.Padding(0, 0, 0, 3);
+            this.guna2Button1.CustomImages.Parent = this.guna2Button1;
+            this.guna2Button1.FillColor = System.Drawing.Color.White;
+            this.guna2Button1.Font = new System.Drawing.Font("Tahoma", 10.5F);
+            this.guna2Button1.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.guna2Button1.HoverState.CustomBorderColor = System.Drawing.Color.Transparent;
+            this.guna2Button1.HoverState.Parent = this.guna2Button1;
+            this.guna2Button1.Image = global::IPCameraManager.Properties.Resources.Camera1;
+            this.guna2Button1.ImageSize = new System.Drawing.Size(33, 33);
+            this.guna2Button1.Location = new System.Drawing.Point(364, 0);
+            this.guna2Button1.Name = "guna2Button1";
+            this.guna2Button1.ShadowDecoration.Parent = this.guna2Button1;
+            this.guna2Button1.Size = new System.Drawing.Size(192, 43);
+            this.guna2Button1.TabIndex = 5;
+            this.guna2Button1.Text = "Cài đặt Camera (F7)";
+            this.guna2Button1.UseTransparentBackground = true;
+            this.guna2Button1.Click += new System.EventHandler(this.tabPageCaidatCamera_Click);
+            // 
+            // tabPage_InPhieu
+            // 
+            this.tabPage_InPhieu.BackColor = System.Drawing.Color.Transparent;
+            this.tabPage_InPhieu.BorderRadius = 5;
+            this.tabPage_InPhieu.ButtonMode = Guna.UI2.WinForms.Enums.ButtonMode.RadioButton;
+            this.tabPage_InPhieu.CheckedState.CustomBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.tabPage_InPhieu.CheckedState.FillColor = System.Drawing.Color.White;
+            this.tabPage_InPhieu.CheckedState.Parent = this.tabPage_InPhieu;
+            this.tabPage_InPhieu.CustomBorderThickness = new System.Windows.Forms.Padding(0, 0, 0, 3);
+            this.tabPage_InPhieu.CustomImages.Parent = this.tabPage_InPhieu;
+            this.tabPage_InPhieu.FillColor = System.Drawing.Color.White;
+            this.tabPage_InPhieu.Font = new System.Drawing.Font("Tahoma", 10.5F);
+            this.tabPage_InPhieu.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.tabPage_InPhieu.HoverState.CustomBorderColor = System.Drawing.Color.Transparent;
+            this.tabPage_InPhieu.HoverState.Parent = this.tabPage_InPhieu;
+            this.tabPage_InPhieu.Image = ((System.Drawing.Image)(resources.GetObject("tabPage_InPhieu.Image")));
+            this.tabPage_InPhieu.ImageSize = new System.Drawing.Size(33, 33);
+            this.tabPage_InPhieu.Location = new System.Drawing.Point(178, 0);
+            this.tabPage_InPhieu.Name = "tabPage_InPhieu";
+            this.tabPage_InPhieu.ShadowDecoration.Parent = this.tabPage_InPhieu;
+            this.tabPage_InPhieu.Size = new System.Drawing.Size(187, 43);
+            this.tabPage_InPhieu.TabIndex = 1;
+            this.tabPage_InPhieu.Text = "In Phiếu Khám (F4)";
+            this.tabPage_InPhieu.UseTransparentBackground = true;
+            this.tabPage_InPhieu.Click += new System.EventHandler(this.tabPageInPhieu_Click);
+            // 
+            // tabPage_KhamBenh
+            // 
+            this.tabPage_KhamBenh.BackColor = System.Drawing.Color.Transparent;
+            this.tabPage_KhamBenh.BorderRadius = 5;
+            this.tabPage_KhamBenh.ButtonMode = Guna.UI2.WinForms.Enums.ButtonMode.RadioButton;
+            this.tabPage_KhamBenh.Checked = true;
+            this.tabPage_KhamBenh.CheckedState.CustomBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.tabPage_KhamBenh.CheckedState.FillColor = System.Drawing.Color.White;
+            this.tabPage_KhamBenh.CheckedState.Parent = this.tabPage_KhamBenh;
+            this.tabPage_KhamBenh.CustomBorderThickness = new System.Windows.Forms.Padding(0, 0, 0, 3);
+            this.tabPage_KhamBenh.CustomImages.Parent = this.tabPage_KhamBenh;
+            this.tabPage_KhamBenh.FillColor = System.Drawing.Color.White;
+            this.tabPage_KhamBenh.Font = new System.Drawing.Font("Tahoma", 10.5F);
+            this.tabPage_KhamBenh.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.tabPage_KhamBenh.HoverState.CustomBorderColor = System.Drawing.Color.Transparent;
+            this.tabPage_KhamBenh.HoverState.Parent = this.tabPage_KhamBenh;
+            this.tabPage_KhamBenh.Image = ((System.Drawing.Image)(resources.GetObject("tabPage_KhamBenh.Image")));
+            this.tabPage_KhamBenh.ImageSize = new System.Drawing.Size(32, 32);
+            this.tabPage_KhamBenh.Location = new System.Drawing.Point(2, 0);
+            this.tabPage_KhamBenh.Name = "tabPage_KhamBenh";
+            this.tabPage_KhamBenh.ShadowDecoration.Parent = this.tabPage_KhamBenh;
+            this.tabPage_KhamBenh.Size = new System.Drawing.Size(177, 43);
+            this.tabPage_KhamBenh.TabIndex = 0;
+            this.tabPage_KhamBenh.Text = "KHÁM BỆNH (F3)";
+            this.tabPage_KhamBenh.UseTransparentBackground = true;
+            this.tabPage_KhamBenh.Click += new System.EventHandler(this.tabPage_KhamBenh_Click);
+            // 
+            // guna2Button3
+            // 
+            this.guna2Button3.CheckedState.Parent = this.guna2Button3;
+            this.guna2Button3.CustomImages.Parent = this.guna2Button3;
+            this.guna2Button3.FillColor = System.Drawing.Color.Transparent;
+            this.guna2Button3.Font = new System.Drawing.Font("Segoe UI", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.guna2Button3.ForeColor = System.Drawing.Color.White;
+            this.guna2Button3.HoverState.FillColor = System.Drawing.Color.Gray;
+            this.guna2Button3.HoverState.Parent = this.guna2Button3;
+            this.guna2Button3.Image = global::IPCameraManager.Properties.Resources.SettingIcon_White;
+            this.guna2Button3.ImageSize = new System.Drawing.Size(30, 30);
+            this.guna2Button3.Location = new System.Drawing.Point(818, 0);
+            this.guna2Button3.Name = "guna2Button3";
+            this.guna2Button3.ShadowDecoration.Parent = this.guna2Button3;
+            this.guna2Button3.Size = new System.Drawing.Size(55, 37);
+            this.guna2Button3.TabIndex = 36;
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
+            this.pictureBox1.Location = new System.Drawing.Point(3, 3);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(40, 31);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox1.TabIndex = 0;
+            this.pictureBox1.TabStop = false;
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -367,10 +442,10 @@ namespace IPCameraManager
             this.Shown += new System.EventHandler(this.MainForm_Shown);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.panel2.ResumeLayout(false);
             this.Status1.ResumeLayout(false);
             this.Status1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -400,6 +475,9 @@ namespace IPCameraManager
         private System.Windows.Forms.Timer timer_GetCamStatus;
         private System.Windows.Forms.ToolStripStatusLabel TrangThaiCamPhu;
         private System.Windows.Forms.Button btSecondCamRefresh;
+        private Guna.UI2.WinForms.Guna2Button guna2Button2;
+        private Guna.UI2.WinForms.Guna2Button guna2Button1;
+        private Guna.UI2.WinForms.Guna2Button guna2Button3;
     }
 }
 

@@ -90,6 +90,43 @@ namespace IPCameraManager
         }
 
         //*****************************************************************************************************************
+        //****************************************** Access to Mau Phieu Kham Infomation *******************************************
+        public static DataUser_MauPhieuKham_Info Load_MauPhieuKham_Info()
+        {
+            using (IDbConnection cnn = new SQLiteConnection(LoadConnectionString()))
+            {
+                try
+                {
+                    DataUser_MauPhieuKham_Info output = cnn.Query<DataUser_MauPhieuKham_Info>("select * from MauPhieuKham_Info", new DynamicParameters()).FirstOrDefault();
+                    return output;
+                }
+                catch
+                {
+
+                }
+
+                return null;
+            }
+        }
+
+        public static void SaveInfo_MauPhieuKham(DataUser_MauPhieuKham_Info info)
+        {
+            using (IDbConnection cnn = new SQLiteConnection(LoadConnectionString()))
+            {
+                int id = cnn.Query<int>("select Id from MauPhieuKham_Info where Id like @Id", new { Id = 1 }).FirstOrDefault();
+
+                if (id != 0)
+                {
+                    cnn.Execute("update MauPhieuKham_Info set MauPhieuKham1= @MauPhieuKham1, MauPhieuKham2= @MauPhieuKham2 where Id = 1", info);
+                }
+                else
+                {
+                    cnn.Execute("insert into MauPhieuKham_Info ( MauPhieuKham1, MauPhieuKham2) values ( @MauPhieuKham1, @MauPhieuKham2)", info);
+                }
+            }
+        }
+
+        //*****************************************************************************************************************
         //*****************************************************************************************************************
         private static string LoadConnectionString(string id = "Default")
         {

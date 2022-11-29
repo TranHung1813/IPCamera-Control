@@ -31,6 +31,7 @@ namespace IPCameraManager
         {
             this.checkBoxPreview = new System.Windows.Forms.CheckBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.comboBoxSpeed = new System.Windows.Forms.ComboBox();
             this.label5 = new System.Windows.Forms.Label();
             this.btnDown = new System.Windows.Forms.Button();
             this.PtzGet = new System.Windows.Forms.Button();
@@ -51,7 +52,6 @@ namespace IPCameraManager
             this.label12 = new System.Windows.Forms.Label();
             this.PtzRange = new System.Windows.Forms.Button();
             this.label_PZTRange = new System.Windows.Forms.Label();
-            this.comboBoxSpeed = new System.Windows.Forms.ComboBox();
             this.groupBox2.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -94,6 +94,23 @@ namespace IPCameraManager
             this.groupBox2.TabIndex = 41;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "PTZ control";
+            // 
+            // comboBoxSpeed
+            // 
+            this.comboBoxSpeed.FormattingEnabled = true;
+            this.comboBoxSpeed.Items.AddRange(new object[] {
+            "1",
+            "2",
+            "3",
+            "4",
+            "5",
+            "6",
+            "7"});
+            this.comboBoxSpeed.Location = new System.Drawing.Point(164, 140);
+            this.comboBoxSpeed.Name = "comboBoxSpeed";
+            this.comboBoxSpeed.Size = new System.Drawing.Size(55, 26);
+            this.comboBoxSpeed.TabIndex = 29;
+            this.comboBoxSpeed.Text = "4";
             // 
             // label5
             // 
@@ -211,6 +228,7 @@ namespace IPCameraManager
             this.btnUp.TabIndex = 13;
             this.btnUp.Text = "Up";
             this.btnUp.UseVisualStyleBackColor = true;
+            this.btnUp.Click += new System.EventHandler(this.btnUp_Click);
             this.btnUp.MouseDown += new System.Windows.Forms.MouseEventHandler(this.btnUp_MouseDown);
             this.btnUp.MouseUp += new System.Windows.Forms.MouseEventHandler(this.btnUp_MouseUp);
             // 
@@ -301,23 +319,6 @@ namespace IPCameraManager
             this.label_PZTRange.Name = "label_PZTRange";
             this.label_PZTRange.Size = new System.Drawing.Size(0, 17);
             this.label_PZTRange.TabIndex = 43;
-            // 
-            // comboBoxSpeed
-            // 
-            this.comboBoxSpeed.FormattingEnabled = true;
-            this.comboBoxSpeed.Items.AddRange(new object[] {
-            "1",
-            "2",
-            "3",
-            "4",
-            "5",
-            "6",
-            "7"});
-            this.comboBoxSpeed.Location = new System.Drawing.Point(164, 140);
-            this.comboBoxSpeed.Name = "comboBoxSpeed";
-            this.comboBoxSpeed.Size = new System.Drawing.Size(55, 26);
-            this.comboBoxSpeed.TabIndex = 29;
-            this.comboBoxSpeed.Text = "4";
             // 
             // FormSetupPTZ
             // 

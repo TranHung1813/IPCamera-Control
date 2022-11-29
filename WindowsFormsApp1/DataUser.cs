@@ -24,4 +24,12 @@ namespace IPCameraManager
 
         public string FolderSaveFile { get; set; }
     }
+    public class DataUser_MauPhieuKham_Info
+    {
+        public int Id { get; set; }
+
+        public string MauPhieuKham1 { get; set; }
+
+        public string MauPhieuKham2 { get; set; }
+    }
 }

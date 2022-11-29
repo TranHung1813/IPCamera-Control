@@ -62,19 +62,6 @@ namespace IPCameraManager
         }
         private void InitForm_Default()
         {
-            // Get Folder Save File info
-            DataUser_Other_Info Info = SqliteDataAccess.Load_Other_Info();
-
-            if (Info != null)
-            {
-                FolderName_to_saveFile = Info.FolderSaveFile;
-                SetFolder_Form.SetFolderName(FolderName_to_saveFile);
-            }
-            else
-            {
-                // Handle when database = null
-            }
-
             // Set ngay kham bang real time
             tbNgayKham.Text = DateTime.Now.ToString("dd/MM/yyyy");
 
@@ -176,9 +163,10 @@ namespace IPCameraManager
                 };
             }
         }
-        public void GetFolderName_to_SaveFile(ref string FolderName)
+        public void SetFolderName_to_SaveFile(string FolderName)
         {
-            FolderName = FolderName_to_saveFile;
+            FolderName_to_saveFile = FolderName;
+            SetFolder_Form.SetFolderName(FolderName_to_saveFile);
         }
         private void Barcode_Scanned(object sender, BarcodeScannerEventArgs e)
         {
@@ -329,8 +317,8 @@ namespace IPCameraManager
                                                         lChannel, ref lpJpegPara, sJpegPicFileName))
             {
                 uint LastErr = CHCNetSDK.NET_DVR_GetLastError();
-                string str = "NET_DVR_CaptureJPEGPicture failed, error code= " + LastErr;
-                MessageBox.Show(str);
+                string str = "Chụp ảnh không thành công, error code= " + LastErr;
+                MessageBox.Show(str, "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return ERR_NOT_OK;
             }
             else
