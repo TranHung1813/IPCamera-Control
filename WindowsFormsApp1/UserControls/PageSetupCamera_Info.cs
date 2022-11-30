@@ -10,7 +10,6 @@ namespace IPCameraManager
         public PageSetupCamera_Info()
         {
             InitializeComponent();
-            Init_IPCamera();
         }
         // Speed range: 1,2,3,4,5,6,7.
         private CameraManager_Type MainCam_Manager = new CameraManager_Type();
@@ -61,33 +60,7 @@ namespace IPCameraManager
         System.Windows.Forms.Timer timerContrast;
         System.Windows.Forms.Timer timerSaturation;
         System.Windows.Forms.Timer timerhue;
-        private void Init_IPCamera()
-        {
-            /* Init Cam chinh */
-            MainCam_Manager.InitCam_Status = CHCNetSDK.NET_DVR_Init();
-            if (MainCam_Manager.InitCam_Status == false)
-            {
-                MessageBox.Show("NET_DVR_Init error!", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return;
-            }
-            else
-            {
-                //Set Folder to save the SDK log
-                CHCNetSDK.NET_DVR_SetLogToFile(3, "C:\\SdkLog\\", true);
-            }
-            /* Init Cam phu */
-            SecondaryCam_Manager.InitCam_Status = CHCNetSDK.NET_DVR_Init();
-            if (SecondaryCam_Manager.InitCam_Status == false)
-            {
-                MessageBox.Show("NET_DVR_Init error!");
-                return;
-            }
-            else
-            {
-                //Set Folder to save the SDK log
-                CHCNetSDK.NET_DVR_SetLogToFile(3, "C:\\SdkLog_Cam2\\", true);
-            }
-        }
+
         protected override void Dispose(bool disposing)
         {
             // End Main Cam
@@ -544,10 +517,13 @@ namespace IPCameraManager
         }
         private void ThreadTask_LoadCam()
         {
-            btMainCam_Click(btMainCam, null);
+            this.Invoke(new MethodInvoker(() =>
+            {
+                btMainCam_Click(btMainCam, null);
+            }));
             LoadingCamera_Trd.Abort();
         }
-        private void PtzRange_MainCam_Click(object sender, EventArgs e)
+        private int PtzRange_MainCam_Click(object sender, EventArgs e)
         {
             UInt32 dwReturn = 0;
             Int32 nSize = Marshal.SizeOf(m_struPtzCfg1_main);
@@ -560,7 +536,7 @@ namespace IPCameraManager
                 uint Err_return = CHCNetSDK.NET_DVR_GetLastError();
                 string str = "Lấy thông tin PTZ thất bại, error code = " + Err_return;
                 MessageBox.Show(str, "WARNING", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                return;
+                return ERR_NOT_OK;
             }
             else
             {
@@ -588,10 +564,10 @@ namespace IPCameraManager
 
                 tB_Zoom.Maximum = MainCam_MaxZoom;
                 tB_Zoom.Minimum = MainCam_MinZoom;
+                return ERR_OK;
             }
-            return;
         }
-        private void PtzRange_SecondaryCam_Click(object sender, EventArgs e)
+        private int PtzRange_SecondaryCam_Click(object sender, EventArgs e)
         {
             UInt32 dwReturn = 0;
             Int32 nSize = Marshal.SizeOf(m_struPtzCfg1_second);
@@ -604,7 +580,7 @@ namespace IPCameraManager
                 uint Err_return = CHCNetSDK.NET_DVR_GetLastError();
                 string str = "Lấy thông tin PTZ thất bại, error code = " + Err_return;
                 MessageBox.Show(str, "WARNING", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                return;
+                return ERR_NOT_OK;
             }
             else
             {
@@ -632,8 +608,8 @@ namespace IPCameraManager
 
                 tB_Zoom.Maximum = Cam2_MaxZoom;
                 tB_Zoom.Minimum = Cam2_MinZoom;
+                return ERR_OK;
             }
-            return;
         }
         private void btMainCam_Click(object sender, EventArgs e)
         {
@@ -641,11 +617,13 @@ namespace IPCameraManager
             {
                 CurrentCamID = CAM1;
                 // Get PTZ range
-                PtzRange_MainCam_Click(sender, e);
-                // Get Brightness, contrast, ... value
-                Load_VideoEffect();
-                // Get PTZ value
-                PtzGet_Click(sender, e);
+                if(ERR_OK == PtzRange_MainCam_Click(sender, e))
+                {
+                    // Get Brightness, contrast, ... value
+                    Load_VideoEffect();
+                    // Get PTZ value
+                    PtzGet_Click(sender, e);
+                }
                 if (SecondaryCam_Manager.Live_Status >= 0)
                 {
                     if (ERR_OK == Stop_PlayCam2())
@@ -690,11 +668,13 @@ namespace IPCameraManager
             {
                 CurrentCamID = CAM2;
                 // Get PTZ range
-                PtzRange_SecondaryCam_Click(sender, e);
-                // Get Brightness, contrast, ... value
-                Load_VideoEffect();
-                // Get PTZ value
-                PtzGet_Click(sender, e);
+                if (ERR_OK == PtzRange_SecondaryCam_Click(sender, e))
+                {
+                    // Get Brightness, contrast, ... value
+                    Load_VideoEffect();
+                    // Get PTZ value
+                    PtzGet_Click(sender, e);
+                }
                 if (MainCam_Manager.Live_Status >= 0)
                 {
                     if (ERR_OK == Stop_PlayMainCam())
