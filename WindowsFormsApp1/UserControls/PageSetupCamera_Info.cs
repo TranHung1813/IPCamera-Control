@@ -616,14 +616,6 @@ namespace IPCameraManager
             if (CurrentCamID != CAM1)
             {
                 CurrentCamID = CAM1;
-                // Get PTZ range
-                if(ERR_OK == PtzRange_MainCam_Click(sender, e))
-                {
-                    // Get Brightness, contrast, ... value
-                    Load_VideoEffect();
-                    // Get PTZ value
-                    PtzGet_Click(sender, e);
-                }
                 if (SecondaryCam_Manager.Live_Status >= 0)
                 {
                     if (ERR_OK == Stop_PlayCam2())
@@ -632,7 +624,12 @@ namespace IPCameraManager
                         {
                             if (ERR_OK == Start_PlayMainCam())
                             {
-
+                                // Get PTZ range
+                                PtzRange_MainCam_Click(sender, e);
+                                // Get Brightness, contrast, ... value
+                                Load_VideoEffect();
+                                // Get PTZ value
+                                PtzGet_Click(sender, e);
                             }
                             else
                             {
@@ -651,7 +648,12 @@ namespace IPCameraManager
                     {
                         if (ERR_OK == Start_PlayMainCam())
                         {
-
+                            // Get PTZ range
+                            PtzRange_MainCam_Click(sender, e);
+                            // Get Brightness, contrast, ... value
+                            Load_VideoEffect();
+                            // Get PTZ value
+                            PtzGet_Click(sender, e);
                         }
                         else
                         {
@@ -667,14 +669,6 @@ namespace IPCameraManager
             if (CurrentCamID != CAM2)
             {
                 CurrentCamID = CAM2;
-                // Get PTZ range
-                if (ERR_OK == PtzRange_SecondaryCam_Click(sender, e))
-                {
-                    // Get Brightness, contrast, ... value
-                    Load_VideoEffect();
-                    // Get PTZ value
-                    PtzGet_Click(sender, e);
-                }
                 if (MainCam_Manager.Live_Status >= 0)
                 {
                     if (ERR_OK == Stop_PlayMainCam())
@@ -683,7 +677,12 @@ namespace IPCameraManager
                         {
                             if (ERR_OK == Start_PlayCam2())
                             {
-
+                                // Get PTZ range
+                                PtzRange_SecondaryCam_Click(sender, e);
+                                // Get Brightness, contrast, ... value
+                                Load_VideoEffect();
+                                // Get PTZ value
+                                PtzGet_Click(sender, e);
                             }
                             else
                             {
@@ -702,7 +701,12 @@ namespace IPCameraManager
                     {
                         if (ERR_OK == Start_PlayCam2())
                         {
-
+                            // Get PTZ range
+                            PtzRange_SecondaryCam_Click(sender, e);
+                            // Get Brightness, contrast, ... value
+                            Load_VideoEffect();
+                            // Get PTZ value
+                            PtzGet_Click(sender, e);
                         }
                         else
                         {

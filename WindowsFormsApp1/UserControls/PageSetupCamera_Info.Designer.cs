@@ -597,6 +597,9 @@ namespace IPCameraManager
             this.btCam2.FillColor = System.Drawing.Color.White;
             this.btCam2.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btCam2.ForeColor = System.Drawing.Color.Black;
+            this.btCam2.HoverState.BorderColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.btCam2.HoverState.CustomBorderColor = System.Drawing.Color.Transparent;
+            this.btCam2.HoverState.FillColor = System.Drawing.Color.LightSteelBlue;
             this.btCam2.HoverState.Parent = this.btCam2;
             this.btCam2.Location = new System.Drawing.Point(313, 18);
             this.btCam2.Name = "btCam2";
@@ -623,6 +626,9 @@ namespace IPCameraManager
             this.btMainCam.FillColor = System.Drawing.Color.White;
             this.btMainCam.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btMainCam.ForeColor = System.Drawing.Color.Black;
+            this.btMainCam.HoverState.BorderColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.btMainCam.HoverState.CustomBorderColor = System.Drawing.Color.Transparent;
+            this.btMainCam.HoverState.FillColor = System.Drawing.Color.LightSteelBlue;
             this.btMainCam.HoverState.Parent = this.btMainCam;
             this.btMainCam.Location = new System.Drawing.Point(25, 18);
             this.btMainCam.Name = "btMainCam";
