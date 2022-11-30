@@ -32,12 +32,18 @@ namespace IPCameraManager
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             this.panel1 = new System.Windows.Forms.Panel();
+            this.btSystemSetting = new Guna.UI2.WinForms.Guna2Button();
             this.btMaximize = new Guna.UI2.WinForms.Guna2Button();
             this.btMinimize = new Guna.UI2.WinForms.Guna2Button();
             this.btExit = new Guna.UI2.WinForms.Guna2Button();
             this.label1 = new System.Windows.Forms.Label();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.guna2Elipse1 = new Guna.UI2.WinForms.Guna2Elipse(this.components);
             this.panel2 = new System.Windows.Forms.Panel();
+            this.tabPageTimPhieu = new Guna.UI2.WinForms.Guna2Button();
+            this.tabPageCaidatCamera = new Guna.UI2.WinForms.Guna2Button();
+            this.tabPage_InPhieu = new Guna.UI2.WinForms.Guna2Button();
+            this.tabPage_KhamBenh = new Guna.UI2.WinForms.Guna2Button();
             this.guna2DragControl1 = new Guna.UI2.WinForms.Guna2DragControl(this.components);
             this.panelUnknown = new System.Windows.Forms.Panel();
             this.Status1 = new System.Windows.Forms.StatusStrip();
@@ -50,22 +56,16 @@ namespace IPCameraManager
             this.timer_GetCamStatus = new System.Windows.Forms.Timer(this.components);
             this.cMStrip_Setting = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.btLogin_IPCamera = new System.Windows.Forms.ToolStripMenuItem();
-            this.btSetFolderchuaAnh = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
             this.càiĐặtFileMẫuPhiếuKhámToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.btSetFolderchuaAnh = new System.Windows.Forms.ToolStripMenuItem();
+            this.btSetFile_MauPhieuKham = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.kiểmTraCậpNhậtToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.tabPageTimPhieu = new Guna.UI2.WinForms.Guna2Button();
-            this.tabPageCaidatCamera = new Guna.UI2.WinForms.Guna2Button();
-            this.tabPage_InPhieu = new Guna.UI2.WinForms.Guna2Button();
-            this.tabPage_KhamBenh = new Guna.UI2.WinForms.Guna2Button();
-            this.btSystemSetting = new Guna.UI2.WinForms.Guna2Button();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel2.SuspendLayout();
             this.Status1.SuspendLayout();
             this.cMStrip_Setting.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -82,6 +82,24 @@ namespace IPCameraManager
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1044, 37);
             this.panel1.TabIndex = 6;
+            // 
+            // btSystemSetting
+            // 
+            this.btSystemSetting.CheckedState.Parent = this.btSystemSetting;
+            this.btSystemSetting.CustomImages.Parent = this.btSystemSetting;
+            this.btSystemSetting.FillColor = System.Drawing.Color.Transparent;
+            this.btSystemSetting.Font = new System.Drawing.Font("Segoe UI", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btSystemSetting.ForeColor = System.Drawing.Color.White;
+            this.btSystemSetting.HoverState.FillColor = System.Drawing.Color.Gray;
+            this.btSystemSetting.HoverState.Parent = this.btSystemSetting;
+            this.btSystemSetting.Image = global::IPCameraManager.Properties.Resources.setting_Icon1;
+            this.btSystemSetting.ImageSize = new System.Drawing.Size(26, 26);
+            this.btSystemSetting.Location = new System.Drawing.Point(819, 0);
+            this.btSystemSetting.Name = "btSystemSetting";
+            this.btSystemSetting.ShadowDecoration.Parent = this.btSystemSetting;
+            this.btSystemSetting.Size = new System.Drawing.Size(55, 37);
+            this.btSystemSetting.TabIndex = 36;
+            this.btSystemSetting.Click += new System.EventHandler(this.btSystemSetting_Click);
             // 
             // btMaximize
             // 
@@ -146,6 +164,16 @@ namespace IPCameraManager
             this.label1.TabIndex = 1;
             this.label1.Text = "Phần mềm quản lý Camera";
             // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
+            this.pictureBox1.Location = new System.Drawing.Point(3, 3);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(40, 31);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox1.TabIndex = 0;
+            this.pictureBox1.TabStop = false;
+            // 
             // guna2Elipse1
             // 
             this.guna2Elipse1.BorderRadius = 22;
@@ -163,142 +191,6 @@ namespace IPCameraManager
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(1044, 43);
             this.panel2.TabIndex = 7;
-            // 
-            // guna2DragControl1
-            // 
-            this.guna2DragControl1.TargetControl = this.panel1;
-            // 
-            // panelUnknown
-            // 
-            this.panelUnknown.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelUnknown.Location = new System.Drawing.Point(0, 80);
-            this.panelUnknown.Name = "panelUnknown";
-            this.panelUnknown.Size = new System.Drawing.Size(1044, 640);
-            this.panelUnknown.TabIndex = 8;
-            // 
-            // Status1
-            // 
-            this.Status1.BackColor = System.Drawing.Color.Gainsboro;
-            this.Status1.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Status1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.TrangThaiCamChinh,
-            this.toolStripStatusLabel1,
-            this.TrangThaiCamPhu});
-            this.Status1.Location = new System.Drawing.Point(0, 696);
-            this.Status1.Name = "Status1";
-            this.Status1.Size = new System.Drawing.Size(1044, 24);
-            this.Status1.TabIndex = 0;
-            this.Status1.Text = "Status1";
-            // 
-            // TrangThaiCamChinh
-            // 
-            this.TrangThaiCamChinh.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.TrangThaiCamChinh.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
-            this.TrangThaiCamChinh.Font = new System.Drawing.Font("Tahoma", 12F);
-            this.TrangThaiCamChinh.Margin = new System.Windows.Forms.Padding(10, 3, 0, 2);
-            this.TrangThaiCamChinh.Name = "TrangThaiCamChinh";
-            this.TrangThaiCamChinh.Size = new System.Drawing.Size(250, 19);
-            this.TrangThaiCamChinh.Text = " Camera chính: Không có kết nối! ";
-            // 
-            // toolStripStatusLabel1
-            // 
-            this.toolStripStatusLabel1.Name = "toolStripStatusLabel1";
-            this.toolStripStatusLabel1.Size = new System.Drawing.Size(0, 19);
-            // 
-            // TrangThaiCamPhu
-            // 
-            this.TrangThaiCamPhu.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.TrangThaiCamPhu.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
-            this.TrangThaiCamPhu.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TrangThaiCamPhu.Margin = new System.Windows.Forms.Padding(10, 3, 0, 2);
-            this.TrangThaiCamPhu.Name = "TrangThaiCamPhu";
-            this.TrangThaiCamPhu.Size = new System.Drawing.Size(239, 19);
-            this.TrangThaiCamPhu.Text = " Camera phụ: Không có kết nối! ";
-            // 
-            // panelBorder_Left
-            // 
-            this.panelBorder_Left.BackColor = System.Drawing.Color.SlateBlue;
-            this.panelBorder_Left.Dock = System.Windows.Forms.DockStyle.Left;
-            this.panelBorder_Left.Location = new System.Drawing.Point(0, 80);
-            this.panelBorder_Left.Name = "panelBorder_Left";
-            this.panelBorder_Left.Size = new System.Drawing.Size(1, 616);
-            this.panelBorder_Left.TabIndex = 9;
-            // 
-            // panelBorder_Right
-            // 
-            this.panelBorder_Right.BackColor = System.Drawing.Color.SlateBlue;
-            this.panelBorder_Right.Dock = System.Windows.Forms.DockStyle.Right;
-            this.panelBorder_Right.Location = new System.Drawing.Point(1042, 80);
-            this.panelBorder_Right.Name = "panelBorder_Right";
-            this.panelBorder_Right.Size = new System.Drawing.Size(2, 616);
-            this.panelBorder_Right.TabIndex = 0;
-            // 
-            // timer_Update_PatientInfo_to_Page2
-            // 
-            this.timer_Update_PatientInfo_to_Page2.Enabled = true;
-            this.timer_Update_PatientInfo_to_Page2.Tick += new System.EventHandler(this.timer_Update_PatientInfo_to_Page2_Tick);
-            // 
-            // timer_GetCamStatus
-            // 
-            this.timer_GetCamStatus.Interval = 3000;
-            this.timer_GetCamStatus.Tick += new System.EventHandler(this.timer_GetCamStatus_Tick);
-            // 
-            // cMStrip_Setting
-            // 
-            this.cMStrip_Setting.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.btLogin_IPCamera,
-            this.btSetFolderchuaAnh,
-            this.toolStripMenuItem2,
-            this.càiĐặtFileMẫuPhiếuKhámToolStripMenuItem,
-            this.toolStripMenuItem1,
-            this.kiểmTraCậpNhậtToolStripMenuItem});
-            this.cMStrip_Setting.Name = "cMStrip_Setting";
-            this.cMStrip_Setting.Size = new System.Drawing.Size(278, 170);
-            // 
-            // btLogin_IPCamera
-            // 
-            this.btLogin_IPCamera.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btLogin_IPCamera.Image = global::IPCameraManager.Properties.Resources.Printer;
-            this.btLogin_IPCamera.Name = "btLogin_IPCamera";
-            this.btLogin_IPCamera.Size = new System.Drawing.Size(277, 24);
-            this.btLogin_IPCamera.Text = "Kết nối Camera";
-            this.btLogin_IPCamera.Click += new System.EventHandler(this.btLogin_IPCamera_Click);
-            // 
-            // btSetFolderchuaAnh
-            // 
-            this.btSetFolderchuaAnh.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btSetFolderchuaAnh.Name = "btSetFolderchuaAnh";
-            this.btSetFolderchuaAnh.Size = new System.Drawing.Size(277, 24);
-            this.btSetFolderchuaAnh.Text = "Cài đặt folder chứa ảnh";
-            this.btSetFolderchuaAnh.Click += new System.EventHandler(this.btSetFolderchuaAnh_Click);
-            // 
-            // toolStripMenuItem2
-            // 
-            this.toolStripMenuItem2.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.toolStripMenuItem2.Name = "toolStripMenuItem2";
-            this.toolStripMenuItem2.Size = new System.Drawing.Size(277, 24);
-            this.toolStripMenuItem2.Text = "Cài đặt file Mẫu phiếu khám";
-            // 
-            // càiĐặtFileMẫuPhiếuKhámToolStripMenuItem
-            // 
-            this.càiĐặtFileMẫuPhiếuKhámToolStripMenuItem.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.càiĐặtFileMẫuPhiếuKhámToolStripMenuItem.Name = "càiĐặtFileMẫuPhiếuKhámToolStripMenuItem";
-            this.càiĐặtFileMẫuPhiếuKhámToolStripMenuItem.Size = new System.Drawing.Size(277, 24);
-            this.càiĐặtFileMẫuPhiếuKhámToolStripMenuItem.Text = "Hiệu chỉnh thời gian Camera";
-            // 
-            // toolStripMenuItem1
-            // 
-            this.toolStripMenuItem1.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.toolStripMenuItem1.Name = "toolStripMenuItem1";
-            this.toolStripMenuItem1.Size = new System.Drawing.Size(277, 24);
-            this.toolStripMenuItem1.Text = "Cài đặt lại phím tắt";
-            // 
-            // kiểmTraCậpNhậtToolStripMenuItem
-            // 
-            this.kiểmTraCậpNhậtToolStripMenuItem.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.kiểmTraCậpNhậtToolStripMenuItem.Name = "kiểmTraCậpNhậtToolStripMenuItem";
-            this.kiểmTraCậpNhậtToolStripMenuItem.Size = new System.Drawing.Size(277, 24);
-            this.kiểmTraCậpNhậtToolStripMenuItem.Text = "Kiểm tra cập nhật";
             // 
             // tabPageTimPhieu
             // 
@@ -405,33 +297,144 @@ namespace IPCameraManager
             this.tabPage_KhamBenh.UseTransparentBackground = true;
             this.tabPage_KhamBenh.Click += new System.EventHandler(this.tabPage_KhamBenh_Click);
             // 
-            // btSystemSetting
+            // guna2DragControl1
             // 
-            this.btSystemSetting.CheckedState.Parent = this.btSystemSetting;
-            this.btSystemSetting.CustomImages.Parent = this.btSystemSetting;
-            this.btSystemSetting.FillColor = System.Drawing.Color.Transparent;
-            this.btSystemSetting.Font = new System.Drawing.Font("Segoe UI", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btSystemSetting.ForeColor = System.Drawing.Color.White;
-            this.btSystemSetting.HoverState.FillColor = System.Drawing.Color.Gray;
-            this.btSystemSetting.HoverState.Parent = this.btSystemSetting;
-            this.btSystemSetting.Image = global::IPCameraManager.Properties.Resources.setting_Icon1;
-            this.btSystemSetting.ImageSize = new System.Drawing.Size(26, 26);
-            this.btSystemSetting.Location = new System.Drawing.Point(819, 0);
-            this.btSystemSetting.Name = "btSystemSetting";
-            this.btSystemSetting.ShadowDecoration.Parent = this.btSystemSetting;
-            this.btSystemSetting.Size = new System.Drawing.Size(55, 37);
-            this.btSystemSetting.TabIndex = 36;
-            this.btSystemSetting.Click += new System.EventHandler(this.btSystemSetting_Click);
+            this.guna2DragControl1.TargetControl = this.panel1;
             // 
-            // pictureBox1
+            // panelUnknown
             // 
-            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(3, 3);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(40, 31);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox1.TabIndex = 0;
-            this.pictureBox1.TabStop = false;
+            this.panelUnknown.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panelUnknown.Location = new System.Drawing.Point(0, 80);
+            this.panelUnknown.Name = "panelUnknown";
+            this.panelUnknown.Size = new System.Drawing.Size(1044, 640);
+            this.panelUnknown.TabIndex = 8;
+            // 
+            // Status1
+            // 
+            this.Status1.BackColor = System.Drawing.Color.Gainsboro;
+            this.Status1.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Status1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.TrangThaiCamChinh,
+            this.toolStripStatusLabel1,
+            this.TrangThaiCamPhu});
+            this.Status1.Location = new System.Drawing.Point(0, 696);
+            this.Status1.Name = "Status1";
+            this.Status1.Size = new System.Drawing.Size(1044, 24);
+            this.Status1.TabIndex = 0;
+            this.Status1.Text = "Status1";
+            // 
+            // TrangThaiCamChinh
+            // 
+            this.TrangThaiCamChinh.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.TrangThaiCamChinh.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
+            this.TrangThaiCamChinh.Font = new System.Drawing.Font("Tahoma", 12F);
+            this.TrangThaiCamChinh.Margin = new System.Windows.Forms.Padding(10, 3, 0, 2);
+            this.TrangThaiCamChinh.Name = "TrangThaiCamChinh";
+            this.TrangThaiCamChinh.Size = new System.Drawing.Size(250, 19);
+            this.TrangThaiCamChinh.Text = " Camera chính: Không có kết nối! ";
+            // 
+            // toolStripStatusLabel1
+            // 
+            this.toolStripStatusLabel1.Name = "toolStripStatusLabel1";
+            this.toolStripStatusLabel1.Size = new System.Drawing.Size(0, 19);
+            // 
+            // TrangThaiCamPhu
+            // 
+            this.TrangThaiCamPhu.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.TrangThaiCamPhu.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
+            this.TrangThaiCamPhu.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TrangThaiCamPhu.Margin = new System.Windows.Forms.Padding(10, 3, 0, 2);
+            this.TrangThaiCamPhu.Name = "TrangThaiCamPhu";
+            this.TrangThaiCamPhu.Size = new System.Drawing.Size(239, 19);
+            this.TrangThaiCamPhu.Text = " Camera phụ: Không có kết nối! ";
+            // 
+            // panelBorder_Left
+            // 
+            this.panelBorder_Left.BackColor = System.Drawing.Color.SlateBlue;
+            this.panelBorder_Left.Dock = System.Windows.Forms.DockStyle.Left;
+            this.panelBorder_Left.Location = new System.Drawing.Point(0, 80);
+            this.panelBorder_Left.Name = "panelBorder_Left";
+            this.panelBorder_Left.Size = new System.Drawing.Size(1, 616);
+            this.panelBorder_Left.TabIndex = 9;
+            // 
+            // panelBorder_Right
+            // 
+            this.panelBorder_Right.BackColor = System.Drawing.Color.SlateBlue;
+            this.panelBorder_Right.Dock = System.Windows.Forms.DockStyle.Right;
+            this.panelBorder_Right.Location = new System.Drawing.Point(1042, 80);
+            this.panelBorder_Right.Name = "panelBorder_Right";
+            this.panelBorder_Right.Size = new System.Drawing.Size(2, 616);
+            this.panelBorder_Right.TabIndex = 0;
+            // 
+            // timer_Update_PatientInfo_to_Page2
+            // 
+            this.timer_Update_PatientInfo_to_Page2.Enabled = true;
+            this.timer_Update_PatientInfo_to_Page2.Tick += new System.EventHandler(this.timer_Update_PatientInfo_to_Page2_Tick);
+            // 
+            // timer_GetCamStatus
+            // 
+            this.timer_GetCamStatus.Interval = 3000;
+            this.timer_GetCamStatus.Tick += new System.EventHandler(this.timer_GetCamStatus_Tick);
+            // 
+            // cMStrip_Setting
+            // 
+            this.cMStrip_Setting.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.btLogin_IPCamera,
+            this.càiĐặtFileMẫuPhiếuKhámToolStripMenuItem,
+            this.btSetFolderchuaAnh,
+            this.btSetFile_MauPhieuKham,
+            this.toolStripMenuItem1,
+            this.kiểmTraCậpNhậtToolStripMenuItem});
+            this.cMStrip_Setting.Name = "cMStrip_Setting";
+            this.cMStrip_Setting.Size = new System.Drawing.Size(278, 170);
+            // 
+            // btLogin_IPCamera
+            // 
+            this.btLogin_IPCamera.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btLogin_IPCamera.Image = global::IPCameraManager.Properties.Resources.Printer;
+            this.btLogin_IPCamera.Name = "btLogin_IPCamera";
+            this.btLogin_IPCamera.ShowShortcutKeys = false;
+            this.btLogin_IPCamera.Size = new System.Drawing.Size(277, 24);
+            this.btLogin_IPCamera.Text = "Kết nối Camera";
+            this.btLogin_IPCamera.Click += new System.EventHandler(this.btLogin_IPCamera_Click);
+            // 
+            // càiĐặtFileMẫuPhiếuKhámToolStripMenuItem
+            // 
+            this.càiĐặtFileMẫuPhiếuKhámToolStripMenuItem.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.càiĐặtFileMẫuPhiếuKhámToolStripMenuItem.Name = "càiĐặtFileMẫuPhiếuKhámToolStripMenuItem";
+            this.càiĐặtFileMẫuPhiếuKhámToolStripMenuItem.Size = new System.Drawing.Size(277, 24);
+            this.càiĐặtFileMẫuPhiếuKhámToolStripMenuItem.Text = "Hiệu chỉnh thời gian Camera";
+            this.càiĐặtFileMẫuPhiếuKhámToolStripMenuItem.Click += new System.EventHandler(this.càiĐặtFileMẫuPhiếuKhámToolStripMenuItem_Click);
+            // 
+            // btSetFolderchuaAnh
+            // 
+            this.btSetFolderchuaAnh.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btSetFolderchuaAnh.Name = "btSetFolderchuaAnh";
+            this.btSetFolderchuaAnh.Size = new System.Drawing.Size(277, 24);
+            this.btSetFolderchuaAnh.Text = "Cài đặt folder chứa ảnh";
+            this.btSetFolderchuaAnh.Click += new System.EventHandler(this.btSetFolderchuaAnh_Click);
+            // 
+            // btSetFile_MauPhieuKham
+            // 
+            this.btSetFile_MauPhieuKham.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btSetFile_MauPhieuKham.Name = "btSetFile_MauPhieuKham";
+            this.btSetFile_MauPhieuKham.Size = new System.Drawing.Size(277, 24);
+            this.btSetFile_MauPhieuKham.Text = "Cài đặt file Mẫu phiếu khám";
+            this.btSetFile_MauPhieuKham.Click += new System.EventHandler(this.btSetFile_MauPhieuKham_Click);
+            // 
+            // toolStripMenuItem1
+            // 
+            this.toolStripMenuItem1.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.toolStripMenuItem1.Name = "toolStripMenuItem1";
+            this.toolStripMenuItem1.Size = new System.Drawing.Size(277, 24);
+            this.toolStripMenuItem1.Text = "Cài đặt lại phím tắt";
+            // 
+            // kiểmTraCậpNhậtToolStripMenuItem
+            // 
+            this.kiểmTraCậpNhậtToolStripMenuItem.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.kiểmTraCậpNhậtToolStripMenuItem.Name = "kiểmTraCậpNhậtToolStripMenuItem";
+            this.kiểmTraCậpNhậtToolStripMenuItem.Size = new System.Drawing.Size(277, 24);
+            this.kiểmTraCậpNhậtToolStripMenuItem.Text = "Kiểm tra cập nhật";
             // 
             // MainForm
             // 
@@ -454,11 +457,11 @@ namespace IPCameraManager
             this.Shown += new System.EventHandler(this.MainForm_Shown);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.panel2.ResumeLayout(false);
             this.Status1.ResumeLayout(false);
             this.Status1.PerformLayout();
             this.cMStrip_Setting.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -493,7 +496,7 @@ namespace IPCameraManager
         private System.Windows.Forms.ToolStripMenuItem btSetFolderchuaAnh;
         private System.Windows.Forms.ToolStripMenuItem càiĐặtFileMẫuPhiếuKhámToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem kiểmTraCậpNhậtToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem2;
+        private System.Windows.Forms.ToolStripMenuItem btSetFile_MauPhieuKham;
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem1;
     }
 }

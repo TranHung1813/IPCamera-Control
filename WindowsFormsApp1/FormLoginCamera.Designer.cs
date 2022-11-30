@@ -55,7 +55,7 @@ namespace IPCameraManager
             // 
             // guna2Elipse1
             // 
-            this.guna2Elipse1.BorderRadius = 13;
+            this.guna2Elipse1.BorderRadius = 19;
             this.guna2Elipse1.TargetControl = this;
             // 
             // guna2DragControl1
@@ -299,7 +299,7 @@ namespace IPCameraManager
             // 
             this.guna2GroupBox1.BackColor = System.Drawing.Color.Transparent;
             this.guna2GroupBox1.BorderColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.guna2GroupBox1.BorderRadius = 5;
+            this.guna2GroupBox1.BorderRadius = 10;
             this.guna2GroupBox1.Controls.Add(this.panelTabControl);
             this.guna2GroupBox1.Controls.Add(this.panel_Top);
             this.guna2GroupBox1.Controls.Add(this.guna2CheckBox1);

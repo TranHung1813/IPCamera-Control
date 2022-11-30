@@ -77,6 +77,7 @@ namespace IPCameraManager
         private int TabPageID = PAGE1;
 
         SetFoldertoSaveFile_Form SetFolder_Form = new SetFoldertoSaveFile_Form();
+        FormSetTemplateDirectory formSetTemplateDirectory = new FormSetTemplateDirectory();
 
         //private async void CheckForUpdates()
         //{
@@ -103,6 +104,27 @@ namespace IPCameraManager
             //Add user control to form
             Add_UserControl(ucPage1);
             TabPageID = PAGE1;
+            // Setup menu Setting
+            ToolStripLabel tSL1 = new ToolStripLabel();
+            tSL1.Text = "Camera";
+            tSL1.TextAlign = ContentAlignment.MiddleCenter;
+            tSL1.Font = new Font("Tahoma", 10, FontStyle.Bold);
+            cMStrip_Setting.Items.Insert(0, new ToolStripSeparator());
+            cMStrip_Setting.Items.Insert(1, tSL1);
+
+            ToolStripLabel tSL2 = new ToolStripLabel();
+            tSL2.Text = "Folder";
+            tSL2.TextAlign = ContentAlignment.MiddleCenter;
+            tSL2.Font = new Font("Tahoma", 10, FontStyle.Bold);
+            cMStrip_Setting.Items.Insert(4, new ToolStripSeparator());
+            cMStrip_Setting.Items.Insert(5, tSL2);
+
+            ToolStripLabel tSL3 = new ToolStripLabel();
+            tSL3.Text = "Hệ thống";
+            tSL3.TextAlign = ContentAlignment.MiddleCenter;
+            tSL3.Font = new Font("Tahoma", 10, FontStyle.Bold);
+            cMStrip_Setting.Items.Insert(8, new ToolStripSeparator());
+            cMStrip_Setting.Items.Insert(9, tSL3);
             // Setup default status for controls
             ucPageSetupCamera_Info = new PageSetupCamera_Info();
             formLoginCam = new FormLoginCamera(ucPage1.MainCam_Manager, ucPage1.SecondaryCam_Manager);
@@ -130,6 +152,8 @@ namespace IPCameraManager
             {
                 // Set File Mau Phieu Kham
                 ucPage2.SetMauPhieuKham(Template_Info.MauPhieuKham1, Template_Info.MauPhieuKham2);
+                formSetTemplateDirectory.SetMauPhieuKhamPath(Template_Info.MauPhieuKham1,
+                                                             Template_Info.MauPhieuKham2);
             }
             else
             {
@@ -661,6 +685,11 @@ namespace IPCameraManager
             ucPage1.Get_Patient_Info(ref info);
             ucPage2.Load_Patient_Info(info);
         }
+        private bool isWarning_MainCam = false;
+        private int Count_TimeRetry_MainCam = 0;
+        private int Count_TimeRetry_Cam2 = 0;
+        private const int MAXTIME_RETRY = 3;
+        private bool isWarning_Cam2 = false;
         private void timer_GetCamStatus_Tick(object sender, EventArgs e)
         {
             if(ucPage1.MainCam_Manager.Live_Status >= 0)
@@ -668,11 +697,23 @@ namespace IPCameraManager
                 if (ucPage1.MAINCAM_Data_Available == true)
                 {
                     ucPage1.MAINCAM_Data_Available = false;
+                    isWarning_MainCam = false;
+                    Count_TimeRetry_MainCam = 0;
                     TrangThaiCamChinh.Text = "Camera chính: Đã kết nối!";
                 }
                 else
                 {
                     TrangThaiCamChinh.Text = "Camera chính: Mất kết nối. Hãy kiểm tra cáp kết nối!";
+                    if(++Count_TimeRetry_MainCam >= MAXTIME_RETRY)
+                    {
+                        Count_TimeRetry_MainCam = 0;
+                        if (isWarning_MainCam == false)
+                        {
+                            isWarning_MainCam = true;
+                            MessageBox.Show("Camera chính: Mất kết nối. Hãy kiểm tra cáp kết nối!",
+                                                    "WARNING", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        }
+                    }
                 }
             }
             if(ucPage1.SecondaryCam_Manager.Live_Status >= 0)
@@ -680,11 +721,23 @@ namespace IPCameraManager
                 if (ucPage1.CAM2_Data_Available == true)
                 {
                     ucPage1.CAM2_Data_Available = false;
+                    isWarning_Cam2 = false;
+                    Count_TimeRetry_Cam2 = 0;
                     TrangThaiCamPhu.Text = "Camera phụ: Đã kết nối!";
                 }
                 else
                 {
                     TrangThaiCamPhu.Text = "Camera phụ: Mất kết nối. Hãy kiểm tra cáp kết nối!";
+                    if (++Count_TimeRetry_Cam2 >= MAXTIME_RETRY)
+                    {
+                        Count_TimeRetry_Cam2 = 0;
+                        if (isWarning_Cam2 == false)
+                        {
+                            isWarning_Cam2 = true;
+                            MessageBox.Show("Camera phụ: Mất kết nối. Hãy kiểm tra cáp kết nối!",
+                                                    "WARNING", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        }
+                    }
                 }
             }
         }
@@ -714,6 +767,29 @@ namespace IPCameraManager
             InfoSave.FolderSaveFile = FolderName;
 
             SqliteDataAccess.SaveInfo_Other(InfoSave);
+        }
+
+        private void càiĐặtFileMẫuPhiếuKhámToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btSetFile_MauPhieuKham_Click(object sender, EventArgs e)
+        {
+            if (DialogResult.OK == formSetTemplateDirectory.ShowDialog())
+            {
+                string FileName1 = "";
+                string FileName2 = "";
+                formSetTemplateDirectory.GetMauPhieuKhamPath(ref FileName1, ref FileName2);
+                ucPage2.SetMauPhieuKham(FileName1, FileName2);
+
+                DataUser_MauPhieuKham_Info InfoSave = new DataUser_MauPhieuKham_Info();
+                InfoSave.Id = 1;
+                InfoSave.MauPhieuKham1 = FileName1;
+                InfoSave.MauPhieuKham2 = FileName2;
+
+                SqliteDataAccess.SaveInfo_MauPhieuKham(InfoSave);
+            }
         }
     }
 

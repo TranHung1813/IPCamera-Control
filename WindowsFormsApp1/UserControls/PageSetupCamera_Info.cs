@@ -138,6 +138,19 @@ namespace IPCameraManager
             MainCam_Manager.LoginInfo = Main_info;
             SecondaryCam_Manager.LoginInfo = Second_info;
         }
+        public void StopRealPlay()
+        {
+            // End Main Cam
+            if (MainCam_Manager.Live_Status >= 0)
+            {
+                Stop_PlayMainCam();
+            }
+            // End Secondary Cam
+            if (SecondaryCam_Manager.Live_Status >= 0)
+            {
+                Stop_PlayCam2();
+            }
+        }
         private void RealDataCallBack_Main(Int32 lRealHandle, UInt32 dwDataType, IntPtr pBuffer, UInt32 dwBufSize, IntPtr pUser)
         {
             //if (dwBufSize > 0)

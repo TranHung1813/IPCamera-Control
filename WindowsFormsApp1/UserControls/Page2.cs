@@ -24,8 +24,6 @@ namespace IPCameraManager
         private string MauPhieuKham1_Path = "";
         private string MauPhieuKham2_Path = "";
         private string FolderPath = "";
-
-        FormSetTemplateDirectory formSetTemplateDirectory = new FormSetTemplateDirectory();
         private void Init_Button()
         {
             foreach (var button in this.Controls.OfType<Guna.UI2.WinForms.Guna2Button>())
@@ -61,7 +59,6 @@ namespace IPCameraManager
         {
             MauPhieuKham1_Path = FileName1;
             MauPhieuKham2_Path = FileName2;
-            formSetTemplateDirectory.SetMauPhieuKhamPath(FileName1, FileName2);
         }
         private void btExit_F12_Click(object sender, EventArgs e)
         {
@@ -312,21 +309,7 @@ namespace IPCameraManager
             }
             else if(e.Button == MouseButtons.Right)
             {
-                if(DialogResult.OK == formSetTemplateDirectory.ShowDialog())
-                {
-                    string FileName1 = "";
-                    string FileName2 = "";
-                    formSetTemplateDirectory.GetMauPhieuKhamPath(ref FileName1, ref FileName2);
-                    MauPhieuKham1_Path = FileName1;
-                    MauPhieuKham2_Path = FileName2;
-
-                    DataUser_MauPhieuKham_Info InfoSave = new DataUser_MauPhieuKham_Info();
-                    InfoSave.Id = 1;
-                    InfoSave.MauPhieuKham1 = FileName1;
-                    InfoSave.MauPhieuKham2 = FileName2;
-
-                    SqliteDataAccess.SaveInfo_MauPhieuKham(InfoSave);
-                }
+                
             }    
         }
         public void btInPhieu_F9_MouseUp_Click()
