@@ -526,6 +526,7 @@ namespace IPCameraManager
         private void ThreadTask_LoadCam()
         {
             while (GetLoginInfo_MainCAM == false) ;
+            GetLoginInfo_MainCAM = false;
             btMainCam_Click(btMainCam, null);
             LoadingCamera_Trd.Abort();
         }

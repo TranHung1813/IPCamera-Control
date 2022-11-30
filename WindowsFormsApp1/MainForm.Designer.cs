@@ -386,7 +386,7 @@ namespace IPCameraManager
             this.toolStripMenuItem1,
             this.kiểmTraCậpNhậtToolStripMenuItem});
             this.cMStrip_Setting.Name = "cMStrip_Setting";
-            this.cMStrip_Setting.Size = new System.Drawing.Size(278, 170);
+            this.cMStrip_Setting.Size = new System.Drawing.Size(278, 148);
             // 
             // btLogin_IPCamera
             // 

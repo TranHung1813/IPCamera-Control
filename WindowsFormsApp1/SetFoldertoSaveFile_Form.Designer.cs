@@ -111,6 +111,7 @@ namespace IPCameraManager
             this.tbFolderName.PasswordChar = '\0';
             this.tbFolderName.PlaceholderText = "";
             this.tbFolderName.SelectedText = "";
+            this.tbFolderName.SelectionStart = 11;
             this.tbFolderName.ShadowDecoration.Parent = this.tbFolderName;
             this.tbFolderName.Size = new System.Drawing.Size(448, 26);
             this.tbFolderName.TabIndex = 3;
@@ -132,7 +133,7 @@ namespace IPCameraManager
             this.guna2GroupBox1.ShadowDecoration.Parent = this.guna2GroupBox1;
             this.guna2GroupBox1.Size = new System.Drawing.Size(663, 125);
             this.guna2GroupBox1.TabIndex = 6;
-            this.guna2GroupBox1.Text = "Cài đặt tên Folder";
+            this.guna2GroupBox1.Text = "Cài đặt vị trí lưu ảnh";
             // 
             // panel_Top
             // 

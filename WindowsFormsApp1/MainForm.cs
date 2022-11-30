@@ -40,23 +40,28 @@ namespace IPCameraManager
         //25. Van de load lai thong tin benh nhan cu: Can load thong tin gi? (done)
         //26. Them tinh nang PZT, chinh sua Do sang, contrast, ... vao menu Setting (done)
         //27. Kiem tra ket noi Camera tu dong (done)
-        //28. Popup canh bao Message khi mat ket noi
+        //28. Popup canh bao Message khi mat ket noi (Done)
         //29. Day Form Setup PTZ xuong MainForm (done)
         //30. Save thong tin File Mau Phieu Kham (done)
         //31. In barcode vao trong file Phieu Kham (no need)
         //32. Sua lai tinh nang khong cho mo 2 form cung luc
-        //33. Thêm tab Cài đặt Camera
+        //33. Thêm tab Cài đặt Camera (done)
         //34. Thêm tab Xem lai phieu kham cu, bam vao anh thì phóng to
-        //35. Thêm nút cài đặt trong Mainform: cài đặt folder chứa ảnh, mẫu khám, kết nối Camera
+        //35. Thêm nút cài đặt trong Mainform: cài đặt folder chứa ảnh, mẫu khám, kết nối Camera (done)
         //36. Hỏi lại bệnh viện về thông tin nhập vào Phiếu khám (mã BN, mã phiếu khám) (done, nothing change)
         //37. Xem lại Đường dẫn file ảnh (có thể tìm kiếm tông qua đương dẫn)
-        //38. Thêm thứ ngày tháng vào thanh StatusBar
         //39. Thêm giờ khám vào thông tin bênh nhân
         //40. Thêm thông tin bênh nhân vào trong ảnh chụp từ Camera chính (impossible)
         //41. Config brightness, constrat, ... bằng hàm CHCNetSDK.CLIENT_SDK_SetVideoEffect() (done)
-        //42. Chuyen Tab khac -> dừng Camera -> Giảm CPU
+        //42. Chuyen Tab khac -> dừng Camera -> Giảm CPU (khong can vi chuyen Tab khac thi khong ton CPU chay Camera)
         //43. Them hướng Pan/Title chéo (= ngang + dọc) (done) 
         //44. Them Timer de dieu chinh thanh Slide Bar cho muot (done)
+        //45. Chinh lai vi tri luu File word Phieu Kham sau khi Print
+        //46. Xac dinh xem neu trung PID thi ghi đè hay cảnh báo cho người dùng
+
+        //38. Thêm thứ ngày tháng vào thanh StatusBar
+        //47. Bo thong bao chup anh thanh cong
+        //48. Cho ham Print vao Thread
         private const int ERR_OK = 0;
         private const int ERR_NOT_OK = 1;
 
@@ -158,6 +163,22 @@ namespace IPCameraManager
             {
                 // Handle when database = null
             }
+            // Get Number Patients Info
+            // Get File Mau Phieu Kham info
+            DataUser_NumberPatients_Info NumberPatients_Info = SqliteDataAccess.Load_NumberPatients_Info();
+
+            if(NumberPatients_Info != null)
+            {
+                ucPage2.Set_NumberPatients_Info(NumberPatients_Info.Number_Patients);
+            }
+            else
+            {
+                // Handle when database = null
+            }
+
+            // Get RealTime in Status Bar
+            //WhatTime.Text = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss tt");
+
             Control.CheckForIllegalCrossThreadCalls = false;
             // Register event button Ket no Camera click
             ucPage1.NotifyConnect_MainCam += UcPage1_NotifyConnect_MainCam;
@@ -315,6 +336,7 @@ namespace IPCameraManager
             {
                 Add_UserControl(ucPageSearchPatient);
                 TabPageID = PAGE4;
+                ucPageSearchPatient.Load_Patients_Info();
             }
         }
 
@@ -718,8 +740,8 @@ namespace IPCameraManager
                         if (isWarning_MainCam == false)
                         {
                             isWarning_MainCam = true;
-                            MessageBox.Show("Camera chính: Mất kết nối. Hãy kiểm tra cáp kết nối!",
-                                                    "WARNING", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                            //MessageBox.Show("Camera chính: Mất kết nối. Hãy kiểm tra cáp kết nối!",
+                            //                        "WARNING", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                         }
                     }
                 }
@@ -742,8 +764,8 @@ namespace IPCameraManager
                         if (isWarning_Cam2 == false)
                         {
                             isWarning_Cam2 = true;
-                            MessageBox.Show("Camera phụ: Mất kết nối. Hãy kiểm tra cáp kết nối!",
-                                                    "WARNING", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                            //MessageBox.Show("Camera phụ: Mất kết nối. Hãy kiểm tra cáp kết nối!",
+                            //                        "WARNING", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                         }
                     }
                 }
@@ -764,6 +786,7 @@ namespace IPCameraManager
             {
                 SetFolder_Form.GetFolderName(ref FolderName);
                 ucPage1.SetFolderName_to_SaveFile(FolderName);
+                ucPage2.SetFolderName(FolderName);
                 Save_FolderSaveFile_Info(FolderName);
             }
         }

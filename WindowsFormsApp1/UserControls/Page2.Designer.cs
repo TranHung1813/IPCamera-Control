@@ -57,6 +57,8 @@ namespace IPCameraManager
             this.btChonAnh2 = new Guna.UI2.WinForms.Guna2Button();
             this.btInPhieu_F9 = new Guna.UI2.WinForms.Guna2Button();
             this.btExit_F12 = new Guna.UI2.WinForms.Guna2Button();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.label3 = new System.Windows.Forms.Label();
             this.groupBox6.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picBox1)).BeginInit();
             this.groupBox5.SuspendLayout();
@@ -540,10 +542,28 @@ namespace IPCameraManager
             this.btExit_F12.UseTransparentBackground = true;
             this.btExit_F12.Click += new System.EventHandler(this.btExit_F12_Click);
             // 
+            // textBox1
+            // 
+            this.textBox1.Location = new System.Drawing.Point(522, 297);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(48, 20);
+            this.textBox1.TabIndex = 42;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(475, 300);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(41, 13);
+            this.label3.TabIndex = 41;
+            this.label3.Text = "Số BN:";
+            // 
             // Page2
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.label3);
             this.Controls.Add(this.btExit_F12);
             this.Controls.Add(this.btInPhieu_F9);
             this.Controls.Add(this.groupBox7);
@@ -562,6 +582,7 @@ namespace IPCameraManager
             this.groupBox7.ResumeLayout(false);
             this.groupBox7.PerformLayout();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -595,5 +616,7 @@ namespace IPCameraManager
         private Guna.UI2.WinForms.Guna2TextBox tbGioiTinh_IN;
         private Guna.UI2.WinForms.Guna2TextBox tbTuoi_IN;
         private Guna.UI2.WinForms.Guna2TextBox tbNgayKham_IN;
+        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.Label label3;
     }
 }

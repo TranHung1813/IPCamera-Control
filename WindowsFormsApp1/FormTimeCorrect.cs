@@ -110,7 +110,20 @@ namespace IPCameraManager
 
         private void FormTimeCorrect_Load(object sender, EventArgs e)
         {
-            btTabMainCam_Click(sender, e);
+            if(CurrentTabID == TAB_MAINCAM)
+            {
+                btGetTime_Camera_Click(sender, e);
+                btGetRealTime_Click(sender, e);
+            }
+            else if (CurrentTabID == TAB_SECONDARYCAM)
+            {
+                btGetTime_Camera_Click(sender, e);
+                btGetRealTime_Click(sender, e);
+            }
+            else if (CurrentTabID == 0)
+            {
+                btTabMainCam_Click(sender, e);
+            }
         }
 
         private void btGetRealTime_Click(object sender, EventArgs e)

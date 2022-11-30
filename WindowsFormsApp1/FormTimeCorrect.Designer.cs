@@ -58,8 +58,8 @@ namespace IPCameraManager
             this.label13 = new System.Windows.Forms.Label();
             this.textBoxYear = new System.Windows.Forms.TextBox();
             this.panel3 = new System.Windows.Forms.Panel();
-            this.guna2Button4 = new Guna.UI2.WinForms.Guna2Button();
-            this.guna2Button5 = new Guna.UI2.WinForms.Guna2Button();
+            this.btTabCam2 = new Guna.UI2.WinForms.Guna2Button();
+            this.btTabMainCam = new Guna.UI2.WinForms.Guna2Button();
             this.panel_Top = new System.Windows.Forms.Panel();
             this.guna2ControlBox1 = new Guna.UI2.WinForms.Guna2ControlBox();
             this.guna2Elipse1 = new Guna.UI2.WinForms.Guna2Elipse(this.components);
@@ -439,56 +439,58 @@ namespace IPCameraManager
             // panel3
             // 
             this.panel3.BackColor = System.Drawing.SystemColors.InactiveCaption;
-            this.panel3.Controls.Add(this.guna2Button4);
-            this.panel3.Controls.Add(this.guna2Button5);
+            this.panel3.Controls.Add(this.btTabCam2);
+            this.panel3.Controls.Add(this.btTabMainCam);
             this.panel3.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel3.Location = new System.Drawing.Point(0, 32);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(579, 40);
             this.panel3.TabIndex = 56;
             // 
-            // guna2Button4
+            // btTabCam2
             // 
-            this.guna2Button4.BorderColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.guna2Button4.BorderRadius = 5;
-            this.guna2Button4.ButtonMode = Guna.UI2.WinForms.Enums.ButtonMode.RadioButton;
-            this.guna2Button4.CheckedState.CustomBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.guna2Button4.CheckedState.FillColor = System.Drawing.Color.White;
-            this.guna2Button4.CheckedState.Parent = this.guna2Button4;
-            this.guna2Button4.CustomBorderThickness = new System.Windows.Forms.Padding(0, 0, 0, 2);
-            this.guna2Button4.CustomImages.Parent = this.guna2Button4;
-            this.guna2Button4.FillColor = System.Drawing.Color.White;
-            this.guna2Button4.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.guna2Button4.ForeColor = System.Drawing.Color.Black;
-            this.guna2Button4.HoverState.Parent = this.guna2Button4;
-            this.guna2Button4.Location = new System.Drawing.Point(180, 0);
-            this.guna2Button4.Name = "guna2Button4";
-            this.guna2Button4.ShadowDecoration.Parent = this.guna2Button4;
-            this.guna2Button4.Size = new System.Drawing.Size(181, 40);
-            this.guna2Button4.TabIndex = 53;
-            this.guna2Button4.Text = "Cam Phụ";
+            this.btTabCam2.BorderColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.btTabCam2.BorderRadius = 5;
+            this.btTabCam2.ButtonMode = Guna.UI2.WinForms.Enums.ButtonMode.RadioButton;
+            this.btTabCam2.CheckedState.CustomBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.btTabCam2.CheckedState.FillColor = System.Drawing.Color.White;
+            this.btTabCam2.CheckedState.Parent = this.btTabCam2;
+            this.btTabCam2.CustomBorderThickness = new System.Windows.Forms.Padding(0, 0, 0, 2);
+            this.btTabCam2.CustomImages.Parent = this.btTabCam2;
+            this.btTabCam2.FillColor = System.Drawing.Color.White;
+            this.btTabCam2.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btTabCam2.ForeColor = System.Drawing.Color.Black;
+            this.btTabCam2.HoverState.Parent = this.btTabCam2;
+            this.btTabCam2.Location = new System.Drawing.Point(180, 0);
+            this.btTabCam2.Name = "btTabCam2";
+            this.btTabCam2.ShadowDecoration.Parent = this.btTabCam2;
+            this.btTabCam2.Size = new System.Drawing.Size(181, 40);
+            this.btTabCam2.TabIndex = 53;
+            this.btTabCam2.Text = "Cam Phụ";
+            this.btTabCam2.Click += new System.EventHandler(this.btTabCam2_Click);
             // 
-            // guna2Button5
+            // btTabMainCam
             // 
-            this.guna2Button5.BorderColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.guna2Button5.BorderRadius = 5;
-            this.guna2Button5.ButtonMode = Guna.UI2.WinForms.Enums.ButtonMode.RadioButton;
-            this.guna2Button5.Checked = true;
-            this.guna2Button5.CheckedState.CustomBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.guna2Button5.CheckedState.FillColor = System.Drawing.Color.White;
-            this.guna2Button5.CheckedState.Parent = this.guna2Button5;
-            this.guna2Button5.CustomBorderThickness = new System.Windows.Forms.Padding(0, 0, 0, 2);
-            this.guna2Button5.CustomImages.Parent = this.guna2Button5;
-            this.guna2Button5.FillColor = System.Drawing.Color.White;
-            this.guna2Button5.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.guna2Button5.ForeColor = System.Drawing.Color.Black;
-            this.guna2Button5.HoverState.Parent = this.guna2Button5;
-            this.guna2Button5.Location = new System.Drawing.Point(0, 0);
-            this.guna2Button5.Name = "guna2Button5";
-            this.guna2Button5.ShadowDecoration.Parent = this.guna2Button5;
-            this.guna2Button5.Size = new System.Drawing.Size(181, 40);
-            this.guna2Button5.TabIndex = 52;
-            this.guna2Button5.Text = "Cam Chính";
+            this.btTabMainCam.BorderColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.btTabMainCam.BorderRadius = 5;
+            this.btTabMainCam.ButtonMode = Guna.UI2.WinForms.Enums.ButtonMode.RadioButton;
+            this.btTabMainCam.Checked = true;
+            this.btTabMainCam.CheckedState.CustomBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.btTabMainCam.CheckedState.FillColor = System.Drawing.Color.White;
+            this.btTabMainCam.CheckedState.Parent = this.btTabMainCam;
+            this.btTabMainCam.CustomBorderThickness = new System.Windows.Forms.Padding(0, 0, 0, 2);
+            this.btTabMainCam.CustomImages.Parent = this.btTabMainCam;
+            this.btTabMainCam.FillColor = System.Drawing.Color.White;
+            this.btTabMainCam.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btTabMainCam.ForeColor = System.Drawing.Color.Black;
+            this.btTabMainCam.HoverState.Parent = this.btTabMainCam;
+            this.btTabMainCam.Location = new System.Drawing.Point(0, 0);
+            this.btTabMainCam.Name = "btTabMainCam";
+            this.btTabMainCam.ShadowDecoration.Parent = this.btTabMainCam;
+            this.btTabMainCam.Size = new System.Drawing.Size(181, 40);
+            this.btTabMainCam.TabIndex = 52;
+            this.btTabMainCam.Text = "Cam Chính";
+            this.btTabMainCam.Click += new System.EventHandler(this.btTabMainCam_Click);
             // 
             // panel_Top
             // 
@@ -561,8 +563,8 @@ namespace IPCameraManager
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.TextBox textBoxYear;
         private System.Windows.Forms.Panel panel3;
-        private Guna.UI2.WinForms.Guna2Button guna2Button4;
-        private Guna.UI2.WinForms.Guna2Button guna2Button5;
+        private Guna.UI2.WinForms.Guna2Button btTabCam2;
+        private Guna.UI2.WinForms.Guna2Button btTabMainCam;
         private System.Windows.Forms.Panel panel_Top;
         private Guna.UI2.WinForms.Guna2ControlBox guna2ControlBox1;
         private System.Windows.Forms.TextBox textBoxSecond_RT;

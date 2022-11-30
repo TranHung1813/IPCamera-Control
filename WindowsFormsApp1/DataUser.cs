@@ -32,4 +32,30 @@ namespace IPCameraManager
 
         public string MauPhieuKham2 { get; set; }
     }
+    public class DataUser_Patients_Info
+    {
+        public int Id { get; set; }
+
+        public string MaBN { get; set; }
+
+        public string HoTenBN { get; set; }
+
+        public string GioiTinh { get; set; }
+
+        public string Tuoi { get; set; }
+
+        public string NgayKham { get; set; }
+
+        public string DiaChi { get; set; }
+
+        public string Anh1_Path { get; set; }
+
+        public string Anh2_Path { get; set; }
+    }
+    public class DataUser_NumberPatients_Info
+    {
+        public int Id { get; set; }
+
+        public int Number_Patients { get; set; }
+    }
 }

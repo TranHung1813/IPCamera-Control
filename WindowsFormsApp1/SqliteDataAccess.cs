@@ -127,6 +127,83 @@ namespace IPCameraManager
         }
 
         //*****************************************************************************************************************
+        //****************************************** Access to Patients Infomation *******************************************
+        public static List<DataUser_Patients_Info> Load_Patients_Info()
+        {
+            using (IDbConnection cnn = new SQLiteConnection(LoadConnectionString()))
+            {
+                var output = cnn.Query<DataUser_Patients_Info>("select * from Patients_Info", new DynamicParameters());
+                return output.ToList();
+            }
+        }
+
+        public static void AddInfo_Patients(DataUser_Patients_Info info)
+        {
+            using (IDbConnection cnn = new SQLiteConnection(LoadConnectionString()))
+            {
+                try
+                {
+                    cnn.Execute("insert into Patients_Info ( MaBN, HoTenBN, GioiTinh, Tuoi, NgayKham, DiaChi, Anh1_Path, Anh2_Path) values ( @MaBN, @HoTenBN, @GioiTinh, @Tuoi, @NgayKham, @DiaChi, @Anh1_Path, @Anh2_Path)", info);
+                }
+                catch
+                { }
+            }
+        }
+        public static void SaveInfo_Patients(DataUser_Patients_Info info)
+        {
+            using (IDbConnection cnn = new SQLiteConnection(LoadConnectionString()))
+            {
+                int id = cnn.Query<int>("select Id from Patients_Info where Id like @Id", new { Id = info.Id }).FirstOrDefault();
+
+                if (id == info.Id)
+                {
+                    cnn.Execute("update Patients_Info set MaBN= @MaBN, HoTenBN = @HoTenBN, GioiTinh = @GioiTinh, Tuoi = @Tuoi, NgayKham = @NgayKham, DiaChi = @DiaChi, Anh1_Path = @Anh1_Path, Anh2_Path = @Anh2_Path where Id = @Id", info);
+                }
+                else
+                {
+                    cnn.Execute("insert into Patients_Info ( MaBN, HoTenBN, GioiTinh, Tuoi, NgayKham, DiaChi, Anh1_Path, Anh2_Path) values ( @MaBN, @HoTenBN, @GioiTinh, @Tuoi, @NgayKham, @DiaChi, @Anh1_Path, @Anh2_Path)", info);
+                }
+            }
+        }
+
+        //*****************************************************************************************************************
+        //****************************************** Access to Number Patients Infomation *******************************************
+        public static DataUser_NumberPatients_Info Load_NumberPatients_Info()
+        {
+            using (IDbConnection cnn = new SQLiteConnection(LoadConnectionString()))
+            {
+                try
+                {
+                    DataUser_NumberPatients_Info output = cnn.Query<DataUser_NumberPatients_Info>("select * from NumberPatients_Info", new DynamicParameters()).FirstOrDefault();
+                    return output;
+                }
+                catch
+                {
+
+                }
+
+                return null;
+            }
+        }
+
+        public static void SaveInfo_NumberPatients(DataUser_NumberPatients_Info info)
+        {
+            using (IDbConnection cnn = new SQLiteConnection(LoadConnectionString()))
+            {
+                int id = cnn.Query<int>("select Id from NumberPatients_Info where Id like @Id", new { Id = 1 }).FirstOrDefault();
+
+                if (id != 0)
+                {
+                    cnn.Execute("update NumberPatients_Info set Number_Patients= @Number_Patients where Id = 1", info);
+                }
+                else
+                {
+                    cnn.Execute("insert into NumberPatients_Info ( Number_Patients) values ( @Number_Patients)", info);
+                }
+            }
+        }
+
+        //*****************************************************************************************************************
         //*****************************************************************************************************************
         private static string LoadConnectionString(string id = "Default")
         {

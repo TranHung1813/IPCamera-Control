@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -56,7 +57,14 @@ namespace IPCameraManager
 
                 if (MauPhieuKham1_Path != "")
                 {
-                    openFileDialog.InitialDirectory = MauPhieuKham_Path;
+                    try
+                    {
+                        openFileDialog.InitialDirectory = Path.GetDirectoryName(MauPhieuKham1_Path);
+                    }
+                    catch
+                    {
+                        openFileDialog.InitialDirectory = MauPhieuKham_Path;
+                    }
                 }
                 else
                 {
@@ -83,7 +91,14 @@ namespace IPCameraManager
 
                 if (MauPhieuKham2_Path != "")
                 {
-                    openFileDialog.InitialDirectory = MauPhieuKham_Path;
+                    try
+                    {
+                        openFileDialog.InitialDirectory = Path.GetDirectoryName(MauPhieuKham2_Path);
+                    }
+                    catch
+                    {
+                        openFileDialog.InitialDirectory = MauPhieuKham_Path;
+                    }
                 }
                 else
                 {
