@@ -56,6 +56,9 @@ namespace IPCameraManager
         uint Saturation_Cam2 = 0;
         uint hue_Cam2 = 0;
 
+        private bool GetLoginInfo_MainCAM = false;
+        private bool GetLoginInfo_SecondCAM = false;
+
         System.Windows.Forms.Timer timerBrightness;
         System.Windows.Forms.Timer timerContrast;
         System.Windows.Forms.Timer timerSaturation;
@@ -98,10 +101,15 @@ namespace IPCameraManager
             }
             base.Dispose(disposing);
         }
-        public void SetLoginCamera_Info(LoginCameraInfo_Type Main_info, LoginCameraInfo_Type Second_info)
+        public void SetLoginInfo_MainCAM(LoginCameraInfo_Type Main_info)
         {
             MainCam_Manager.LoginInfo = Main_info;
+            GetLoginInfo_MainCAM = true;
+        }
+        public void SetLogin_Info_SecondCAM(LoginCameraInfo_Type Second_info)
+        {
             SecondaryCam_Manager.LoginInfo = Second_info;
+            GetLoginInfo_SecondCAM = true;
         }
         public void StopRealPlay()
         {
@@ -517,10 +525,8 @@ namespace IPCameraManager
         }
         private void ThreadTask_LoadCam()
         {
-            this.Invoke(new MethodInvoker(() =>
-            {
-                btMainCam_Click(btMainCam, null);
-            }));
+            while (GetLoginInfo_MainCAM == false) ;
+            btMainCam_Click(btMainCam, null);
             LoadingCamera_Trd.Abort();
         }
         private int PtzRange_MainCam_Click(object sender, EventArgs e)

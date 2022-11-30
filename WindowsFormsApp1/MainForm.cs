@@ -304,8 +304,6 @@ namespace IPCameraManager
         {
             if (TabPageID != PAGE3)
             {
-                ucPageSetupCamera_Info.SetLoginCamera_Info(ucPage1.MainCam_Manager.LoginInfo,
-                                                           ucPage1.SecondaryCam_Manager.LoginInfo);
                 Add_UserControl(ucPageSetupCamera_Info);
                 TabPageID = PAGE3;
             }
@@ -327,7 +325,9 @@ namespace IPCameraManager
                 /* ---------- CAMERA CHINH ---------- */
                 // Lay thong tin dang nhap Camera chinh thanh cong hay that bai
                 formLoginCam.Get_LoginStatus_MainCam(ref ucPage1.MainCam_Manager.LoginInfo);
-                // Login thanh cong va already login = false
+                // Set login info to TABPAGE3
+                ucPageSetupCamera_Info.SetLoginInfo_MainCAM(ucPage1.MainCam_Manager.LoginInfo);
+                // Login thanh cong
                 if (ucPage1.MainCam_Manager.LoginInfo.LoginStatus >= 0)
                 {
                     // Login thanh cong
@@ -383,7 +383,9 @@ namespace IPCameraManager
                 /* ---------- CAMERA PHU ---------- */
                 // Lay thong tin dang nhap Camera phu thanh cong hay that bai
                 formLoginCam.Get_LoginStatus_Cam2(ref ucPage1.SecondaryCam_Manager.LoginInfo);
-                // Login thanh cong va already login = false
+                // Set login info to TABPAGE3
+                ucPageSetupCamera_Info.SetLogin_Info_SecondCAM(ucPage1.SecondaryCam_Manager.LoginInfo);
+                // Login thanh cong
                 if (ucPage1.SecondaryCam_Manager.LoginInfo.LoginStatus >= 0)
                 {
                     // Login thanh cong
@@ -484,6 +486,9 @@ namespace IPCameraManager
                     // Lay thong tin dang nhap thanh cong hay that bai
                     formLoginCam.Get_LoginStatus_MainCam(ref ucPage1.MainCam_Manager.LoginInfo);
 
+                    // Set login info to TABPAGE3
+                    ucPageSetupCamera_Info.SetLoginInfo_MainCAM(ucPage1.MainCam_Manager.LoginInfo);
+
                     //Start live view
                     if (ERR_OK == ucPage1.Start_PlayMainCam())
                     {
@@ -513,6 +518,8 @@ namespace IPCameraManager
                 {
                     ucPage1.ResetImage_Main();
                     TrangThaiCamChinh.Text = "Camera chính: Kết nối thất bại. Hãy kiểm tra cáp kết nối!";
+                    // Set login info to TABPAGE3
+                    ucPageSetupCamera_Info.SetLoginInfo_MainCAM(ucPage1.MainCam_Manager.LoginInfo);
                 }
             }
             else
@@ -635,10 +642,10 @@ namespace IPCameraManager
                 if (ERR_OK == formLoginCam.Login_Second_Camera(ucPage1.SecondaryCam_Manager.LoginInfo))
                 {
                     TrangThaiCamPhu.Text = "Camera phụ: Kết nối Camera thành công. Đang tải hình ảnh ...";
-
                     // Lay thong tin dang nhap thanh cong hay that bai
                     formLoginCam.Get_LoginStatus_Cam2(ref ucPage1.SecondaryCam_Manager.LoginInfo);
-
+                    // Set login info to TABPAGE3
+                    ucPageSetupCamera_Info.SetLogin_Info_SecondCAM(ucPage1.SecondaryCam_Manager.LoginInfo);
                     //Start live view
                     if (ERR_OK == ucPage1.Start_PlayCam2())
                     {
@@ -668,6 +675,8 @@ namespace IPCameraManager
                 {
                     ucPage1.ResetImage_Second();
                     TrangThaiCamPhu.Text = "Camera phụ: Kết nối thất bại. Hãy kiểm tra cáp kết nối!";
+                    // Set login info to TABPAGE3
+                    ucPageSetupCamera_Info.SetLogin_Info_SecondCAM(ucPage1.SecondaryCam_Manager.LoginInfo);
                 }
             }
             else
