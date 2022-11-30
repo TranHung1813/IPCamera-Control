@@ -154,3 +154,4 @@ E:\Projects\IPCameraControl\WindowsFormsApp1\bin\x64\Debug\ZXing.ImageSharp.V2.x
 E:\Projects\IPCameraControl\WindowsFormsApp1\bin\x64\Debug\zxing.presentation.xml
 E:\Projects\IPCameraControl\WindowsFormsApp1\obj\x64\Debug\IPCameraManager.PageSearchPatient.resources
 E:\Projects\IPCameraControl\WindowsFormsApp1\obj\x64\Debug\IPCameraManager.PageSetupCamera_Info.resources
+E:\Projects\IPCameraControl\WindowsFormsApp1\obj\x64\Debug\IPCameraManager.FormTimeCorrect.resources

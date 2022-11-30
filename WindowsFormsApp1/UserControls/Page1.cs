@@ -510,21 +510,21 @@ namespace IPCameraManager
         //****************************************** Context Menu Strip *******************************************
         private void RealPlayWnd_MouseDown(object sender, MouseEventArgs e)
         {
-            if (e.Button == MouseButtons.Right)
-            {
-                Point point = this.PointToScreen(RealPlayWnd.Location);
-                point.X += RealPlayWnd.Width;
-                cMStrip_MainCAM.Show(point);
-            }
+            //if (e.Button == MouseButtons.Right)
+            //{
+            //    Point point = this.PointToScreen(RealPlayWnd.Location);
+            //    point.X += RealPlayWnd.Width;
+            //    cMStrip_MainCAM.Show(point);
+            //}
         }
         private void imgPreview_MouseDown(object sender, MouseEventArgs e)
         {
-            if (e.Button == MouseButtons.Right)
-            {
-                Point point = groupBox1.PointToScreen(imgPreview.Location);
-                point.X += imgPreview.Width;
-                cMStrip_SecondCAM.Show(point);
-            }
+            //if (e.Button == MouseButtons.Right)
+            //{
+            //    Point point = groupBox1.PointToScreen(imgPreview.Location);
+            //    point.X += imgPreview.Width;
+            //    cMStrip_SecondCAM.Show(point);
+            //}
         }
 
         private void btConnectMainCam_Click(object sender, EventArgs e)

@@ -1,14 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Net;
 using System.Runtime.InteropServices;
-using System.Text;
 using System.Threading;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace IPCameraManager
@@ -552,7 +544,7 @@ namespace IPCameraManager
         }
         private void ThreadTask_LoadCam()
         {
-            btMainCam_Click (btMainCam, null);
+            btMainCam_Click(btMainCam, null);
             LoadingCamera_Trd.Abort();
         }
         private void PtzRange_MainCam_Click(object sender, EventArgs e)
@@ -645,7 +637,7 @@ namespace IPCameraManager
         }
         private void btMainCam_Click(object sender, EventArgs e)
         {
-            if(CurrentCamID != CAM1)
+            if (CurrentCamID != CAM1)
             {
                 CurrentCamID = CAM1;
                 // Get PTZ range
@@ -689,12 +681,12 @@ namespace IPCameraManager
                         }
                     }
                 }
-            }    
+            }
         }
 
         private void btCam2_Click(object sender, EventArgs e)
         {
-            if(CurrentCamID != CAM2)
+            if (CurrentCamID != CAM2)
             {
                 CurrentCamID = CAM2;
                 // Get PTZ range
@@ -910,7 +902,7 @@ namespace IPCameraManager
                     CHCNetSDK.NET_DVR_PTZControlWithSpeed_Other(MainCam_Manager.LoginInfo.LoginStatus, 0, CHCNetSDK.PAN_LEFT, 0, (uint)(Default_Speed_PTZ_MainCam) + 1);
                 }
             }
-            else if(CurrentCamID == CAM2)
+            else if (CurrentCamID == CAM2)
             {
                 if (SecondaryCam_Manager.Live_Status > -1)
                 {
@@ -941,7 +933,7 @@ namespace IPCameraManager
                     CHCNetSDK.NET_DVR_PTZControlWithSpeed_Other(MainCam_Manager.LoginInfo.LoginStatus, 0, CHCNetSDK.TILT_UP, 1, (uint)(Default_Speed_PTZ_MainCam) + 1);
                 }
             }
-            else if(CurrentCamID == CAM2)
+            else if (CurrentCamID == CAM2)
             {
                 if (SecondaryCam_Manager.Live_Status > -1)
                 {
@@ -972,7 +964,7 @@ namespace IPCameraManager
                     CHCNetSDK.NET_DVR_PTZControlWithSpeed_Other(MainCam_Manager.LoginInfo.LoginStatus, 0, CHCNetSDK.TILT_UP, 0, (uint)(Default_Speed_PTZ_MainCam) + 1);
                 }
             }
-            else if(CurrentCamID == CAM2)
+            else if (CurrentCamID == CAM2)
             {
                 if (SecondaryCam_Manager.Live_Status > -1)
                 {
@@ -1026,7 +1018,7 @@ namespace IPCameraManager
                 }
                 return;
             }
-            else if(CurrentCamID == CAM2)
+            else if (CurrentCamID == CAM2)
             {
                 string str3;
                 int flag = 1;
@@ -1063,7 +1055,7 @@ namespace IPCameraManager
                 }
                 return;
             }
-            
+
         }
 
         private void btZoomOut_Click(object sender, EventArgs e)
@@ -1118,11 +1110,11 @@ namespace IPCameraManager
                     ushort wZoomPos = Convert.ToUInt16(Convert.ToString(m_struPtzCfg_main.wZoomPos, 16));
                     float WZoomPos = wZoomPos * 0.1f;
                     //textBoxZoomPos.Text = Convert.ToString(WZoomPos);
-                    if((int)WZoomPos < tB_Zoom.Minimum)
+                    if ((int)WZoomPos < tB_Zoom.Minimum)
                     {
                         tB_Zoom.Value = tB_Zoom.Minimum;
                     }
-                    else if((int)WZoomPos > tB_Zoom.Maximum)
+                    else if ((int)WZoomPos > tB_Zoom.Maximum)
                     {
                         tB_Zoom.Value = tB_Zoom.Maximum;
                     }
@@ -1179,10 +1171,10 @@ namespace IPCameraManager
         }
         private void Load_VideoEffect()
         {
-            if(CurrentCamID == CAM1)
+            if (CurrentCamID == CAM1)
             {
                 // Get value from Main Camera
-                if(true == CHCNetSDK.NET_DVR_GetVideoEffect(MainCam_Manager.LoginInfo.LoginStatus, 1,
+                if (true == CHCNetSDK.NET_DVR_GetVideoEffect(MainCam_Manager.LoginInfo.LoginStatus, 1,
                             ref Brightness_MainCam, ref Contrast_MainCam, ref Saturation_MainCam, ref hue_MainCam))
                 {
                     //Set value for Slider
@@ -1200,10 +1192,10 @@ namespace IPCameraManager
                     Slide_hue.Percentage = 40;
                 }
             }
-            else if(CurrentCamID == CAM2)
+            else if (CurrentCamID == CAM2)
             {
                 // Get value from Secondary Camera
-                if(true == CHCNetSDK.NET_DVR_GetVideoEffect(SecondaryCam_Manager.LoginInfo.LoginStatus, 1,
+                if (true == CHCNetSDK.NET_DVR_GetVideoEffect(SecondaryCam_Manager.LoginInfo.LoginStatus, 1,
                             ref Brightness_Cam2, ref Contrast_Cam2, ref Saturation_Cam2, ref hue_Cam2))
                 {
                     //Set value for Slider
@@ -1257,8 +1249,9 @@ namespace IPCameraManager
         }
         private void Slide_Brightness_Scroll(object sender, EventArgs e)
         {
-            this.Invoke(new MethodInvoker(() => {
-                if(timerBrightness == null)
+            this.Invoke(new MethodInvoker(() =>
+            {
+                if (timerBrightness == null)
                 {
                     timerBrightness = new System.Windows.Forms.Timer();
                     timerBrightness.Tick += new EventHandler(Timer_BrightNess_Tick);
@@ -1312,7 +1305,8 @@ namespace IPCameraManager
         }
         private void Slide_Contrast_Scroll(object sender, EventArgs e)
         {
-            this.Invoke(new MethodInvoker(() => {
+            this.Invoke(new MethodInvoker(() =>
+            {
                 if (timerContrast == null)
                 {
                     timerContrast = new System.Windows.Forms.Timer();
@@ -1367,7 +1361,8 @@ namespace IPCameraManager
         }
         private void Slide_Saturation_Scroll(object sender, EventArgs e)
         {
-            this.Invoke(new MethodInvoker(() => {
+            this.Invoke(new MethodInvoker(() =>
+            {
                 if (timerSaturation == null)
                 {
                     timerSaturation = new System.Windows.Forms.Timer();
@@ -1423,7 +1418,8 @@ namespace IPCameraManager
         }
         private void Slide_hue_Scroll(object sender, EventArgs e)
         {
-            this.Invoke(new MethodInvoker(() => {
+            this.Invoke(new MethodInvoker(() =>
+            {
                 if (timerhue == null)
                 {
                     timerhue = new System.Windows.Forms.Timer();

@@ -56,7 +56,7 @@ namespace IPCameraManager
             this.timer_GetCamStatus = new System.Windows.Forms.Timer(this.components);
             this.cMStrip_Setting = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.btLogin_IPCamera = new System.Windows.Forms.ToolStripMenuItem();
-            this.càiĐặtFileMẫuPhiếuKhámToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.btTimeCorrection = new System.Windows.Forms.ToolStripMenuItem();
             this.btSetFolderchuaAnh = new System.Windows.Forms.ToolStripMenuItem();
             this.btSetFile_MauPhieuKham = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
@@ -380,7 +380,7 @@ namespace IPCameraManager
             // 
             this.cMStrip_Setting.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.btLogin_IPCamera,
-            this.càiĐặtFileMẫuPhiếuKhámToolStripMenuItem,
+            this.btTimeCorrection,
             this.btSetFolderchuaAnh,
             this.btSetFile_MauPhieuKham,
             this.toolStripMenuItem1,
@@ -398,13 +398,13 @@ namespace IPCameraManager
             this.btLogin_IPCamera.Text = "Kết nối Camera";
             this.btLogin_IPCamera.Click += new System.EventHandler(this.btLogin_IPCamera_Click);
             // 
-            // càiĐặtFileMẫuPhiếuKhámToolStripMenuItem
+            // btTimeCorrection
             // 
-            this.càiĐặtFileMẫuPhiếuKhámToolStripMenuItem.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.càiĐặtFileMẫuPhiếuKhámToolStripMenuItem.Name = "càiĐặtFileMẫuPhiếuKhámToolStripMenuItem";
-            this.càiĐặtFileMẫuPhiếuKhámToolStripMenuItem.Size = new System.Drawing.Size(277, 24);
-            this.càiĐặtFileMẫuPhiếuKhámToolStripMenuItem.Text = "Hiệu chỉnh thời gian Camera";
-            this.càiĐặtFileMẫuPhiếuKhámToolStripMenuItem.Click += new System.EventHandler(this.càiĐặtFileMẫuPhiếuKhámToolStripMenuItem_Click);
+            this.btTimeCorrection.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btTimeCorrection.Name = "btTimeCorrection";
+            this.btTimeCorrection.Size = new System.Drawing.Size(277, 24);
+            this.btTimeCorrection.Text = "Hiệu chỉnh thời gian Camera";
+            this.btTimeCorrection.Click += new System.EventHandler(this.btTimeCorrection_Click);
             // 
             // btSetFolderchuaAnh
             // 
@@ -494,7 +494,7 @@ namespace IPCameraManager
         private System.Windows.Forms.ContextMenuStrip cMStrip_Setting;
         private System.Windows.Forms.ToolStripMenuItem btLogin_IPCamera;
         private System.Windows.Forms.ToolStripMenuItem btSetFolderchuaAnh;
-        private System.Windows.Forms.ToolStripMenuItem càiĐặtFileMẫuPhiếuKhámToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem btTimeCorrection;
         private System.Windows.Forms.ToolStripMenuItem kiểmTraCậpNhậtToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem btSetFile_MauPhieuKham;
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem1;
