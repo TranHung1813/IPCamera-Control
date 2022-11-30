@@ -83,6 +83,12 @@ namespace IPCameraManager
         FormSetTemplateDirectory formSetTemplateDirectory = new FormSetTemplateDirectory();
         FormTimeCorrect formTimeCorrect = new FormTimeCorrect();
 
+        //WhatTime.Text = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss tt");
+        StatusBar mainStatusBar = new StatusBar();
+        StatusBarPanel TrangThaiCamChinh = new StatusBarPanel();
+        StatusBarPanel TrangThaiCamPhu = new StatusBarPanel();
+        StatusBarPanel datetimePanel = new StatusBarPanel();
+
         //private async void CheckForUpdates()
         //{
         //    //UpdateManager manager = await UpdateManager.GitHubUpdateManager(@"https://github.com/TranHung1813/IPCamera-Control");
@@ -177,7 +183,38 @@ namespace IPCameraManager
             }
 
             // Get RealTime in Status Bar
-            //WhatTime.Text = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss tt");
+
+            // Set first panel properties and add to StatusBar  
+            TrangThaiCamChinh.BorderStyle = StatusBarPanelBorderStyle.Sunken;
+            TrangThaiCamChinh.Text = "";
+            TrangThaiCamChinh.ToolTipText = "Trạng thái Camera chính";
+            TrangThaiCamChinh.Alignment = HorizontalAlignment.Center;
+            TrangThaiCamChinh.AutoSize = StatusBarPanelAutoSize.Contents;
+            mainStatusBar.Panels.Add(TrangThaiCamChinh);
+
+            // Set first panel properties and add to StatusBar  
+            TrangThaiCamPhu.BorderStyle = StatusBarPanelBorderStyle.Raised;
+            TrangThaiCamPhu.Text = "";
+            TrangThaiCamPhu.ToolTipText = "Trạng thái Camera phụ";
+            TrangThaiCamPhu.AutoSize = StatusBarPanelAutoSize.Spring;
+            mainStatusBar.Panels.Add(TrangThaiCamPhu);
+
+            mainStatusBar.Font = new Font("Tahoma", 12F);
+            mainStatusBar.ShowPanels = true;
+            Controls.Add(mainStatusBar);
+
+            // Set second panel properties and add to StatusBar  
+            datetimePanel.BorderStyle = StatusBarPanelBorderStyle.Sunken;
+            datetimePanel.AutoSize = StatusBarPanelAutoSize.Contents;
+            datetimePanel.Alignment = HorizontalAlignment.Center;
+            string DayNumber = "";
+            int day1 = (int)DateTime.Now.DayOfWeek;
+            if (day1 == 0) DayNumber = "Chủ nhật";
+            else DayNumber = "Thứ " + day1.ToString();
+            datetimePanel.ToolTipText = DateTime.Now.ToLongDateString();
+            datetimePanel.Text = "Chủ nhật" + ", " + DateTime.Now.ToShortDateString() + "  " + DateTime.Now.ToLongTimeString();
+            mainStatusBar.Panels.Add(datetimePanel);
+            timer_GetRTC.Start();
 
             Control.CheckForIllegalCrossThreadCalls = false;
             // Register event button Ket no Camera click
@@ -826,6 +863,16 @@ namespace IPCameraManager
             {
 
             }
+        }
+
+        private void timer_GetRTC_Tick(object sender, EventArgs e)
+        {
+            string DayNumber = "";
+            int day1 = (int)DateTime.Now.DayOfWeek;
+            if (day1 == 0) DayNumber = "Chủ nhật";
+            else DayNumber = "Thứ " + day1.ToString();
+            datetimePanel.ToolTipText = DateTime.Now.ToLongDateString();
+            datetimePanel.Text = DayNumber + ", " + DateTime.Now.ToShortDateString() + "  " + DateTime.Now.ToLongTimeString();
         }
     }
 
