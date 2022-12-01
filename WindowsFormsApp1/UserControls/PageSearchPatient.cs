@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Windows.Forms;
 
 namespace IPCameraManager
@@ -12,6 +13,8 @@ namespace IPCameraManager
         }
 
         List<DataUser_Patients_Info> Patients_Info;
+        private string Anh1_Path = "";
+        private string Anh2_Path = "";
 
         public void Load_Patients_Info()
         {
@@ -44,6 +47,8 @@ namespace IPCameraManager
                     tbTuoi.Text = Patients_Info[index].Tuoi;
                     tbNgayKham.Text = Patients_Info[index].NgayKham;
                     tbDiaChi.Text = Patients_Info[index].DiaChi;
+                    Anh1_Path = Patients_Info[index].Anh1_Path;
+                    Anh2_Path = Patients_Info[index].Anh2_Path;
                     if (Patients_Info[index].Anh1_Path != "")
                     {
                         try
@@ -97,6 +102,62 @@ namespace IPCameraManager
             {
                 FormDoubleClick_to_ZoomPicture form = new FormDoubleClick_to_ZoomPicture(picBox2.Image);
                 form.ShowDialog();
+            }
+        }
+
+        private void btOpenFolder1_Click(object sender, EventArgs e)
+        {
+            if (Anh1_Path != "")
+            {
+                try
+                {
+                    OpenFileDialog openFileDialog = new OpenFileDialog();
+                    openFileDialog.Filter = "File ảnh (*.jpg)|*.jpg|Other Image Files (*.*)|*.jpg;*.jpeg;*.png;*.gif;*.tif;...";
+                    openFileDialog.Title = "Chọn file ảnh";
+                    openFileDialog.Multiselect = false;
+                    openFileDialog.FileName = "";
+
+                    openFileDialog.InitialDirectory = Path.GetDirectoryName(Anh1_Path);
+
+                    if (openFileDialog.ShowDialog() == DialogResult.OK)
+                    {
+                        Anh1_Path = openFileDialog.FileName;
+                        picBox1.Load(Anh1_Path);
+                    }
+                }
+                catch
+                {
+                    MessageBox.Show("Không load được ảnh!", "Warning",
+                                        MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
+            }
+        }
+
+        private void btOpenFolder2_Click(object sender, EventArgs e)
+        {
+            if (Anh2_Path != "")
+            {
+                try
+                {
+                    OpenFileDialog openFileDialog = new OpenFileDialog();
+                    openFileDialog.Filter = "File ảnh (*.jpg)|*.jpg|Other Image Files (*.*)|*.jpg;*.jpeg;*.png;*.gif;*.tif;...";
+                    openFileDialog.Title = "Chọn file ảnh";
+                    openFileDialog.Multiselect = false;
+                    openFileDialog.FileName = "";
+
+                    openFileDialog.InitialDirectory = Path.GetDirectoryName(Anh2_Path);
+
+                    if (openFileDialog.ShowDialog() == DialogResult.OK)
+                    {
+                        Anh2_Path = openFileDialog.FileName;
+                        picBox1.Load(Anh2_Path);
+                    }
+                }
+                catch
+                {
+                    MessageBox.Show("Không load được ảnh!", "Warning",
+                                        MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
             }
         }
     }

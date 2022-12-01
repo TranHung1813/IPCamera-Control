@@ -589,11 +589,19 @@ namespace IPCameraManager
                 //m_struShowStrCfg.struStringInfo[3].wShowStringTopLeftX = 12;
                 //m_struShowStrCfg.struStringInfo[3].wShowStringTopLeftY = 252;
 
-                string str = tbMaBenhNhan.Text + " " + RemoveSign4VietnameseString(tbHoTen.Text);
-                m_struShowStrCfg.struStringInfo[0].sString = str;
-                m_struShowStrCfg.struStringInfo[0].wStringSize = (ushort)str.Length;
-                m_struShowStrCfg.struStringInfo[0].wShowStringTopLeftX = 12;
-                m_struShowStrCfg.struStringInfo[0].wShowStringTopLeftY = 192;
+                if(tbMaBenhNhan.Text != "" || tbHoTen.Text != "")
+                {
+                    m_struShowStrCfg.struStringInfo[0].wShowString = 1;
+                    string str = "PID: " + tbMaBenhNhan.Text + ", " + RemoveSign4VietnameseString(tbHoTen.Text);
+                    m_struShowStrCfg.struStringInfo[0].sString = str;
+                    m_struShowStrCfg.struStringInfo[0].wStringSize = (ushort)str.Length;
+                    m_struShowStrCfg.struStringInfo[0].wShowStringTopLeftX = 12;
+                    m_struShowStrCfg.struStringInfo[0].wShowStringTopLeftY = 192;
+                }
+                else
+                {
+                    m_struShowStrCfg.struStringInfo[0].wShowString = 0;
+                }
 
                 Int32 nSize = Marshal.SizeOf(m_struShowStrCfg);
                 IntPtr ptrShowStrCfg = Marshal.AllocHGlobal(nSize);
@@ -613,7 +621,7 @@ namespace IPCameraManager
 
                 Marshal.FreeHGlobal(ptrShowStrCfg);
 
-                Thread.Sleep(2000);
+                Thread.Sleep(3000);
             }
         }
         private static readonly string[] VietnameseSigns = new string[]

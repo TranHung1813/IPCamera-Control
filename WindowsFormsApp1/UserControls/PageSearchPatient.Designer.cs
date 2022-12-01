@@ -44,10 +44,10 @@ namespace IPCameraManager
             this.label3 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.btChonAnh1 = new Guna.UI2.WinForms.Guna2Button();
+            this.btOpenFolder1 = new Guna.UI2.WinForms.Guna2Button();
             this.picBox1 = new System.Windows.Forms.PictureBox();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.guna2Button1 = new Guna.UI2.WinForms.Guna2Button();
+            this.btOpenFolder2 = new Guna.UI2.WinForms.Guna2Button();
             this.picBox2 = new System.Windows.Forms.PictureBox();
             this.btExit_F12 = new Guna.UI2.WinForms.Guna2Button();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
@@ -304,7 +304,7 @@ namespace IPCameraManager
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.btChonAnh1);
+            this.groupBox1.Controls.Add(this.btOpenFolder1);
             this.groupBox1.Controls.Add(this.picBox1);
             this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox1.Location = new System.Drawing.Point(20, 3);
@@ -314,25 +314,26 @@ namespace IPCameraManager
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "KỲ RẶN";
             // 
-            // btChonAnh1
+            // btOpenFolder1
             // 
-            this.btChonAnh1.BackColor = System.Drawing.Color.Transparent;
-            this.btChonAnh1.BorderColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.btChonAnh1.BorderRadius = 5;
-            this.btChonAnh1.BorderThickness = 1;
-            this.btChonAnh1.CheckedState.Parent = this.btChonAnh1;
-            this.btChonAnh1.CustomImages.Parent = this.btChonAnh1;
-            this.btChonAnh1.FillColor = System.Drawing.Color.White;
-            this.btChonAnh1.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btChonAnh1.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.btChonAnh1.HoverState.FillColor = System.Drawing.Color.LightSteelBlue;
-            this.btChonAnh1.HoverState.Parent = this.btChonAnh1;
-            this.btChonAnh1.Location = new System.Drawing.Point(401, 115);
-            this.btChonAnh1.Name = "btChonAnh1";
-            this.btChonAnh1.ShadowDecoration.Parent = this.btChonAnh1;
-            this.btChonAnh1.Size = new System.Drawing.Size(119, 54);
-            this.btChonAnh1.TabIndex = 4;
-            this.btChonAnh1.Text = "Mở folder ảnh";
+            this.btOpenFolder1.BackColor = System.Drawing.Color.Transparent;
+            this.btOpenFolder1.BorderColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.btOpenFolder1.BorderRadius = 5;
+            this.btOpenFolder1.BorderThickness = 1;
+            this.btOpenFolder1.CheckedState.Parent = this.btOpenFolder1;
+            this.btOpenFolder1.CustomImages.Parent = this.btOpenFolder1;
+            this.btOpenFolder1.FillColor = System.Drawing.Color.White;
+            this.btOpenFolder1.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btOpenFolder1.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.btOpenFolder1.HoverState.FillColor = System.Drawing.Color.LightSteelBlue;
+            this.btOpenFolder1.HoverState.Parent = this.btOpenFolder1;
+            this.btOpenFolder1.Location = new System.Drawing.Point(401, 115);
+            this.btOpenFolder1.Name = "btOpenFolder1";
+            this.btOpenFolder1.ShadowDecoration.Parent = this.btOpenFolder1;
+            this.btOpenFolder1.Size = new System.Drawing.Size(119, 54);
+            this.btOpenFolder1.TabIndex = 4;
+            this.btOpenFolder1.Text = "Mở folder ảnh";
+            this.btOpenFolder1.Click += new System.EventHandler(this.btOpenFolder1_Click);
             // 
             // picBox1
             // 
@@ -347,7 +348,7 @@ namespace IPCameraManager
             // 
             // groupBox3
             // 
-            this.groupBox3.Controls.Add(this.guna2Button1);
+            this.groupBox3.Controls.Add(this.btOpenFolder2);
             this.groupBox3.Controls.Add(this.picBox2);
             this.groupBox3.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox3.Location = new System.Drawing.Point(20, 306);
@@ -357,25 +358,26 @@ namespace IPCameraManager
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "KỲ NÉN";
             // 
-            // guna2Button1
+            // btOpenFolder2
             // 
-            this.guna2Button1.BackColor = System.Drawing.Color.Transparent;
-            this.guna2Button1.BorderColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.guna2Button1.BorderRadius = 5;
-            this.guna2Button1.BorderThickness = 1;
-            this.guna2Button1.CheckedState.Parent = this.guna2Button1;
-            this.guna2Button1.CustomImages.Parent = this.guna2Button1;
-            this.guna2Button1.FillColor = System.Drawing.Color.White;
-            this.guna2Button1.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.guna2Button1.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.guna2Button1.HoverState.FillColor = System.Drawing.Color.LightSteelBlue;
-            this.guna2Button1.HoverState.Parent = this.guna2Button1;
-            this.guna2Button1.Location = new System.Drawing.Point(401, 115);
-            this.guna2Button1.Name = "guna2Button1";
-            this.guna2Button1.ShadowDecoration.Parent = this.guna2Button1;
-            this.guna2Button1.Size = new System.Drawing.Size(119, 54);
-            this.guna2Button1.TabIndex = 4;
-            this.guna2Button1.Text = "Mở folder ảnh";
+            this.btOpenFolder2.BackColor = System.Drawing.Color.Transparent;
+            this.btOpenFolder2.BorderColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.btOpenFolder2.BorderRadius = 5;
+            this.btOpenFolder2.BorderThickness = 1;
+            this.btOpenFolder2.CheckedState.Parent = this.btOpenFolder2;
+            this.btOpenFolder2.CustomImages.Parent = this.btOpenFolder2;
+            this.btOpenFolder2.FillColor = System.Drawing.Color.White;
+            this.btOpenFolder2.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btOpenFolder2.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.btOpenFolder2.HoverState.FillColor = System.Drawing.Color.LightSteelBlue;
+            this.btOpenFolder2.HoverState.Parent = this.btOpenFolder2;
+            this.btOpenFolder2.Location = new System.Drawing.Point(401, 115);
+            this.btOpenFolder2.Name = "btOpenFolder2";
+            this.btOpenFolder2.ShadowDecoration.Parent = this.btOpenFolder2;
+            this.btOpenFolder2.Size = new System.Drawing.Size(119, 54);
+            this.btOpenFolder2.TabIndex = 4;
+            this.btOpenFolder2.Text = "Mở folder ảnh";
+            this.btOpenFolder2.Click += new System.EventHandler(this.btOpenFolder2_Click);
             // 
             // picBox2
             // 
@@ -461,10 +463,10 @@ namespace IPCameraManager
         private Guna.UI2.WinForms.Guna2TextBox tbMaBN;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.GroupBox groupBox1;
-        private Guna.UI2.WinForms.Guna2Button btChonAnh1;
+        private Guna.UI2.WinForms.Guna2Button btOpenFolder1;
         private System.Windows.Forms.PictureBox picBox1;
         private System.Windows.Forms.GroupBox groupBox3;
-        private Guna.UI2.WinForms.Guna2Button guna2Button1;
+        private Guna.UI2.WinForms.Guna2Button btOpenFolder2;
         private System.Windows.Forms.PictureBox picBox2;
         private Guna.UI2.WinForms.Guna2Button btExit_F12;
     }
