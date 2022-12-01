@@ -32,6 +32,12 @@ namespace IPCameraManager
             {
                 tbMaBN_IconRightClick(sender, e);
             }
+            else if (e.KeyCode == Keys.Enter)
+            {
+                tbMaBN_IconRightClick(sender, e);
+                //e.Handled = true;
+                //e.SuppressKeyPress = true;
+            }
         }
 
         private void tbMaBN_IconRightClick(object sender, EventArgs e)

@@ -20,7 +20,7 @@ namespace IPCameraManager
         //5. Luu vao git (Done)
         //6. Kiem tra do an toan cua Thread (Check xem cac nut co duoc nhan hay khong) (Done)
         //7. In barcode (bo)
-        //8. Them tinh nang nhan nut (F1,F2,...) (half)
+        //8. Them tinh nang nhan nut (F1,F2,...) (done)
         //9. Them debug mode
         //10. Check lai thong tin size anh (Done, Auto is OK)
         //11. Them tinh nang phong to []
@@ -32,7 +32,7 @@ namespace IPCameraManager
         //17. Code them phan Secondary Camera (done, testing)
         //18. Bug chuyen tab tu dong load du lieu trong (Form Login) (done)
         //19. Them Camera Phu Info vao database (done)
-        //20. Bo het gia dein UI ra khoi Thread (Hard)
+        //20. Bo het gia dein UI ra khoi Thread (Hard) (No need)
         //21. Fix 2 bug: 1. F7 ton nhieu thoi gian, 2. Login status = 1 cua Camera Phu (done)
         //22. Patient Info add to database (done)
         //23. Check xem k can login lai sau khi ket noi lai camera thi co chay k (Done, Co chay)
@@ -44,14 +44,14 @@ namespace IPCameraManager
         //29. Day Form Setup PTZ xuong MainForm (done)
         //30. Save thong tin File Mau Phieu Kham (done)
         //31. In barcode vao trong file Phieu Kham (no need)
-        //32. Sua lai tinh nang khong cho mo 2 form cung luc
+        //32. Sua lai tinh nang khong cho mo 2 form cung luc (done)
         //33. Thêm tab Cài đặt Camera (done)
-        //34. Thêm tab Xem lai phieu kham cu, bam vao anh thì phóng to
+        //34. Thêm tab Xem lai phieu kham cu, bam vao anh thì phóng to (done)
         //35. Thêm nút cài đặt trong Mainform: cài đặt folder chứa ảnh, mẫu khám, kết nối Camera (done)
         //36. Hỏi lại bệnh viện về thông tin nhập vào Phiếu khám (mã BN, mã phiếu khám) (done, nothing change)
         //37. Xem lại Đường dẫn file ảnh (có thể tìm kiếm tông qua đương dẫn)
         //39. Thêm giờ khám vào thông tin bênh nhân
-        //40. Thêm thông tin bênh nhân vào trong ảnh chụp từ Camera chính 
+        //40. Thêm thông tin bênh nhân vào trong ảnh chụp từ Camera chính  (done)
         //41. Config brightness, constrat, ... bằng hàm CHCNetSDK.CLIENT_SDK_SetVideoEffect() (done)
         //42. Chuyen Tab khac -> dừng Camera -> Giảm CPU (khong can vi chuyen Tab khac thi khong ton CPU chay Camera)
         //43. Them hướng Pan/Title chéo (= ngang + dọc) (done) 
@@ -61,7 +61,7 @@ namespace IPCameraManager
 
         //38. Thêm thứ ngày tháng vào thanh StatusBar (done)
         //47. Bo thong bao chup anh thanh cong
-        //48. Double Click -> phong to anh
+        //48. Double Click -> phong to anh (done)
         private const int ERR_OK = 0;
         private const int ERR_NOT_OK = 1;
 
