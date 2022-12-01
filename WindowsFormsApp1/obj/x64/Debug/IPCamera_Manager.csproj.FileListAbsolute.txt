@@ -134,7 +134,6 @@ E:\Projects\IPCameraControl\WindowsFormsApp1\obj\x64\Debug\IPCameraManager.exe
 E:\Projects\IPCameraControl\WindowsFormsApp1\obj\x64\Debug\IPCameraManager.pdb
 E:\Projects\IPCameraControl\WindowsFormsApp1\obj\x64\Debug\IPCameraManager.FormSetTemplateDirectory.resources
 E:\Projects\IPCameraControl\WindowsFormsApp1\bin\x64\Debug\BitMiracle.LibTiff.NET.dll
-E:\Projects\IPCameraControl\WindowsFormsApp1\bin\x64\Debug\IronBarCode.dll
 E:\Projects\IPCameraControl\WindowsFormsApp1\bin\x64\Debug\IronSoftware.Drawing.Common.dll
 E:\Projects\IPCameraControl\WindowsFormsApp1\bin\x64\Debug\Newtonsoft.Json.dll
 E:\Projects\IPCameraControl\WindowsFormsApp1\bin\x64\Debug\SixLabors.ImageSharp.dll
@@ -143,7 +142,6 @@ E:\Projects\IPCameraControl\WindowsFormsApp1\bin\x64\Debug\zxing.dll
 E:\Projects\IPCameraControl\WindowsFormsApp1\bin\x64\Debug\ZXing.ImageSharp.V2.dll
 E:\Projects\IPCameraControl\WindowsFormsApp1\bin\x64\Debug\zxing.presentation.dll
 E:\Projects\IPCameraControl\WindowsFormsApp1\bin\x64\Debug\BitMiracle.LibTiff.NET.xml
-E:\Projects\IPCameraControl\WindowsFormsApp1\bin\x64\Debug\IronBarCode.xml
 E:\Projects\IPCameraControl\WindowsFormsApp1\bin\x64\Debug\IronSoftware.Drawing.Common.pdb
 E:\Projects\IPCameraControl\WindowsFormsApp1\bin\x64\Debug\Newtonsoft.Json.xml
 E:\Projects\IPCameraControl\WindowsFormsApp1\bin\x64\Debug\SixLabors.ImageSharp.xml

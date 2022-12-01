@@ -3,8 +3,9 @@ using System.Drawing;
 using System.Drawing.Imaging;
 using System.IO;
 using System.Linq;
+using System.Runtime.InteropServices;
+using System.Threading;
 using System.Windows.Forms;
-using USB_Barcode_Scanner;
 
 namespace IPCameraManager
 {
@@ -32,6 +33,9 @@ namespace IPCameraManager
 
         public bool MAINCAM_Data_Available = false;
         public bool CAM2_Data_Available = false;
+
+        Thread FillTextOverlay_trd;
+        private CHCNetSDK.NET_DVR_SHOWSTRING_V30 m_struShowStrCfg;
 
         private void Init_IPCamera()
         {
@@ -64,10 +68,20 @@ namespace IPCameraManager
         {
             // Set ngay kham bang real time
             tbNgayKham.Text = DateTime.Now.ToString("dd/MM/yyyy");
-
-            // Barcode Scanner
-            BarcodeScanner barcodeScanner = new BarcodeScanner(tbMaBenhNhan);
-            barcodeScanner.BarcodeScanned += Barcode_Scanned;
+        }
+        public void FillTextOverlay_Init()
+        {
+            UInt32 dwReturn = 0;
+            Int32 nSize = Marshal.SizeOf(m_struShowStrCfg);
+            IntPtr ptrShowStrCfg = Marshal.AllocHGlobal(nSize);
+            Marshal.StructureToPtr(m_struShowStrCfg, ptrShowStrCfg, false);
+            if(CHCNetSDK.NET_DVR_GetDVRConfig(MainCam_Manager.LoginInfo.LoginStatus, CHCNetSDK.NET_DVR_GET_SHOWSTRING_V30, 1, ptrShowStrCfg, (UInt32)nSize, ref dwReturn))
+            {
+                m_struShowStrCfg = (CHCNetSDK.NET_DVR_SHOWSTRING_V30)Marshal.PtrToStructure(ptrShowStrCfg, typeof(CHCNetSDK.NET_DVR_SHOWSTRING_V30));
+                FillTextOverlay_trd = new Thread(new ThreadStart(this.ThreadTask_FillTextOverlay));
+                FillTextOverlay_trd.IsBackground = true;
+                FillTextOverlay_trd.Start();
+            }
         }
         private event EventHandler<NotifyConnectMainCam> _NotifyConnect_MainCam;
         public event EventHandler<NotifyConnectMainCam> NotifyConnect_MainCam
@@ -166,10 +180,6 @@ namespace IPCameraManager
         public void SetFolderName_to_SaveFile(string FolderName)
         {
             FolderName_to_saveFile = FolderName;
-        }
-        private void Barcode_Scanned(object sender, BarcodeScannerEventArgs e)
-        {
-            tbMaBenhNhan.Text = e.Barcode;
         }
 
         public void btExit_F12_Click(object sender, EventArgs e)
@@ -545,6 +555,108 @@ namespace IPCameraManager
             formSetupPZT.StartPosition = FormStartPosition.Manual;
             formSetupPZT.Location = point;
             formSetupPZT.Show();
+        }
+        // File Text Overlay
+        private void ThreadTask_FillTextOverlay()
+        {
+            while(true)
+            {
+                //if (tbMaBenhNhan.Text != "") m_struShowStrCfg.struStringInfo[0].wShowString = 1;
+                //else m_struShowStrCfg.struStringInfo[0].wShowString = 0;
+                //m_struShowStrCfg.struStringInfo[0].sString = tbMaBenhNhan.Text;
+                //m_struShowStrCfg.struStringInfo[0].wStringSize = (ushort)tbMaBenhNhan.Text.Length;
+                //m_struShowStrCfg.struStringInfo[0].wShowStringTopLeftX = 12;
+                //m_struShowStrCfg.struStringInfo[0].wShowStringTopLeftY = 192;
+
+                //if (tbHoTen.Text != "") m_struShowStrCfg.struStringInfo[1].wShowString = 1;
+                //else m_struShowStrCfg.struStringInfo[1].wShowString = 0;
+                //m_struShowStrCfg.struStringInfo[1].sString = tbHoTen.Text;
+                //m_struShowStrCfg.struStringInfo[1].wStringSize = (ushort)tbHoTen.Text.Length;
+                //m_struShowStrCfg.struStringInfo[1].wShowStringTopLeftX = 12;
+                //m_struShowStrCfg.struStringInfo[1].wShowStringTopLeftY = 212;
+
+                //if (tbTuoi.Text != "") m_struShowStrCfg.struStringInfo[2].wShowString = 1;
+                //else m_struShowStrCfg.struStringInfo[2].wShowString = 0;
+                //m_struShowStrCfg.struStringInfo[2].sString = tbTuoi.Text + "tuoi, " + cbGioiTinh.Text;
+                //m_struShowStrCfg.struStringInfo[2].wStringSize = (ushort)m_struShowStrCfg.struStringInfo[2].sString.Length;
+                //m_struShowStrCfg.struStringInfo[2].wShowStringTopLeftX = 12;
+                //m_struShowStrCfg.struStringInfo[2].wShowStringTopLeftY = 232;
+
+                //if (tbNgayKham.Text != "") m_struShowStrCfg.struStringInfo[3].wShowString = 1;
+                //else m_struShowStrCfg.struStringInfo[3].wShowString = 0;
+                //m_struShowStrCfg.struStringInfo[3].sString = tbNgayKham.Text;
+                //m_struShowStrCfg.struStringInfo[3].wStringSize = (ushort)tbNgayKham.Text.Length;
+                //m_struShowStrCfg.struStringInfo[3].wShowStringTopLeftX = 12;
+                //m_struShowStrCfg.struStringInfo[3].wShowStringTopLeftY = 252;
+
+                string str = tbMaBenhNhan.Text + " " + RemoveSign4VietnameseString(tbHoTen.Text);
+                m_struShowStrCfg.struStringInfo[0].sString = str;
+                m_struShowStrCfg.struStringInfo[0].wStringSize = (ushort)str.Length;
+                m_struShowStrCfg.struStringInfo[0].wShowStringTopLeftX = 12;
+                m_struShowStrCfg.struStringInfo[0].wShowStringTopLeftY = 192;
+
+                Int32 nSize = Marshal.SizeOf(m_struShowStrCfg);
+                IntPtr ptrShowStrCfg = Marshal.AllocHGlobal(nSize);
+                Marshal.StructureToPtr(m_struShowStrCfg, ptrShowStrCfg, false);
+
+                if (!CHCNetSDK.NET_DVR_SetDVRConfig(MainCam_Manager.LoginInfo.LoginStatus, CHCNetSDK.NET_DVR_SET_SHOWSTRING_V30, 1, ptrShowStrCfg, (UInt32)nSize))
+                {
+                    uint iLastErr = CHCNetSDK.NET_DVR_GetLastError();
+                    string strErr = "NET_DVR_SET_SHOWSTRING_V30 failed, error code= " + iLastErr;
+                    //Failed to set overlay parameters and output the error code
+                    //MessageBox.Show(strErr);
+                }
+                else
+                {
+                    //MessageBox.Show("Set OSD parameters successfully！");
+                }
+
+                Marshal.FreeHGlobal(ptrShowStrCfg);
+
+                Thread.Sleep(2000);
+            }
+        }
+        private static readonly string[] VietnameseSigns = new string[]
+        {
+
+            "aAeEoOuUiIdDyY",
+
+            "áàạảãâấầậẩẫăắằặẳẵ",
+
+            "ÁÀẠẢÃÂẤẦẬẨẪĂẮẰẶẲẴ",
+
+            "éèẹẻẽêếềệểễ",
+
+            "ÉÈẸẺẼÊẾỀỆỂỄ",
+
+            "óòọỏõôốồộổỗơớờợởỡ",
+
+            "ÓÒỌỎÕÔỐỒỘỔỖƠỚỜỢỞỠ",
+
+            "úùụủũưứừựửữ",
+
+            "ÚÙỤỦŨƯỨỪỰỬỮ",
+
+            "íìịỉĩ",
+
+            "ÍÌỊỈĨ",
+
+            "đ",
+
+            "Đ",
+
+            "ýỳỵỷỹ",
+
+            "ÝỲỴỶỸ"
+        };
+        public static string RemoveSign4VietnameseString(string str)
+        {
+            for (int i = 1; i < VietnameseSigns.Length; i++)
+            {
+                for (int j = 0; j < VietnameseSigns[i].Length; j++)
+                    str = str.Replace(VietnameseSigns[i][j], VietnameseSigns[0][i - 1]);
+            }
+            return str;
         }
     }
     public class NotifyConnectMainCam : EventArgs

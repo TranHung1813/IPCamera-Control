@@ -394,6 +394,8 @@ namespace IPCameraManager
                     // Lay tgian thuc cho Camera
                     formTimeCorrect.Get_RealTime();
                     formTimeCorrect.TimeCorrection(ucPage1.MainCam_Manager.LoginInfo);
+                    // Init Fill Text Overlay
+                    ucPage1.FillTextOverlay_Init();
                     // Start Live view
                     if (ucPage1.MainCam_Manager.Live_Status < 0)
                     {
@@ -557,6 +559,9 @@ namespace IPCameraManager
                     // Set thoi gian thuc cho Camera
                     formTimeCorrect.Get_RealTime();
                     formTimeCorrect.TimeCorrection(ucPage1.MainCam_Manager.LoginInfo);
+
+                    // Init Fill Text Overlay
+                    ucPage1.FillTextOverlay_Init();
 
                     //Start live view
                     if (ERR_OK == ucPage1.Start_PlayMainCam())
