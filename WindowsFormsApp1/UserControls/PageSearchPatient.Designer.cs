@@ -343,6 +343,7 @@ namespace IPCameraManager
             this.picBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.picBox1.TabIndex = 2;
             this.picBox1.TabStop = false;
+            this.picBox1.DoubleClick += new System.EventHandler(this.picBox1_DoubleClick);
             // 
             // groupBox3
             // 
@@ -385,6 +386,7 @@ namespace IPCameraManager
             this.picBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.picBox2.TabIndex = 2;
             this.picBox2.TabStop = false;
+            this.picBox2.DoubleClick += new System.EventHandler(this.picBox2_DoubleClick);
             // 
             // btExit_F12
             // 

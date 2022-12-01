@@ -155,3 +155,4 @@ E:\Projects\IPCameraControl\WindowsFormsApp1\bin\x64\Debug\zxing.presentation.xm
 E:\Projects\IPCameraControl\WindowsFormsApp1\obj\x64\Debug\IPCameraManager.PageSearchPatient.resources
 E:\Projects\IPCameraControl\WindowsFormsApp1\obj\x64\Debug\IPCameraManager.PageSetupCamera_Info.resources
 E:\Projects\IPCameraControl\WindowsFormsApp1\obj\x64\Debug\IPCameraManager.FormTimeCorrect.resources
+E:\Projects\IPCameraControl\WindowsFormsApp1\obj\x64\Debug\IPCameraManager.FormDoubleClick_to_ZoomPicture.resources

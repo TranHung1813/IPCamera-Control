@@ -187,6 +187,12 @@
     <Compile Include="AssemblyInfo.cs" />
     <Compile Include="CHCNetSDK.cs" />
     <Compile Include="DataUser.cs" />
+    <Compile Include="FormDoubleClick_to_ZoomPicture.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormDoubleClick_to_ZoomPicture.Designer.cs">
+      <DependentUpon>FormDoubleClick_to_ZoomPicture.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormSetTemplateDirectory.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -274,6 +280,9 @@
     <None Include="Resources\arrow_right1.png" />
     <None Include="Resources\arrow_left1.png" />
     <None Include="Resources\arrow_down2.png" />
+    <EmbeddedResource Include="FormDoubleClick_to_ZoomPicture.resx">
+      <DependentUpon>FormDoubleClick_to_ZoomPicture.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FormTimeCorrect.resx">
       <DependentUpon>FormTimeCorrect.cs</DependentUpon>
     </EmbeddedResource>

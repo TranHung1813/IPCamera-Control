@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Drawing;
+using System.Drawing.Imaging;
 using System.IO;
 using System.Linq;
 using System.Windows.Forms;
@@ -300,31 +301,30 @@ namespace IPCameraManager
         }
         private int TakePicture()
         {
-            string sJpegPicFileName;
-            //Set the path and file name to save
-            sJpegPicFileName = "JPEG_test.jpg";
+            string sBmpPicFileName;
+            //Í¼Æ¬±£´æÂ·¾¶ºÍÎÄ¼þÃû the path and file name to save
+            sBmpPicFileName = "BMP_test.bmp";
 
-            int lChannel = 1;
-
-            lpJpegPara = new CHCNetSDK.NET_DVR_JPEGPARA();
-            lpJpegPara.wPicQuality = 0; //Set Image quality
-            lpJpegPara.wPicSize = 0xff; //Set Picture size (0xff: Auto)
-
-            //Capture a JPEG picture
-            if (!CHCNetSDK.NET_DVR_CaptureJPEGPicture(MainCam_Manager.LoginInfo.LoginStatus,
-                                                        lChannel, ref lpJpegPara, sJpegPicFileName))
+            //BMP×¥Í¼ Capture a BMP picture
+            if (!CHCNetSDK.NET_DVR_CapturePicture(MainCam_Manager.Live_Status, sBmpPicFileName))
             {
-                uint LastErr = CHCNetSDK.NET_DVR_GetLastError();
-                string str = "Chụp ảnh không thành công, error code= " + LastErr;
-                MessageBox.Show(str, "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                uint iLastErr = CHCNetSDK.NET_DVR_GetLastError();
+                string str = "Chụp ảnh không thành công, error code= " + iLastErr;
+                MessageBox.Show(str);
                 return ERR_NOT_OK;
             }
             else
             {
-                string str = "Successful to capture the JPEG file and the saved file is " + sJpegPicFileName;
+                string str = "Chụp ảnh thành công!";
                 MessageBox.Show(str);
-                return ERR_OK;
             }
+            SaveBmpAsJPG();
+            return ERR_OK;
+        }
+        private void SaveBmpAsJPG()
+        {
+            Bitmap bmp1 = new Bitmap("BMP_test.bmp");
+            bmp1.Save("JPEG_test.jpg", ImageFormat.Jpeg);
         }
 
         private void btTakePicture_MouseUp(object sender, MouseEventArgs e)

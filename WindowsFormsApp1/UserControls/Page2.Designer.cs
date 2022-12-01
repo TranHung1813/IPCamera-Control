@@ -33,7 +33,6 @@ namespace IPCameraManager
             this.btXoaChonAnh1 = new Guna.UI2.WinForms.Guna2Button();
             this.btChonAnh1 = new Guna.UI2.WinForms.Guna2Button();
             this.label10 = new System.Windows.Forms.Label();
-            this.picBox1 = new System.Windows.Forms.PictureBox();
             this.txtPath1 = new System.Windows.Forms.TextBox();
             this.groupBox5 = new System.Windows.Forms.GroupBox();
             this.tbNgayKham_IN = new Guna.UI2.WinForms.Guna2TextBox();
@@ -48,23 +47,22 @@ namespace IPCameraManager
             this.label6 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.label11 = new System.Windows.Forms.Label();
-            this.picBox2 = new System.Windows.Forms.PictureBox();
             this.txtPath2 = new System.Windows.Forms.TextBox();
             this.groupBox7 = new System.Windows.Forms.GroupBox();
             this.btXoaChonAnh2 = new Guna.UI2.WinForms.Guna2Button();
             this.btChonAnh2 = new Guna.UI2.WinForms.Guna2Button();
-            this.btInPhieu_F9 = new Guna.UI2.WinForms.Guna2Button();
             this.btExit_F12 = new Guna.UI2.WinForms.Guna2Button();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.label3 = new System.Windows.Forms.Label();
+            this.btInPhieu_F9 = new Guna.UI2.WinForms.Guna2Button();
+            this.picBox2 = new System.Windows.Forms.PictureBox();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.picBox1 = new System.Windows.Forms.PictureBox();
             this.groupBox6.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.picBox1)).BeginInit();
             this.groupBox5.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.picBox2)).BeginInit();
             this.groupBox7.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.picBox2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // groupBox6
@@ -133,16 +131,6 @@ namespace IPCameraManager
             this.label10.Size = new System.Drawing.Size(76, 16);
             this.label10.TabIndex = 3;
             this.label10.Text = "Đường dẫn:";
-            // 
-            // picBox1
-            // 
-            this.picBox1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.picBox1.Location = new System.Drawing.Point(74, 56);
-            this.picBox1.Name = "picBox1";
-            this.picBox1.Size = new System.Drawing.Size(300, 225);
-            this.picBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.picBox1.TabIndex = 2;
-            this.picBox1.TabStop = false;
             // 
             // txtPath1
             // 
@@ -397,16 +385,6 @@ namespace IPCameraManager
             this.label9.Text = "Mã Số:";
             this.label9.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
-            // pictureBox2
-            // 
-            this.pictureBox2.Image = global::IPCameraManager.Properties.Resources.LOGO_VINMEC;
-            this.pictureBox2.Location = new System.Drawing.Point(720, 3);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(265, 147);
-            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
-            this.pictureBox2.TabIndex = 37;
-            this.pictureBox2.TabStop = false;
-            // 
             // label11
             // 
             this.label11.AutoSize = true;
@@ -416,16 +394,6 @@ namespace IPCameraManager
             this.label11.Size = new System.Drawing.Size(76, 16);
             this.label11.TabIndex = 3;
             this.label11.Text = "Đường dẫn:";
-            // 
-            // picBox2
-            // 
-            this.picBox2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.picBox2.Location = new System.Drawing.Point(74, 56);
-            this.picBox2.Name = "picBox2";
-            this.picBox2.Size = new System.Drawing.Size(300, 225);
-            this.picBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.picBox2.TabIndex = 2;
-            this.picBox2.TabStop = false;
             // 
             // txtPath2
             // 
@@ -493,30 +461,6 @@ namespace IPCameraManager
             this.btChonAnh2.Text = "Chọn ảnh";
             this.btChonAnh2.Click += new System.EventHandler(this.btChonAnh2_Click);
             // 
-            // btInPhieu_F9
-            // 
-            this.btInPhieu_F9.BackColor = System.Drawing.Color.Transparent;
-            this.btInPhieu_F9.BorderColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.btInPhieu_F9.BorderRadius = 5;
-            this.btInPhieu_F9.BorderThickness = 1;
-            this.btInPhieu_F9.CheckedState.Parent = this.btInPhieu_F9;
-            this.btInPhieu_F9.CustomImages.Parent = this.btInPhieu_F9;
-            this.btInPhieu_F9.FillColor = System.Drawing.Color.White;
-            this.btInPhieu_F9.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btInPhieu_F9.ForeColor = System.Drawing.Color.Black;
-            this.btInPhieu_F9.HoverState.FillColor = System.Drawing.Color.LightSteelBlue;
-            this.btInPhieu_F9.HoverState.Parent = this.btInPhieu_F9;
-            this.btInPhieu_F9.Image = global::IPCameraManager.Properties.Resources.Printer;
-            this.btInPhieu_F9.ImageSize = new System.Drawing.Size(35, 35);
-            this.btInPhieu_F9.Location = new System.Drawing.Point(784, 464);
-            this.btInPhieu_F9.Name = "btInPhieu_F9";
-            this.btInPhieu_F9.ShadowDecoration.Parent = this.btInPhieu_F9;
-            this.btInPhieu_F9.Size = new System.Drawing.Size(152, 61);
-            this.btInPhieu_F9.TabIndex = 39;
-            this.btInPhieu_F9.Text = " In Phiếu (F9)";
-            this.btInPhieu_F9.UseTransparentBackground = true;
-            this.btInPhieu_F9.MouseUp += new System.Windows.Forms.MouseEventHandler(this.btInPhieu_F9_MouseUp);
-            // 
             // btExit_F12
             // 
             this.btExit_F12.BackColor = System.Drawing.Color.Transparent;
@@ -542,28 +486,66 @@ namespace IPCameraManager
             this.btExit_F12.UseTransparentBackground = true;
             this.btExit_F12.Click += new System.EventHandler(this.btExit_F12_Click);
             // 
-            // textBox1
+            // btInPhieu_F9
             // 
-            this.textBox1.Location = new System.Drawing.Point(522, 297);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(48, 20);
-            this.textBox1.TabIndex = 42;
+            this.btInPhieu_F9.BackColor = System.Drawing.Color.Transparent;
+            this.btInPhieu_F9.BorderColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.btInPhieu_F9.BorderRadius = 5;
+            this.btInPhieu_F9.BorderThickness = 1;
+            this.btInPhieu_F9.CheckedState.Parent = this.btInPhieu_F9;
+            this.btInPhieu_F9.CustomImages.Parent = this.btInPhieu_F9;
+            this.btInPhieu_F9.FillColor = System.Drawing.Color.White;
+            this.btInPhieu_F9.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btInPhieu_F9.ForeColor = System.Drawing.Color.Black;
+            this.btInPhieu_F9.HoverState.FillColor = System.Drawing.Color.LightSteelBlue;
+            this.btInPhieu_F9.HoverState.Parent = this.btInPhieu_F9;
+            this.btInPhieu_F9.Image = global::IPCameraManager.Properties.Resources.Printer;
+            this.btInPhieu_F9.ImageSize = new System.Drawing.Size(35, 35);
+            this.btInPhieu_F9.Location = new System.Drawing.Point(784, 464);
+            this.btInPhieu_F9.Name = "btInPhieu_F9";
+            this.btInPhieu_F9.ShadowDecoration.Parent = this.btInPhieu_F9;
+            this.btInPhieu_F9.Size = new System.Drawing.Size(152, 61);
+            this.btInPhieu_F9.TabIndex = 39;
+            this.btInPhieu_F9.Text = " In Phiếu (F9)";
+            this.btInPhieu_F9.UseTransparentBackground = true;
+            this.btInPhieu_F9.MouseUp += new System.Windows.Forms.MouseEventHandler(this.btInPhieu_F9_MouseUp);
             // 
-            // label3
+            // picBox2
             // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(475, 300);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(41, 13);
-            this.label3.TabIndex = 41;
-            this.label3.Text = "Số BN:";
+            this.picBox2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.picBox2.Location = new System.Drawing.Point(74, 56);
+            this.picBox2.Name = "picBox2";
+            this.picBox2.Size = new System.Drawing.Size(300, 225);
+            this.picBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.picBox2.TabIndex = 2;
+            this.picBox2.TabStop = false;
+            this.picBox2.DoubleClick += new System.EventHandler(this.picBox2_DoubleClick);
+            // 
+            // pictureBox2
+            // 
+            this.pictureBox2.Image = global::IPCameraManager.Properties.Resources.LOGO_VINMEC;
+            this.pictureBox2.Location = new System.Drawing.Point(720, 3);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(265, 147);
+            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
+            this.pictureBox2.TabIndex = 37;
+            this.pictureBox2.TabStop = false;
+            // 
+            // picBox1
+            // 
+            this.picBox1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.picBox1.Location = new System.Drawing.Point(74, 56);
+            this.picBox1.Name = "picBox1";
+            this.picBox1.Size = new System.Drawing.Size(300, 225);
+            this.picBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.picBox1.TabIndex = 2;
+            this.picBox1.TabStop = false;
+            this.picBox1.DoubleClick += new System.EventHandler(this.picBox1_DoubleClick);
             // 
             // Page2
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Controls.Add(this.textBox1);
-            this.Controls.Add(this.label3);
             this.Controls.Add(this.btExit_F12);
             this.Controls.Add(this.btInPhieu_F9);
             this.Controls.Add(this.groupBox7);
@@ -574,15 +556,14 @@ namespace IPCameraManager
             this.Size = new System.Drawing.Size(1044, 614);
             this.groupBox6.ResumeLayout(false);
             this.groupBox6.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.picBox1)).EndInit();
             this.groupBox5.ResumeLayout(false);
             this.groupBox5.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.picBox2)).EndInit();
             this.groupBox7.ResumeLayout(false);
             this.groupBox7.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.picBox2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picBox1)).EndInit();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
@@ -616,7 +597,5 @@ namespace IPCameraManager
         private Guna.UI2.WinForms.Guna2TextBox tbGioiTinh_IN;
         private Guna.UI2.WinForms.Guna2TextBox tbTuoi_IN;
         private Guna.UI2.WinForms.Guna2TextBox tbNgayKham_IN;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.Label label3;
     }
 }

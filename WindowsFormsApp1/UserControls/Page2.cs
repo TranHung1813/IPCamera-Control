@@ -411,7 +411,24 @@ namespace IPCameraManager
         public void Set_NumberPatients_Info(int number)
         {
             Number_Patients = number;
-            textBox1.Text = Number_Patients.ToString();
+        }
+
+        private void picBox1_DoubleClick(object sender, EventArgs e)
+        {
+            if(picBox1.Image != null)
+            {
+                FormDoubleClick_to_ZoomPicture form = new FormDoubleClick_to_ZoomPicture(picBox1.Image);
+                form.ShowDialog();
+            }
+        }
+
+        private void picBox2_DoubleClick(object sender, EventArgs e)
+        {
+            if (picBox2.Image != null)
+            {
+                FormDoubleClick_to_ZoomPicture form = new FormDoubleClick_to_ZoomPicture(picBox2.Image);
+                form.ShowDialog();
+            }
         }
     }
     public struct PatientInfo_Type

@@ -81,5 +81,23 @@ namespace IPCameraManager
                                                 MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
         }
+
+        private void picBox1_DoubleClick(object sender, EventArgs e)
+        {
+            if (picBox1.Image != null)
+            {
+                FormDoubleClick_to_ZoomPicture form = new FormDoubleClick_to_ZoomPicture(picBox1.Image);
+                form.ShowDialog();
+            }
+        }
+
+        private void picBox2_DoubleClick(object sender, EventArgs e)
+        {
+            if (picBox2.Image != null)
+            {
+                FormDoubleClick_to_ZoomPicture form = new FormDoubleClick_to_ZoomPicture(picBox2.Image);
+                form.ShowDialog();
+            }
+        }
     }
 }

@@ -210,7 +210,7 @@ namespace IPCameraManager
             string DayNumber = "";
             int day1 = (int)DateTime.Now.DayOfWeek;
             if (day1 == 0) DayNumber = "Chủ nhật";
-            else DayNumber = "Thứ " + day1.ToString();
+            else DayNumber = "Thứ " + (day1 + 1).ToString();
             datetimePanel.ToolTipText = DateTime.Now.ToLongDateString();
             datetimePanel.Text = DayNumber + ", " + DateTime.Now.ToShortDateString() + "  " + DateTime.Now.ToLongTimeString();
             mainStatusBar.Panels.Add(datetimePanel);
@@ -391,6 +391,9 @@ namespace IPCameraManager
                 {
                     // Login thanh cong
                     TrangThaiCamChinh.Text = "Camera chính: Kết nối Camera thành công. Đang tải hình ảnh ...";
+                    // Lay tgian thuc cho Camera
+                    formTimeCorrect.Get_RealTime();
+                    formTimeCorrect.TimeCorrection(ucPage1.MainCam_Manager.LoginInfo);
                     // Start Live view
                     if (ucPage1.MainCam_Manager.Live_Status < 0)
                     {
@@ -449,6 +452,9 @@ namespace IPCameraManager
                 {
                     // Login thanh cong
                     TrangThaiCamPhu.Text = "Camera phụ: Kết nối Camera thành công. Đang tải hình ảnh ...";
+                    // Lay tgian thuc cho Camera
+                    formTimeCorrect.Get_RealTime();
+                    formTimeCorrect.TimeCorrection(ucPage1.SecondaryCam_Manager.LoginInfo);
                     // Start Live view
                     if (ucPage1.SecondaryCam_Manager.Live_Status < 0)
                     {
@@ -877,7 +883,7 @@ namespace IPCameraManager
             string DayNumber = "";
             int day1 = (int)DateTime.Now.DayOfWeek;
             if (day1 == 0) DayNumber = "Chủ nhật";
-            else DayNumber = "Thứ " + day1.ToString();
+            else DayNumber = "Thứ " + (day1 + 1).ToString();
             datetimePanel.ToolTipText = DateTime.Now.ToLongDateString();
             datetimePanel.Text = DayNumber + ", " + DateTime.Now.ToShortDateString() + "  " + DateTime.Now.ToLongTimeString();
         }
