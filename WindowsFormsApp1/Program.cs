@@ -1,7 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Runtime.InteropServices;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -21,20 +23,27 @@ namespace IPCameraManager
         [STAThread]
         static void Main()
         {
-            Application.EnableVisualStyles();
-            Application.SetCompatibleTextRenderingDefault(false);
-            System.Diagnostics.Process[] name = System.Diagnostics.Process.GetProcessesByName(System.Diagnostics.Process.GetCurrentProcess().ProcessName);
-            if (name.Length > 1)
+            bool createdNew = true;
+            using (Mutex mutex = new Mutex(true, "MyApplicationName", out createdNew))
             {
-                MessageBox.Show("Ứng dụng đang chạy!", "Khởi động thất bại", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                ShowWindowAsync(name[0].MainWindowHandle, WS_SHOWNORMAL);
-                SetForegroundWindow(name[0].MainWindowHandle);
-            }
-            else
-            {
-
-                Application.Run(new MainForm());
-
+                if (createdNew)
+                {
+                    Application.EnableVisualStyles();
+                    Application.SetCompatibleTextRenderingDefault(false);
+                    Application.Run(new MainForm());
+                }
+                else
+                {
+                    Process current = Process.GetCurrentProcess();
+                    foreach (Process process in Process.GetProcessesByName(current.ProcessName))
+                    {
+                        if (process.Id != current.Id)
+                        {
+                            SetForegroundWindow(process.MainWindowHandle);
+                            break;
+                        }
+                    }
+                }
             }
         }
     }

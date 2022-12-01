@@ -15,11 +15,11 @@ namespace IPCameraManager
         }
         //1. Luu thong tin dang nhap (Done)
         //2. Tao form loading cho Camera (Done)
-        //3. Xua ly tinh nang chup anh, in phieu, chon anh, lay duong dan, ...
+        //3. Xua ly tinh nang chup anh, in phieu, chon anh, lay duong dan, ... (done)
         //4. Hien thi trang thai cam qua control Status (Done, need test)
         //5. Luu vao git (Done)
         //6. Kiem tra do an toan cua Thread (Check xem cac nut co duoc nhan hay khong) (Done)
-        //7. In barcode
+        //7. In barcode (bo)
         //8. Them tinh nang nhan nut (F1,F2,...) (half)
         //9. Them debug mode
         //10. Check lai thong tin size anh (Done, Auto is OK)
@@ -34,7 +34,7 @@ namespace IPCameraManager
         //19. Them Camera Phu Info vao database (done)
         //20. Bo het gia dein UI ra khoi Thread (Hard)
         //21. Fix 2 bug: 1. F7 ton nhieu thoi gian, 2. Login status = 1 cua Camera Phu (done)
-        //22. Patient Info add to database
+        //22. Patient Info add to database (done)
         //23. Check xem k can login lai sau khi ket noi lai camera thi co chay k (Done, Co chay)
         //24. Them try catch vao button In Phieu Kham (done)
         //25. Van de load lai thong tin benh nhan cu: Can load thong tin gi? (done)
@@ -51,17 +51,17 @@ namespace IPCameraManager
         //36. Hỏi lại bệnh viện về thông tin nhập vào Phiếu khám (mã BN, mã phiếu khám) (done, nothing change)
         //37. Xem lại Đường dẫn file ảnh (có thể tìm kiếm tông qua đương dẫn)
         //39. Thêm giờ khám vào thông tin bênh nhân
-        //40. Thêm thông tin bênh nhân vào trong ảnh chụp từ Camera chính (impossible)
+        //40. Thêm thông tin bênh nhân vào trong ảnh chụp từ Camera chính 
         //41. Config brightness, constrat, ... bằng hàm CHCNetSDK.CLIENT_SDK_SetVideoEffect() (done)
         //42. Chuyen Tab khac -> dừng Camera -> Giảm CPU (khong can vi chuyen Tab khac thi khong ton CPU chay Camera)
         //43. Them hướng Pan/Title chéo (= ngang + dọc) (done) 
         //44. Them Timer de dieu chinh thanh Slide Bar cho muot (done)
         //45. Chinh lai vi tri luu File word Phieu Kham sau khi Print
-        //46. Xac dinh xem neu trung PID thi ghi đè hay cảnh báo cho người dùng
+        //46. Xac dinh xem neu trung PID thi ghi đè hay cảnh báo cho người dùng (done, both)
 
-        //38. Thêm thứ ngày tháng vào thanh StatusBar
+        //38. Thêm thứ ngày tháng vào thanh StatusBar (done)
         //47. Bo thong bao chup anh thanh cong
-        //48. Cho ham Print vao Thread
+        //48. Double Click -> phong to anh
         private const int ERR_OK = 0;
         private const int ERR_NOT_OK = 1;
 
@@ -212,7 +212,7 @@ namespace IPCameraManager
             if (day1 == 0) DayNumber = "Chủ nhật";
             else DayNumber = "Thứ " + day1.ToString();
             datetimePanel.ToolTipText = DateTime.Now.ToLongDateString();
-            datetimePanel.Text = "Chủ nhật" + ", " + DateTime.Now.ToShortDateString() + "  " + DateTime.Now.ToLongTimeString();
+            datetimePanel.Text = DayNumber + ", " + DateTime.Now.ToShortDateString() + "  " + DateTime.Now.ToLongTimeString();
             mainStatusBar.Panels.Add(datetimePanel);
             timer_GetRTC.Start();
 
@@ -548,6 +548,10 @@ namespace IPCameraManager
                     // Set login info to TABPAGE3
                     ucPageSetupCamera_Info.SetLoginInfo_MainCAM(ucPage1.MainCam_Manager.LoginInfo);
 
+                    // Set thoi gian thuc cho Camera
+                    formTimeCorrect.Get_RealTime();
+                    formTimeCorrect.TimeCorrection(ucPage1.MainCam_Manager.LoginInfo);
+
                     //Start live view
                     if (ERR_OK == ucPage1.Start_PlayMainCam())
                     {
@@ -705,6 +709,9 @@ namespace IPCameraManager
                     formLoginCam.Get_LoginStatus_Cam2(ref ucPage1.SecondaryCam_Manager.LoginInfo);
                     // Set login info to TABPAGE3
                     ucPageSetupCamera_Info.SetLogin_Info_SecondCAM(ucPage1.SecondaryCam_Manager.LoginInfo);
+                    // Lay tgian thuc cho Camera
+                    formTimeCorrect.Get_RealTime();
+                    formTimeCorrect.TimeCorrection(ucPage1.SecondaryCam_Manager.LoginInfo);
                     //Start live view
                     if (ERR_OK == ucPage1.Start_PlayCam2())
                     {

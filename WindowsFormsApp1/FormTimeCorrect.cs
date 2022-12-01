@@ -27,6 +27,7 @@ namespace IPCameraManager
         private int CurrentTabID = 0;
         private const int TAB_MAINCAM = 1;
         private const int TAB_SECONDARYCAM = 2;
+        private bool ShowMessageBox = false;
 
         private void btTabMainCam_Click(object sender, EventArgs e)
         {
@@ -52,6 +53,10 @@ namespace IPCameraManager
         {
             MainCam_Manager.LoginInfo = Main_info;
             SecondaryCam_Manager.LoginInfo = Second_info;
+        }
+        public void Get_RealTime()
+        {
+            btGetRealTime_Click(btGetRealTime, null);
         }
 
         private void btGetTime_Camera_Click(object sender, EventArgs e)
@@ -110,7 +115,8 @@ namespace IPCameraManager
 
         private void FormTimeCorrect_Load(object sender, EventArgs e)
         {
-            if(CurrentTabID == TAB_MAINCAM)
+            ShowMessageBox = true;
+            if (CurrentTabID == TAB_MAINCAM)
             {
                 btGetTime_Camera_Click(sender, e);
                 btGetRealTime_Click(sender, e);
@@ -124,6 +130,36 @@ namespace IPCameraManager
             {
                 btTabMainCam_Click(sender, e);
             }
+        }
+        public void TimeCorrection(LoginCameraInfo_Type info)
+        {
+            m_struTimeCfg_MainCam.dwYear = UInt32.Parse(textBoxYear_RT.Text);
+            m_struTimeCfg_MainCam.dwMonth = UInt32.Parse(textBoxMonth_RT.Text);
+            m_struTimeCfg_MainCam.dwDay = UInt32.Parse(textBoxDay_RT.Text);
+            m_struTimeCfg_MainCam.dwHour = UInt32.Parse(textBoxHour_RT.Text);
+            m_struTimeCfg_MainCam.dwMinute = UInt32.Parse(textBoxMinute_RT.Text);
+            m_struTimeCfg_MainCam.dwSecond = UInt32.Parse(textBoxSecond_RT.Text);
+
+            Int32 nSize = Marshal.SizeOf(m_struTimeCfg_MainCam);
+            IntPtr ptrTimeCfg = Marshal.AllocHGlobal(nSize);
+            Marshal.StructureToPtr(m_struTimeCfg_MainCam, ptrTimeCfg, false);
+
+            if (!CHCNetSDK.NET_DVR_SetDVRConfig(info.LoginStatus, CHCNetSDK.NET_DVR_SET_TIMECFG, -1, ptrTimeCfg, (UInt32)nSize))
+            {
+                uint iLastErr = CHCNetSDK.NET_DVR_GetLastError();
+                string strErr = "Đồng bộ thời gian thất bại, error code = " + iLastErr;
+                //Failed to set the time of device and output the error code
+                MessageBox.Show(strErr, "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+            else
+            {
+                if(ShowMessageBox == true)
+                {
+                    MessageBox.Show("Đồng bộ thời gian thành công！");
+                }
+            }
+
+            Marshal.FreeHGlobal(ptrTimeCfg);
         }
 
         private void btGetRealTime_Click(object sender, EventArgs e)
@@ -146,57 +182,11 @@ namespace IPCameraManager
         {
             if (CurrentTabID == TAB_MAINCAM)
             {
-                m_struTimeCfg_MainCam.dwYear = UInt32.Parse(textBoxYear_RT.Text);
-                m_struTimeCfg_MainCam.dwMonth = UInt32.Parse(textBoxMonth_RT.Text);
-                m_struTimeCfg_MainCam.dwDay = UInt32.Parse(textBoxDay_RT.Text);
-                m_struTimeCfg_MainCam.dwHour = UInt32.Parse(textBoxHour_RT.Text);
-                m_struTimeCfg_MainCam.dwMinute = UInt32.Parse(textBoxMinute_RT.Text);
-                m_struTimeCfg_MainCam.dwSecond = UInt32.Parse(textBoxSecond_RT.Text);
-
-                Int32 nSize = Marshal.SizeOf(m_struTimeCfg_MainCam);
-                IntPtr ptrTimeCfg = Marshal.AllocHGlobal(nSize);
-                Marshal.StructureToPtr(m_struTimeCfg_MainCam, ptrTimeCfg, false);
-
-                if (!CHCNetSDK.NET_DVR_SetDVRConfig(MainCam_Manager.LoginInfo.LoginStatus, CHCNetSDK.NET_DVR_SET_TIMECFG, -1, ptrTimeCfg, (UInt32)nSize))
-                {
-                    uint iLastErr = CHCNetSDK.NET_DVR_GetLastError();
-                    string strErr = "Đồng bộ thời gian thất bại, error code = " + iLastErr;
-                    //Failed to set the time of device and output the error code
-                    MessageBox.Show(strErr, "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                }
-                else
-                {
-                    MessageBox.Show("Đồng bộ thời gian thành công！");
-                }
-
-                Marshal.FreeHGlobal(ptrTimeCfg);
+                TimeCorrection(MainCam_Manager.LoginInfo);
             }
             else if(CurrentTabID == TAB_SECONDARYCAM)
             {
-                m_struTimeCfg_Cam2.dwYear = UInt32.Parse(textBoxYear_RT.Text);
-                m_struTimeCfg_Cam2.dwMonth = UInt32.Parse(textBoxMonth_RT.Text);
-                m_struTimeCfg_Cam2.dwDay = UInt32.Parse(textBoxDay_RT.Text);
-                m_struTimeCfg_Cam2.dwHour = UInt32.Parse(textBoxHour_RT.Text);
-                m_struTimeCfg_Cam2.dwMinute = UInt32.Parse(textBoxMinute_RT.Text);
-                m_struTimeCfg_Cam2.dwSecond = UInt32.Parse(textBoxSecond_RT.Text);
-
-                Int32 nSize = Marshal.SizeOf(m_struTimeCfg_Cam2);
-                IntPtr ptrTimeCfg = Marshal.AllocHGlobal(nSize);
-                Marshal.StructureToPtr(m_struTimeCfg_Cam2, ptrTimeCfg, false);
-
-                if (!CHCNetSDK.NET_DVR_SetDVRConfig(SecondaryCam_Manager.LoginInfo.LoginStatus, CHCNetSDK.NET_DVR_SET_TIMECFG, -1, ptrTimeCfg, (UInt32)nSize))
-                {
-                    uint iLastErr = CHCNetSDK.NET_DVR_GetLastError();
-                    string strErr = "Đồng bộ thời gian thất bại, error code = " + iLastErr;
-                    //Failed to set the time of device and output the error code
-                    MessageBox.Show(strErr, "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                }
-                else
-                {
-                    MessageBox.Show("Đồng bộ thời gian thành công！");
-                }
-
-                Marshal.FreeHGlobal(ptrTimeCfg);
+                TimeCorrection(SecondaryCam_Manager.LoginInfo);
             }
         }
     }
