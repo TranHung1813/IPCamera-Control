@@ -430,6 +430,11 @@ namespace IPCameraManager
                 form.ShowDialog();
             }
         }
+
+        private void Page2_Load(object sender, EventArgs e)
+        {
+            Utility.fitUserControlToScreen(this, 766, 1366);
+        }
     }
     public struct PatientInfo_Type
     {

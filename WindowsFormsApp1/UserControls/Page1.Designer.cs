@@ -162,6 +162,8 @@ namespace IPCameraManager
             // 
             // groupBox1
             // 
+            this.groupBox1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.groupBox1.Controls.Add(this.tbTuoi);
             this.groupBox1.Controls.Add(this.tbDiaChi);
             this.groupBox1.Controls.Add(this.tbNgayKham);
@@ -377,6 +379,7 @@ namespace IPCameraManager
             // 
             // btExit_F12
             // 
+            this.btExit_F12.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.btExit_F12.BackColor = System.Drawing.Color.Transparent;
             this.btExit_F12.BorderColor = System.Drawing.SystemColors.ControlDarkDark;
             this.btExit_F12.BorderRadius = 5;
@@ -402,6 +405,7 @@ namespace IPCameraManager
             // 
             // btShowCamera2
             // 
+            this.btShowCamera2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.btShowCamera2.BackColor = System.Drawing.Color.Transparent;
             this.btShowCamera2.BorderColor = System.Drawing.SystemColors.ControlDarkDark;
             this.btShowCamera2.BorderRadius = 5;
@@ -427,6 +431,7 @@ namespace IPCameraManager
             // 
             // btTakePicture
             // 
+            this.btTakePicture.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.btTakePicture.BackColor = System.Drawing.Color.Transparent;
             this.btTakePicture.BorderColor = System.Drawing.SystemColors.ControlDarkDark;
             this.btTakePicture.BorderRadius = 5;
@@ -451,6 +456,7 @@ namespace IPCameraManager
             // 
             // pictureBox2
             // 
+            this.pictureBox2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
             this.pictureBox2.Location = new System.Drawing.Point(720, 3);
             this.pictureBox2.Name = "pictureBox2";
@@ -461,6 +467,9 @@ namespace IPCameraManager
             // 
             // RealPlayWnd
             // 
+            this.RealPlayWnd.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.RealPlayWnd.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.RealPlayWnd.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.RealPlayWnd.Image = global::IPCameraManager.Properties.Resources.Loading;
@@ -474,8 +483,9 @@ namespace IPCameraManager
             // 
             // Page1
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
+            this.AutoSize = true;
             this.Controls.Add(this.btExit_F12);
             this.Controls.Add(this.btShowCamera2);
             this.Controls.Add(this.btTakePicture);
@@ -486,6 +496,7 @@ namespace IPCameraManager
             this.Controls.Add(this.RealPlayWnd);
             this.Name = "Page1";
             this.Size = new System.Drawing.Size(1044, 614);
+            this.Load += new System.EventHandler(this.Page1_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.imgPreview)).EndInit();

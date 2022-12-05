@@ -61,6 +61,8 @@ namespace IPCameraManager
             // 
             // groupBox2
             // 
+            this.groupBox2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.groupBox2.Controls.Add(this.tbMaBN);
             this.groupBox2.Controls.Add(this.label7);
             this.groupBox2.Controls.Add(this.tbHoTenBN);
@@ -304,6 +306,9 @@ namespace IPCameraManager
             // 
             // groupBox1
             // 
+            this.groupBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.groupBox1.Controls.Add(this.btOpenFolder1);
             this.groupBox1.Controls.Add(this.picBox1);
             this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -316,6 +321,7 @@ namespace IPCameraManager
             // 
             // btOpenFolder1
             // 
+            this.btOpenFolder1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btOpenFolder1.BackColor = System.Drawing.Color.Transparent;
             this.btOpenFolder1.BorderColor = System.Drawing.SystemColors.ControlDarkDark;
             this.btOpenFolder1.BorderRadius = 5;
@@ -337,6 +343,9 @@ namespace IPCameraManager
             // 
             // picBox1
             // 
+            this.picBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.picBox1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.picBox1.Location = new System.Drawing.Point(55, 32);
             this.picBox1.Name = "picBox1";
@@ -348,6 +357,8 @@ namespace IPCameraManager
             // 
             // groupBox3
             // 
+            this.groupBox3.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.groupBox3.Controls.Add(this.btOpenFolder2);
             this.groupBox3.Controls.Add(this.picBox2);
             this.groupBox3.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -360,6 +371,7 @@ namespace IPCameraManager
             // 
             // btOpenFolder2
             // 
+            this.btOpenFolder2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btOpenFolder2.BackColor = System.Drawing.Color.Transparent;
             this.btOpenFolder2.BorderColor = System.Drawing.SystemColors.ControlDarkDark;
             this.btOpenFolder2.BorderRadius = 5;
@@ -381,6 +393,9 @@ namespace IPCameraManager
             // 
             // picBox2
             // 
+            this.picBox2.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.picBox2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.picBox2.Location = new System.Drawing.Point(55, 32);
             this.picBox2.Name = "picBox2";
@@ -392,6 +407,7 @@ namespace IPCameraManager
             // 
             // btExit_F12
             // 
+            this.btExit_F12.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.btExit_F12.BackColor = System.Drawing.Color.Transparent;
             this.btExit_F12.BorderColor = System.Drawing.SystemColors.ControlDarkDark;
             this.btExit_F12.BorderRadius = 5;
@@ -416,6 +432,7 @@ namespace IPCameraManager
             // 
             // pictureBox2
             // 
+            this.pictureBox2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
             this.pictureBox2.Location = new System.Drawing.Point(686, 3);
             this.pictureBox2.Name = "pictureBox2";
@@ -426,8 +443,9 @@ namespace IPCameraManager
             // 
             // PageSearchPatient
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
+            this.AutoSize = true;
             this.Controls.Add(this.btExit_F12);
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.pictureBox2);

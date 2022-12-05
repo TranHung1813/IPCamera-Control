@@ -1,6 +1,8 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Drawing;
 using System.Net;
+using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace IPCameraManager
@@ -16,6 +18,7 @@ namespace IPCameraManager
             LoginInfo_CAM2.LoginStatus = Cam2.LoginInfo.LoginStatus;
             Live_Status_CAM2 = Cam2.Live_Status;
             _Current_tabID = MAINTAB;
+
         }
         public LoginCameraInfo_Type LoginInfo_MainCAM;
         public LoginCameraInfo_Type LoginInfo_CAM2;
@@ -30,6 +33,9 @@ namespace IPCameraManager
         private const int ERR_OK = 0;
         private const int ERR_NOT_OK = 1;
         private bool is_ButtonLogin_Pressed = false;
+
+        private int RetryIPScan_Count = 5;
+
         private void Init_Button()
         {
             btLogin.GotFocus += (s, a) =>
@@ -43,7 +49,7 @@ namespace IPCameraManager
                 btLogin.BorderColor = SystemColors.ControlDark;
             };
         }
-
+        
         private void btLogin_Click(object sender, EventArgs e)
         {
             is_ButtonLogin_Pressed = true;

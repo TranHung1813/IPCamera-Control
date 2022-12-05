@@ -100,7 +100,6 @@ E:\Projects\IPCameraControl\WindowsFormsApp1\bin\x64\Debug\System.Memory.dll
 E:\Projects\IPCameraControl\WindowsFormsApp1\bin\x64\Debug\System.Numerics.Vectors.dll
 E:\Projects\IPCameraControl\WindowsFormsApp1\bin\x64\Debug\System.Resources.Extensions.dll
 E:\Projects\IPCameraControl\WindowsFormsApp1\bin\x64\Debug\System.Runtime.CompilerServices.Unsafe.dll
-E:\Projects\IPCameraControl\WindowsFormsApp1\bin\x64\Debug\USB-Barcode-Scanner.dll
 E:\Projects\IPCameraControl\WindowsFormsApp1\bin\x64\Debug\Dapper.xml
 E:\Projects\IPCameraControl\WindowsFormsApp1\bin\x64\Debug\Mono.Cecil.pdb
 E:\Projects\IPCameraControl\WindowsFormsApp1\bin\x64\Debug\Mono.Cecil.Mdb.pdb

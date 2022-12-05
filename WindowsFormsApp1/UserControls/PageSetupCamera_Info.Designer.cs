@@ -70,6 +70,8 @@ namespace IPCameraManager
             // 
             // groupbox123
             // 
+            this.groupbox123.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.groupbox123.Controls.Add(this.btZoomOut);
             this.groupbox123.Controls.Add(this.btZoomIn);
             this.groupbox123.Controls.Add(this.label11);
@@ -457,6 +459,7 @@ namespace IPCameraManager
             // 
             // groupBox1
             // 
+            this.groupBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.groupBox1.Controls.Add(this.label6);
             this.groupBox1.Controls.Add(this.label4);
             this.groupBox1.Controls.Add(this.label3);
@@ -640,6 +643,9 @@ namespace IPCameraManager
             // 
             // RealPlayWnd
             // 
+            this.RealPlayWnd.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.RealPlayWnd.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.RealPlayWnd.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.RealPlayWnd.Image = global::IPCameraManager.Properties.Resources.Loading;
@@ -652,8 +658,9 @@ namespace IPCameraManager
             // 
             // PageSetupCamera_Info
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
+            this.AutoSize = true;
             this.Controls.Add(this.btCam2);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.groupbox123);

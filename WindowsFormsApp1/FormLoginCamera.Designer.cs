@@ -261,6 +261,8 @@ namespace IPCameraManager
             this.textBoxIP.ForeColor = System.Drawing.Color.Black;
             this.textBoxIP.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.textBoxIP.HoverState.Parent = this.textBoxIP;
+            this.textBoxIP.IconRightCursor = System.Windows.Forms.Cursors.Hand;
+            this.textBoxIP.IconRightSize = new System.Drawing.Size(25, 25);
             this.textBoxIP.Location = new System.Drawing.Point(119, 94);
             this.textBoxIP.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.textBoxIP.Name = "textBoxIP";

@@ -163,9 +163,6 @@
     <Reference Include="System.Net.Http" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
-    <Reference Include="USB-Barcode-Scanner">
-      <HintPath>C:\Users\Administrator\Downloads\USB-Barcode-Scanner.dll</HintPath>
-    </Reference>
     <Reference Include="XanderUI, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>bin\x64\Debug\XanderUI.dll</HintPath>
@@ -264,6 +261,7 @@
     <Compile Include="UserControls\PageSetupCamera_Info.Designer.cs">
       <DependentUpon>PageSetupCamera_Info.cs</DependentUpon>
     </Compile>
+    <Compile Include="Utility.cs" />
     <Content Include="Doctor-icon.ico" />
     <None Include="Resources\zoom-out-icon2.png" />
     <None Include="Resources\zoom-in-icon2.png" />

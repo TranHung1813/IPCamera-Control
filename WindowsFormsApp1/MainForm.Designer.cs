@@ -32,8 +32,8 @@ namespace IPCameraManager
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             this.panel1 = new System.Windows.Forms.Panel();
+            this.guna2ControlBox1 = new Guna.UI2.WinForms.Guna2ControlBox();
             this.btSystemSetting = new Guna.UI2.WinForms.Guna2Button();
-            this.btMaximize = new Guna.UI2.WinForms.Guna2Button();
             this.btMinimize = new Guna.UI2.WinForms.Guna2Button();
             this.btExit = new Guna.UI2.WinForms.Guna2Button();
             this.label1 = new System.Windows.Forms.Label();
@@ -45,7 +45,6 @@ namespace IPCameraManager
             this.tabPage_InPhieu = new Guna.UI2.WinForms.Guna2Button();
             this.tabPage_KhamBenh = new Guna.UI2.WinForms.Guna2Button();
             this.guna2DragControl1 = new Guna.UI2.WinForms.Guna2DragControl(this.components);
-            this.panelUnknown = new System.Windows.Forms.Panel();
             this.panelBorder_Left = new System.Windows.Forms.Panel();
             this.panelBorder_Right = new System.Windows.Forms.Panel();
             this.timer_Update_PatientInfo_to_Page2 = new System.Windows.Forms.Timer(this.components);
@@ -58,6 +57,7 @@ namespace IPCameraManager
             this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.kiểmTraCậpNhậtToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.timer_GetRTC = new System.Windows.Forms.Timer(this.components);
+            this.panelUnknown = new System.Windows.Forms.Panel();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel2.SuspendLayout();
@@ -67,8 +67,8 @@ namespace IPCameraManager
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(50)))), ((int)(((byte)(70)))));
+            this.panel1.Controls.Add(this.guna2ControlBox1);
             this.panel1.Controls.Add(this.btSystemSetting);
-            this.panel1.Controls.Add(this.btMaximize);
             this.panel1.Controls.Add(this.btMinimize);
             this.panel1.Controls.Add(this.btExit);
             this.panel1.Controls.Add(this.label1);
@@ -79,8 +79,25 @@ namespace IPCameraManager
             this.panel1.Size = new System.Drawing.Size(1044, 37);
             this.panel1.TabIndex = 6;
             // 
+            // guna2ControlBox1
+            // 
+            this.guna2ControlBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.guna2ControlBox1.ControlBoxStyle = Guna.UI2.WinForms.Enums.ControlBoxStyle.Custom;
+            this.guna2ControlBox1.ControlBoxType = Guna.UI2.WinForms.Enums.ControlBoxType.MaximizeBox;
+            this.guna2ControlBox1.CustomIconSize = 13F;
+            this.guna2ControlBox1.FillColor = System.Drawing.Color.Transparent;
+            this.guna2ControlBox1.HoverState.FillColor = System.Drawing.Color.Gray;
+            this.guna2ControlBox1.HoverState.Parent = this.guna2ControlBox1;
+            this.guna2ControlBox1.IconColor = System.Drawing.Color.White;
+            this.guna2ControlBox1.Location = new System.Drawing.Point(933, 0);
+            this.guna2ControlBox1.Name = "guna2ControlBox1";
+            this.guna2ControlBox1.ShadowDecoration.Parent = this.guna2ControlBox1;
+            this.guna2ControlBox1.Size = new System.Drawing.Size(55, 37);
+            this.guna2ControlBox1.TabIndex = 37;
+            // 
             // btSystemSetting
             // 
+            this.btSystemSetting.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btSystemSetting.CheckedState.Parent = this.btSystemSetting;
             this.btSystemSetting.CustomImages.Parent = this.btSystemSetting;
             this.btSystemSetting.FillColor = System.Drawing.Color.Transparent;
@@ -89,7 +106,8 @@ namespace IPCameraManager
             this.btSystemSetting.HoverState.FillColor = System.Drawing.Color.Gray;
             this.btSystemSetting.HoverState.Parent = this.btSystemSetting;
             this.btSystemSetting.Image = global::IPCameraManager.Properties.Resources.setting_Icon1;
-            this.btSystemSetting.ImageSize = new System.Drawing.Size(26, 26);
+            this.btSystemSetting.ImageOffset = new System.Drawing.Point(0, 1);
+            this.btSystemSetting.ImageSize = new System.Drawing.Size(26, 24);
             this.btSystemSetting.Location = new System.Drawing.Point(819, 0);
             this.btSystemSetting.Name = "btSystemSetting";
             this.btSystemSetting.ShadowDecoration.Parent = this.btSystemSetting;
@@ -97,25 +115,9 @@ namespace IPCameraManager
             this.btSystemSetting.TabIndex = 36;
             this.btSystemSetting.Click += new System.EventHandler(this.btSystemSetting_Click);
             // 
-            // btMaximize
-            // 
-            this.btMaximize.CheckedState.Parent = this.btMaximize;
-            this.btMaximize.CustomImages.Parent = this.btMaximize;
-            this.btMaximize.FillColor = System.Drawing.Color.Transparent;
-            this.btMaximize.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btMaximize.ForeColor = System.Drawing.Color.White;
-            this.btMaximize.HoverState.FillColor = System.Drawing.Color.Gray;
-            this.btMaximize.HoverState.Parent = this.btMaximize;
-            this.btMaximize.Location = new System.Drawing.Point(933, 0);
-            this.btMaximize.Name = "btMaximize";
-            this.btMaximize.ShadowDecoration.Parent = this.btMaximize;
-            this.btMaximize.Size = new System.Drawing.Size(55, 37);
-            this.btMaximize.TabIndex = 35;
-            this.btMaximize.Text = "[ ]";
-            this.btMaximize.Click += new System.EventHandler(this.btMaximize_Click);
-            // 
             // btMinimize
             // 
+            this.btMinimize.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btMinimize.CheckedState.Parent = this.btMinimize;
             this.btMinimize.CustomImages.Parent = this.btMinimize;
             this.btMinimize.FillColor = System.Drawing.Color.Transparent;
@@ -297,14 +299,6 @@ namespace IPCameraManager
             // 
             this.guna2DragControl1.TargetControl = this.panel1;
             // 
-            // panelUnknown
-            // 
-            this.panelUnknown.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelUnknown.Location = new System.Drawing.Point(0, 80);
-            this.panelUnknown.Name = "panelUnknown";
-            this.panelUnknown.Size = new System.Drawing.Size(1044, 640);
-            this.panelUnknown.TabIndex = 8;
-            // 
             // panelBorder_Left
             // 
             this.panelBorder_Left.BackColor = System.Drawing.Color.SlateBlue;
@@ -335,6 +329,7 @@ namespace IPCameraManager
             // 
             // cMStrip_Setting
             // 
+            this.cMStrip_Setting.BackColor = System.Drawing.Color.White;
             this.cMStrip_Setting.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.btLogin_IPCamera,
             this.btTimeCorrection,
@@ -348,7 +343,6 @@ namespace IPCameraManager
             // btLogin_IPCamera
             // 
             this.btLogin_IPCamera.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btLogin_IPCamera.Image = global::IPCameraManager.Properties.Resources.Printer;
             this.btLogin_IPCamera.Name = "btLogin_IPCamera";
             this.btLogin_IPCamera.ShowShortcutKeys = false;
             this.btLogin_IPCamera.Size = new System.Drawing.Size(277, 24);
@@ -398,10 +392,18 @@ namespace IPCameraManager
             this.timer_GetRTC.Interval = 1000;
             this.timer_GetRTC.Tick += new System.EventHandler(this.timer_GetRTC_Tick);
             // 
+            // panelUnknown
+            // 
+            this.panelUnknown.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panelUnknown.Location = new System.Drawing.Point(0, 80);
+            this.panelUnknown.Name = "panelUnknown";
+            this.panelUnknown.Size = new System.Drawing.Size(1044, 640);
+            this.panelUnknown.TabIndex = 8;
+            // 
             // MainForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
             this.AutoSize = true;
             this.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.ClientSize = new System.Drawing.Size(1044, 720);
@@ -435,8 +437,6 @@ namespace IPCameraManager
         private Guna.UI2.WinForms.Guna2Button tabPage_InPhieu;
         private Guna.UI2.WinForms.Guna2DragControl guna2DragControl1;
         private Guna.UI2.WinForms.Guna2Button btMinimize;
-        private Guna.UI2.WinForms.Guna2Button btMaximize;
-        private System.Windows.Forms.Panel panelUnknown;
         private System.Windows.Forms.Panel panelBorder_Right;
         private System.Windows.Forms.Panel panelBorder_Left;
         private Guna.UI2.WinForms.Guna2Button btExit;
@@ -453,6 +453,8 @@ namespace IPCameraManager
         private System.Windows.Forms.ToolStripMenuItem btSetFile_MauPhieuKham;
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem1;
         private System.Windows.Forms.Timer timer_GetRTC;
+        private Guna.UI2.WinForms.Guna2ControlBox guna2ControlBox1;
+        private System.Windows.Forms.Panel panelUnknown;
     }
 }
 

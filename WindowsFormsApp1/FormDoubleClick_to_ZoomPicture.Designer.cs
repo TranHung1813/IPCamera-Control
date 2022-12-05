@@ -51,7 +51,6 @@ namespace IPCameraManager
             this.Controls.Add(this.pictureBox1);
             this.Name = "FormDoubleClick_to_ZoomPicture";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "FormDoubleClick_to_ZoomPicture";
             this.Load += new System.EventHandler(this.FormDoubleClick_to_ZoomPicture_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);

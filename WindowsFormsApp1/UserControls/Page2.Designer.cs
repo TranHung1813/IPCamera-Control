@@ -33,6 +33,7 @@ namespace IPCameraManager
             this.btXoaChonAnh1 = new Guna.UI2.WinForms.Guna2Button();
             this.btChonAnh1 = new Guna.UI2.WinForms.Guna2Button();
             this.label10 = new System.Windows.Forms.Label();
+            this.picBox1 = new System.Windows.Forms.PictureBox();
             this.txtPath1 = new System.Windows.Forms.TextBox();
             this.groupBox5 = new System.Windows.Forms.GroupBox();
             this.tbNgayKham_IN = new Guna.UI2.WinForms.Guna2TextBox();
@@ -52,21 +53,24 @@ namespace IPCameraManager
             this.groupBox7 = new System.Windows.Forms.GroupBox();
             this.btXoaChonAnh2 = new Guna.UI2.WinForms.Guna2Button();
             this.btChonAnh2 = new Guna.UI2.WinForms.Guna2Button();
+            this.picBox2 = new System.Windows.Forms.PictureBox();
             this.btExit_F12 = new Guna.UI2.WinForms.Guna2Button();
             this.btInPhieu_F9 = new Guna.UI2.WinForms.Guna2Button();
-            this.picBox2 = new System.Windows.Forms.PictureBox();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
-            this.picBox1 = new System.Windows.Forms.PictureBox();
             this.groupBox6.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.picBox1)).BeginInit();
             this.groupBox5.SuspendLayout();
             this.groupBox7.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.picBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // groupBox6
             // 
+            this.groupBox6.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.groupBox6.AutoSize = true;
             this.groupBox6.Controls.Add(this.btXoaChonAnh1);
             this.groupBox6.Controls.Add(this.btChonAnh1);
             this.groupBox6.Controls.Add(this.label10);
@@ -75,13 +79,14 @@ namespace IPCameraManager
             this.groupBox6.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox6.Location = new System.Drawing.Point(12, 3);
             this.groupBox6.Name = "groupBox6";
-            this.groupBox6.Size = new System.Drawing.Size(637, 293);
+            this.groupBox6.Size = new System.Drawing.Size(637, 298);
             this.groupBox6.TabIndex = 35;
             this.groupBox6.TabStop = false;
             this.groupBox6.Text = "KỲ RẶN";
             // 
             // btXoaChonAnh1
             // 
+            this.btXoaChonAnh1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btXoaChonAnh1.BackColor = System.Drawing.Color.Transparent;
             this.btXoaChonAnh1.BorderColor = System.Drawing.SystemColors.ControlDarkDark;
             this.btXoaChonAnh1.BorderRadius = 5;
@@ -103,6 +108,7 @@ namespace IPCameraManager
             // 
             // btChonAnh1
             // 
+            this.btChonAnh1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btChonAnh1.BackColor = System.Drawing.Color.Transparent;
             this.btChonAnh1.BorderColor = System.Drawing.SystemColors.ControlDarkDark;
             this.btChonAnh1.BorderRadius = 5;
@@ -132,8 +138,24 @@ namespace IPCameraManager
             this.label10.TabIndex = 3;
             this.label10.Text = "Đường dẫn:";
             // 
+            // picBox1
+            // 
+            this.picBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.picBox1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.picBox1.Location = new System.Drawing.Point(74, 56);
+            this.picBox1.Name = "picBox1";
+            this.picBox1.Size = new System.Drawing.Size(300, 224);
+            this.picBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.picBox1.TabIndex = 2;
+            this.picBox1.TabStop = false;
+            this.picBox1.DoubleClick += new System.EventHandler(this.picBox1_DoubleClick);
+            // 
             // txtPath1
             // 
+            this.txtPath1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.txtPath1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtPath1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtPath1.Location = new System.Drawing.Point(117, 28);
@@ -143,6 +165,8 @@ namespace IPCameraManager
             // 
             // groupBox5
             // 
+            this.groupBox5.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.groupBox5.Controls.Add(this.tbNgayKham_IN);
             this.groupBox5.Controls.Add(this.tbTuoi_IN);
             this.groupBox5.Controls.Add(this.tbGioiTinh_IN);
@@ -387,6 +411,8 @@ namespace IPCameraManager
             // 
             // label11
             // 
+            this.label11.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
             this.label11.AutoSize = true;
             this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label11.Location = new System.Drawing.Point(35, 31);
@@ -397,6 +423,8 @@ namespace IPCameraManager
             // 
             // txtPath2
             // 
+            this.txtPath2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.txtPath2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtPath2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtPath2.Location = new System.Drawing.Point(117, 28);
@@ -406,21 +434,24 @@ namespace IPCameraManager
             // 
             // groupBox7
             // 
+            this.groupBox7.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.groupBox7.Controls.Add(this.btXoaChonAnh2);
             this.groupBox7.Controls.Add(this.btChonAnh2);
             this.groupBox7.Controls.Add(this.label11);
             this.groupBox7.Controls.Add(this.picBox2);
             this.groupBox7.Controls.Add(this.txtPath2);
             this.groupBox7.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox7.Location = new System.Drawing.Point(12, 302);
+            this.groupBox7.Location = new System.Drawing.Point(12, 303);
             this.groupBox7.Name = "groupBox7";
-            this.groupBox7.Size = new System.Drawing.Size(637, 292);
+            this.groupBox7.Size = new System.Drawing.Size(637, 298);
             this.groupBox7.TabIndex = 38;
             this.groupBox7.TabStop = false;
             this.groupBox7.Text = "KỲ NÍN";
             // 
             // btXoaChonAnh2
             // 
+            this.btXoaChonAnh2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.btXoaChonAnh2.BackColor = System.Drawing.Color.Transparent;
             this.btXoaChonAnh2.BorderColor = System.Drawing.SystemColors.ControlDarkDark;
             this.btXoaChonAnh2.BorderRadius = 5;
@@ -432,7 +463,7 @@ namespace IPCameraManager
             this.btXoaChonAnh2.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.btXoaChonAnh2.HoverState.FillColor = System.Drawing.Color.LightSteelBlue;
             this.btXoaChonAnh2.HoverState.Parent = this.btXoaChonAnh2;
-            this.btXoaChonAnh2.Location = new System.Drawing.Point(461, 180);
+            this.btXoaChonAnh2.Location = new System.Drawing.Point(461, 186);
             this.btXoaChonAnh2.Name = "btXoaChonAnh2";
             this.btXoaChonAnh2.ShadowDecoration.Parent = this.btXoaChonAnh2;
             this.btXoaChonAnh2.Size = new System.Drawing.Size(119, 54);
@@ -442,6 +473,7 @@ namespace IPCameraManager
             // 
             // btChonAnh2
             // 
+            this.btChonAnh2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.btChonAnh2.BackColor = System.Drawing.Color.Transparent;
             this.btChonAnh2.BorderColor = System.Drawing.SystemColors.ControlDarkDark;
             this.btChonAnh2.BorderRadius = 5;
@@ -453,7 +485,7 @@ namespace IPCameraManager
             this.btChonAnh2.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.btChonAnh2.HoverState.FillColor = System.Drawing.Color.LightSteelBlue;
             this.btChonAnh2.HoverState.Parent = this.btChonAnh2;
-            this.btChonAnh2.Location = new System.Drawing.Point(461, 90);
+            this.btChonAnh2.Location = new System.Drawing.Point(461, 96);
             this.btChonAnh2.Name = "btChonAnh2";
             this.btChonAnh2.ShadowDecoration.Parent = this.btChonAnh2;
             this.btChonAnh2.Size = new System.Drawing.Size(119, 54);
@@ -461,8 +493,23 @@ namespace IPCameraManager
             this.btChonAnh2.Text = "Chọn ảnh";
             this.btChonAnh2.Click += new System.EventHandler(this.btChonAnh2_Click);
             // 
+            // picBox2
+            // 
+            this.picBox2.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.picBox2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.picBox2.Location = new System.Drawing.Point(74, 56);
+            this.picBox2.Name = "picBox2";
+            this.picBox2.Size = new System.Drawing.Size(300, 231);
+            this.picBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.picBox2.TabIndex = 2;
+            this.picBox2.TabStop = false;
+            this.picBox2.DoubleClick += new System.EventHandler(this.picBox2_DoubleClick);
+            // 
             // btExit_F12
             // 
+            this.btExit_F12.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.btExit_F12.BackColor = System.Drawing.Color.Transparent;
             this.btExit_F12.BorderColor = System.Drawing.SystemColors.ControlDarkDark;
             this.btExit_F12.BorderRadius = 5;
@@ -488,6 +535,7 @@ namespace IPCameraManager
             // 
             // btInPhieu_F9
             // 
+            this.btInPhieu_F9.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.btInPhieu_F9.BackColor = System.Drawing.Color.Transparent;
             this.btInPhieu_F9.BorderColor = System.Drawing.SystemColors.ControlDarkDark;
             this.btInPhieu_F9.BorderRadius = 5;
@@ -510,19 +558,9 @@ namespace IPCameraManager
             this.btInPhieu_F9.UseTransparentBackground = true;
             this.btInPhieu_F9.MouseUp += new System.Windows.Forms.MouseEventHandler(this.btInPhieu_F9_MouseUp);
             // 
-            // picBox2
-            // 
-            this.picBox2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.picBox2.Location = new System.Drawing.Point(74, 56);
-            this.picBox2.Name = "picBox2";
-            this.picBox2.Size = new System.Drawing.Size(300, 225);
-            this.picBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.picBox2.TabIndex = 2;
-            this.picBox2.TabStop = false;
-            this.picBox2.DoubleClick += new System.EventHandler(this.picBox2_DoubleClick);
-            // 
             // pictureBox2
             // 
+            this.pictureBox2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.pictureBox2.Image = global::IPCameraManager.Properties.Resources.LOGO_VINMEC;
             this.pictureBox2.Location = new System.Drawing.Point(720, 3);
             this.pictureBox2.Name = "pictureBox2";
@@ -531,21 +569,10 @@ namespace IPCameraManager
             this.pictureBox2.TabIndex = 37;
             this.pictureBox2.TabStop = false;
             // 
-            // picBox1
-            // 
-            this.picBox1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.picBox1.Location = new System.Drawing.Point(74, 56);
-            this.picBox1.Name = "picBox1";
-            this.picBox1.Size = new System.Drawing.Size(300, 225);
-            this.picBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.picBox1.TabIndex = 2;
-            this.picBox1.TabStop = false;
-            this.picBox1.DoubleClick += new System.EventHandler(this.picBox1_DoubleClick);
-            // 
             // Page2
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
             this.Controls.Add(this.btExit_F12);
             this.Controls.Add(this.btInPhieu_F9);
             this.Controls.Add(this.groupBox7);
@@ -554,16 +581,18 @@ namespace IPCameraManager
             this.Controls.Add(this.groupBox6);
             this.Name = "Page2";
             this.Size = new System.Drawing.Size(1044, 614);
+            this.Load += new System.EventHandler(this.Page2_Load);
             this.groupBox6.ResumeLayout(false);
             this.groupBox6.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.picBox1)).EndInit();
             this.groupBox5.ResumeLayout(false);
             this.groupBox5.PerformLayout();
             this.groupBox7.ResumeLayout(false);
             this.groupBox7.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.picBox1)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 

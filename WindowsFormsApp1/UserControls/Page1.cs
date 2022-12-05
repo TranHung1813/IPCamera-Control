@@ -666,6 +666,11 @@ namespace IPCameraManager
             }
             return str;
         }
+
+        private void Page1_Load(object sender, EventArgs e)
+        {
+            Utility.fitUserControlToScreen(this, 766, 1366);
+        }
     }
     public class NotifyConnectMainCam : EventArgs
     {

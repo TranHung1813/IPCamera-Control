@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Drawing;
 using System.Threading;
+using System.Threading.Tasks;
 using System.Windows.Forms;
 namespace IPCameraManager
 {
@@ -23,7 +24,7 @@ namespace IPCameraManager
         //8. Them tinh nang nhan nut (F1,F2,...) (done)
         //9. Them debug mode
         //10. Check lai thong tin size anh (Done, Auto is OK)
-        //11. Them tinh nang phong to []
+        //11. Them tinh nang phong to [] (done)
         //12. Them tinh nang Cam phu (done, testing)
         //13. Xem xet tinh nang Refresh (logout-> login-> start live view) (done)
         //14. Chon Folder luu anh chup (done)
@@ -62,6 +63,8 @@ namespace IPCameraManager
         //38. Thêm thứ ngày tháng vào thanh StatusBar (done)
         //47. Bo thong bao chup anh thanh cong
         //48. Double Click -> phong to anh (done)
+		//49. Them duong dan vao anh trong form Find Patient
+		//50. Thời gian thong bao "chua chon anh" qua lau khi bam button In Phieu 
         private const int ERR_OK = 0;
         private const int ERR_NOT_OK = 1;
 
@@ -333,7 +336,7 @@ namespace IPCameraManager
 
         private void btMaximize_Click(object sender, EventArgs e)
         {
-            //this.WindowState = FormWindowState.Maximized;
+            this.WindowState = FormWindowState.Maximized;
         }
 
         private void btMinimize_Click(object sender, EventArgs e)
@@ -606,6 +609,7 @@ namespace IPCameraManager
 
         private void MainForm_Shown(object sender, EventArgs e)
         {
+            Utility.fitFormToScreen(this, 766, 1366);
             Application.DoEvents();
             // Thread load Main Camera
             Loading_MainCam_Trd = new Thread(new ThreadStart(this.ThreadTask_LoadMainCam));
