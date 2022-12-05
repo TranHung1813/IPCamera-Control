@@ -308,6 +308,9 @@ namespace IPCameraManager
             // 
             // imgPreview
             // 
+            this.imgPreview.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.imgPreview.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.imgPreview.Image = global::IPCameraManager.Properties.Resources.Loading_Cam2;
             this.imgPreview.Location = new System.Drawing.Point(55, 246);
