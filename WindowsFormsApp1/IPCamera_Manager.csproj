@@ -193,6 +193,12 @@
     <Compile Include="FormSetTemplateDirectory.Designer.cs">
       <DependentUpon>FormSetTemplateDirectory.cs</DependentUpon>
     </Compile>
+    <Compile Include="FormSetting_KeyboardShortcut.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormSetting_KeyboardShortcut.Designer.cs">
+      <DependentUpon>FormSetting_KeyboardShortcut.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormSetupPTZ.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -277,6 +283,9 @@
     <None Include="Resources\arrow_down2.png" />
     <EmbeddedResource Include="FormDoubleClick_to_ZoomPicture.resx">
       <DependentUpon>FormDoubleClick_to_ZoomPicture.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormSetting_KeyboardShortcut.resx">
+      <DependentUpon>FormSetting_KeyboardShortcut.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormTimeCorrect.resx">
       <DependentUpon>FormTimeCorrect.cs</DependentUpon>

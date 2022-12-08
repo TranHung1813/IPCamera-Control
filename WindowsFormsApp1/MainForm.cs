@@ -129,15 +129,15 @@ namespace IPCameraManager
             tSL2.Text = "Folder";
             tSL2.TextAlign = ContentAlignment.MiddleCenter;
             tSL2.Font = new Font("Tahoma", 10, FontStyle.Bold);
-            cMStrip_Setting.Items.Insert(4, new ToolStripSeparator());
-            cMStrip_Setting.Items.Insert(5, tSL2);
+            cMStrip_Setting.Items.Insert(6, new ToolStripSeparator());
+            cMStrip_Setting.Items.Insert(7, tSL2);
 
             ToolStripLabel tSL3 = new ToolStripLabel();
             tSL3.Text = "Hệ thống";
             tSL3.TextAlign = ContentAlignment.MiddleCenter;
             tSL3.Font = new Font("Tahoma", 10, FontStyle.Bold);
-            cMStrip_Setting.Items.Insert(8, new ToolStripSeparator());
-            cMStrip_Setting.Items.Insert(9, tSL3);
+            cMStrip_Setting.Items.Insert(10, new ToolStripSeparator());
+            cMStrip_Setting.Items.Insert(11, tSL3);
             // Setup default status for controls
             ucPageSetupCamera_Info = new PageSetupCamera_Info();
             formLoginCam = new FormLoginCamera(ucPage1.MainCam_Manager, ucPage1.SecondaryCam_Manager);
@@ -895,6 +895,90 @@ namespace IPCameraManager
             else DayNumber = "Thứ " + (day1 + 1).ToString();
             datetimePanel.ToolTipText = DateTime.Now.ToLongDateString();
             datetimePanel.Text = DayNumber + ", " + DateTime.Now.ToShortDateString() + "  " + DateTime.Now.ToLongTimeString();
+        }
+        private void btReboot_MainCam_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                bool result = CHCNetSDK.NET_DVR_RebootDVR(ucPage1.MainCam_Manager.LoginInfo.LoginStatus);
+                if (result == true)
+                {
+                    MessageBox.Show("Khởi động lại Camera chính thành công", "SUCCESSFUL", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                else
+                {
+                    MessageBox.Show("Khởi động lại Camera chính thất bại", "FAIL", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
+            }
+            catch
+            {
+
+            }
+        }
+
+        private void btReboot_Cam2_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                bool result = CHCNetSDK.NET_DVR_RebootDVR(ucPage1.SecondaryCam_Manager.LoginInfo.LoginStatus);
+                if (result == true)
+                {
+                    MessageBox.Show("Khởi động lại Camera phụ thành công", "SUCCESSFUL", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                else
+                {
+                    MessageBox.Show("Khởi động lại Camera phụ thất bại", "FAIL", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
+            }
+            catch
+            {
+
+            }
+        }
+
+        private void btResetConfig_MainCam_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                bool result = CHCNetSDK.NET_DVR_RestoreConfig(ucPage1.MainCam_Manager.LoginInfo.LoginStatus);
+                if (result == true)
+                {
+                    MessageBox.Show("Khôi phục cài đặt gốc Camera chính thành công", "SUCCESSFUL", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                else
+                {
+                    MessageBox.Show("Khôi phục cài đặt gốc Camera chính thất bại", "FAIL", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
+            }
+            catch
+            {
+
+            }
+        }
+
+        private void btResetConfig_Cam2_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                bool result = CHCNetSDK.NET_DVR_RestoreConfig(ucPage1.MainCam_Manager.LoginInfo.LoginStatus);
+                if (result == true)
+                {
+                    MessageBox.Show("Khôi phục cài đặt gốc Camera phụ thành công", "SUCCESSFUL", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                else
+                {
+                    MessageBox.Show("Khôi phục cài đặt gốc Camera phụ thất bại", "FAIL", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
+            }
+            catch
+            {
+
+            }
+        }
+        FormSetting_KeyboardShortcut formSetting = new FormSetting_KeyboardShortcut();
+        private void btSetting_KeyboardShortcut_Click(object sender, EventArgs e)
+        {
+            formSetting.ShowDialog();
         }
     }
 

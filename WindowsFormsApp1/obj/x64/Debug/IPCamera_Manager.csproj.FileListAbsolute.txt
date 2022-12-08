@@ -153,3 +153,4 @@ E:\Projects\IPCameraControl\WindowsFormsApp1\obj\x64\Debug\IPCameraManager.PageS
 E:\Projects\IPCameraControl\WindowsFormsApp1\obj\x64\Debug\IPCameraManager.PageSetupCamera_Info.resources
 E:\Projects\IPCameraControl\WindowsFormsApp1\obj\x64\Debug\IPCameraManager.FormTimeCorrect.resources
 E:\Projects\IPCameraControl\WindowsFormsApp1\obj\x64\Debug\IPCameraManager.FormDoubleClick_to_ZoomPicture.resources
+E:\Projects\IPCameraControl\WindowsFormsApp1\obj\x64\Debug\IPCameraManager.FormSetting_KeyboardShortcut.resources

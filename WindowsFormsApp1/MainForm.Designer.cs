@@ -52,9 +52,15 @@ namespace IPCameraManager
             this.cMStrip_Setting = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.btLogin_IPCamera = new System.Windows.Forms.ToolStripMenuItem();
             this.btTimeCorrection = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
+            this.btReboot_MainCam = new System.Windows.Forms.ToolStripMenuItem();
+            this.btReboot_Cam2 = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem3 = new System.Windows.Forms.ToolStripMenuItem();
+            this.btResetConfig_MainCam = new System.Windows.Forms.ToolStripMenuItem();
+            this.btResetConfig_Cam2 = new System.Windows.Forms.ToolStripMenuItem();
             this.btSetFolderchuaAnh = new System.Windows.Forms.ToolStripMenuItem();
             this.btSetFile_MauPhieuKham = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.btSetting_KeyboardShortcut = new System.Windows.Forms.ToolStripMenuItem();
             this.kiểmTraCậpNhậtToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.timer_GetRTC = new System.Windows.Forms.Timer(this.components);
             this.panelUnknown = new System.Windows.Forms.Panel();
@@ -333,19 +339,21 @@ namespace IPCameraManager
             this.cMStrip_Setting.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.btLogin_IPCamera,
             this.btTimeCorrection,
+            this.toolStripMenuItem2,
+            this.toolStripMenuItem3,
             this.btSetFolderchuaAnh,
             this.btSetFile_MauPhieuKham,
-            this.toolStripMenuItem1,
+            this.btSetting_KeyboardShortcut,
             this.kiểmTraCậpNhậtToolStripMenuItem});
             this.cMStrip_Setting.Name = "cMStrip_Setting";
-            this.cMStrip_Setting.Size = new System.Drawing.Size(278, 148);
+            this.cMStrip_Setting.Size = new System.Drawing.Size(287, 196);
             // 
             // btLogin_IPCamera
             // 
             this.btLogin_IPCamera.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btLogin_IPCamera.Name = "btLogin_IPCamera";
             this.btLogin_IPCamera.ShowShortcutKeys = false;
-            this.btLogin_IPCamera.Size = new System.Drawing.Size(277, 24);
+            this.btLogin_IPCamera.Size = new System.Drawing.Size(286, 24);
             this.btLogin_IPCamera.Text = "Kết nối Camera";
             this.btLogin_IPCamera.Click += new System.EventHandler(this.btLogin_IPCamera_Click);
             // 
@@ -353,15 +361,67 @@ namespace IPCameraManager
             // 
             this.btTimeCorrection.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btTimeCorrection.Name = "btTimeCorrection";
-            this.btTimeCorrection.Size = new System.Drawing.Size(277, 24);
+            this.btTimeCorrection.Size = new System.Drawing.Size(286, 24);
             this.btTimeCorrection.Text = "Hiệu chỉnh thời gian Camera";
             this.btTimeCorrection.Click += new System.EventHandler(this.btTimeCorrection_Click);
+            // 
+            // toolStripMenuItem2
+            // 
+            this.toolStripMenuItem2.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.btReboot_MainCam,
+            this.btReboot_Cam2});
+            this.toolStripMenuItem2.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.toolStripMenuItem2.Name = "toolStripMenuItem2";
+            this.toolStripMenuItem2.Size = new System.Drawing.Size(286, 24);
+            this.toolStripMenuItem2.Text = "Khởi động lại Camera";
+            // 
+            // btReboot_MainCam
+            // 
+            this.btReboot_MainCam.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btReboot_MainCam.Name = "btReboot_MainCam";
+            this.btReboot_MainCam.Size = new System.Drawing.Size(166, 22);
+            this.btReboot_MainCam.Text = "Camera chính";
+            this.btReboot_MainCam.Click += new System.EventHandler(this.btReboot_MainCam_Click);
+            // 
+            // btReboot_Cam2
+            // 
+            this.btReboot_Cam2.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btReboot_Cam2.Name = "btReboot_Cam2";
+            this.btReboot_Cam2.Size = new System.Drawing.Size(166, 22);
+            this.btReboot_Cam2.Text = "Camera phụ";
+            this.btReboot_Cam2.Click += new System.EventHandler(this.btReboot_Cam2_Click);
+            // 
+            // toolStripMenuItem3
+            // 
+            this.toolStripMenuItem3.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.btResetConfig_MainCam,
+            this.btResetConfig_Cam2});
+            this.toolStripMenuItem3.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.toolStripMenuItem3.Name = "toolStripMenuItem3";
+            this.toolStripMenuItem3.Size = new System.Drawing.Size(286, 24);
+            this.toolStripMenuItem3.Text = "Khôi phục cài đặt gốc Camera";
+            // 
+            // btResetConfig_MainCam
+            // 
+            this.btResetConfig_MainCam.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btResetConfig_MainCam.Name = "btResetConfig_MainCam";
+            this.btResetConfig_MainCam.Size = new System.Drawing.Size(180, 22);
+            this.btResetConfig_MainCam.Text = "Camera chính";
+            this.btResetConfig_MainCam.Click += new System.EventHandler(this.btResetConfig_MainCam_Click);
+            // 
+            // btResetConfig_Cam2
+            // 
+            this.btResetConfig_Cam2.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btResetConfig_Cam2.Name = "btResetConfig_Cam2";
+            this.btResetConfig_Cam2.Size = new System.Drawing.Size(180, 22);
+            this.btResetConfig_Cam2.Text = "Camera phụ";
+            this.btResetConfig_Cam2.Click += new System.EventHandler(this.btResetConfig_Cam2_Click);
             // 
             // btSetFolderchuaAnh
             // 
             this.btSetFolderchuaAnh.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btSetFolderchuaAnh.Name = "btSetFolderchuaAnh";
-            this.btSetFolderchuaAnh.Size = new System.Drawing.Size(277, 24);
+            this.btSetFolderchuaAnh.Size = new System.Drawing.Size(286, 24);
             this.btSetFolderchuaAnh.Text = "Cài đặt folder chứa ảnh";
             this.btSetFolderchuaAnh.Click += new System.EventHandler(this.btSetFolderchuaAnh_Click);
             // 
@@ -369,22 +429,23 @@ namespace IPCameraManager
             // 
             this.btSetFile_MauPhieuKham.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btSetFile_MauPhieuKham.Name = "btSetFile_MauPhieuKham";
-            this.btSetFile_MauPhieuKham.Size = new System.Drawing.Size(277, 24);
+            this.btSetFile_MauPhieuKham.Size = new System.Drawing.Size(286, 24);
             this.btSetFile_MauPhieuKham.Text = "Cài đặt file Mẫu phiếu khám";
             this.btSetFile_MauPhieuKham.Click += new System.EventHandler(this.btSetFile_MauPhieuKham_Click);
             // 
-            // toolStripMenuItem1
+            // btSetting_KeyboardShortcut
             // 
-            this.toolStripMenuItem1.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.toolStripMenuItem1.Name = "toolStripMenuItem1";
-            this.toolStripMenuItem1.Size = new System.Drawing.Size(277, 24);
-            this.toolStripMenuItem1.Text = "Cài đặt lại phím tắt";
+            this.btSetting_KeyboardShortcut.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btSetting_KeyboardShortcut.Name = "btSetting_KeyboardShortcut";
+            this.btSetting_KeyboardShortcut.Size = new System.Drawing.Size(286, 24);
+            this.btSetting_KeyboardShortcut.Text = "Cài đặt lại phím tắt";
+            this.btSetting_KeyboardShortcut.Click += new System.EventHandler(this.btSetting_KeyboardShortcut_Click);
             // 
             // kiểmTraCậpNhậtToolStripMenuItem
             // 
             this.kiểmTraCậpNhậtToolStripMenuItem.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.kiểmTraCậpNhậtToolStripMenuItem.Name = "kiểmTraCậpNhậtToolStripMenuItem";
-            this.kiểmTraCậpNhậtToolStripMenuItem.Size = new System.Drawing.Size(277, 24);
+            this.kiểmTraCậpNhậtToolStripMenuItem.Size = new System.Drawing.Size(286, 24);
             this.kiểmTraCậpNhậtToolStripMenuItem.Text = "Kiểm tra cập nhật";
             // 
             // timer_GetRTC
@@ -451,10 +512,16 @@ namespace IPCameraManager
         private System.Windows.Forms.ToolStripMenuItem btTimeCorrection;
         private System.Windows.Forms.ToolStripMenuItem kiểmTraCậpNhậtToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem btSetFile_MauPhieuKham;
-        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem1;
+        private System.Windows.Forms.ToolStripMenuItem btSetting_KeyboardShortcut;
         private System.Windows.Forms.Timer timer_GetRTC;
         private Guna.UI2.WinForms.Guna2ControlBox guna2ControlBox1;
         private System.Windows.Forms.Panel panelUnknown;
+        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem2;
+        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem3;
+        private System.Windows.Forms.ToolStripMenuItem btReboot_MainCam;
+        private System.Windows.Forms.ToolStripMenuItem btReboot_Cam2;
+        private System.Windows.Forms.ToolStripMenuItem btResetConfig_MainCam;
+        private System.Windows.Forms.ToolStripMenuItem btResetConfig_Cam2;
     }
 }
 
