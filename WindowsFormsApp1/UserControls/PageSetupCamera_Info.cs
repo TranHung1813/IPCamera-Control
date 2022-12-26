@@ -730,26 +730,22 @@ namespace IPCameraManager
             {
                 if (MainCam_Manager.Live_Status > -1)
                 {
-                    CHCNetSDK.NET_DVR_PTZControlWithSpeed(MainCam_Manager.Live_Status, CHCNetSDK.PAN_RIGHT, 0, (uint)(Default_Speed_PTZ_MainCam) + 1);
-                    CHCNetSDK.NET_DVR_PTZControlWithSpeed(MainCam_Manager.Live_Status, CHCNetSDK.TILT_UP, 0, (uint)(Default_Speed_PTZ_MainCam) + 1);
+                    CHCNetSDK.NET_DVR_PTZControlWithSpeed(MainCam_Manager.Live_Status, CHCNetSDK.UP_RIGHT, 0, (uint)(Default_Speed_PTZ_MainCam) + 1);
                 }
                 else
                 {
-                    CHCNetSDK.NET_DVR_PTZControlWithSpeed_Other(MainCam_Manager.LoginInfo.LoginStatus, 0, CHCNetSDK.PAN_RIGHT, 0, (uint)(Default_Speed_PTZ_MainCam) + 1);
-                    CHCNetSDK.NET_DVR_PTZControlWithSpeed_Other(MainCam_Manager.LoginInfo.LoginStatus, 0, CHCNetSDK.TILT_UP, 0, (uint)(Default_Speed_PTZ_MainCam) + 1);
+                    CHCNetSDK.NET_DVR_PTZControlWithSpeed_Other(MainCam_Manager.LoginInfo.LoginStatus, 0, CHCNetSDK.UP_RIGHT, 0, (uint)(Default_Speed_PTZ_MainCam) + 1);
                 }
             }
             else if (CurrentCamID == CAM2)
             {
                 if (SecondaryCam_Manager.Live_Status > -1)
                 {
-                    CHCNetSDK.NET_DVR_PTZControlWithSpeed(SecondaryCam_Manager.Live_Status, CHCNetSDK.PAN_RIGHT, 0, (uint)(Default_Speed_PTZ_Cam2) + 1);
-                    CHCNetSDK.NET_DVR_PTZControlWithSpeed(SecondaryCam_Manager.Live_Status, CHCNetSDK.TILT_UP, 0, (uint)(Default_Speed_PTZ_Cam2) + 1);
+                    CHCNetSDK.NET_DVR_PTZControlWithSpeed(SecondaryCam_Manager.Live_Status, CHCNetSDK.UP_RIGHT, 0, (uint)(Default_Speed_PTZ_Cam2) + 1);
                 }
                 else
                 {
-                    CHCNetSDK.NET_DVR_PTZControlWithSpeed_Other(SecondaryCam_Manager.LoginInfo.LoginStatus, 0, CHCNetSDK.PAN_RIGHT, 0, (uint)(Default_Speed_PTZ_Cam2) + 1);
-                    CHCNetSDK.NET_DVR_PTZControlWithSpeed_Other(SecondaryCam_Manager.LoginInfo.LoginStatus, 0, CHCNetSDK.TILT_UP, 0, (uint)(Default_Speed_PTZ_Cam2) + 1);
+                    CHCNetSDK.NET_DVR_PTZControlWithSpeed_Other(SecondaryCam_Manager.LoginInfo.LoginStatus, 0, CHCNetSDK.UP_RIGHT, 0, (uint)(Default_Speed_PTZ_Cam2) + 1);
                 }
             }
         }
@@ -760,26 +756,22 @@ namespace IPCameraManager
             {
                 if (MainCam_Manager.Live_Status > -1)
                 {
-                    CHCNetSDK.NET_DVR_PTZControlWithSpeed(MainCam_Manager.Live_Status, CHCNetSDK.PAN_RIGHT, 1, (uint)(Default_Speed_PTZ_MainCam) + 1);
-                    CHCNetSDK.NET_DVR_PTZControlWithSpeed(MainCam_Manager.Live_Status, CHCNetSDK.TILT_UP, 1, (uint)(Default_Speed_PTZ_MainCam) + 1);
+                    CHCNetSDK.NET_DVR_PTZControlWithSpeed(MainCam_Manager.Live_Status, CHCNetSDK.UP_RIGHT, 1, (uint)(Default_Speed_PTZ_MainCam) + 1);
                 }
                 else
                 {
-                    CHCNetSDK.NET_DVR_PTZControlWithSpeed_Other(MainCam_Manager.LoginInfo.LoginStatus, 0, CHCNetSDK.PAN_RIGHT, 1, (uint)(Default_Speed_PTZ_MainCam) + 1);
-                    CHCNetSDK.NET_DVR_PTZControlWithSpeed_Other(MainCam_Manager.LoginInfo.LoginStatus, 0, CHCNetSDK.TILT_UP, 1, (uint)(Default_Speed_PTZ_MainCam) + 1);
+                    CHCNetSDK.NET_DVR_PTZControlWithSpeed_Other(MainCam_Manager.LoginInfo.LoginStatus, 0, CHCNetSDK.UP_RIGHT, 1, (uint)(Default_Speed_PTZ_MainCam) + 1);
                 }
             }
             else if (CurrentCamID == CAM2)
             {
                 if (SecondaryCam_Manager.Live_Status > -1)
                 {
-                    CHCNetSDK.NET_DVR_PTZControlWithSpeed(SecondaryCam_Manager.Live_Status, CHCNetSDK.PAN_RIGHT, 1, (uint)(Default_Speed_PTZ_Cam2) + 1);
-                    CHCNetSDK.NET_DVR_PTZControlWithSpeed(SecondaryCam_Manager.Live_Status, CHCNetSDK.TILT_UP, 1, (uint)(Default_Speed_PTZ_Cam2) + 1);
+                    CHCNetSDK.NET_DVR_PTZControlWithSpeed(SecondaryCam_Manager.Live_Status, CHCNetSDK.UP_RIGHT, 1, (uint)(Default_Speed_PTZ_Cam2) + 1);
                 }
                 else
                 {
-                    CHCNetSDK.NET_DVR_PTZControlWithSpeed_Other(SecondaryCam_Manager.LoginInfo.LoginStatus, 0, CHCNetSDK.PAN_RIGHT, 1, (uint)(Default_Speed_PTZ_Cam2) + 1);
-                    CHCNetSDK.NET_DVR_PTZControlWithSpeed_Other(SecondaryCam_Manager.LoginInfo.LoginStatus, 0, CHCNetSDK.TILT_UP, 1, (uint)(Default_Speed_PTZ_Cam2) + 1);
+                    CHCNetSDK.NET_DVR_PTZControlWithSpeed_Other(SecondaryCam_Manager.LoginInfo.LoginStatus, 0, CHCNetSDK.UP_RIGHT, 1, (uint)(Default_Speed_PTZ_Cam2) + 1);
                 }
             }
         }
@@ -791,26 +783,22 @@ namespace IPCameraManager
             {
                 if (MainCam_Manager.Live_Status > -1)
                 {
-                    CHCNetSDK.NET_DVR_PTZControlWithSpeed(MainCam_Manager.Live_Status, CHCNetSDK.TILT_DOWN, 0, (uint)(Default_Speed_PTZ_MainCam) + 1);
-                    CHCNetSDK.NET_DVR_PTZControlWithSpeed(MainCam_Manager.Live_Status, CHCNetSDK.PAN_RIGHT, 0, (uint)(Default_Speed_PTZ_MainCam) + 1);
+                    CHCNetSDK.NET_DVR_PTZControlWithSpeed(MainCam_Manager.Live_Status, CHCNetSDK.DOWN_RIGHT, 0, (uint)(Default_Speed_PTZ_MainCam) + 1);
                 }
                 else
                 {
-                    CHCNetSDK.NET_DVR_PTZControlWithSpeed_Other(MainCam_Manager.LoginInfo.LoginStatus, 0, CHCNetSDK.TILT_DOWN, 0, (uint)(Default_Speed_PTZ_MainCam) + 1);
-                    CHCNetSDK.NET_DVR_PTZControlWithSpeed_Other(MainCam_Manager.LoginInfo.LoginStatus, 0, CHCNetSDK.PAN_RIGHT, 0, (uint)(Default_Speed_PTZ_MainCam) + 1);
+                    CHCNetSDK.NET_DVR_PTZControlWithSpeed_Other(MainCam_Manager.LoginInfo.LoginStatus, 0, CHCNetSDK.DOWN_RIGHT, 0, (uint)(Default_Speed_PTZ_MainCam) + 1);
                 }
             }
             else
             {
                 if (SecondaryCam_Manager.Live_Status > -1)
                 {
-                    CHCNetSDK.NET_DVR_PTZControlWithSpeed(SecondaryCam_Manager.Live_Status, CHCNetSDK.TILT_DOWN, 0, (uint)(Default_Speed_PTZ_Cam2) + 1);
-                    CHCNetSDK.NET_DVR_PTZControlWithSpeed(SecondaryCam_Manager.Live_Status, CHCNetSDK.PAN_RIGHT, 0, (uint)(Default_Speed_PTZ_Cam2) + 1);
+                    CHCNetSDK.NET_DVR_PTZControlWithSpeed(SecondaryCam_Manager.Live_Status, CHCNetSDK.DOWN_RIGHT, 0, (uint)(Default_Speed_PTZ_Cam2) + 1);
                 }
                 else
                 {
-                    CHCNetSDK.NET_DVR_PTZControlWithSpeed_Other(SecondaryCam_Manager.LoginInfo.LoginStatus, 0, CHCNetSDK.TILT_DOWN, 0, (uint)(Default_Speed_PTZ_Cam2) + 1);
-                    CHCNetSDK.NET_DVR_PTZControlWithSpeed_Other(SecondaryCam_Manager.LoginInfo.LoginStatus, 0, CHCNetSDK.PAN_RIGHT, 0, (uint)(Default_Speed_PTZ_Cam2) + 1);
+                    CHCNetSDK.NET_DVR_PTZControlWithSpeed_Other(SecondaryCam_Manager.LoginInfo.LoginStatus, 0, CHCNetSDK.DOWN_RIGHT, 0, (uint)(Default_Speed_PTZ_Cam2) + 1);
                 }
             }
         }
@@ -822,26 +810,22 @@ namespace IPCameraManager
             {
                 if (MainCam_Manager.Live_Status > -1)
                 {
-                    CHCNetSDK.NET_DVR_PTZControlWithSpeed(MainCam_Manager.Live_Status, CHCNetSDK.PAN_RIGHT, 1, (uint)(Default_Speed_PTZ_MainCam) + 1);
-                    CHCNetSDK.NET_DVR_PTZControlWithSpeed(MainCam_Manager.Live_Status, CHCNetSDK.TILT_DOWN, 1, (uint)(Default_Speed_PTZ_MainCam) + 1);
+                    CHCNetSDK.NET_DVR_PTZControlWithSpeed(MainCam_Manager.Live_Status, CHCNetSDK.DOWN_RIGHT, 1, (uint)(Default_Speed_PTZ_MainCam) + 1);
                 }
                 else
                 {
-                    CHCNetSDK.NET_DVR_PTZControlWithSpeed_Other(MainCam_Manager.LoginInfo.LoginStatus, 0, CHCNetSDK.PAN_RIGHT, 1, (uint)(Default_Speed_PTZ_MainCam) + 1);
-                    CHCNetSDK.NET_DVR_PTZControlWithSpeed_Other(MainCam_Manager.LoginInfo.LoginStatus, 0, CHCNetSDK.TILT_DOWN, 1, (uint)(Default_Speed_PTZ_MainCam) + 1);
+                    CHCNetSDK.NET_DVR_PTZControlWithSpeed_Other(MainCam_Manager.LoginInfo.LoginStatus, 0, CHCNetSDK.DOWN_RIGHT, 1, (uint)(Default_Speed_PTZ_MainCam) + 1);
                 }
             }
             else if (CurrentCamID == CAM2)
             {
                 if (SecondaryCam_Manager.Live_Status > -1)
                 {
-                    CHCNetSDK.NET_DVR_PTZControlWithSpeed(SecondaryCam_Manager.Live_Status, CHCNetSDK.PAN_RIGHT, 1, (uint)(Default_Speed_PTZ_Cam2) + 1);
-                    CHCNetSDK.NET_DVR_PTZControlWithSpeed(SecondaryCam_Manager.Live_Status, CHCNetSDK.TILT_DOWN, 1, (uint)(Default_Speed_PTZ_Cam2) + 1);
+                    CHCNetSDK.NET_DVR_PTZControlWithSpeed(SecondaryCam_Manager.Live_Status, CHCNetSDK.DOWN_RIGHT, 1, (uint)(Default_Speed_PTZ_Cam2) + 1);
                 }
                 else
                 {
-                    CHCNetSDK.NET_DVR_PTZControlWithSpeed_Other(SecondaryCam_Manager.LoginInfo.LoginStatus, 0, CHCNetSDK.PAN_RIGHT, 1, (uint)(Default_Speed_PTZ_Cam2) + 1);
-                    CHCNetSDK.NET_DVR_PTZControlWithSpeed_Other(SecondaryCam_Manager.LoginInfo.LoginStatus, 0, CHCNetSDK.TILT_DOWN, 1, (uint)(Default_Speed_PTZ_Cam2) + 1);
+                    CHCNetSDK.NET_DVR_PTZControlWithSpeed_Other(SecondaryCam_Manager.LoginInfo.LoginStatus, 0, CHCNetSDK.DOWN_RIGHT, 1, (uint)(Default_Speed_PTZ_Cam2) + 1);
                 }
             }
         }
@@ -853,26 +837,22 @@ namespace IPCameraManager
             {
                 if (MainCam_Manager.Live_Status > -1)
                 {
-                    CHCNetSDK.NET_DVR_PTZControlWithSpeed(MainCam_Manager.Live_Status, CHCNetSDK.TILT_DOWN, 1, (uint)(Default_Speed_PTZ_MainCam) + 1);
-                    CHCNetSDK.NET_DVR_PTZControlWithSpeed(MainCam_Manager.Live_Status, CHCNetSDK.PAN_LEFT, 1, (uint)(Default_Speed_PTZ_MainCam) + 1);
+                    CHCNetSDK.NET_DVR_PTZControlWithSpeed(MainCam_Manager.Live_Status, CHCNetSDK.DOWN_LEFT, 1, (uint)(Default_Speed_PTZ_MainCam) + 1);
                 }
                 else
                 {
-                    CHCNetSDK.NET_DVR_PTZControlWithSpeed_Other(MainCam_Manager.LoginInfo.LoginStatus, 0, CHCNetSDK.TILT_DOWN, 1, (uint)(Default_Speed_PTZ_MainCam) + 1);
-                    CHCNetSDK.NET_DVR_PTZControlWithSpeed_Other(MainCam_Manager.LoginInfo.LoginStatus, 0, CHCNetSDK.PAN_LEFT, 1, (uint)(Default_Speed_PTZ_MainCam) + 1);
+                    CHCNetSDK.NET_DVR_PTZControlWithSpeed_Other(MainCam_Manager.LoginInfo.LoginStatus, 0, CHCNetSDK.DOWN_LEFT, 1, (uint)(Default_Speed_PTZ_MainCam) + 1);
                 }
             }
             else if (CurrentCamID == CAM2)
             {
                 if (SecondaryCam_Manager.Live_Status > -1)
                 {
-                    CHCNetSDK.NET_DVR_PTZControlWithSpeed(SecondaryCam_Manager.Live_Status, CHCNetSDK.TILT_DOWN, 1, (uint)(Default_Speed_PTZ_Cam2) + 1);
-                    CHCNetSDK.NET_DVR_PTZControlWithSpeed(SecondaryCam_Manager.Live_Status, CHCNetSDK.PAN_LEFT, 1, (uint)(Default_Speed_PTZ_Cam2) + 1);
+                    CHCNetSDK.NET_DVR_PTZControlWithSpeed(SecondaryCam_Manager.Live_Status, CHCNetSDK.DOWN_LEFT, 1, (uint)(Default_Speed_PTZ_Cam2) + 1);
                 }
                 else
                 {
-                    CHCNetSDK.NET_DVR_PTZControlWithSpeed_Other(SecondaryCam_Manager.LoginInfo.LoginStatus, 0, CHCNetSDK.TILT_DOWN, 1, (uint)(Default_Speed_PTZ_Cam2) + 1);
-                    CHCNetSDK.NET_DVR_PTZControlWithSpeed_Other(SecondaryCam_Manager.LoginInfo.LoginStatus, 0, CHCNetSDK.PAN_LEFT, 1, (uint)(Default_Speed_PTZ_Cam2) + 1);
+                    CHCNetSDK.NET_DVR_PTZControlWithSpeed_Other(SecondaryCam_Manager.LoginInfo.LoginStatus, 0, CHCNetSDK.DOWN_LEFT, 1, (uint)(Default_Speed_PTZ_Cam2) + 1);
                 }
             }
         }
@@ -884,26 +864,22 @@ namespace IPCameraManager
             {
                 if (MainCam_Manager.Live_Status > -1)
                 {
-                    CHCNetSDK.NET_DVR_PTZControlWithSpeed(MainCam_Manager.Live_Status, CHCNetSDK.TILT_DOWN, 0, (uint)(Default_Speed_PTZ_MainCam) + 1);
-                    CHCNetSDK.NET_DVR_PTZControlWithSpeed(MainCam_Manager.Live_Status, CHCNetSDK.PAN_LEFT, 0, (uint)(Default_Speed_PTZ_MainCam) + 1);
+                    CHCNetSDK.NET_DVR_PTZControlWithSpeed(MainCam_Manager.Live_Status, CHCNetSDK.DOWN_LEFT, 0, (uint)(Default_Speed_PTZ_MainCam) + 1);
                 }
                 else
                 {
-                    CHCNetSDK.NET_DVR_PTZControlWithSpeed_Other(MainCam_Manager.LoginInfo.LoginStatus, 0, CHCNetSDK.TILT_DOWN, 0, (uint)(Default_Speed_PTZ_MainCam) + 1);
-                    CHCNetSDK.NET_DVR_PTZControlWithSpeed_Other(MainCam_Manager.LoginInfo.LoginStatus, 0, CHCNetSDK.PAN_LEFT, 0, (uint)(Default_Speed_PTZ_MainCam) + 1);
+                    CHCNetSDK.NET_DVR_PTZControlWithSpeed_Other(MainCam_Manager.LoginInfo.LoginStatus, 0, CHCNetSDK.DOWN_LEFT, 0, (uint)(Default_Speed_PTZ_MainCam) + 1);
                 }
             }
             else if (CurrentCamID == CAM2)
             {
                 if (SecondaryCam_Manager.Live_Status > -1)
                 {
-                    CHCNetSDK.NET_DVR_PTZControlWithSpeed(SecondaryCam_Manager.Live_Status, CHCNetSDK.TILT_DOWN, 0, (uint)(Default_Speed_PTZ_Cam2) + 1);
-                    CHCNetSDK.NET_DVR_PTZControlWithSpeed(SecondaryCam_Manager.Live_Status, CHCNetSDK.PAN_LEFT, 0, (uint)(Default_Speed_PTZ_Cam2) + 1);
+                    CHCNetSDK.NET_DVR_PTZControlWithSpeed(SecondaryCam_Manager.Live_Status, CHCNetSDK.DOWN_LEFT, 0, (uint)(Default_Speed_PTZ_Cam2) + 1);
                 }
                 else
                 {
-                    CHCNetSDK.NET_DVR_PTZControlWithSpeed_Other(SecondaryCam_Manager.LoginInfo.LoginStatus, 0, CHCNetSDK.TILT_DOWN, 0, (uint)(Default_Speed_PTZ_Cam2) + 1);
-                    CHCNetSDK.NET_DVR_PTZControlWithSpeed_Other(SecondaryCam_Manager.LoginInfo.LoginStatus, 0, CHCNetSDK.PAN_LEFT, 0, (uint)(Default_Speed_PTZ_Cam2) + 1);
+                    CHCNetSDK.NET_DVR_PTZControlWithSpeed_Other(SecondaryCam_Manager.LoginInfo.LoginStatus, 0, CHCNetSDK.DOWN_LEFT, 0, (uint)(Default_Speed_PTZ_Cam2) + 1);
                 }
             }
         }
@@ -915,26 +891,26 @@ namespace IPCameraManager
             {
                 if (MainCam_Manager.Live_Status > -1)
                 {
-                    CHCNetSDK.NET_DVR_PTZControlWithSpeed(MainCam_Manager.Live_Status, CHCNetSDK.PAN_LEFT, 1, (uint)(Default_Speed_PTZ_MainCam) + 1);
-                    CHCNetSDK.NET_DVR_PTZControlWithSpeed(MainCam_Manager.Live_Status, CHCNetSDK.TILT_UP, 1, (uint)(Default_Speed_PTZ_MainCam) + 1);
+                    CHCNetSDK.NET_DVR_PTZControlWithSpeed(MainCam_Manager.Live_Status, CHCNetSDK.UP_LEFT, 1, (uint)(Default_Speed_PTZ_MainCam) + 1);
+                    //CHCNetSDK.NET_DVR_PTZControlWithSpeed(MainCam_Manager.Live_Status, CHCNetSDK.TILT_UP, 1, (uint)(Default_Speed_PTZ_MainCam) + 1);
                 }
                 else
                 {
-                    CHCNetSDK.NET_DVR_PTZControlWithSpeed_Other(MainCam_Manager.LoginInfo.LoginStatus, 0, CHCNetSDK.PAN_LEFT, 1, (uint)(Default_Speed_PTZ_MainCam) + 1);
-                    CHCNetSDK.NET_DVR_PTZControlWithSpeed_Other(MainCam_Manager.LoginInfo.LoginStatus, 0, CHCNetSDK.TILT_UP, 1, (uint)(Default_Speed_PTZ_MainCam) + 1);
+                    CHCNetSDK.NET_DVR_PTZControlWithSpeed_Other(MainCam_Manager.LoginInfo.LoginStatus, 0, CHCNetSDK.UP_LEFT, 1, (uint)(Default_Speed_PTZ_MainCam) + 1);
+                    //CHCNetSDK.NET_DVR_PTZControlWithSpeed_Other(MainCam_Manager.LoginInfo.LoginStatus, 0, CHCNetSDK.TILT_UP, 1, (uint)(Default_Speed_PTZ_MainCam) + 1);
                 }
             }
             else if (CurrentCamID == CAM2)
             {
                 if (SecondaryCam_Manager.Live_Status > -1)
                 {
-                    CHCNetSDK.NET_DVR_PTZControlWithSpeed(SecondaryCam_Manager.Live_Status, CHCNetSDK.PAN_LEFT, 1, (uint)(Default_Speed_PTZ_Cam2) + 1);
-                    CHCNetSDK.NET_DVR_PTZControlWithSpeed(SecondaryCam_Manager.Live_Status, CHCNetSDK.TILT_UP, 1, (uint)(Default_Speed_PTZ_Cam2) + 1);
+                    CHCNetSDK.NET_DVR_PTZControlWithSpeed(SecondaryCam_Manager.Live_Status, CHCNetSDK.UP_LEFT, 1, (uint)(Default_Speed_PTZ_Cam2) + 1);
+                    //CHCNetSDK.NET_DVR_PTZControlWithSpeed(SecondaryCam_Manager.Live_Status, CHCNetSDK.TILT_UP, 1, (uint)(Default_Speed_PTZ_Cam2) + 1);
                 }
                 else
                 {
-                    CHCNetSDK.NET_DVR_PTZControlWithSpeed_Other(SecondaryCam_Manager.LoginInfo.LoginStatus, 0, CHCNetSDK.PAN_LEFT, 1, (uint)(Default_Speed_PTZ_Cam2) + 1);
-                    CHCNetSDK.NET_DVR_PTZControlWithSpeed_Other(SecondaryCam_Manager.LoginInfo.LoginStatus, 0, CHCNetSDK.TILT_UP, 1, (uint)(Default_Speed_PTZ_Cam2) + 1);
+                    CHCNetSDK.NET_DVR_PTZControlWithSpeed_Other(SecondaryCam_Manager.LoginInfo.LoginStatus, 0, CHCNetSDK.UP_LEFT, 1, (uint)(Default_Speed_PTZ_Cam2) + 1);
+                    //CHCNetSDK.NET_DVR_PTZControlWithSpeed_Other(SecondaryCam_Manager.LoginInfo.LoginStatus, 0, CHCNetSDK.TILT_UP, 1, (uint)(Default_Speed_PTZ_Cam2) + 1);
                 }
             }
         }
@@ -946,26 +922,26 @@ namespace IPCameraManager
             {
                 if (MainCam_Manager.Live_Status > -1)
                 {
-                    CHCNetSDK.NET_DVR_PTZControlWithSpeed(MainCam_Manager.Live_Status, CHCNetSDK.PAN_LEFT, 0, (uint)(Default_Speed_PTZ_MainCam) + 1);
-                    CHCNetSDK.NET_DVR_PTZControlWithSpeed(MainCam_Manager.Live_Status, CHCNetSDK.TILT_UP, 0, (uint)(Default_Speed_PTZ_MainCam) + 1);
+                    CHCNetSDK.NET_DVR_PTZControlWithSpeed(MainCam_Manager.Live_Status, CHCNetSDK.UP_LEFT, 0, (uint)(Default_Speed_PTZ_MainCam) + 1);
+                    //CHCNetSDK.NET_DVR_PTZControlWithSpeed(MainCam_Manager.Live_Status, CHCNetSDK.TILT_UP, 0, (uint)(Default_Speed_PTZ_MainCam) + 1);
                 }
                 else
                 {
-                    CHCNetSDK.NET_DVR_PTZControlWithSpeed_Other(MainCam_Manager.LoginInfo.LoginStatus, 0, CHCNetSDK.PAN_LEFT, 0, (uint)(Default_Speed_PTZ_MainCam) + 1);
-                    CHCNetSDK.NET_DVR_PTZControlWithSpeed_Other(MainCam_Manager.LoginInfo.LoginStatus, 0, CHCNetSDK.TILT_UP, 0, (uint)(Default_Speed_PTZ_MainCam) + 1);
+                    CHCNetSDK.NET_DVR_PTZControlWithSpeed_Other(MainCam_Manager.LoginInfo.LoginStatus, 0, CHCNetSDK.UP_LEFT, 0, (uint)(Default_Speed_PTZ_MainCam) + 1);
+                    //CHCNetSDK.NET_DVR_PTZControlWithSpeed_Other(MainCam_Manager.LoginInfo.LoginStatus, 0, CHCNetSDK.TILT_UP, 0, (uint)(Default_Speed_PTZ_MainCam) + 1);
                 }
             }
             else if (CurrentCamID == CAM2)
             {
                 if (SecondaryCam_Manager.Live_Status > -1)
                 {
-                    CHCNetSDK.NET_DVR_PTZControlWithSpeed(SecondaryCam_Manager.Live_Status, CHCNetSDK.PAN_LEFT, 0, (uint)(Default_Speed_PTZ_Cam2) + 1);
-                    CHCNetSDK.NET_DVR_PTZControlWithSpeed(SecondaryCam_Manager.Live_Status, CHCNetSDK.TILT_UP, 0, (uint)(Default_Speed_PTZ_Cam2) + 1);
+                    CHCNetSDK.NET_DVR_PTZControlWithSpeed(SecondaryCam_Manager.Live_Status, CHCNetSDK.UP_LEFT, 0, (uint)(Default_Speed_PTZ_Cam2) + 1);
+                    //CHCNetSDK.NET_DVR_PTZControlWithSpeed(SecondaryCam_Manager.Live_Status, CHCNetSDK.TILT_UP, 0, (uint)(Default_Speed_PTZ_Cam2) + 1);
                 }
                 else
                 {
-                    CHCNetSDK.NET_DVR_PTZControlWithSpeed_Other(SecondaryCam_Manager.LoginInfo.LoginStatus, 0, CHCNetSDK.PAN_LEFT, 0, (uint)(Default_Speed_PTZ_Cam2) + 1);
-                    CHCNetSDK.NET_DVR_PTZControlWithSpeed_Other(SecondaryCam_Manager.LoginInfo.LoginStatus, 0, CHCNetSDK.TILT_UP, 0, (uint)(Default_Speed_PTZ_Cam2) + 1);
+                    CHCNetSDK.NET_DVR_PTZControlWithSpeed_Other(SecondaryCam_Manager.LoginInfo.LoginStatus, 0, CHCNetSDK.UP_LEFT, 0, (uint)(Default_Speed_PTZ_Cam2) + 1);
+                    //CHCNetSDK.NET_DVR_PTZControlWithSpeed_Other(SecondaryCam_Manager.LoginInfo.LoginStatus, 0, CHCNetSDK.TILT_UP, 0, (uint)(Default_Speed_PTZ_Cam2) + 1);
                 }
             }
         }
