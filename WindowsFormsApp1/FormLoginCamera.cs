@@ -34,8 +34,6 @@ namespace IPCameraManager
         private const int ERR_NOT_OK = 1;
         private bool is_ButtonLogin_Pressed = false;
 
-        private int RetryIPScan_Count = 5;
-
         private void Init_Button()
         {
             btLogin.GotFocus += (s, a) =>
@@ -129,6 +127,57 @@ namespace IPCameraManager
 
 
         }
+        public int Login_Main_Camera_with_no_MessageBox(LoginCameraInfo_Type info)
+        {
+            if (info.LoginStatus < 0)
+            {
+                string DVRIPAddress = info.IP_Address;
+                Int16 DVRPortNumber;
+                try
+                {
+                    DVRPortNumber = Int16.Parse(info.Port);
+                }
+                catch
+                {
+                    return ERR_NOT_OK;
+                }
+                string DVRUserName = info.Username;
+                string DVRPassword = info.Password;
+
+                try
+                {
+                    IPAddress address = IPAddress.Parse(DVRIPAddress);
+                }
+                catch
+                {
+                    //MessageBox.Show("Địa chỉ IP không xác định!", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return ERR_NOT_OK;
+                }
+
+                CHCNetSDK.NET_DVR_DEVICEINFO_V30 DeviceInfo = new CHCNetSDK.NET_DVR_DEVICEINFO_V30();
+
+                //Login the device
+                LoginInfo_MainCAM.LoginStatus = CHCNetSDK.NET_DVR_Login_V30(DVRIPAddress, DVRPortNumber, DVRUserName, DVRPassword, ref DeviceInfo);
+                if (LoginInfo_MainCAM.LoginStatus < 0)
+                {
+                    Err_Return = CHCNetSDK.NET_DVR_GetLastError();
+                    string str = "Camera chính: Đăng nhập thất bại, error code = " + Err_Return; // Print Error Name through Message Box
+                    //MessageBox.Show(str, "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return ERR_NOT_OK;
+                }
+                else
+                {
+                    //Login Success
+                    return ERR_OK;
+                }
+
+            }
+            else
+            {
+                // Already Login
+                return ERR_NOT_OK;
+            }
+        }
         public int Login_Main_Camera(LoginCameraInfo_Type info)
         {
             if (info.LoginStatus < 0)
@@ -165,6 +214,57 @@ namespace IPCameraManager
                     Err_Return = CHCNetSDK.NET_DVR_GetLastError();
                     string str = "Camera chính: Đăng nhập thất bại, error code = " + Err_Return; // Print Error Name through Message Box
                     MessageBox.Show(str, "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return ERR_NOT_OK;
+                }
+                else
+                {
+                    //Login Success
+                    return ERR_OK;
+                }
+
+            }
+            else
+            {
+                // Already Login
+                return ERR_NOT_OK;
+            }
+        }
+        public int Login_Second_Camera_with_no_MessageBox(LoginCameraInfo_Type info)
+        {
+            if (info.LoginStatus < 0)
+            {
+                string DVRIPAddress = info.IP_Address;
+                Int16 DVRPortNumber;
+                try
+                {
+                    DVRPortNumber = Int16.Parse(info.Port);
+                }
+                catch
+                {
+                    return ERR_NOT_OK;
+                }
+                string DVRUserName = info.Username;
+                string DVRPassword = info.Password;
+
+                try
+                {
+                    IPAddress address = IPAddress.Parse(DVRIPAddress);
+                }
+                catch
+                {
+                    //MessageBox.Show("Địa chỉ IP không xác định!", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return ERR_NOT_OK;
+                }
+
+                CHCNetSDK.NET_DVR_DEVICEINFO_V30 DeviceInfo = new CHCNetSDK.NET_DVR_DEVICEINFO_V30();
+
+                //Login the device
+                LoginInfo_CAM2.LoginStatus = CHCNetSDK.NET_DVR_Login_V30(DVRIPAddress, DVRPortNumber, DVRUserName, DVRPassword, ref DeviceInfo);
+                if (LoginInfo_CAM2.LoginStatus < 0)
+                {
+                    Err_Return = CHCNetSDK.NET_DVR_GetLastError();
+                    string str = "Camera phụ: Đăng nhập thất bại, error code = " + Err_Return; // Print Error Name through Message Box
+                    //MessageBox.Show(str, "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return ERR_NOT_OK;
                 }
                 else

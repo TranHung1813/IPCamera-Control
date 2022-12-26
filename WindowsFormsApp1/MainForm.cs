@@ -549,7 +549,7 @@ namespace IPCameraManager
                 formLoginCam.Load_MainCAM_Database_Info(ucPage1.MainCam_Manager.LoginInfo);
 
                 // Login Camera roi Bat Live
-                if (ERR_OK == formLoginCam.Login_Main_Camera(ucPage1.MainCam_Manager.LoginInfo))
+                if (ERR_OK == formLoginCam.Login_Main_Camera_with_no_MessageBox(ucPage1.MainCam_Manager.LoginInfo))
                 {
                     TrangThaiCamChinh.Text = "Camera chính: Kết nối Camera thành công. Đang tải hình ảnh ...";
 
@@ -717,7 +717,7 @@ namespace IPCameraManager
                 formLoginCam.Load_SecondCAM_Database_Info(ucPage1.SecondaryCam_Manager.LoginInfo);
 
                 // Login Camera roi Bat Live
-                if (ERR_OK == formLoginCam.Login_Second_Camera(ucPage1.SecondaryCam_Manager.LoginInfo))
+                if (ERR_OK == formLoginCam.Login_Second_Camera_with_no_MessageBox(ucPage1.SecondaryCam_Manager.LoginInfo))
                 {
                     TrangThaiCamPhu.Text = "Camera phụ: Kết nối Camera thành công. Đang tải hình ảnh ...";
                     // Lay thong tin dang nhap thanh cong hay that bai

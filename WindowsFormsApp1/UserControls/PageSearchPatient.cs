@@ -156,7 +156,7 @@ namespace IPCameraManager
                     if (openFileDialog.ShowDialog() == DialogResult.OK)
                     {
                         Anh2_Path = openFileDialog.FileName;
-                        picBox1.Load(Anh2_Path);
+                        picBox2.Load(Anh2_Path);
                     }
                 }
                 catch

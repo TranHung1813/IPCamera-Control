@@ -70,7 +70,6 @@ namespace IPCameraManager
             this.groupBox6.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.groupBox6.AutoSize = true;
             this.groupBox6.Controls.Add(this.btXoaChonAnh1);
             this.groupBox6.Controls.Add(this.btChonAnh1);
             this.groupBox6.Controls.Add(this.label10);
@@ -592,7 +591,6 @@ namespace IPCameraManager
             ((System.ComponentModel.ISupportInitialize)(this.picBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
