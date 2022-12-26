@@ -92,6 +92,18 @@ namespace IPCameraManager
             {
                 CHCNetSDK.NET_DVR_Logout(SecondaryCam_Manager.LoginInfo.LoginStatus);
             }
+            // Abort Thread
+            if(LoadingCamera_Trd != null)
+            {
+                try
+                {
+                    LoadingCamera_Trd.Abort();
+                }
+                catch
+                {
+
+                }
+            }
             if (disposing)
             {
                 if (components != null)

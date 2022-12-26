@@ -118,7 +118,6 @@ E:\Projects\IPCameraControl\WindowsFormsApp1\bin\x64\Debug\System.Resources.Exte
 E:\Projects\IPCameraControl\WindowsFormsApp1\bin\x64\Debug\System.Runtime.CompilerServices.Unsafe.xml
 E:\Projects\IPCameraControl\WindowsFormsApp1\obj\x64\Debug\IPCamera_Manager.csproj.AssemblyReference.cache
 E:\Projects\IPCameraControl\WindowsFormsApp1\obj\x64\Debug\IPCamera_Manager.csproj.ResolveComReference.cache
-E:\Projects\IPCameraControl\WindowsFormsApp1\obj\x64\Debug\IPCameraManager.FormSetupPTZ.resources
 E:\Projects\IPCameraControl\WindowsFormsApp1\obj\x64\Debug\IPCameraManager.FormLoginCamera.resources
 E:\Projects\IPCameraControl\WindowsFormsApp1\obj\x64\Debug\IPCameraManager.MainForm.resources
 E:\Projects\IPCameraControl\WindowsFormsApp1\obj\x64\Debug\IPCameraManager.SetFoldertoSaveFile_Form.resources

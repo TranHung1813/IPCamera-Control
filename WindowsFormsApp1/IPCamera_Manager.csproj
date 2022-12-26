@@ -199,12 +199,6 @@
     <Compile Include="FormSetting_KeyboardShortcut.Designer.cs">
       <DependentUpon>FormSetting_KeyboardShortcut.cs</DependentUpon>
     </Compile>
-    <Compile Include="FormSetupPTZ.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="FormSetupPTZ.Designer.cs">
-      <DependentUpon>FormSetupPTZ.cs</DependentUpon>
-    </Compile>
     <Compile Include="FormTimeCorrect.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -295,9 +289,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FormSetTemplateDirectory.resx">
       <DependentUpon>FormSetTemplateDirectory.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="FormSetupPTZ.resx">
-      <DependentUpon>FormSetupPTZ.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UserControls\PageSearchPatient.resx">
       <DependentUpon>PageSearchPatient.cs</DependentUpon>

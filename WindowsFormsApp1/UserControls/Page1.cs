@@ -149,6 +149,16 @@ namespace IPCameraManager
             {
                 CHCNetSDK.NET_DVR_Logout(SecondaryCam_Manager.LoginInfo.LoginStatus);
             }
+            // Abort Thread
+            if(FillTextOverlay_trd != null)
+            {
+                try
+                {
+                    FillTextOverlay_trd.Abort();
+                }
+                catch
+                { }
+            }
             if (disposing)
             {
                 if (components != null)
@@ -545,16 +555,6 @@ namespace IPCameraManager
         private void btConnectCam2_Click(object sender, EventArgs e)
         {
             OnNotifyConnect_SecondaryCam();
-        }
-
-        private void btSetupPZT_MainCAM_Click(object sender, EventArgs e)
-        {
-            FormSetupPTZ formSetupPZT = new FormSetupPTZ(MainCam_Manager, SecondaryCam_Manager);
-            Point point = this.PointToScreen(RealPlayWnd.Location);
-            point.X += RealPlayWnd.Width - 5;
-            formSetupPZT.StartPosition = FormStartPosition.Manual;
-            formSetupPZT.Location = point;
-            formSetupPZT.Show();
         }
         // File Text Overlay
         private void ThreadTask_FillTextOverlay()
