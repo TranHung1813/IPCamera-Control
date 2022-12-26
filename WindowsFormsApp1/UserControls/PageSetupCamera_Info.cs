@@ -29,14 +29,14 @@ namespace IPCameraManager
         //private const int MAXSPEED_PTZ = 7;
         private const int Default_Speed_PTZ_MainCam = 1;
         private const int Default_Speed_PTZ_Cam2 = 5;
-        private int MainCam_MaxZoom = 0;
-        private int MainCam_MinZoom = 0;
+        private float MainCam_MaxZoom = 0;
+        private float MainCam_MinZoom = 0;
         private int MainCam_MaxPan = 0;
         private int MainCam_MinPan = 0;
         private int MainCam_MaxTilt = 0;
         private int MainCam_MinTilt = 0;
-        private int Cam2_MaxZoom = 0;
-        private int Cam2_MinZoom = 0;
+        private float Cam2_MaxZoom = 0;
+        private float Cam2_MinZoom = 0;
         private int Cam2_MaxPan = 0;
         private int Cam2_MinPan = 0;
         private int Cam2_MaxTilt = 0;
@@ -564,13 +564,13 @@ namespace IPCameraManager
 
                 MainCam_MaxPan = (int)WPanPosMax;
                 MainCam_MinPan = (int)WPanPosMin;
-                MainCam_MaxZoom = (int)WZoomPosMax;
-                MainCam_MinZoom = (int)WZoomPosMin;
+                MainCam_MaxZoom = WZoomPosMax;
+                MainCam_MinZoom = WZoomPosMin;
                 MainCam_MaxTilt = (int)WTiltPosMax;
                 MainCam_MinTilt = (int)WTiltPosMin;
 
-                tB_Zoom.Maximum = MainCam_MaxZoom;
-                tB_Zoom.Minimum = MainCam_MinZoom;
+                tB_Zoom.Maximum = (int)(MainCam_MaxZoom * 2);
+                tB_Zoom.Minimum = (int)(MainCam_MinZoom * 2);
                 return ERR_OK;
             }
         }
@@ -608,13 +608,13 @@ namespace IPCameraManager
 
                 Cam2_MaxPan = (int)WPanPosMax;
                 Cam2_MinPan = (int)WPanPosMin;
-                Cam2_MaxZoom = (int)WZoomPosMax;
-                Cam2_MinZoom = (int)WZoomPosMin;
+                Cam2_MaxZoom = WZoomPosMax;
+                Cam2_MinZoom = WZoomPosMin;
                 Cam2_MaxTilt = (int)WTiltPosMax;
                 Cam2_MinTilt = (int)WTiltPosMin;
 
-                tB_Zoom.Maximum = Cam2_MaxZoom;
-                tB_Zoom.Minimum = Cam2_MinZoom;
+                tB_Zoom.Maximum = (int)(Cam2_MaxZoom * 2);
+                tB_Zoom.Minimum = (int)(Cam2_MinZoom * 2);
                 return ERR_OK;
             }
         }
@@ -892,12 +892,10 @@ namespace IPCameraManager
                 if (MainCam_Manager.Live_Status > -1)
                 {
                     CHCNetSDK.NET_DVR_PTZControlWithSpeed(MainCam_Manager.Live_Status, CHCNetSDK.UP_LEFT, 1, (uint)(Default_Speed_PTZ_MainCam) + 1);
-                    //CHCNetSDK.NET_DVR_PTZControlWithSpeed(MainCam_Manager.Live_Status, CHCNetSDK.TILT_UP, 1, (uint)(Default_Speed_PTZ_MainCam) + 1);
                 }
                 else
                 {
                     CHCNetSDK.NET_DVR_PTZControlWithSpeed_Other(MainCam_Manager.LoginInfo.LoginStatus, 0, CHCNetSDK.UP_LEFT, 1, (uint)(Default_Speed_PTZ_MainCam) + 1);
-                    //CHCNetSDK.NET_DVR_PTZControlWithSpeed_Other(MainCam_Manager.LoginInfo.LoginStatus, 0, CHCNetSDK.TILT_UP, 1, (uint)(Default_Speed_PTZ_MainCam) + 1);
                 }
             }
             else if (CurrentCamID == CAM2)
@@ -905,12 +903,10 @@ namespace IPCameraManager
                 if (SecondaryCam_Manager.Live_Status > -1)
                 {
                     CHCNetSDK.NET_DVR_PTZControlWithSpeed(SecondaryCam_Manager.Live_Status, CHCNetSDK.UP_LEFT, 1, (uint)(Default_Speed_PTZ_Cam2) + 1);
-                    //CHCNetSDK.NET_DVR_PTZControlWithSpeed(SecondaryCam_Manager.Live_Status, CHCNetSDK.TILT_UP, 1, (uint)(Default_Speed_PTZ_Cam2) + 1);
                 }
                 else
                 {
                     CHCNetSDK.NET_DVR_PTZControlWithSpeed_Other(SecondaryCam_Manager.LoginInfo.LoginStatus, 0, CHCNetSDK.UP_LEFT, 1, (uint)(Default_Speed_PTZ_Cam2) + 1);
-                    //CHCNetSDK.NET_DVR_PTZControlWithSpeed_Other(SecondaryCam_Manager.LoginInfo.LoginStatus, 0, CHCNetSDK.TILT_UP, 1, (uint)(Default_Speed_PTZ_Cam2) + 1);
                 }
             }
         }
@@ -923,12 +919,10 @@ namespace IPCameraManager
                 if (MainCam_Manager.Live_Status > -1)
                 {
                     CHCNetSDK.NET_DVR_PTZControlWithSpeed(MainCam_Manager.Live_Status, CHCNetSDK.UP_LEFT, 0, (uint)(Default_Speed_PTZ_MainCam) + 1);
-                    //CHCNetSDK.NET_DVR_PTZControlWithSpeed(MainCam_Manager.Live_Status, CHCNetSDK.TILT_UP, 0, (uint)(Default_Speed_PTZ_MainCam) + 1);
                 }
                 else
                 {
                     CHCNetSDK.NET_DVR_PTZControlWithSpeed_Other(MainCam_Manager.LoginInfo.LoginStatus, 0, CHCNetSDK.UP_LEFT, 0, (uint)(Default_Speed_PTZ_MainCam) + 1);
-                    //CHCNetSDK.NET_DVR_PTZControlWithSpeed_Other(MainCam_Manager.LoginInfo.LoginStatus, 0, CHCNetSDK.TILT_UP, 0, (uint)(Default_Speed_PTZ_MainCam) + 1);
                 }
             }
             else if (CurrentCamID == CAM2)
@@ -936,12 +930,10 @@ namespace IPCameraManager
                 if (SecondaryCam_Manager.Live_Status > -1)
                 {
                     CHCNetSDK.NET_DVR_PTZControlWithSpeed(SecondaryCam_Manager.Live_Status, CHCNetSDK.UP_LEFT, 0, (uint)(Default_Speed_PTZ_Cam2) + 1);
-                    //CHCNetSDK.NET_DVR_PTZControlWithSpeed(SecondaryCam_Manager.Live_Status, CHCNetSDK.TILT_UP, 0, (uint)(Default_Speed_PTZ_Cam2) + 1);
                 }
                 else
                 {
                     CHCNetSDK.NET_DVR_PTZControlWithSpeed_Other(SecondaryCam_Manager.LoginInfo.LoginStatus, 0, CHCNetSDK.UP_LEFT, 0, (uint)(Default_Speed_PTZ_Cam2) + 1);
-                    //CHCNetSDK.NET_DVR_PTZControlWithSpeed_Other(SecondaryCam_Manager.LoginInfo.LoginStatus, 0, CHCNetSDK.TILT_UP, 0, (uint)(Default_Speed_PTZ_Cam2) + 1);
                 }
             }
         }
@@ -956,7 +948,7 @@ namespace IPCameraManager
                 m_struPtzCfg_main.wAction = 4;
                 m_struPtzCfg_main.wZoomPos = (ushort)tB_Zoom.Value;
 
-                str3 = Convert.ToString((float)(tB_Zoom.Value * 10));
+                str3 = Convert.ToString((float)(tB_Zoom.Value * 5));
                 m_struPtzCfg_main.wZoomPos = (ushort)(Convert.ToUInt16(str3, 16));
 
                 while (flag == 0)
@@ -993,7 +985,7 @@ namespace IPCameraManager
                 m_struPtzCfg_second.wAction = 4;
                 m_struPtzCfg_second.wZoomPos = (ushort)tB_Zoom.Value;
 
-                str3 = Convert.ToString((float)(tB_Zoom.Value * 10));
+                str3 = Convert.ToString((float)(tB_Zoom.Value * 5));
                 m_struPtzCfg_second.wZoomPos = (ushort)(Convert.ToUInt16(str3, 16));
 
                 while (flag == 0)
@@ -1029,11 +1021,18 @@ namespace IPCameraManager
         {
             try
             {
-                tB_Zoom.Value--;
+                tB_Zoom.Value -= 2;
             }
             catch
             {
+                try
+                {
+                    tB_Zoom.Value -= 1;
+                }
+                catch
+                {
 
+                }
             }
         }
 
@@ -1041,11 +1040,18 @@ namespace IPCameraManager
         {
             try
             {
-                tB_Zoom.Value++;
+                tB_Zoom.Value += 2;
             }
             catch
             {
+                try
+                {
+                    tB_Zoom.Value += 1;
+                }
+                catch
+                {
 
+                }
             }
         }
         private void PtzGet_Click(object sender, EventArgs e)
@@ -1077,17 +1083,17 @@ namespace IPCameraManager
                     ushort wZoomPos = Convert.ToUInt16(Convert.ToString(m_struPtzCfg_main.wZoomPos, 16));
                     float WZoomPos = wZoomPos * 0.1f;
                     //textBoxZoomPos.Text = Convert.ToString(WZoomPos);
-                    if ((int)WZoomPos < tB_Zoom.Minimum)
+                    if (WZoomPos < (float)(tB_Zoom.Minimum / 2))
                     {
                         tB_Zoom.Value = tB_Zoom.Minimum;
                     }
-                    else if ((int)WZoomPos > tB_Zoom.Maximum)
+                    else if (WZoomPos > (float)(tB_Zoom.Maximum / 2))
                     {
                         tB_Zoom.Value = tB_Zoom.Maximum;
                     }
                     else
                     {
-                        tB_Zoom.Value = (int)WZoomPos;
+                        tB_Zoom.Value = (int)(WZoomPos * 2);
                     }
                 }
                 return;
@@ -1119,17 +1125,17 @@ namespace IPCameraManager
                     ushort wZoomPos = Convert.ToUInt16(Convert.ToString(m_struPtzCfg_second.wZoomPos, 16));
                     float WZoomPos = wZoomPos * 0.1f;
                     //textBoxZoomPos.Text = Convert.ToString(WZoomPos);
-                    if ((int)WZoomPos < tB_Zoom.Minimum)
+                    if (WZoomPos < (float)(tB_Zoom.Minimum / 2))
                     {
                         tB_Zoom.Value = tB_Zoom.Minimum;
                     }
-                    else if ((int)WZoomPos > tB_Zoom.Maximum)
+                    else if (WZoomPos > (float)(tB_Zoom.Maximum / 2))
                     {
                         tB_Zoom.Value = tB_Zoom.Maximum;
                     }
                     else
                     {
-                        tB_Zoom.Value = (int)WZoomPos;
+                        tB_Zoom.Value = (int)(WZoomPos * 2);
                     }
 
                 }
@@ -1405,6 +1411,30 @@ namespace IPCameraManager
                 timerhue.Stop();
                 timerhue = null;
             }));
+        }
+
+        private void labelZoomIn_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                tB_Zoom.Value += 1;
+            }
+            catch
+            {
+
+            }
+        }
+
+        private void labelZoomOut_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                tB_Zoom.Value -= 1;
+            }
+            catch
+            {
+
+            }
         }
     }
 }
