@@ -536,15 +536,16 @@ namespace IPCameraManager
                 LoginInfo_CAM2.Password = textBoxPassword.Text;
             }
         }
-
+        private bool ShowPassword = false;
         private void textBoxPassword_IconRightClick(object sender, EventArgs e)
         {
-            if(textBoxPassword.PasswordChar == '*')
+            ShowPassword = !ShowPassword;
+            if (ShowPassword == true)
             {
                 textBoxPassword.PasswordChar = '\0';
                 textBoxPassword.IconRight = Properties.Resources.eye_open;
             }
-            else if (textBoxPassword.PasswordChar == '\0')
+            else
             {
                 textBoxPassword.PasswordChar = '*';
                 textBoxPassword.IconRight = Properties.Resources.eye_hidden;

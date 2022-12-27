@@ -166,9 +166,11 @@ namespace IPCameraManager
             this.tB_Zoom.BackColor = System.Drawing.Color.White;
             this.tB_Zoom.LargeChange = 1;
             this.tB_Zoom.Location = new System.Drawing.Point(90, 271);
+            this.tB_Zoom.Minimum = 2;
             this.tB_Zoom.Name = "tB_Zoom";
             this.tB_Zoom.Size = new System.Drawing.Size(216, 45);
             this.tB_Zoom.TabIndex = 54;
+            this.tB_Zoom.Value = 2;
             this.tB_Zoom.ValueChanged += new System.EventHandler(this.tB_Zoom_ValueChanged);
             // 
             // btCross_LU

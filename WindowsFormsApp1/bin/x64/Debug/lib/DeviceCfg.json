@@ -107,5 +107,41 @@
 					"StreamType":	0,
 					"LinkMode":	0
 				}]
+		}, {
+			"ID":	3,
+			"SerialNumber":	"DS-2DE4225IW-DE20190917CCWRD63196689W",
+			"ChannelNumber":	1,
+			"StartChannel":	1,
+			"AlarmInNum":	0,
+			"AlarmOutNum":	0,
+			"IPChanNum":	0,
+			"MirrorChanNum":	0,
+			"StartMirrorChanNo":	0,
+			"LocalNodeName":	"192.168.2.1",
+			"DeviceType":	41,
+			"DiskNum":	0,
+			"LoginUserName":	"admin",
+			"LoginUserPwd":	"abcd1234",
+			"DeviceIP":	"192.168.2.182",
+			"DeviceMultiIP":	"0.0.0.0",
+			"DevicePort":	8000,
+			"DeviceName":	"",
+			"LoginMode":	0,
+			"Https":	0,
+			"Channels":	[{
+					"ChanID":	0,
+					"DeviceIndex":	3,
+					"ChanIndex":	0,
+					"ChanName":	"Camera1",
+					"Protocol":	0,
+					"PicResolution":	0,
+					"PicQuality":	0,
+					"Enable":	1,
+					"PreviewMode":	0,
+					"PreviewProtocolType":	0,
+					"VideoCodingType":	0,
+					"StreamType":	0,
+					"LinkMode":	0
+				}]
 		}]
 }
