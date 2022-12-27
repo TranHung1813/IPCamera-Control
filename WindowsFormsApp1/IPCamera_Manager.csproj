@@ -263,6 +263,8 @@
     </Compile>
     <Compile Include="Utility.cs" />
     <Content Include="Doctor-icon.ico" />
+    <None Include="Resources\eye-hidden.png" />
+    <None Include="Resources\eye-open.png" />
     <None Include="Resources\zoom-out-icon2.png" />
     <None Include="Resources\zoom-in-icon2.png" />
     <None Include="Resources\setting_Icon1.png" />

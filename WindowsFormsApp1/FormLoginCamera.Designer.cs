@@ -40,7 +40,6 @@ namespace IPCameraManager
             this.label7 = new System.Windows.Forms.Label();
             this.btLogin = new Guna.UI2.WinForms.Guna2Button();
             this.textBoxPort = new Guna.UI2.WinForms.Guna2TextBox();
-            this.textBoxPassword = new Guna.UI2.WinForms.Guna2TextBox();
             this.label8 = new System.Windows.Forms.Label();
             this.textBoxIP = new Guna.UI2.WinForms.Guna2TextBox();
             this.guna2CheckBox1 = new Guna.UI2.WinForms.Guna2CheckBox();
@@ -48,6 +47,7 @@ namespace IPCameraManager
             this.panelTabControl = new Guna.UI2.WinForms.Guna2Panel();
             this.btTabCam2 = new Guna.UI2.WinForms.Guna2Button();
             this.btTabMainCam = new Guna.UI2.WinForms.Guna2Button();
+            this.textBoxPassword = new Guna.UI2.WinForms.Guna2TextBox();
             this.panel_Top.SuspendLayout();
             this.guna2GroupBox1.SuspendLayout();
             this.panelTabControl.SuspendLayout();
@@ -203,35 +203,6 @@ namespace IPCameraManager
             this.textBoxPort.TabIndex = 22;
             this.textBoxPort.TextChanged += new System.EventHandler(this.textBoxPort_TextChanged);
             // 
-            // textBoxPassword
-            // 
-            this.textBoxPassword.BorderColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.textBoxPassword.BorderRadius = 4;
-            this.textBoxPassword.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.textBoxPassword.DefaultText = "abcd1234";
-            this.textBoxPassword.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
-            this.textBoxPassword.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
-            this.textBoxPassword.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.textBoxPassword.DisabledState.Parent = this.textBoxPassword;
-            this.textBoxPassword.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.textBoxPassword.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.textBoxPassword.FocusedState.Parent = this.textBoxPassword;
-            this.textBoxPassword.Font = new System.Drawing.Font("Tahoma", 11.5F);
-            this.textBoxPassword.ForeColor = System.Drawing.Color.Black;
-            this.textBoxPassword.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.textBoxPassword.HoverState.Parent = this.textBoxPassword;
-            this.textBoxPassword.Location = new System.Drawing.Point(119, 244);
-            this.textBoxPassword.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.textBoxPassword.Name = "textBoxPassword";
-            this.textBoxPassword.PasswordChar = '*';
-            this.textBoxPassword.PlaceholderText = "";
-            this.textBoxPassword.SelectedText = "";
-            this.textBoxPassword.SelectionStart = 8;
-            this.textBoxPassword.ShadowDecoration.Parent = this.textBoxPassword;
-            this.textBoxPassword.Size = new System.Drawing.Size(160, 30);
-            this.textBoxPassword.TabIndex = 25;
-            this.textBoxPassword.TextChanged += new System.EventHandler(this.textBoxPassword_TextChanged);
-            // 
             // label8
             // 
             this.label8.AutoSize = true;
@@ -382,6 +353,38 @@ namespace IPCameraManager
             this.btTabMainCam.TabIndex = 0;
             this.btTabMainCam.Text = "Cam Chính";
             this.btTabMainCam.Click += new System.EventHandler(this.btTabMainCam_Click);
+            // 
+            // textBoxPassword
+            // 
+            this.textBoxPassword.BorderColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.textBoxPassword.BorderRadius = 4;
+            this.textBoxPassword.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.textBoxPassword.DefaultText = "abcd1234";
+            this.textBoxPassword.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
+            this.textBoxPassword.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
+            this.textBoxPassword.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.textBoxPassword.DisabledState.Parent = this.textBoxPassword;
+            this.textBoxPassword.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.textBoxPassword.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.textBoxPassword.FocusedState.Parent = this.textBoxPassword;
+            this.textBoxPassword.Font = new System.Drawing.Font("Tahoma", 11.5F);
+            this.textBoxPassword.ForeColor = System.Drawing.Color.Black;
+            this.textBoxPassword.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.textBoxPassword.HoverState.Parent = this.textBoxPassword;
+            this.textBoxPassword.IconRight = global::IPCameraManager.Properties.Resources.eye_hidden;
+            this.textBoxPassword.IconRightCursor = System.Windows.Forms.Cursors.Hand;
+            this.textBoxPassword.Location = new System.Drawing.Point(119, 244);
+            this.textBoxPassword.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.textBoxPassword.Name = "textBoxPassword";
+            this.textBoxPassword.PasswordChar = '*';
+            this.textBoxPassword.PlaceholderText = "";
+            this.textBoxPassword.SelectedText = "";
+            this.textBoxPassword.SelectionStart = 8;
+            this.textBoxPassword.ShadowDecoration.Parent = this.textBoxPassword;
+            this.textBoxPassword.Size = new System.Drawing.Size(160, 30);
+            this.textBoxPassword.TabIndex = 25;
+            this.textBoxPassword.TextChanged += new System.EventHandler(this.textBoxPassword_TextChanged);
+            this.textBoxPassword.IconRightClick += new System.EventHandler(this.textBoxPassword_IconRightClick);
             // 
             // FormLoginCamera
             // 

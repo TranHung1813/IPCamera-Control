@@ -958,9 +958,9 @@ namespace IPCameraManager
                 int flag = 1;
                 flag = 0;
                 m_struPtzCfg_main.wAction = 4;
-                m_struPtzCfg_main.wZoomPos = (ushort)tB_Zoom.Value;
+                m_struPtzCfg_main.wZoomPos = (ushort)(tB_Zoom.Value / 2);
 
-                str3 = Convert.ToString((float)(tB_Zoom.Value * 5));
+                str3 = Convert.ToString((float)(tB_Zoom.Value * 10));
                 m_struPtzCfg_main.wZoomPos = (ushort)(Convert.ToUInt16(str3, 16));
 
                 while (flag == 0)
@@ -995,9 +995,9 @@ namespace IPCameraManager
                 int flag = 1;
                 flag = 0;
                 m_struPtzCfg_second.wAction = 4;
-                m_struPtzCfg_second.wZoomPos = (ushort)tB_Zoom.Value;
+                m_struPtzCfg_second.wZoomPos = (ushort)(tB_Zoom.Value / 2);
 
-                str3 = Convert.ToString((float)(tB_Zoom.Value * 5));
+                str3 = Convert.ToString((float)(tB_Zoom.Value * 10));
                 m_struPtzCfg_second.wZoomPos = (ushort)(Convert.ToUInt16(str3, 16));
 
                 while (flag == 0)
@@ -1446,6 +1446,114 @@ namespace IPCameraManager
             catch
             {
 
+            }
+        }
+
+        private void lb_FocusFar_MouseDown(object sender, MouseEventArgs e)
+        {
+            //FocusFar_MouseDown
+            if (CurrentCamID == CAM1)
+            {
+                if (MainCam_Manager.Live_Status > -1)
+                {
+                    CHCNetSDK.NET_DVR_PTZControlWithSpeed(MainCam_Manager.Live_Status, CHCNetSDK.FOCUS_FAR, 0, (uint)(Default_Speed_PTZ_MainCam) + 1);
+                }
+                else
+                {
+                    CHCNetSDK.NET_DVR_PTZControlWithSpeed_Other(MainCam_Manager.LoginInfo.LoginStatus, 0, CHCNetSDK.FOCUS_FAR, 0, (uint)(Default_Speed_PTZ_MainCam) + 1);
+                }
+            }
+            else
+            {
+                if (SecondaryCam_Manager.Live_Status > -1)
+                {
+                    CHCNetSDK.NET_DVR_PTZControlWithSpeed(SecondaryCam_Manager.Live_Status, CHCNetSDK.FOCUS_FAR, 0, (uint)(Default_Speed_PTZ_Cam2) + 1);
+                }
+                else
+                {
+                    CHCNetSDK.NET_DVR_PTZControlWithSpeed_Other(SecondaryCam_Manager.LoginInfo.LoginStatus, 0, CHCNetSDK.FOCUS_FAR, 0, (uint)(Default_Speed_PTZ_Cam2) + 1);
+                }
+            }
+        }
+
+        private void lb_FocusFar_MouseUp(object sender, MouseEventArgs e)
+        {
+            //FocusFar_MouseUp
+            if (CurrentCamID == CAM1)
+            {
+                if (MainCam_Manager.Live_Status > -1)
+                {
+                    CHCNetSDK.NET_DVR_PTZControlWithSpeed(MainCam_Manager.Live_Status, CHCNetSDK.FOCUS_FAR, 1, (uint)(Default_Speed_PTZ_MainCam) + 1);
+                }
+                else
+                {
+                    CHCNetSDK.NET_DVR_PTZControlWithSpeed_Other(MainCam_Manager.LoginInfo.LoginStatus, 0, CHCNetSDK.FOCUS_FAR, 1, (uint)(Default_Speed_PTZ_MainCam) + 1);
+                }
+            }
+            else if (CurrentCamID == CAM2)
+            {
+                if (SecondaryCam_Manager.Live_Status > -1)
+                {
+                    CHCNetSDK.NET_DVR_PTZControlWithSpeed(SecondaryCam_Manager.Live_Status, CHCNetSDK.FOCUS_FAR, 1, (uint)(Default_Speed_PTZ_Cam2) + 1);
+                }
+                else
+                {
+                    CHCNetSDK.NET_DVR_PTZControlWithSpeed_Other(SecondaryCam_Manager.LoginInfo.LoginStatus, 0, CHCNetSDK.FOCUS_FAR, 1, (uint)(Default_Speed_PTZ_Cam2) + 1);
+                }
+            }
+        }
+
+        private void lb_FocusNear_MouseDown(object sender, MouseEventArgs e)
+        {
+            //FocusNear_MouseDown
+            if (CurrentCamID == CAM1)
+            {
+                if (MainCam_Manager.Live_Status > -1)
+                {
+                    CHCNetSDK.NET_DVR_PTZControlWithSpeed(MainCam_Manager.Live_Status, CHCNetSDK.FOCUS_NEAR, 0, (uint)(Default_Speed_PTZ_MainCam) + 1);
+                }
+                else
+                {
+                    CHCNetSDK.NET_DVR_PTZControlWithSpeed_Other(MainCam_Manager.LoginInfo.LoginStatus, 0, CHCNetSDK.FOCUS_NEAR, 0, (uint)(Default_Speed_PTZ_MainCam) + 1);
+                }
+            }
+            else
+            {
+                if (SecondaryCam_Manager.Live_Status > -1)
+                {
+                    CHCNetSDK.NET_DVR_PTZControlWithSpeed(SecondaryCam_Manager.Live_Status, CHCNetSDK.FOCUS_NEAR, 0, (uint)(Default_Speed_PTZ_Cam2) + 1);
+                }
+                else
+                {
+                    CHCNetSDK.NET_DVR_PTZControlWithSpeed_Other(SecondaryCam_Manager.LoginInfo.LoginStatus, 0, CHCNetSDK.FOCUS_NEAR, 0, (uint)(Default_Speed_PTZ_Cam2) + 1);
+                }
+            }
+        }
+
+        private void lb_FocusNear_MouseUp(object sender, MouseEventArgs e)
+        {
+            //FocusNear_MouseUp
+            if (CurrentCamID == CAM1)
+            {
+                if (MainCam_Manager.Live_Status > -1)
+                {
+                    CHCNetSDK.NET_DVR_PTZControlWithSpeed(MainCam_Manager.Live_Status, CHCNetSDK.FOCUS_NEAR, 1, (uint)(Default_Speed_PTZ_MainCam) + 1);
+                }
+                else
+                {
+                    CHCNetSDK.NET_DVR_PTZControlWithSpeed_Other(MainCam_Manager.LoginInfo.LoginStatus, 0, CHCNetSDK.FOCUS_NEAR, 1, (uint)(Default_Speed_PTZ_MainCam) + 1);
+                }
+            }
+            else if (CurrentCamID == CAM2)
+            {
+                if (SecondaryCam_Manager.Live_Status > -1)
+                {
+                    CHCNetSDK.NET_DVR_PTZControlWithSpeed(SecondaryCam_Manager.Live_Status, CHCNetSDK.FOCUS_NEAR, 1, (uint)(Default_Speed_PTZ_Cam2) + 1);
+                }
+                else
+                {
+                    CHCNetSDK.NET_DVR_PTZControlWithSpeed_Other(SecondaryCam_Manager.LoginInfo.LoginStatus, 0, CHCNetSDK.FOCUS_NEAR, 1, (uint)(Default_Speed_PTZ_Cam2) + 1);
+                }
             }
         }
     }

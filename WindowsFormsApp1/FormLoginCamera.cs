@@ -536,6 +536,20 @@ namespace IPCameraManager
                 LoginInfo_CAM2.Password = textBoxPassword.Text;
             }
         }
+
+        private void textBoxPassword_IconRightClick(object sender, EventArgs e)
+        {
+            if(textBoxPassword.PasswordChar == '*')
+            {
+                textBoxPassword.PasswordChar = '\0';
+                textBoxPassword.IconRight = Properties.Resources.eye_open;
+            }
+            else if (textBoxPassword.PasswordChar == '\0')
+            {
+                textBoxPassword.PasswordChar = '*';
+                textBoxPassword.IconRight = Properties.Resources.eye_hidden;
+            }
+        }
     }
     public struct LoginCameraInfo_Type
     {

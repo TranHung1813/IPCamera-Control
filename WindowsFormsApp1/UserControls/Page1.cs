@@ -561,47 +561,37 @@ namespace IPCameraManager
         {
             while(true)
             {
-                //if (tbMaBenhNhan.Text != "") m_struShowStrCfg.struStringInfo[0].wShowString = 1;
-                //else m_struShowStrCfg.struStringInfo[0].wShowString = 0;
-                //m_struShowStrCfg.struStringInfo[0].sString = tbMaBenhNhan.Text;
-                //m_struShowStrCfg.struStringInfo[0].wStringSize = (ushort)tbMaBenhNhan.Text.Length;
-                //m_struShowStrCfg.struStringInfo[0].wShowStringTopLeftX = 12;
-                //m_struShowStrCfg.struStringInfo[0].wShowStringTopLeftY = 192;
+                if (tbMaBenhNhan.Text != "") m_struShowStrCfg.struStringInfo[0].wShowString = 1;
+                else m_struShowStrCfg.struStringInfo[0].wShowString = 0;
+                string str_MBN = "PID: " + RemoveSign4VietnameseString(tbMaBenhNhan.Text);
+                m_struShowStrCfg.struStringInfo[0].sString = str_MBN;
+                m_struShowStrCfg.struStringInfo[0].wStringSize = (ushort)m_struShowStrCfg.struStringInfo[0].sString.Length;
+                m_struShowStrCfg.struStringInfo[0].wShowStringTopLeftX = 12;
+                m_struShowStrCfg.struStringInfo[0].wShowStringTopLeftY = 192;
 
-                //if (tbHoTen.Text != "") m_struShowStrCfg.struStringInfo[1].wShowString = 1;
-                //else m_struShowStrCfg.struStringInfo[1].wShowString = 0;
-                //m_struShowStrCfg.struStringInfo[1].sString = tbHoTen.Text;
-                //m_struShowStrCfg.struStringInfo[1].wStringSize = (ushort)tbHoTen.Text.Length;
-                //m_struShowStrCfg.struStringInfo[1].wShowStringTopLeftX = 12;
-                //m_struShowStrCfg.struStringInfo[1].wShowStringTopLeftY = 212;
+                if (tbHoTen.Text != "") m_struShowStrCfg.struStringInfo[1].wShowString = 1;
+                else m_struShowStrCfg.struStringInfo[1].wShowString = 0;
+                string str_HvT = RemoveSign4VietnameseString(tbHoTen.Text);
+                m_struShowStrCfg.struStringInfo[1].sString = str_HvT;
+                m_struShowStrCfg.struStringInfo[1].wStringSize = (ushort)m_struShowStrCfg.struStringInfo[1].sString.Length;
+                m_struShowStrCfg.struStringInfo[1].wShowStringTopLeftX = 12;
+                m_struShowStrCfg.struStringInfo[1].wShowStringTopLeftY = 212;
 
-                //if (tbTuoi.Text != "") m_struShowStrCfg.struStringInfo[2].wShowString = 1;
-                //else m_struShowStrCfg.struStringInfo[2].wShowString = 0;
-                //m_struShowStrCfg.struStringInfo[2].sString = tbTuoi.Text + "tuoi, " + cbGioiTinh.Text;
-                //m_struShowStrCfg.struStringInfo[2].wStringSize = (ushort)m_struShowStrCfg.struStringInfo[2].sString.Length;
-                //m_struShowStrCfg.struStringInfo[2].wShowStringTopLeftX = 12;
-                //m_struShowStrCfg.struStringInfo[2].wShowStringTopLeftY = 232;
+                if (tbTuoi.Text != "") m_struShowStrCfg.struStringInfo[2].wShowString = 1;
+                else m_struShowStrCfg.struStringInfo[2].wShowString = 0;
+                string str_T = RemoveSign4VietnameseString(tbTuoi.Text) + "tuoi, " + RemoveSign4VietnameseString(cbGioiTinh.Text);
+                m_struShowStrCfg.struStringInfo[2].sString = str_T;
+                m_struShowStrCfg.struStringInfo[2].wStringSize = (ushort)m_struShowStrCfg.struStringInfo[2].sString.Length;
+                m_struShowStrCfg.struStringInfo[2].wShowStringTopLeftX = 12;
+                m_struShowStrCfg.struStringInfo[2].wShowStringTopLeftY = 232;
 
                 //if (tbNgayKham.Text != "") m_struShowStrCfg.struStringInfo[3].wShowString = 1;
                 //else m_struShowStrCfg.struStringInfo[3].wShowString = 0;
-                //m_struShowStrCfg.struStringInfo[3].sString = tbNgayKham.Text;
-                //m_struShowStrCfg.struStringInfo[3].wStringSize = (ushort)tbNgayKham.Text.Length;
+                //string str_NgayKham = "Ngay kham: " + RemoveSign4VietnameseString(tbNgayKham.Text);
+                //m_struShowStrCfg.struStringInfo[3].sString = str_NgayKham;
+                //m_struShowStrCfg.struStringInfo[3].wStringSize = (ushort)m_struShowStrCfg.struStringInfo[3].sString.Length;
                 //m_struShowStrCfg.struStringInfo[3].wShowStringTopLeftX = 12;
                 //m_struShowStrCfg.struStringInfo[3].wShowStringTopLeftY = 252;
-
-                if(tbMaBenhNhan.Text != "" || tbHoTen.Text != "")
-                {
-                    m_struShowStrCfg.struStringInfo[0].wShowString = 1;
-                    string str = "PID: " + tbMaBenhNhan.Text + ", " + RemoveSign4VietnameseString(tbHoTen.Text);
-                    m_struShowStrCfg.struStringInfo[0].sString = str;
-                    m_struShowStrCfg.struStringInfo[0].wStringSize = (ushort)str.Length;
-                    m_struShowStrCfg.struStringInfo[0].wShowStringTopLeftX = 12;
-                    m_struShowStrCfg.struStringInfo[0].wShowStringTopLeftY = 192;
-                }
-                else
-                {
-                    m_struShowStrCfg.struStringInfo[0].wShowString = 0;
-                }
 
                 Int32 nSize = Marshal.SizeOf(m_struShowStrCfg);
                 IntPtr ptrShowStrCfg = Marshal.AllocHGlobal(nSize);
