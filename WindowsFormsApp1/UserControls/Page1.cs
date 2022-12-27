@@ -219,7 +219,7 @@ namespace IPCameraManager
                 lpPreviewInfo.hPlayWnd = RealPlayWnd.Handle;
                 lpPreviewInfo.lChannel = 1;
                 lpPreviewInfo.dwStreamType = 0;
-                lpPreviewInfo.dwLinkMode = 0x0000;
+                lpPreviewInfo.dwLinkMode = 0;
                 lpPreviewInfo.bBlocked = true;
                 lpPreviewInfo.dwDisplayBufNum = 1;
                 lpPreviewInfo.byProtoType = 0;
@@ -322,38 +322,31 @@ namespace IPCameraManager
         }
         private int TakePicture()
         {
-            string sBmpPicFileName;
+            string sJpegPicFileName;
             //Í¼Æ¬±£´æÂ·¾¶ºÍÎÄ¼þÃû the path and file name to save
-            sBmpPicFileName = "BMP_test.bmp";
+            sJpegPicFileName = "JPEG_test.jpg";
 
-            //BMP×¥Í¼ Capture a BMP picture
-            if (!CHCNetSDK.NET_DVR_CapturePicture(MainCam_Manager.Live_Status, sBmpPicFileName))
+            int lChannel = 1;
+
+            CHCNetSDK.NET_DVR_JPEGPARA lpJpegPara = new CHCNetSDK.NET_DVR_JPEGPARA();
+            lpJpegPara.wPicQuality = 0; //Í¼ÏñÖÊÁ¿ Image quality
+            lpJpegPara.wPicSize = 0xff; //×¥Í¼·Ö±æÂÊ Picture size: 2- 4CIF£¬0xff- Auto(Ê¹ÓÃµ±Ç°ÂëÁ÷·Ö±æÂÊ)£¬×¥Í¼·Ö±æÂÊÐèÒªÉè±¸Ö§³Ö£¬¸ü¶àÈ¡ÖµÇë²Î¿¼SDKÎÄµµ
+
+            //JPEG×¥Í¼ Capture a JPEG picture
+            if (!CHCNetSDK.NET_DVR_CaptureJPEGPicture(MainCam_Manager.LoginInfo.LoginStatus, lChannel, ref lpJpegPara, sJpegPicFileName))
             {
                 uint iLastErr = CHCNetSDK.NET_DVR_GetLastError();
-                string str = "Chụp ảnh không thành công, error code= " + iLastErr;
+                string str = "NET_DVR_CaptureJPEGPicture failed, error code= " + iLastErr;
                 MessageBox.Show(str);
                 return ERR_NOT_OK;
             }
             else
             {
-                //string str = "Chụp ảnh thành công!";
-                //MessageBox.Show(str);
-                ShowPopup();
+                ShowPopup("Chụp ảnh thành công!");
             }
-            SaveBmpAsJPG();
-            //try 
-            //{
-            //    SaveBmpAsJPG();
-            //}
-            //catch
-            //{
-            //    string str = "Lưu ảnh không thành công";
-            //    MessageBox.Show(str);
-            //    return ERR_NOT_OK;
-            //}
             return ERR_OK;
         }
-        private void ShowPopup()
+        private void ShowPopup(string Message)
         {
             PopupNotifier popup = new PopupNotifier();
             popup.AnimationDuration = 350;
@@ -369,7 +362,7 @@ namespace IPCameraManager
             popup.TitleColor = Color.Black;
             popup.TitleFont = new Font("Tahoma", 12);
             popup.TitlePadding = new Padding(15, 6, 0, 0);
-            popup.TitleText = "Chụp ảnh thành công!";
+            popup.TitleText = Message;
             popup.Popup();
         }
         private void SaveBmpAsJPG()

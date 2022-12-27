@@ -960,7 +960,7 @@ namespace IPCameraManager
         {
             try
             {
-                bool result = CHCNetSDK.NET_DVR_RestoreConfig(ucPage1.MainCam_Manager.LoginInfo.LoginStatus);
+                bool result = CHCNetSDK.NET_DVR_RestoreConfig(ucPage1.SecondaryCam_Manager.LoginInfo.LoginStatus);
                 if (result == true)
                 {
                     MessageBox.Show("Khôi phục cài đặt gốc Camera phụ thành công", "SUCCESSFUL", MessageBoxButtons.OK, MessageBoxIcon.Information);

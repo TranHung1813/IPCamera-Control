@@ -164,7 +164,7 @@ namespace IPCameraManager
             // tB_Zoom
             // 
             this.tB_Zoom.BackColor = System.Drawing.Color.White;
-            this.tB_Zoom.LargeChange = 1;
+            this.tB_Zoom.LargeChange = 2;
             this.tB_Zoom.Location = new System.Drawing.Point(90, 271);
             this.tB_Zoom.Minimum = 2;
             this.tB_Zoom.Name = "tB_Zoom";

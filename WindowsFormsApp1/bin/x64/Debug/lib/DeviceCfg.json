@@ -125,7 +125,7 @@
 			"DeviceIP":	"192.168.2.182",
 			"DeviceMultiIP":	"0.0.0.0",
 			"DevicePort":	8000,
-			"DeviceName":	"",
+			"DeviceName":	"DS-2DE4225IW-DE",
 			"LoginMode":	0,
 			"Https":	0,
 			"Channels":	[{
