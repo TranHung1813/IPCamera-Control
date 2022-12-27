@@ -130,14 +130,17 @@
   <data name="arrow_crosslu4" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\arrow_crosslu4.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="SecurityCamera" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\SecurityCamera.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="zoom-in-icon2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\zoom-in-icon2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="arrow_down2" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\arrow_down2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="arrow_crossld1" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\arrow_crossld1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Loading_Cam2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Loading_Cam2.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Health" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Health.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -150,6 +153,9 @@
   </data>
   <data name="arrow_left1" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\arrow_left1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="eye-hidden" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\eye-hidden.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Loading" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Loading.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -166,11 +172,8 @@
   <data name="arrow_up31" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\arrow_up31.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="Loading_Cam2" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Loading_Cam2.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="zoom-in-icon2" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\zoom-in-icon2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="SecurityCamera" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\SecurityCamera.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Printer" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Printer.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -181,7 +184,7 @@
   <data name="zoom-out-icon2" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\zoom-out-icon2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="eye-hidden" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\eye-hidden.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="greenTick4" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\greenTick4.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

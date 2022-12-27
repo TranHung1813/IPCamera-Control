@@ -958,9 +958,8 @@ namespace IPCameraManager
                 int flag = 1;
                 flag = 0;
                 m_struPtzCfg_main.wAction = 4;
-                m_struPtzCfg_main.wZoomPos = (ushort)(tB_Zoom.Value / 2);
 
-                str3 = Convert.ToString((float)(tB_Zoom.Value * 10));
+                str3 = Convert.ToString((float)(tB_Zoom.Value * 5));
                 m_struPtzCfg_main.wZoomPos = (ushort)(Convert.ToUInt16(str3, 16));
 
                 while (flag == 0)
@@ -995,9 +994,8 @@ namespace IPCameraManager
                 int flag = 1;
                 flag = 0;
                 m_struPtzCfg_second.wAction = 4;
-                m_struPtzCfg_second.wZoomPos = (ushort)(tB_Zoom.Value / 2);
 
-                str3 = Convert.ToString((float)(tB_Zoom.Value * 10));
+                str3 = Convert.ToString((float)(tB_Zoom.Value * 5));
                 m_struPtzCfg_second.wZoomPos = (ushort)(Convert.ToUInt16(str3, 16));
 
                 while (flag == 0)

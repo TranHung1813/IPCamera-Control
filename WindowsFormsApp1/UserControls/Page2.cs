@@ -136,6 +136,13 @@ namespace IPCameraManager
             Word.Application wordApp = new Word.Application();
             if (txtPath2.Text == "")
             {
+                // Kiem tra xem da chon anh chua
+                if (txtPath1.TextLength < 10)
+                {
+                    MessageBox.Show("Bạn chưa chọn ảnh");
+                    return;
+                }
+
                 if (MauPhieuKham1_Path == "")
                 {
                     MauPhieuKham1_Path = MauPhieuKham_Path + "MauPhieuDC.doc";
@@ -163,11 +170,6 @@ namespace IPCameraManager
                 object myImageRange;
                 string pictureName;
 
-                if (txtPath1.TextLength < 10)
-                {
-                    MessageBox.Show("Bạn chưa chọn ảnh");
-                    return;
-                }
                 pictureName = txtPath1.Text;
                 myImageRange = table1.Cell(1, 1).Range;
                 var Picture1 = oDoc.InlineShapes.AddPicture(pictureName, ref missing, ref saveWithDocument, ref myImageRange);
@@ -199,6 +201,17 @@ namespace IPCameraManager
             }
             else
             {
+                // Kiem tra xem da chon anh hay chua
+                if (txtPath1.TextLength < 10)
+                {
+                    MessageBox.Show("Bạn chưa chọn ảnh");
+                    return;
+                }
+                if (txtPath2.TextLength < 10)
+                {
+                    MessageBox.Show("Bạn chưa chọn ảnh");
+                    return;
+                }
                 if (MauPhieuKham2_Path == "")
                 {
                     MauPhieuKham2_Path = MauPhieuKham_Path + "MauPhieuDC2.doc";
@@ -226,23 +239,12 @@ namespace IPCameraManager
                 object myImageRange;
                 string pictureName;
 
-                if (txtPath1.TextLength < 10)
-                {
-                    MessageBox.Show("Bạn chưa chọn ảnh");
-                    return;
-                }
                 pictureName = txtPath1.Text;
                 myImageRange = table1.Cell(1, 1).Range;
                 var Picture01 = oDoc.InlineShapes.AddPicture(pictureName, ref missing, ref saveWithDocument, ref myImageRange);
                 Picture01.Height = 165;
                 Picture01.Width = 220;
 
-
-                if (txtPath2.TextLength < 10)
-                {
-                    MessageBox.Show("Bạn chưa chọn ảnh");
-                    return;
-                }
                 pictureName = txtPath2.Text;
                 myImageRange = table1.Cell(1, 2).Range;
                 var Picture02 = oDoc.InlineShapes.AddPicture(pictureName, ref missing, ref saveWithDocument, ref myImageRange);
@@ -335,6 +337,22 @@ namespace IPCameraManager
             {
                 MessageBox.Show("Chưa nhập tuổi bệnh nhân! \rĐề nghị nhập lại.", "Lỗi: Chưa nhập tuổi bệnh nhân", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
+            }
+            if (txtPath2.Text == "")
+            {
+                if (txtPath1.Text.Length < 5)
+                {
+                    MessageBox.Show("Bạn chưa chọn ảnh");
+                    return;
+                }
+            }
+            else
+            {
+                if ((txtPath1.Text.Length < 5) || (txtPath2.Text.Length < 5))
+                {
+                    MessageBox.Show("Bạn chưa chọn ảnh");
+                    return;
+                }
             }
 
             // Check xem thong tin bênh nhân đã tồn tại hay chưa

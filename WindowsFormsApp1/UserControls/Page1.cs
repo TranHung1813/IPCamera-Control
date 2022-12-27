@@ -6,6 +6,7 @@ using System.Linq;
 using System.Runtime.InteropServices;
 using System.Threading;
 using System.Windows.Forms;
+using Tulpep.NotificationWindow;
 
 namespace IPCameraManager
 {
@@ -335,11 +336,41 @@ namespace IPCameraManager
             }
             else
             {
-                string str = "Chụp ảnh thành công!";
-                MessageBox.Show(str);
+                //string str = "Chụp ảnh thành công!";
+                //MessageBox.Show(str);
+                ShowPopup();
             }
             SaveBmpAsJPG();
+            //try 
+            //{
+            //    SaveBmpAsJPG();
+            //}
+            //catch
+            //{
+            //    string str = "Lưu ảnh không thành công";
+            //    MessageBox.Show(str);
+            //    return ERR_NOT_OK;
+            //}
             return ERR_OK;
+        }
+        private void ShowPopup()
+        {
+            PopupNotifier popup = new PopupNotifier();
+            popup.AnimationDuration = 350;
+            popup.BorderColor = Color.FromArgb(35, 50, 70);
+            popup.Delay = 750;
+            popup.HeaderColor = Color.FromArgb(35, 50, 70);
+            popup.HeaderHeight = 15;
+            popup.Image = Properties.Resources.greenTick4;
+            popup.ImagePadding = new Padding(6, 2, 0, 0);
+            popup.ImageSize = new Size(30, 30);
+            popup.ShowCloseButton = false;
+            popup.Size = new Size(275, 50);
+            popup.TitleColor = Color.Black;
+            popup.TitleFont = new Font("Tahoma", 12);
+            popup.TitlePadding = new Padding(15, 6, 0, 0);
+            popup.TitleText = "Chụp ảnh thành công!";
+            popup.Popup();
         }
         private void SaveBmpAsJPG()
         {
@@ -579,7 +610,7 @@ namespace IPCameraManager
 
                 if (tbTuoi.Text != "") m_struShowStrCfg.struStringInfo[2].wShowString = 1;
                 else m_struShowStrCfg.struStringInfo[2].wShowString = 0;
-                string str_T = RemoveSign4VietnameseString(tbTuoi.Text) + "tuoi, " + RemoveSign4VietnameseString(cbGioiTinh.Text);
+                string str_T = RemoveSign4VietnameseString(tbTuoi.Text) + " tuoi," + RemoveSign4VietnameseString(cbGioiTinh.Text);
                 m_struShowStrCfg.struStringInfo[2].sString = str_T;
                 m_struShowStrCfg.struStringInfo[2].wStringSize = (ushort)m_struShowStrCfg.struStringInfo[2].sString.Length;
                 m_struShowStrCfg.struStringInfo[2].wShowStringTopLeftX = 12;

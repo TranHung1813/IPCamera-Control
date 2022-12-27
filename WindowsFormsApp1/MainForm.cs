@@ -61,10 +61,10 @@ namespace IPCameraManager
         //46. Xac dinh xem neu trung PID thi ghi đè hay cảnh báo cho người dùng (done, both)
 
         //38. Thêm thứ ngày tháng vào thanh StatusBar (done)
-        //47. Bo thong bao chup anh thanh cong
+        //47. Bo thong bao chup anh thanh cong (done, popup kieu thong bao moi)
         //48. Double Click -> phong to anh (done)
 		//49. Them duong dan vao anh trong form Find Patient
-		//50. Thời gian thong bao "chua chon anh" qua lau khi bam button In Phieu 
+		//50. Thời gian thong bao "chua chon anh" qua lau khi bam button In Phieu (done)
         private const int ERR_OK = 0;
         private const int ERR_NOT_OK = 1;
 
