@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Threading;
 using System.Windows.Forms;
 
 namespace IPCameraManager
@@ -16,14 +17,45 @@ namespace IPCameraManager
         private string Anh1_Path = "";
         private string Anh2_Path = "";
 
+        Thread LoadPatient_Info_trd;
+
+        protected override void Dispose(bool disposing)
+        {
+            // Abort Thread
+            if (LoadPatient_Info_trd != null)
+            {
+                try
+                {
+                    LoadPatient_Info_trd.Abort();
+                    LoadPatient_Info_trd = null;
+                }
+                catch
+                { }
+            }
+            if (disposing)
+            {
+                if (components != null)
+                {
+                    components.Dispose();
+                }
+            }
+            base.Dispose(disposing);
+        }
         public void Load_Patients_Info()
+        {
+            LoadPatient_Info_trd = new Thread(new ThreadStart(ThreadTask_LoadPatient_Info));
+            LoadPatient_Info_trd.IsBackground = true;
+            LoadPatient_Info_trd.Start();
+        }
+        private void ThreadTask_LoadPatient_Info()
         {
             //Get Patients info
             Patients_Info = SqliteDataAccess.Load_Patients_Info();
+            LoadPatient_Info_trd.Abort();
         }
         private void PageSearchPatient_Load(object sender, EventArgs e)
         {
-            Load_Patients_Info();
+            //Load_Patients_Info();
         }
 
         private void tbMaBN_KeyDown(object sender, KeyEventArgs e)

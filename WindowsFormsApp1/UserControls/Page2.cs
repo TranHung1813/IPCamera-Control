@@ -180,13 +180,15 @@ namespace IPCameraManager
                 string doc_filename;
                 string doc_filepath;
                 doc_filename = "\\" + tbMaBN_IN.Text + "_" + DateTime.Now.ToString("HHmmss") + ".doc";
-                if (FolderPath == null)
-                {
-                    string directoryPath = Path.GetDirectoryName(txtPath1.Text);
-                    //MessageBox.Show(directoryPath);
-                    doc_filepath = directoryPath + doc_filename + ".doc";
-                }
-                else doc_filepath = FolderPath + doc_filename + ".doc";
+                //if (FolderPath == null)
+                //{
+                //    string directoryPath = Path.GetDirectoryName(txtPath1.Text);
+                //    //MessageBox.Show(directoryPath);
+                //    doc_filepath = directoryPath + doc_filename + ".doc";
+                //}
+                //else doc_filepath = FolderPath + doc_filename + ".doc";
+                string directoryPath = Path.GetDirectoryName(txtPath1.Text);
+                doc_filepath = directoryPath + doc_filename + ".doc";
                 //doc_filename = @"D:\Dulieu\" + tbHoTen.Text + ".doc";
                 if (File.Exists(doc_filepath))
                 {
@@ -266,13 +268,16 @@ namespace IPCameraManager
                 string doc_filename;
                 string doc_filepath;
                 doc_filename = "\\" + tbMaBN_IN.Text + "_" + DateTime.Now.ToString("HHmmss") + ".doc";
-                if (FolderPath == null)
-                {
-                    string directoryPath = Path.GetDirectoryName(txtPath1.Text);
-                    //MessageBox.Show(directoryPath);
-                    doc_filepath = directoryPath + doc_filename + ".doc";
-                }
-                else doc_filepath = FolderPath + doc_filename + ".doc";
+                //if (FolderPath == null)
+                //{
+                //    string directoryPath = Path.GetDirectoryName(txtPath1.Text);
+                //    //MessageBox.Show(directoryPath);
+                //    doc_filepath = directoryPath + doc_filename + ".doc";
+                //}
+                //else doc_filepath = FolderPath + doc_filename + ".doc";
+                string directoryPath = Path.GetDirectoryName(txtPath1.Text);
+                //MessageBox.Show(directoryPath);
+                doc_filepath = directoryPath + doc_filename + ".doc";
                 //doc_filename = @"D:\Dulieu\" + tbHoTen.Text + ".doc";
                 if (File.Exists(doc_filepath))
                 {
