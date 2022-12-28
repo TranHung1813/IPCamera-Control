@@ -313,7 +313,7 @@ namespace IPCameraManager
             //    CAM2_Data_Available = true;
             //}
         }
-        private void btnUp_MouseDown(object sender, MouseEventArgs e)
+        public void btnUp_MouseDown(object sender, MouseEventArgs e)
         {
             //Up_MouseDown
             if (CurrentCamID == CAM1)
@@ -340,7 +340,7 @@ namespace IPCameraManager
             }
         }
 
-        private void btnUp_MouseUp(object sender, MouseEventArgs e)
+        public void btnUp_MouseUp(object sender, MouseEventArgs e)
         {
             //Up_MouseUp
             if (CurrentCamID == CAM1)
@@ -366,7 +366,7 @@ namespace IPCameraManager
                 }
             }
         }
-        private void btnRight_MouseDown(object sender, MouseEventArgs e)
+        public void btnRight_MouseDown(object sender, MouseEventArgs e)
         {
             //Right_MouseDown
             if (CurrentCamID == CAM1)
@@ -393,7 +393,7 @@ namespace IPCameraManager
             }
         }
 
-        private void btnRight_MouseUp(object sender, MouseEventArgs e)
+        public void btnRight_MouseUp(object sender, MouseEventArgs e)
         {
             //Right_MouseUp
             if (CurrentCamID == CAM1)
@@ -420,7 +420,7 @@ namespace IPCameraManager
             }
         }
 
-        private void btnDown_MouseDown(object sender, MouseEventArgs e)
+        public void btnDown_MouseDown(object sender, MouseEventArgs e)
         {
             //Down_MouseDown
             if (CurrentCamID == CAM1)
@@ -447,7 +447,7 @@ namespace IPCameraManager
             }
         }
 
-        private void btnDown_MouseUp(object sender, MouseEventArgs e)
+        public void btnDown_MouseUp(object sender, MouseEventArgs e)
         {
             //DownMouseUp
             if (CurrentCamID == CAM1)
@@ -473,7 +473,7 @@ namespace IPCameraManager
                 }
             }
         }
-        private void btnLeft_MouseDown(object sender, MouseEventArgs e)
+        public void btnLeft_MouseDown(object sender, MouseEventArgs e)
         {
             //Left_MouseDown
             if (CurrentCamID == CAM1)
@@ -500,7 +500,7 @@ namespace IPCameraManager
             }
         }
 
-        private void btnLeft_MouseUp(object sender, MouseEventArgs e)
+        public void btnLeft_MouseUp(object sender, MouseEventArgs e)
         {
             //Left_MouseUp
             if (CurrentCamID == CAM1)

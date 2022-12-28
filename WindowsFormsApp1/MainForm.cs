@@ -63,10 +63,10 @@ namespace IPCameraManager
         //38. Thêm thứ ngày tháng vào thanh StatusBar (done)
         //47. Bo thong bao chup anh thanh cong (done, popup kieu thong bao moi)
         //48. Double Click -> phong to anh (done)
-		//49. Them duong dan vao anh trong form Find Patient
-		//50. Thời gian thong bao "chua chon anh" qua lau khi bam button In Phieu (done)
+        //49. Them duong dan vao anh trong form Find Patient
+        //50. Thời gian thong bao "chua chon anh" qua lau khi bam button In Phieu (done)
 
-        //51. Load Patient Info trong form F8 take time (done)
+        //51. Load Patient Info trong form F8 take time
         //52. Click event vào notification form (done)
         //53. Vi tri luu file word Phieu Kham cua BN
         private const int ERR_OK = 0;
@@ -118,6 +118,7 @@ namespace IPCameraManager
             //Init key press event
             this.KeyPreview = true;
             this.KeyUp += new KeyEventHandler(RoomView_KeyUp);
+            this.KeyDown += new KeyEventHandler(RoomView_KeyDown);
             //Add user control to form
             Add_UserControl(ucPage1);
             TabPageID = PAGE1;
@@ -180,7 +181,7 @@ namespace IPCameraManager
             // Get File Mau Phieu Kham info
             DataUser_NumberPatients_Info NumberPatients_Info = SqliteDataAccess.Load_NumberPatients_Info();
 
-            if(NumberPatients_Info != null)
+            if (NumberPatients_Info != null)
             {
                 ucPage2.Set_NumberPatients_Info(NumberPatients_Info.Number_Patients);
             }
@@ -314,6 +315,52 @@ namespace IPCameraManager
                 case Keys.F12:
                     ucPage1.btExit_F12_Click(sender, e);
                     break;
+                // Dieu chinh PTZ Camera
+                case Keys.W:
+                    if (TabPageID == PAGE3)
+                    {
+                        ucPageSetupCamera_Info.btnUp_MouseUp(sender, null);
+                    }
+                    break;
+                case Keys.S:
+                    if (TabPageID == PAGE3)
+                    {
+                        ucPageSetupCamera_Info.btnDown_MouseUp(sender, null);
+                    }
+                    break;
+                case Keys.D:
+                    if (TabPageID == PAGE3)
+                    {
+                        ucPageSetupCamera_Info.btnRight_MouseUp(sender, null);
+                    }
+                    break;
+                case Keys.A:
+                    if (TabPageID == PAGE3)
+                    {
+                        ucPageSetupCamera_Info.btnLeft_MouseUp(sender, null);
+                    }
+                    break;
+            }
+        }
+        void RoomView_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (TabPageID == PAGE3)
+            {
+                switch (e.KeyCode)
+                {
+                    case Keys.W:
+                        ucPageSetupCamera_Info.btnUp_MouseDown(sender, null);
+                        break;
+                    case Keys.S:
+                        ucPageSetupCamera_Info.btnDown_MouseDown(sender, null);
+                        break;
+                    case Keys.D:
+                        ucPageSetupCamera_Info.btnRight_MouseDown(sender, null);
+                        break;
+                    case Keys.A:
+                        ucPageSetupCamera_Info.btnLeft_MouseDown(sender, null);
+                        break;
+                }
             }
         }
         private void Add_UserControl(UserControl uc)
@@ -837,9 +884,11 @@ namespace IPCameraManager
         // Cài đặt Context Menu Strip
         private void btSystemSetting_Click(object sender, EventArgs e)
         {
-            Point point = this.PointToScreen(btSystemSetting.Location);
-            point.Y += btSystemSetting.Height;
-            cMStrip_Setting.Show(point);
+            //Point point = this.PointToScreen(btSystemSetting.Location);
+            //point.Y += btSystemSetting.Height;
+            //cMStrip_Setting.Show(point);
+            FormLoginSettingMenu formLogin = new FormLoginSettingMenu();
+            formLogin.ShowDialog();
         }
 
         private void btSetFolderchuaAnh_Click(object sender, EventArgs e)

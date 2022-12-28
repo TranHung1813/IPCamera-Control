@@ -32,6 +32,7 @@ namespace IPCameraManager
             this.components = new System.ComponentModel.Container();
             this.label1 = new System.Windows.Forms.Label();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
+            this.Key_TabKhamBenh = new Guna.UI2.WinForms.Guna2TextBox();
             this.Key_TabFindPatient = new Guna.UI2.WinForms.Guna2TextBox();
             this.Key_TabSettingCamera = new Guna.UI2.WinForms.Guna2TextBox();
             this.Key_TabInPhieu = new Guna.UI2.WinForms.Guna2TextBox();
@@ -53,7 +54,6 @@ namespace IPCameraManager
             this.label6 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
-            this.Key_TabKhamBenh = new Guna.UI2.WinForms.Guna2TextBox();
             this.tableLayoutPanel1.SuspendLayout();
             this.guna2GroupBox1.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -99,6 +99,40 @@ namespace IPCameraManager
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.tableLayoutPanel1.Size = new System.Drawing.Size(295, 141);
             this.tableLayoutPanel1.TabIndex = 2;
+            // 
+            // Key_TabKhamBenh
+            // 
+            this.Key_TabKhamBenh.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.Key_TabKhamBenh.BorderColor = System.Drawing.Color.GhostWhite;
+            this.Key_TabKhamBenh.BorderRadius = 2;
+            this.Key_TabKhamBenh.BorderThickness = 0;
+            this.Key_TabKhamBenh.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.Key_TabKhamBenh.DefaultText = "F3";
+            this.Key_TabKhamBenh.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
+            this.Key_TabKhamBenh.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
+            this.Key_TabKhamBenh.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.Key_TabKhamBenh.DisabledState.Parent = this.Key_TabKhamBenh;
+            this.Key_TabKhamBenh.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.Key_TabKhamBenh.FillColor = System.Drawing.Color.GhostWhite;
+            this.Key_TabKhamBenh.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.Key_TabKhamBenh.FocusedState.Parent = this.Key_TabKhamBenh;
+            this.Key_TabKhamBenh.Font = new System.Drawing.Font("Tahoma", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Key_TabKhamBenh.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(50)))), ((int)(((byte)(70)))));
+            this.Key_TabKhamBenh.HoverState.BorderColor = System.Drawing.Color.GhostWhite;
+            this.Key_TabKhamBenh.HoverState.Parent = this.Key_TabKhamBenh;
+            this.Key_TabKhamBenh.Location = new System.Drawing.Point(187, 5);
+            this.Key_TabKhamBenh.Margin = new System.Windows.Forms.Padding(4);
+            this.Key_TabKhamBenh.Name = "Key_TabKhamBenh";
+            this.Key_TabKhamBenh.PasswordChar = '\0';
+            this.Key_TabKhamBenh.PlaceholderText = "";
+            this.Key_TabKhamBenh.ReadOnly = true;
+            this.Key_TabKhamBenh.SelectedText = "";
+            this.Key_TabKhamBenh.SelectionStart = 2;
+            this.Key_TabKhamBenh.ShadowDecoration.Parent = this.Key_TabKhamBenh;
+            this.Key_TabKhamBenh.Size = new System.Drawing.Size(89, 26);
+            this.Key_TabKhamBenh.TabIndex = 44;
+            this.Key_TabKhamBenh.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.Key_TabKhamBenh.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Key_TabKhamBenh_KeyDown);
             // 
             // Key_TabFindPatient
             // 
@@ -539,39 +573,6 @@ namespace IPCameraManager
             this.label8.Text = "In Phiếu";
             this.label8.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // Key_TabKhamBenh
-            // 
-            this.Key_TabKhamBenh.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.Key_TabKhamBenh.BorderColor = System.Drawing.Color.GhostWhite;
-            this.Key_TabKhamBenh.BorderRadius = 2;
-            this.Key_TabKhamBenh.BorderThickness = 0;
-            this.Key_TabKhamBenh.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.Key_TabKhamBenh.DefaultText = "F3";
-            this.Key_TabKhamBenh.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
-            this.Key_TabKhamBenh.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
-            this.Key_TabKhamBenh.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.Key_TabKhamBenh.DisabledState.Parent = this.Key_TabKhamBenh;
-            this.Key_TabKhamBenh.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.Key_TabKhamBenh.FillColor = System.Drawing.Color.GhostWhite;
-            this.Key_TabKhamBenh.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.Key_TabKhamBenh.FocusedState.Parent = this.Key_TabKhamBenh;
-            this.Key_TabKhamBenh.Font = new System.Drawing.Font("Tahoma", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Key_TabKhamBenh.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(50)))), ((int)(((byte)(70)))));
-            this.Key_TabKhamBenh.HoverState.BorderColor = System.Drawing.Color.GhostWhite;
-            this.Key_TabKhamBenh.HoverState.Parent = this.Key_TabKhamBenh;
-            this.Key_TabKhamBenh.Location = new System.Drawing.Point(187, 5);
-            this.Key_TabKhamBenh.Margin = new System.Windows.Forms.Padding(4);
-            this.Key_TabKhamBenh.Name = "Key_TabKhamBenh";
-            this.Key_TabKhamBenh.PasswordChar = '\0';
-            this.Key_TabKhamBenh.PlaceholderText = "";
-            this.Key_TabKhamBenh.ReadOnly = true;
-            this.Key_TabKhamBenh.SelectedText = "";
-            this.Key_TabKhamBenh.ShadowDecoration.Parent = this.Key_TabKhamBenh;
-            this.Key_TabKhamBenh.Size = new System.Drawing.Size(89, 26);
-            this.Key_TabKhamBenh.TabIndex = 44;
-            this.Key_TabKhamBenh.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.Key_TabKhamBenh.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Key_TabKhamBenh_KeyDown);
-            // 
             // FormSetting_KeyboardShortcut
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -582,7 +583,7 @@ namespace IPCameraManager
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "FormSetting_KeyboardShortcut";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "FormSetting_KeyboardShortcut";
+            this.Text = "Cài đặt phím tắt";
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.PerformLayout();
             this.guna2GroupBox1.ResumeLayout(false);

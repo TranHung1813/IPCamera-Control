@@ -190,6 +190,12 @@
     <Compile Include="FormDoubleClick_to_ZoomPicture.Designer.cs">
       <DependentUpon>FormDoubleClick_to_ZoomPicture.cs</DependentUpon>
     </Compile>
+    <Compile Include="FormLoginSettingMenu.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormLoginSettingMenu.Designer.cs">
+      <DependentUpon>FormLoginSettingMenu.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormSetTemplateDirectory.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -266,6 +272,8 @@
     </Compile>
     <Compile Include="Utility.cs" />
     <Content Include="Doctor-icon.ico" />
+    <None Include="Resources\blue-key-lock-icon2.png" />
+    <None Include="Resources\blue-key-lock-icon1.png" />
     <None Include="Resources\greenTick4.png" />
     <None Include="Resources\eye-hidden.png" />
     <None Include="Resources\eye-open.png" />
@@ -283,6 +291,9 @@
     <None Include="Resources\arrow_down2.png" />
     <EmbeddedResource Include="FormDoubleClick_to_ZoomPicture.resx">
       <DependentUpon>FormDoubleClick_to_ZoomPicture.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormLoginSettingMenu.resx">
+      <DependentUpon>FormLoginSettingMenu.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormSetting_KeyboardShortcut.resx">
       <DependentUpon>FormSetting_KeyboardShortcut.cs</DependentUpon>

@@ -405,7 +405,7 @@ namespace IPCameraManager
             // 
             this.btResetConfig_MainCam.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btResetConfig_MainCam.Name = "btResetConfig_MainCam";
-            this.btResetConfig_MainCam.Size = new System.Drawing.Size(180, 22);
+            this.btResetConfig_MainCam.Size = new System.Drawing.Size(166, 22);
             this.btResetConfig_MainCam.Text = "Camera chính";
             this.btResetConfig_MainCam.Click += new System.EventHandler(this.btResetConfig_MainCam_Click);
             // 
@@ -413,7 +413,7 @@ namespace IPCameraManager
             // 
             this.btResetConfig_Cam2.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btResetConfig_Cam2.Name = "btResetConfig_Cam2";
-            this.btResetConfig_Cam2.Size = new System.Drawing.Size(180, 22);
+            this.btResetConfig_Cam2.Size = new System.Drawing.Size(166, 22);
             this.btResetConfig_Cam2.Text = "Camera phụ";
             this.btResetConfig_Cam2.Click += new System.EventHandler(this.btResetConfig_Cam2_Click);
             // 
@@ -477,7 +477,7 @@ namespace IPCameraManager
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "MainForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Form1";
+            this.Text = "Phần mềm quản lý Camera";
             this.Shown += new System.EventHandler(this.MainForm_Shown);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();

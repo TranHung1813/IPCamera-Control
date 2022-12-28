@@ -218,7 +218,7 @@ namespace IPCameraManager
             this.KeyPreview = true;
             this.Name = "SetFoldertoSaveFile_Form";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Cài đặt tên folder";
+            this.Text = "Cài đặt vị trí lưu ảnh";
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.guna2GroupBox1.ResumeLayout(false);

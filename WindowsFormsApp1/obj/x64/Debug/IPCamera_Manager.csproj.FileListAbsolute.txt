@@ -154,3 +154,4 @@ E:\Projects\IPCameraControl\WindowsFormsApp1\obj\x64\Debug\IPCameraManager.FormT
 E:\Projects\IPCameraControl\WindowsFormsApp1\obj\x64\Debug\IPCameraManager.FormDoubleClick_to_ZoomPicture.resources
 E:\Projects\IPCameraControl\WindowsFormsApp1\obj\x64\Debug\IPCameraManager.FormSetting_KeyboardShortcut.resources
 E:\Projects\IPCameraControl\WindowsFormsApp1\bin\x64\Debug\Tulpep.NotificationWindow.dll
+E:\Projects\IPCameraControl\WindowsFormsApp1\obj\x64\Debug\IPCameraManager.FormLoginSettingMenu.resources
