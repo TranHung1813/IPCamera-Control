@@ -45,16 +45,16 @@ namespace IPCameraManager
             this.tbNgayKham = new Guna.UI2.WinForms.Guna2TextBox();
             this.tbHoTen = new Guna.UI2.WinForms.Guna2TextBox();
             this.tbMaBenhNhan = new Guna.UI2.WinForms.Guna2TextBox();
+            this.imgPreview = new System.Windows.Forms.PictureBox();
             this.btExit_F12 = new Guna.UI2.WinForms.Guna2Button();
             this.btShowCamera2 = new Guna.UI2.WinForms.Guna2Button();
             this.btTakePicture = new Guna.UI2.WinForms.Guna2Button();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
-            this.imgPreview = new System.Windows.Forms.PictureBox();
             this.RealPlayWnd = new System.Windows.Forms.PictureBox();
             this.popupNotifier1 = new Tulpep.NotificationWindow.PopupNotifier();
             this.groupBox1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.imgPreview)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.RealPlayWnd)).BeginInit();
             this.SuspendLayout();
             // 
@@ -298,6 +298,21 @@ namespace IPCameraManager
             this.tbMaBenhNhan.Size = new System.Drawing.Size(226, 27);
             this.tbMaBenhNhan.TabIndex = 38;
             // 
+            // imgPreview
+            // 
+            this.imgPreview.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.imgPreview.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.imgPreview.Image = global::IPCameraManager.Properties.Resources.Loading_Cam2;
+            this.imgPreview.Location = new System.Drawing.Point(55, 246);
+            this.imgPreview.Name = "imgPreview";
+            this.imgPreview.Size = new System.Drawing.Size(285, 194);
+            this.imgPreview.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
+            this.imgPreview.TabIndex = 21;
+            this.imgPreview.TabStop = false;
+            this.imgPreview.MouseDown += new System.Windows.Forms.MouseEventHandler(this.imgPreview_MouseDown);
+            // 
             // btExit_F12
             // 
             this.btExit_F12.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
@@ -386,21 +401,6 @@ namespace IPCameraManager
             this.pictureBox2.TabIndex = 34;
             this.pictureBox2.TabStop = false;
             // 
-            // imgPreview
-            // 
-            this.imgPreview.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.imgPreview.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.imgPreview.Image = global::IPCameraManager.Properties.Resources.Loading_Cam2;
-            this.imgPreview.Location = new System.Drawing.Point(55, 246);
-            this.imgPreview.Name = "imgPreview";
-            this.imgPreview.Size = new System.Drawing.Size(285, 194);
-            this.imgPreview.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
-            this.imgPreview.TabIndex = 21;
-            this.imgPreview.TabStop = false;
-            this.imgPreview.MouseDown += new System.Windows.Forms.MouseEventHandler(this.imgPreview_MouseDown);
-            // 
             // RealPlayWnd
             // 
             this.RealPlayWnd.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
@@ -422,9 +422,10 @@ namespace IPCameraManager
             this.popupNotifier1.AnimationDuration = 500;
             this.popupNotifier1.BodyColor = System.Drawing.Color.WhiteSmoke;
             this.popupNotifier1.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(50)))), ((int)(((byte)(70)))));
-            this.popupNotifier1.ContentFont = new System.Drawing.Font("Tahoma", 8F);
-            this.popupNotifier1.ContentText = "";
-            this.popupNotifier1.Delay = 750;
+            this.popupNotifier1.ButtonBorderColor = System.Drawing.Color.Yellow;
+            this.popupNotifier1.ContentFont = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.popupNotifier1.ContentText = "Mở ảnh";
+            this.popupNotifier1.Delay = 1000;
             this.popupNotifier1.HeaderColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(50)))), ((int)(((byte)(70)))));
             this.popupNotifier1.HeaderHeight = 15;
             this.popupNotifier1.Image = global::IPCameraManager.Properties.Resources.greenTick4;
@@ -434,7 +435,7 @@ namespace IPCameraManager
             this.popupNotifier1.OptionsMenu = null;
             this.popupNotifier1.Scroll = false;
             this.popupNotifier1.ShowCloseButton = false;
-            this.popupNotifier1.Size = new System.Drawing.Size(250, 50);
+            this.popupNotifier1.Size = new System.Drawing.Size(250, 65);
             this.popupNotifier1.TitleColor = System.Drawing.Color.Black;
             this.popupNotifier1.TitleFont = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.popupNotifier1.TitlePadding = new System.Windows.Forms.Padding(15, 6, 0, 0);
@@ -458,8 +459,8 @@ namespace IPCameraManager
             this.Load += new System.EventHandler(this.Page1_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.imgPreview)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.RealPlayWnd)).EndInit();
             this.ResumeLayout(false);
 

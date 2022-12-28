@@ -65,6 +65,10 @@ namespace IPCameraManager
         //48. Double Click -> phong to anh (done)
 		//49. Them duong dan vao anh trong form Find Patient
 		//50. Thời gian thong bao "chua chon anh" qua lau khi bam button In Phieu (done)
+
+        //51. Load Patient Info trong form F8 take time
+        //52. Click event vào notification form (done)
+        //53. Vi tri luu file word Phieu Kham cua BN
         private const int ERR_OK = 0;
         private const int ERR_NOT_OK = 1;
 

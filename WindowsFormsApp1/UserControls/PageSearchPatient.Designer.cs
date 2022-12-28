@@ -367,7 +367,7 @@ namespace IPCameraManager
             this.groupBox3.Size = new System.Drawing.Size(549, 298);
             this.groupBox3.TabIndex = 37;
             this.groupBox3.TabStop = false;
-            this.groupBox3.Text = "KỲ NÉN";
+            this.groupBox3.Text = "KỲ NÍN";
             // 
             // btOpenFolder2
             // 

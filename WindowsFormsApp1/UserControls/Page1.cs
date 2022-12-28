@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Diagnostics;
 using System.Drawing;
 using System.Drawing.Imaging;
 using System.IO;
@@ -342,27 +343,35 @@ namespace IPCameraManager
             }
             else
             {
-                ShowPopup("Chụp ảnh thành công!");
+                // Chup anh thanh cong
+                //ShowPopup("Chụp ảnh thành công!", "");
+                //MessageBox.Show("Done");
+                return ERR_OK;
             }
-            return ERR_OK;
         }
-        private void ShowPopup(string Message)
+        private void ShowPopup(string Message, string ImagePath)
         {
             PopupNotifier popup = new PopupNotifier();
-            popup.AnimationDuration = 350;
+            popup.AnimationDuration = 200;
             popup.BorderColor = Color.FromArgb(35, 50, 70);
-            popup.Delay = 750;
+            popup.Delay = 2000;
             popup.HeaderColor = Color.FromArgb(35, 50, 70);
             popup.HeaderHeight = 15;
             popup.Image = Properties.Resources.greenTick4;
-            popup.ImagePadding = new Padding(6, 2, 0, 0);
+            popup.ImagePadding = new Padding(6, 5, 0, 0);
             popup.ImageSize = new Size(30, 30);
             popup.ShowCloseButton = false;
-            popup.Size = new Size(275, 50);
+            popup.Size = new Size(300, 75);
             popup.TitleColor = Color.Black;
             popup.TitleFont = new Font("Tahoma", 12);
             popup.TitlePadding = new Padding(15, 6, 0, 0);
             popup.TitleText = Message;
+            popup.ContentText = ImagePath;
+            popup.ContentFont = new Font("Tahoma", 9);
+            popup.Click += (sender, e) =>
+            {
+                OpenFolder(ImagePath);
+            };
             popup.Popup();
         }
         private void SaveBmpAsJPG()
@@ -429,9 +438,27 @@ namespace IPCameraManager
                 {
                     Directory.CreateDirectory(FolderPath);
                 }
+                ShowPopup("Chụp ảnh thành công!", Path.GetDirectoryName(ImagePath));
                 //Copy & override file "JPEG_test.jpg" to ImagePath
                 FileInfo fi = new FileInfo("JPEG_test.jpg");
                 fi.CopyTo(ImagePath, true);
+            }
+        }
+        private void OpenFolder(string folderPath)
+        {
+            if (Directory.Exists(folderPath))
+            {
+                ProcessStartInfo startInfo = new ProcessStartInfo
+                {
+                    Arguments = folderPath,
+                    FileName = "explorer.exe"
+                };
+
+                Process.Start(startInfo);
+            }
+            else
+            {
+                MessageBox.Show(string.Format("{0} Directory does not exist!", folderPath));
             }
         }
         //*****************************************************************************************************************
