@@ -58,4 +58,16 @@ namespace IPCameraManager
 
         public int Number_Patients { get; set; }
     }
+    public class DataUser_Password_Info
+    {
+        public int Id { get; set; }
+
+        public string PrivateValue { get; set; }
+
+        public int Day { get; set; }
+
+        public int Month { get; set; }
+
+        public int Year { get; set; }
+    }
 }

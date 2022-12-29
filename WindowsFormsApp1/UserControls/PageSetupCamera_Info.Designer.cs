@@ -60,6 +60,8 @@ namespace IPCameraManager
             this.btCam2 = new Guna.UI2.WinForms.Guna2Button();
             this.btMainCam = new Guna.UI2.WinForms.Guna2Button();
             this.RealPlayWnd = new System.Windows.Forms.PictureBox();
+            this.lbZoom = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
             this.groupbox123.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.tB_Zoom)).BeginInit();
             this.groupBox1.SuspendLayout();
@@ -70,6 +72,8 @@ namespace IPCameraManager
             // 
             this.groupbox123.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.groupbox123.Controls.Add(this.label5);
+            this.groupbox123.Controls.Add(this.lbZoom);
             this.groupbox123.Controls.Add(this.btZoomOut);
             this.groupbox123.Controls.Add(this.btZoomIn);
             this.groupbox123.Controls.Add(this.labelZoomIn);
@@ -164,7 +168,7 @@ namespace IPCameraManager
             // tB_Zoom
             // 
             this.tB_Zoom.BackColor = System.Drawing.Color.White;
-            this.tB_Zoom.LargeChange = 2;
+            this.tB_Zoom.LargeChange = 1;
             this.tB_Zoom.Location = new System.Drawing.Point(90, 271);
             this.tB_Zoom.Minimum = 2;
             this.tB_Zoom.Name = "tB_Zoom";
@@ -423,7 +427,7 @@ namespace IPCameraManager
             this.lb_FocusFar.BackColor = System.Drawing.Color.Transparent;
             this.lb_FocusFar.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.lb_FocusFar.Font = new System.Drawing.Font("Tahoma", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lb_FocusFar.Location = new System.Drawing.Point(231, 213);
+            this.lb_FocusFar.Location = new System.Drawing.Point(232, 213);
             this.lb_FocusFar.Name = "lb_FocusFar";
             this.lb_FocusFar.Size = new System.Drawing.Size(35, 35);
             this.lb_FocusFar.TabIndex = 37;
@@ -654,6 +658,23 @@ namespace IPCameraManager
             this.RealPlayWnd.TabIndex = 30;
             this.RealPlayWnd.TabStop = false;
             // 
+            // lbZoom
+            // 
+            this.lbZoom.AutoSize = true;
+            this.lbZoom.Location = new System.Drawing.Point(15, 297);
+            this.lbZoom.Name = "lbZoom";
+            this.lbZoom.Size = new System.Drawing.Size(26, 19);
+            this.lbZoom.TabIndex = 58;
+            this.lbZoom.Text = "x1";
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(74, 221);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(0, 19);
+            this.label5.TabIndex = 59;
+            // 
             // PageSetupCamera_Info
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
@@ -710,5 +731,7 @@ namespace IPCameraManager
         private System.Windows.Forms.Label labelZoomIn;
         private Guna.UI2.WinForms.Guna2Button btZoomOut;
         private Guna.UI2.WinForms.Guna2Button btZoomIn;
+        private System.Windows.Forms.Label lbZoom;
+        private System.Windows.Forms.Label label5;
     }
 }

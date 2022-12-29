@@ -167,6 +167,7 @@ namespace IPCameraManager
             this.tbFileTemplate2.PasswordChar = '\0';
             this.tbFileTemplate2.PlaceholderText = "";
             this.tbFileTemplate2.SelectedText = "";
+            this.tbFileTemplate2.SelectionStart = 40;
             this.tbFileTemplate2.ShadowDecoration.Parent = this.tbFileTemplate2;
             this.tbFileTemplate2.Size = new System.Drawing.Size(468, 26);
             this.tbFileTemplate2.TabIndex = 6;
@@ -225,6 +226,7 @@ namespace IPCameraManager
             this.tbFileTemplate1.PasswordChar = '\0';
             this.tbFileTemplate1.PlaceholderText = "";
             this.tbFileTemplate1.SelectedText = "";
+            this.tbFileTemplate1.SelectionStart = 39;
             this.tbFileTemplate1.ShadowDecoration.Parent = this.tbFileTemplate1;
             this.tbFileTemplate1.Size = new System.Drawing.Size(468, 26);
             this.tbFileTemplate1.TabIndex = 3;
@@ -275,7 +277,7 @@ namespace IPCameraManager
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "FormSetTemplateDirectory";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "FormSetTemplateDirectory";
+            this.Text = "Chọn mẫu phiếu khám";
             this.guna2GroupBox1.ResumeLayout(false);
             this.panel_Top.ResumeLayout(false);
             this.groupBox1.ResumeLayout(false);

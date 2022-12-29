@@ -43,6 +43,7 @@ namespace IPCameraManager
         private int Cam2_MinTilt = 0;
 
         Thread LoadingCamera_Trd;
+        Thread FocusNear_Trd;
         private int CurrentCamID = 0;
         private const int CAM1 = 1;
         private const int CAM2 = 2;
@@ -63,6 +64,8 @@ namespace IPCameraManager
         System.Windows.Forms.Timer timerContrast;
         System.Windows.Forms.Timer timerSaturation;
         System.Windows.Forms.Timer timerhue;
+
+        System.Windows.Forms.Timer timerZoom;
 
         protected override void Dispose(bool disposing)
         {
@@ -98,6 +101,17 @@ namespace IPCameraManager
                 try
                 {
                     LoadingCamera_Trd.Abort();
+                }
+                catch
+                {
+
+                }
+            }
+            if (FocusNear_Trd != null)
+            {
+                try
+                {
+                    FocusNear_Trd.Abort();
                 }
                 catch
                 {
@@ -966,6 +980,45 @@ namespace IPCameraManager
 
         private void tB_Zoom_ValueChanged(object sender, EventArgs e)
         {
+            lbZoom.Text = "( x" + ((float)tB_Zoom.Value / 5).ToString() + " )";
+            try
+            {
+                if(FocusNear_Trd != null)
+                {
+                    FocusNear_Trd.Abort();
+                }
+            }
+            catch
+            { }
+            this.Invoke(new MethodInvoker(() =>
+            {
+                if (timerZoom == null)
+                {
+                    timerZoom = new System.Windows.Forms.Timer();
+                    timerZoom.Tick += new EventHandler(Timer_Zoom_Tick);
+
+                    timerZoom.Interval = 200;
+                    timerZoom.Start();
+                }
+            }));
+        }
+        private void Timer_Zoom_Tick(object sender, EventArgs e)
+        {
+            this.Invoke(new MethodInvoker(() =>
+            {
+                try
+                {
+                    ChangeZoomValue(tB_Zoom.Value);
+                    timerZoom.Stop();
+                    timerZoom = null;
+                }
+                catch
+                { }
+            }));
+        }
+        private void ChangeZoomValue(int ZoomValue)
+        {
+            //label5.Text = "Start";
             if (CurrentCamID == CAM1)
             {
                 string str3;
@@ -973,7 +1026,7 @@ namespace IPCameraManager
                 flag = 0;
                 m_struPtzCfg_main.wAction = 4;
 
-                str3 = Convert.ToString((float)(tB_Zoom.Value * 2));
+                str3 = Convert.ToString((float)(ZoomValue * 2));
                 m_struPtzCfg_main.wZoomPos = (ushort)(Convert.ToUInt16(str3, 16));
 
                 while (flag == 0)
@@ -996,6 +1049,27 @@ namespace IPCameraManager
                     {
                         //MessageBox.Show("Cài đặt thành công!");
                         Marshal.FreeHGlobal(ptrPtzCfg);
+                        //if (ZoomValue >= 14)
+                        //{
+                        //    if (FocusNear_Trd == null)
+                        //    {
+                        //        FocusNear_Trd = new Thread(new ThreadStart(this.ThreadTask_FocusNear));
+                        //        FocusNear_Trd.IsBackground = true;
+                        //        FocusNear_Trd.Start();
+                        //    }
+                        //    else
+                        //    {
+                        //        try
+                        //        {
+                        //            FocusNear_Trd.Abort();
+                        //        }
+                        //        catch
+                        //        { }
+                        //        FocusNear_Trd = new Thread(new ThreadStart(this.ThreadTask_FocusNear));
+                        //        FocusNear_Trd.IsBackground = true;
+                        //        FocusNear_Trd.Start();
+                        //    }
+                        //}
                         break;
                     }
 
@@ -1038,13 +1112,36 @@ namespace IPCameraManager
                 }
                 return;
             }
+        }
 
+        private void ThreadTask_FocusNear()
+        {
+            for (int CountPress = 0; CountPress < 5; CountPress++)
+            {
+                lb_FocusFar_MouseDown(null, null);
+                lb_FocusFar_MouseUp(null, null);
+                //label5.Text = "Xa";
+            }
+            int Count = 0;
+            while(true)
+            {
+                lb_FocusNear_MouseDown(null, null);
+                //label5.Text = "Gan1";
+                Count++;
+                if (Count >= 1000)
+                {
+                    break;
+                }
+            }
+            //label5.Text = "Timeout";
+            FocusNear_Trd.Abort();
         }
 
         private void btZoomOut_Click(object sender, EventArgs e)
         {
             try
             {
+                ChangeZoomValue(tB_Zoom.Value - 1);
                 tB_Zoom.Value -= 1;
             }
             catch
@@ -1057,6 +1154,7 @@ namespace IPCameraManager
         {
             try
             {
+                ChangeZoomValue(tB_Zoom.Value + 1);
                 tB_Zoom.Value += 1;
             }
             catch
@@ -1450,6 +1548,7 @@ namespace IPCameraManager
         private void lb_FocusFar_MouseDown(object sender, MouseEventArgs e)
         {
             //FocusFar_MouseDown
+            label5.Text = "Xa";
             if (CurrentCamID == CAM1)
             {
                 if (MainCam_Manager.Live_Status > -1)
@@ -1477,6 +1576,7 @@ namespace IPCameraManager
         private void lb_FocusFar_MouseUp(object sender, MouseEventArgs e)
         {
             //FocusFar_MouseUp
+            label5.Text = "";
             if (CurrentCamID == CAM1)
             {
                 if (MainCam_Manager.Live_Status > -1)
@@ -1504,26 +1604,27 @@ namespace IPCameraManager
         private void lb_FocusNear_MouseDown(object sender, MouseEventArgs e)
         {
             //FocusNear_MouseDown
+            label5.Text = "Gần";
             if (CurrentCamID == CAM1)
             {
                 if (MainCam_Manager.Live_Status > -1)
                 {
-                    CHCNetSDK.NET_DVR_PTZControlWithSpeed(MainCam_Manager.Live_Status, CHCNetSDK.FOCUS_NEAR, 0, (uint)(Default_Speed_PTZ_MainCam) + 1);
+                    CHCNetSDK.NET_DVR_PTZControlWithSpeed(MainCam_Manager.Live_Status, CHCNetSDK.FOCUS_NEAR, 0, (uint)(Default_Speed_PTZ_MainCam) + 3);
                 }
                 else
                 {
-                    CHCNetSDK.NET_DVR_PTZControlWithSpeed_Other(MainCam_Manager.LoginInfo.LoginStatus, 0, CHCNetSDK.FOCUS_NEAR, 0, (uint)(Default_Speed_PTZ_MainCam) + 1);
+                    CHCNetSDK.NET_DVR_PTZControlWithSpeed_Other(MainCam_Manager.LoginInfo.LoginStatus, 0, CHCNetSDK.FOCUS_NEAR, 0, (uint)(Default_Speed_PTZ_MainCam) + 3);
                 }
             }
             else
             {
                 if (SecondaryCam_Manager.Live_Status > -1)
                 {
-                    CHCNetSDK.NET_DVR_PTZControlWithSpeed(SecondaryCam_Manager.Live_Status, CHCNetSDK.FOCUS_NEAR, 0, (uint)(Default_Speed_PTZ_Cam2) + 1);
+                    CHCNetSDK.NET_DVR_PTZControlWithSpeed(SecondaryCam_Manager.Live_Status, CHCNetSDK.FOCUS_NEAR, 0, (uint)(Default_Speed_PTZ_Cam2) + 3);
                 }
                 else
                 {
-                    CHCNetSDK.NET_DVR_PTZControlWithSpeed_Other(SecondaryCam_Manager.LoginInfo.LoginStatus, 0, CHCNetSDK.FOCUS_NEAR, 0, (uint)(Default_Speed_PTZ_Cam2) + 1);
+                    CHCNetSDK.NET_DVR_PTZControlWithSpeed_Other(SecondaryCam_Manager.LoginInfo.LoginStatus, 0, CHCNetSDK.FOCUS_NEAR, 0, (uint)(Default_Speed_PTZ_Cam2) + 3);
                 }
             }
         }
@@ -1531,26 +1632,27 @@ namespace IPCameraManager
         private void lb_FocusNear_MouseUp(object sender, MouseEventArgs e)
         {
             //FocusNear_MouseUp
+            label5.Text = "";
             if (CurrentCamID == CAM1)
             {
                 if (MainCam_Manager.Live_Status > -1)
                 {
-                    CHCNetSDK.NET_DVR_PTZControlWithSpeed(MainCam_Manager.Live_Status, CHCNetSDK.FOCUS_NEAR, 1, (uint)(Default_Speed_PTZ_MainCam) + 1);
+                    CHCNetSDK.NET_DVR_PTZControlWithSpeed(MainCam_Manager.Live_Status, CHCNetSDK.FOCUS_NEAR, 1, (uint)(Default_Speed_PTZ_MainCam) + 3);
                 }
                 else
                 {
-                    CHCNetSDK.NET_DVR_PTZControlWithSpeed_Other(MainCam_Manager.LoginInfo.LoginStatus, 0, CHCNetSDK.FOCUS_NEAR, 1, (uint)(Default_Speed_PTZ_MainCam) + 1);
+                    CHCNetSDK.NET_DVR_PTZControlWithSpeed_Other(MainCam_Manager.LoginInfo.LoginStatus, 0, CHCNetSDK.FOCUS_NEAR, 1, (uint)(Default_Speed_PTZ_MainCam) + 3);
                 }
             }
             else if (CurrentCamID == CAM2)
             {
                 if (SecondaryCam_Manager.Live_Status > -1)
                 {
-                    CHCNetSDK.NET_DVR_PTZControlWithSpeed(SecondaryCam_Manager.Live_Status, CHCNetSDK.FOCUS_NEAR, 1, (uint)(Default_Speed_PTZ_Cam2) + 1);
+                    CHCNetSDK.NET_DVR_PTZControlWithSpeed(SecondaryCam_Manager.Live_Status, CHCNetSDK.FOCUS_NEAR, 1, (uint)(Default_Speed_PTZ_Cam2) + 3);
                 }
                 else
                 {
-                    CHCNetSDK.NET_DVR_PTZControlWithSpeed_Other(SecondaryCam_Manager.LoginInfo.LoginStatus, 0, CHCNetSDK.FOCUS_NEAR, 1, (uint)(Default_Speed_PTZ_Cam2) + 1);
+                    CHCNetSDK.NET_DVR_PTZControlWithSpeed_Other(SecondaryCam_Manager.LoginInfo.LoginStatus, 0, CHCNetSDK.FOCUS_NEAR, 1, (uint)(Default_Speed_PTZ_Cam2) + 3);
                 }
             }
         }

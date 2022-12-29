@@ -397,7 +397,7 @@ namespace IPCameraManager
             this.MaximizeBox = false;
             this.Name = "FormLoginCamera";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Đăng nhập";
+            this.Text = "Thông tin kết nối Camera";
             this.Load += new System.EventHandler(this.FormLoginCamera_Load);
             this.panel_Top.ResumeLayout(false);
             this.guna2GroupBox1.ResumeLayout(false);

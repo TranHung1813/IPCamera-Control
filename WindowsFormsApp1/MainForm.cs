@@ -90,6 +90,9 @@ namespace IPCameraManager
         FormSetTemplateDirectory formSetTemplateDirectory = new FormSetTemplateDirectory();
         FormTimeCorrect formTimeCorrect = new FormTimeCorrect();
 
+        FormLoginSettingMenu formLogin = new FormLoginSettingMenu();
+        private bool Admin_Allow = false;
+
         //WhatTime.Text = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss tt");
         StatusBar mainStatusBar = new StatusBar();
         StatusBarPanel TrangThaiCamChinh = new StatusBarPanel();
@@ -884,11 +887,22 @@ namespace IPCameraManager
         // Cài đặt Context Menu Strip
         private void btSystemSetting_Click(object sender, EventArgs e)
         {
-            //Point point = this.PointToScreen(btSystemSetting.Location);
-            //point.Y += btSystemSetting.Height;
-            //cMStrip_Setting.Show(point);
-            FormLoginSettingMenu formLogin = new FormLoginSettingMenu();
-            formLogin.ShowDialog();
+            if(Admin_Allow == false)
+            {
+                if (formLogin.ShowDialog() == DialogResult.OK)
+                {
+                    Admin_Allow = true;
+                    Point point = this.PointToScreen(btSystemSetting.Location);
+                    point.Y += btSystemSetting.Height;
+                    cMStrip_Setting.Show(point);
+                }
+            }
+            else
+            {
+                Point point = this.PointToScreen(btSystemSetting.Location);
+                point.Y += btSystemSetting.Height;
+                cMStrip_Setting.Show(point);
+            }
         }
 
         private void btSetFolderchuaAnh_Click(object sender, EventArgs e)

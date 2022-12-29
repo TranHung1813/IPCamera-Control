@@ -204,6 +204,43 @@ namespace IPCameraManager
         }
 
         //*****************************************************************************************************************
+        //****************************************** Access to Password Infomation *******************************************
+        public static DataUser_Password_Info Load_Password_Info()
+        {
+            using (IDbConnection cnn = new SQLiteConnection(LoadConnectionString()))
+            {
+                try
+                {
+                    DataUser_Password_Info output = cnn.Query<DataUser_Password_Info>("select * from PrivateValue_Info", new DynamicParameters()).FirstOrDefault();
+                    return output;
+                }
+                catch
+                {
+
+                }
+
+                return null;
+            }
+        }
+
+        public static void SaveInfo_Password(DataUser_Password_Info info)
+        {
+            using (IDbConnection cnn = new SQLiteConnection(LoadConnectionString()))
+            {
+                int id = cnn.Query<int>("select Id from PrivateValue_Info where Id like @Id", new { Id = 1 }).FirstOrDefault();
+
+                if (id != 0)
+                {
+                    cnn.Execute("update PrivateValue_Info set  PrivateValue= @PrivateValue, Day= @Day, Month= @Month, Year = @Year where Id = 1", info);
+                }
+                else
+                {
+                    cnn.Execute("insert into PrivateValue_Info ( PrivateValue, Day, Month, Year) values ( @PrivateValue, @Day, @Month, @Year)", info);
+                }
+            }
+        }
+
+        //*****************************************************************************************************************
         //*****************************************************************************************************************
         private static string LoadConnectionString(string id = "Default")
         {

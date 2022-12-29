@@ -530,7 +530,7 @@ namespace IPCameraManager
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "FormTimeCorrect";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "FormTimeCorrect";
+            this.Text = "Hiệu chỉnh thời gian Camera";
             this.Load += new System.EventHandler(this.FormTimeCorrect_Load);
             this.guna2GroupBox1.ResumeLayout(false);
             this.groupBox2.ResumeLayout(false);
