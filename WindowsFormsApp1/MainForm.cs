@@ -69,6 +69,7 @@ namespace IPCameraManager
         //51. Load Patient Info trong form F8 take time
         //52. Click event vào notification form (done)
         //53. Vi tri luu file word Phieu Kham cua BN
+        //54. Debug voi man hinh lon FUll HD
         private const int ERR_OK = 0;
         private const int ERR_NOT_OK = 1;
 
@@ -223,7 +224,7 @@ namespace IPCameraManager
             if (day1 == 0) DayNumber = "Chủ nhật";
             else DayNumber = "Thứ " + (day1 + 1).ToString();
             datetimePanel.ToolTipText = DateTime.Now.ToLongDateString();
-            datetimePanel.Text = DayNumber + ", " + DateTime.Now.ToShortDateString() + "  " + DateTime.Now.ToLongTimeString();
+            datetimePanel.Text = DayNumber + ", " + DateTime.UtcNow.Date.ToString("d/M/yyyy") + "  " + DateTime.Now.ToLongTimeString();
             mainStatusBar.Panels.Add(datetimePanel);
             timer_GetRTC.Start();
 
@@ -349,6 +350,7 @@ namespace IPCameraManager
         {
             if (TabPageID == PAGE3)
             {
+                // Dieu chinh PTZ Camera
                 switch (e.KeyCode)
                 {
                     case Keys.W:
@@ -961,7 +963,7 @@ namespace IPCameraManager
             if (day1 == 0) DayNumber = "Chủ nhật";
             else DayNumber = "Thứ " + (day1 + 1).ToString();
             datetimePanel.ToolTipText = DateTime.Now.ToLongDateString();
-            datetimePanel.Text = DayNumber + ", " + DateTime.Now.ToShortDateString() + "  " + DateTime.Now.ToLongTimeString();
+            datetimePanel.Text = DayNumber + ", " + DateTime.UtcNow.Date.ToString("d/M/yyyy") + "  " + DateTime.Now.ToLongTimeString();
         }
         private void btReboot_MainCam_Click(object sender, EventArgs e)
         {
@@ -1042,6 +1044,7 @@ namespace IPCameraManager
 
             }
         }
+        // Cai dat mat khau cho Menu Setting
         FormSetting_KeyboardShortcut formSetting = new FormSetting_KeyboardShortcut();
         private void btSetting_KeyboardShortcut_Click(object sender, EventArgs e)
         {

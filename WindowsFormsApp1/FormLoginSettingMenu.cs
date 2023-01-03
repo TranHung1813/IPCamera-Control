@@ -54,6 +54,7 @@ namespace IPCameraManager
                 _Password.Day = Password_Info.Day;
                 _Password.Month = Password_Info.Month;
                 _Password.Year = Password_Info.Year;
+                _Password.UpdateStatus = Password_Info.UpdateStatus;
             }
             else
             {
@@ -62,6 +63,7 @@ namespace IPCameraManager
                 _Password.Day = 0;
                 _Password.Month = 0;
                 _Password.Year = 0;
+                _Password.UpdateStatus = 0;
             }
         }
         private async void GenerateCode()
@@ -76,6 +78,7 @@ namespace IPCameraManager
                 _Password.Month = DateTime.Now.Month;
                 _Password.Day = DateTime.Now.Day;
                 _Password.Year = DateTime.Now.Year;
+                _Password.UpdateStatus = 0;
 
                 DataUser_Password_Info InfoSave = new DataUser_Password_Info();
                 InfoSave.Id = 1;
@@ -84,9 +87,44 @@ namespace IPCameraManager
                 InfoSave.Year = _Password.Year;
                 InfoSave.PrivateValue = _Password.PrivateCode;
 
-                SqliteDataAccess.SaveInfo_Password(InfoSave);
+                try
+                {
+                    await Client.SetAsync(@"IPCamera/Setting_Password", _Password.PrivateCode);
+                    _Password.UpdateStatus = 0;
+                }
+                catch
+                {
+                    // Update len database false
+                    _Password.UpdateStatus = 1;
+                }
 
-                await Client.SetAsync(@"IPCamera/Setting_Password", _Password.PrivateCode);
+                // Save du lieu vao database (UpdateStatus = False khi Update len Server khong thanh cong)
+                InfoSave.UpdateStatus = _Password.UpdateStatus;
+                SqliteDataAccess.SaveInfo_Password(InfoSave);
+            }
+            // Chua update len Server thanh cong => Thu Update lai
+            else if(_Password.UpdateStatus != 0)
+            {
+                try
+                {
+                    await Client.SetAsync(@"IPCamera/Setting_Password", _Password.PrivateCode);
+                    _Password.UpdateStatus = 0;
+                }
+                catch
+                {
+                    // Update len database false
+                    _Password.UpdateStatus = 1;
+                }
+
+                // Save du lieu vao database (UpdateStatus = False khi Update len Server khong thanh cong)
+                DataUser_Password_Info InfoSave = new DataUser_Password_Info();
+                InfoSave.Id = 1;
+                InfoSave.Day = _Password.Day;
+                InfoSave.Month = _Password.Month;
+                InfoSave.Year = _Password.Year;
+                InfoSave.PrivateValue = _Password.PrivateCode;
+                InfoSave.UpdateStatus = _Password.UpdateStatus;
+                SqliteDataAccess.SaveInfo_Password(InfoSave);
             }
         }
         private string Encode (string SeedKey)
@@ -189,11 +227,13 @@ namespace IPCameraManager
             private int? _Day;
             private int? _Month;
             private int? _Year;
+            private int? _UpdateStatus;
 
             public string PrivateCode { get { return _PrivateCode ?? ""; } set => _PrivateCode = value; }
             public int Day { get { return _Day ?? 0; } set => _Day = value; }
             public int Month { get { return _Month ?? 0; } set => _Month = value; }
             public int Year { get { return _Year ?? 0; } set => _Year = value; }
+            public int UpdateStatus { get { return _UpdateStatus ?? 0; } set => _UpdateStatus = value; }
         }
 
         private void tbPassword_KeyDown(object sender, KeyEventArgs e)

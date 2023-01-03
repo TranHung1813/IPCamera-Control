@@ -162,7 +162,16 @@ namespace IPCameraManager
             if (LoginStatus < 0)
             {
                 string DVRIPAddress = info.IP_Address;
-                Int16 DVRPortNumber = Int16.Parse(info.Port);
+                Int16 DVRPortNumber;
+                try
+                {
+                    DVRPortNumber = Int16.Parse(info.Port);
+                }
+                catch
+                {
+                    MessageBox.Show("Kết nối Camera thất bại!", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return ERR_NOT_OK;
+                }
                 string DVRUserName = info.Username;
                 string DVRPassword = info.Password;
 

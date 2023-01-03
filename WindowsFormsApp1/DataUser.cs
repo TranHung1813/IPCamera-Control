@@ -69,5 +69,7 @@ namespace IPCameraManager
         public int Month { get; set; }
 
         public int Year { get; set; }
+
+        public int UpdateStatus { get; set; }
     }
 }

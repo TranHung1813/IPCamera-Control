@@ -231,11 +231,11 @@ namespace IPCameraManager
 
                 if (id != 0)
                 {
-                    cnn.Execute("update PrivateValue_Info set  PrivateValue= @PrivateValue, Day= @Day, Month= @Month, Year = @Year where Id = 1", info);
+                    cnn.Execute("update PrivateValue_Info set  PrivateValue= @PrivateValue, Day= @Day, Month= @Month, Year = @Year, UpdateStatus = @UpdateStatus where Id = 1", info);
                 }
                 else
                 {
-                    cnn.Execute("insert into PrivateValue_Info ( PrivateValue, Day, Month, Year) values ( @PrivateValue, @Day, @Month, @Year)", info);
+                    cnn.Execute("insert into PrivateValue_Info ( PrivateValue, Day, Month, Year, UpdateStatus) values ( @PrivateValue, @Day, @Month, @Year, @UpdateStatus)", info);
                 }
             }
         }
