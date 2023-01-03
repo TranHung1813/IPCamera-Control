@@ -617,24 +617,24 @@ namespace IPCameraManager
                 string str_MBN = "PID: " + RemoveSign4VietnameseString(tbMaBenhNhan.Text);
                 m_struShowStrCfg.struStringInfo[0].sString = str_MBN;
                 m_struShowStrCfg.struStringInfo[0].wStringSize = (ushort)m_struShowStrCfg.struStringInfo[0].sString.Length;
-                m_struShowStrCfg.struStringInfo[0].wShowStringTopLeftX = 12;
-                m_struShowStrCfg.struStringInfo[0].wShowStringTopLeftY = 192;
+                m_struShowStrCfg.struStringInfo[0].wShowStringTopLeftX = 18;
+                m_struShowStrCfg.struStringInfo[0].wShowStringTopLeftY = 112;
 
                 if (tbHoTen.Text != "") m_struShowStrCfg.struStringInfo[1].wShowString = 1;
                 else m_struShowStrCfg.struStringInfo[1].wShowString = 0;
                 string str_HvT = RemoveSign4VietnameseString(tbHoTen.Text);
                 m_struShowStrCfg.struStringInfo[1].sString = str_HvT;
                 m_struShowStrCfg.struStringInfo[1].wStringSize = (ushort)m_struShowStrCfg.struStringInfo[1].sString.Length;
-                m_struShowStrCfg.struStringInfo[1].wShowStringTopLeftX = 12;
-                m_struShowStrCfg.struStringInfo[1].wShowStringTopLeftY = 212;
+                m_struShowStrCfg.struStringInfo[1].wShowStringTopLeftX = 18;
+                m_struShowStrCfg.struStringInfo[1].wShowStringTopLeftY = 132;
 
                 if (tbTuoi.Text != "") m_struShowStrCfg.struStringInfo[2].wShowString = 1;
                 else m_struShowStrCfg.struStringInfo[2].wShowString = 0;
                 string str_T = RemoveSign4VietnameseString(tbTuoi.Text) + " tuoi," + RemoveSign4VietnameseString(cbGioiTinh.Text);
                 m_struShowStrCfg.struStringInfo[2].sString = str_T;
                 m_struShowStrCfg.struStringInfo[2].wStringSize = (ushort)m_struShowStrCfg.struStringInfo[2].sString.Length;
-                m_struShowStrCfg.struStringInfo[2].wShowStringTopLeftX = 12;
-                m_struShowStrCfg.struStringInfo[2].wShowStringTopLeftY = 232;
+                m_struShowStrCfg.struStringInfo[2].wShowStringTopLeftX = 18;
+                m_struShowStrCfg.struStringInfo[2].wShowStringTopLeftY = 152;
 
                 //if (tbNgayKham.Text != "") m_struShowStrCfg.struStringInfo[3].wShowString = 1;
                 //else m_struShowStrCfg.struStringInfo[3].wShowString = 0;

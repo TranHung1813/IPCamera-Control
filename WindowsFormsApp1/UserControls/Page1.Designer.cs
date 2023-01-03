@@ -237,6 +237,7 @@ namespace IPCameraManager
             this.tbNgayKham.Name = "tbNgayKham";
             this.tbNgayKham.PasswordChar = '\0';
             this.tbNgayKham.PlaceholderText = "";
+            this.tbNgayKham.ReadOnly = true;
             this.tbNgayKham.SelectedText = "";
             this.tbNgayKham.ShadowDecoration.Parent = this.tbNgayKham;
             this.tbNgayKham.Size = new System.Drawing.Size(226, 27);

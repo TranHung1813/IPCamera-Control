@@ -307,7 +307,7 @@ namespace IPCameraManager
             // 
             // panelBorder_Left
             // 
-            this.panelBorder_Left.BackColor = System.Drawing.Color.SlateBlue;
+            this.panelBorder_Left.BackColor = System.Drawing.SystemColors.ControlDarkDark;
             this.panelBorder_Left.Dock = System.Windows.Forms.DockStyle.Left;
             this.panelBorder_Left.Location = new System.Drawing.Point(0, 80);
             this.panelBorder_Left.Name = "panelBorder_Left";
@@ -316,7 +316,7 @@ namespace IPCameraManager
             // 
             // panelBorder_Right
             // 
-            this.panelBorder_Right.BackColor = System.Drawing.Color.SlateBlue;
+            this.panelBorder_Right.BackColor = System.Drawing.SystemColors.ControlDarkDark;
             this.panelBorder_Right.Dock = System.Windows.Forms.DockStyle.Right;
             this.panelBorder_Right.Location = new System.Drawing.Point(1042, 80);
             this.panelBorder_Right.Name = "panelBorder_Right";
