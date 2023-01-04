@@ -1041,7 +1041,7 @@ namespace IPCameraManager
                         uint Err_Return = CHCNetSDK.NET_DVR_GetLastError();
                         string str = "Cài đặt giá trị Zoom thất bại, error code= " + Err_Return;
                         // Khong the dat tham so PTZ
-                        MessageBox.Show(str, "WARNING", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        //MessageBox.Show(str, "WARNING", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                         Marshal.FreeHGlobal(ptrPtzCfg);
                         return;
                     }
@@ -1098,7 +1098,7 @@ namespace IPCameraManager
                         uint Err_Return = CHCNetSDK.NET_DVR_GetLastError();
                         string str = "Cài đặt giá trị Zoom thất bại, error code= " + Err_Return;
                         // Khong the dat tham so PTZ
-                        MessageBox.Show(str, "WARNING", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        //MessageBox.Show(str, "WARNING", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                         Marshal.FreeHGlobal(ptrPtzCfg);
                         return;
                     }

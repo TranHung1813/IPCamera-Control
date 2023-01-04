@@ -326,6 +326,7 @@ namespace IPCameraManager
             // timer_Update_PatientInfo_to_Page2
             // 
             this.timer_Update_PatientInfo_to_Page2.Enabled = true;
+            this.timer_Update_PatientInfo_to_Page2.Interval = 1000;
             this.timer_Update_PatientInfo_to_Page2.Tick += new System.EventHandler(this.timer_Update_PatientInfo_to_Page2_Tick);
             // 
             // timer_GetCamStatus

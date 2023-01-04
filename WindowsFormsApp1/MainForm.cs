@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Drawing;
+using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -69,7 +70,8 @@ namespace IPCameraManager
         //51. Load Patient Info trong form F8 take time
         //52. Click event vào notification form (done)
         //53. Vi tri luu file word Phieu Kham cua BN
-        //54. Debug voi man hinh lon FUll HD
+        //54. Debug voi man hinh to FUll HD
+        //55. Encode IP Address, Port (done, need test)
         private const int ERR_OK = 0;
         private const int ERR_NOT_OK = 1;
 
@@ -570,8 +572,8 @@ namespace IPCameraManager
         {
             DataUser_LoginCamera_Info loginInfo_Save = new DataUser_LoginCamera_Info();
             loginInfo_Save.Id = 1;
-            loginInfo_Save.IP_Address = LoginInfo.IP_Address;
-            loginInfo_Save.Port = LoginInfo.Port;
+            loginInfo_Save.IP_Address = Encode(LoginInfo.IP_Address, LoginInfo.IP_Address.Length);
+            loginInfo_Save.Port = Encode(LoginInfo.IP_Address + LoginInfo.Port, (LoginInfo.IP_Address + LoginInfo.Port).Length);
             loginInfo_Save.Username = LoginInfo.Username;
             loginInfo_Save.Password = LoginInfo.Password;
 
@@ -581,12 +583,131 @@ namespace IPCameraManager
         {
             DataUser_LoginCamera_Info loginInfo_Save = new DataUser_LoginCamera_Info();
             loginInfo_Save.Id = 2;
-            loginInfo_Save.IP_Address = LoginInfo.IP_Address;
-            loginInfo_Save.Port = LoginInfo.Port;
+            loginInfo_Save.IP_Address = Encode(LoginInfo.IP_Address, LoginInfo.IP_Address.Length);
+            loginInfo_Save.Port = Encode(LoginInfo.IP_Address + LoginInfo.Port, (LoginInfo.IP_Address + LoginInfo.Port).Length);
             loginInfo_Save.Username = LoginInfo.Username;
             loginInfo_Save.Password = LoginInfo.Password;
 
             SqliteDataAccess.SaveInfo_LoginCamera(loginInfo_Save);
+        }
+
+        private string Encode (string SeedKey, int Key_Length)
+        {
+            if(Key_Length > 32 || SeedKey == "")
+            {
+                return null;
+            }
+            string PrivateKey1 = "nhdbBtZ1Bop6ouWMyXrsOpxhtvF90WJg";
+            string New_PrivateKey1 = PrivateKey1.Substring(0, Key_Length);
+
+            var New_PrivateKey1_Bytes = Encoding.ASCII.GetBytes(New_PrivateKey1);
+            var SeedKey_Bytes = Encoding.ASCII.GetBytes(SeedKey);
+
+            for (int CountByte = 0; CountByte < New_PrivateKey1_Bytes.Length; CountByte++)
+            {
+                New_PrivateKey1_Bytes[CountByte] ^= SeedKey_Bytes[CountByte];
+            }
+            // XOR 4 byte cuoi
+            for (int CountByte = 0; CountByte < New_PrivateKey1_Bytes.Length; CountByte++)
+            {
+                if(CountByte != New_PrivateKey1_Bytes.Length - 1)
+                {
+                    New_PrivateKey1_Bytes[CountByte] ^= New_PrivateKey1_Bytes[New_PrivateKey1_Bytes.Length - 1];
+                }
+            }
+            for (int CountByte = 0; CountByte < New_PrivateKey1_Bytes.Length; CountByte++)
+            {
+                if (CountByte != New_PrivateKey1_Bytes.Length - 2)
+                {
+                    New_PrivateKey1_Bytes[CountByte] ^= New_PrivateKey1_Bytes[New_PrivateKey1_Bytes.Length - 2];
+                }
+            }
+            for (int CountByte = 0; CountByte < New_PrivateKey1_Bytes.Length; CountByte++)
+            {
+                if (CountByte != New_PrivateKey1_Bytes.Length - 3)
+                {
+                    New_PrivateKey1_Bytes[CountByte] ^= New_PrivateKey1_Bytes[New_PrivateKey1_Bytes.Length - 3];
+                }
+            }
+            for (int CountByte = 0; CountByte < New_PrivateKey1_Bytes.Length; CountByte++)
+            {
+                if (CountByte != New_PrivateKey1_Bytes.Length - 4)
+                {
+                    New_PrivateKey1_Bytes[CountByte] ^= New_PrivateKey1_Bytes[New_PrivateKey1_Bytes.Length - 4];
+                }
+            }
+            for (int CountByte = 0; CountByte < New_PrivateKey1_Bytes.Length; CountByte++)
+            {
+                if (CountByte != New_PrivateKey1_Bytes.Length - 5)
+                {
+                    New_PrivateKey1_Bytes[CountByte] ^= New_PrivateKey1_Bytes[New_PrivateKey1_Bytes.Length - 5];
+                }
+            }
+
+            return String.Join(" ", New_PrivateKey1_Bytes);
+        }
+        private string Decode(string Key2Decode)
+        {
+            string PrivateKey1 = "nhdbBtZ1Bop6ouWMyXrsOpxhtvF90WJg";
+
+            string[] Str_Array = Key2Decode.Split(' ');
+
+            byte[] Byte_Array = new byte[Str_Array.Length];
+            for (int CountString = 0; CountString < Str_Array.Length; CountString++)
+            {
+                Byte_Array[CountString] = byte.Parse(Str_Array[CountString]);
+            }
+            // XOR 4 byte cuoi
+            for (int CountByte = 0; CountByte < Byte_Array.Length; CountByte++)
+            {
+                if (CountByte != Byte_Array.Length - 5)
+                {
+                    Byte_Array[CountByte] ^= Byte_Array[Byte_Array.Length - 5];
+                }
+            }
+            for (int CountByte = 0; CountByte < Byte_Array.Length; CountByte++)
+            {
+                if (CountByte != Byte_Array.Length - 4)
+                {
+                    Byte_Array[CountByte] ^= Byte_Array[Byte_Array.Length - 4];
+                }
+            }
+            for (int CountByte = 0; CountByte < Byte_Array.Length; CountByte++)
+            {
+                if (CountByte != Byte_Array.Length - 3)
+                {
+                    Byte_Array[CountByte] ^= Byte_Array[Byte_Array.Length - 3];
+                }
+            }
+            for (int CountByte = 0; CountByte < Byte_Array.Length; CountByte++)
+            {
+                if (CountByte != Byte_Array.Length - 2)
+                {
+                    Byte_Array[CountByte] ^= Byte_Array[Byte_Array.Length - 2];
+                }
+            }
+            for (int CountByte = 0; CountByte < Byte_Array.Length; CountByte++)
+            {
+                if (CountByte != Byte_Array.Length - 1)
+                {
+                    Byte_Array[CountByte] ^= Byte_Array[Byte_Array.Length - 1];
+                }
+            }
+            // XOR Private Key
+            string New_PrivateKey1 = PrivateKey1.Substring(0, Byte_Array.Length);
+            var New_PrivateKey1_Bytes = Encoding.ASCII.GetBytes(New_PrivateKey1);
+            for (int CountByte = 0; CountByte < Byte_Array.Length; CountByte++)
+            {
+                Byte_Array[CountByte] ^= New_PrivateKey1_Bytes[CountByte];
+            }
+
+            char[] Code_CharArray = new char[Byte_Array.Length];
+            for (int CountByte = 0; CountByte < Byte_Array.Length; CountByte++)
+            {
+                Code_CharArray[CountByte] = (char)Byte_Array[CountByte];
+            }
+
+            return String.Join("", Code_CharArray);
         }
 
         private void Connect2MainCam_using_Database_Info()
@@ -597,8 +718,18 @@ namespace IPCameraManager
             if (loginInfo != null && (loginInfo.Count >= 1))
             {
                 // Get info Login Camera and Login_Status
-                ucPage1.MainCam_Manager.LoginInfo.IP_Address = loginInfo[0].IP_Address;
-                ucPage1.MainCam_Manager.LoginInfo.Port = loginInfo[0].Port;
+                string IPAddress = "";
+                string PortValue = "";
+                try
+                {
+                    IPAddress = Decode(loginInfo[0].IP_Address);
+                    PortValue = Decode(loginInfo[0].Port);
+                    PortValue = PortValue.Substring(PortValue.Length - 4);
+                }
+                catch
+                { }
+                ucPage1.MainCam_Manager.LoginInfo.IP_Address = IPAddress;
+                ucPage1.MainCam_Manager.LoginInfo.Port = PortValue;
                 ucPage1.MainCam_Manager.LoginInfo.Username = loginInfo[0].Username;
                 ucPage1.MainCam_Manager.LoginInfo.Password = loginInfo[0].Password;
 
@@ -765,8 +896,18 @@ namespace IPCameraManager
             if (loginInfo != null && (loginInfo.Count >= 2))
             {
                 // Get info Login Camera and Login_Status
-                ucPage1.SecondaryCam_Manager.LoginInfo.IP_Address = loginInfo[1].IP_Address;
-                ucPage1.SecondaryCam_Manager.LoginInfo.Port = loginInfo[1].Port;
+                string IPAddress = "";
+                string PortValue = "";
+                try
+                {
+                    IPAddress = Decode(loginInfo[1].IP_Address);
+                    PortValue = Decode(loginInfo[1].Port);
+                    PortValue = PortValue.Substring(PortValue.Length - 4);
+                }
+                catch
+                { }
+                ucPage1.SecondaryCam_Manager.LoginInfo.IP_Address = IPAddress;
+                ucPage1.SecondaryCam_Manager.LoginInfo.Port = PortValue;
                 ucPage1.SecondaryCam_Manager.LoginInfo.Username = loginInfo[1].Username;
                 ucPage1.SecondaryCam_Manager.LoginInfo.Password = loginInfo[1].Password;
 
@@ -972,7 +1113,7 @@ namespace IPCameraManager
                 bool result = CHCNetSDK.NET_DVR_RebootDVR(ucPage1.MainCam_Manager.LoginInfo.LoginStatus);
                 if (result == true)
                 {
-                    MessageBox.Show("Khởi động lại Camera chính thành công", "SUCCESSFUL", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    MessageBox.Show("Camera chính đang được khởi động lại", "SUCCESSFUL", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
                 else
                 {
@@ -992,7 +1133,7 @@ namespace IPCameraManager
                 bool result = CHCNetSDK.NET_DVR_RebootDVR(ucPage1.SecondaryCam_Manager.LoginInfo.LoginStatus);
                 if (result == true)
                 {
-                    MessageBox.Show("Khởi động lại Camera phụ thành công", "SUCCESSFUL", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    MessageBox.Show("Camera phụ đang được khởi động lại", "SUCCESSFUL", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
                 else
                 {

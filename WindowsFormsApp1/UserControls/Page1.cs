@@ -427,7 +427,8 @@ namespace IPCameraManager
                 {
                     FolderName_to_saveFile = "D:\\Hinh_Anh";
                 }
-                string ImagePath = FolderName_to_saveFile + "\\Thang" + DateTime.Today.ToString("MM");
+                string ImagePath = FolderName_to_saveFile + "\\Năm " + DateTime.Today.ToString("yyyy")
+                                                          + "\\Thang" + DateTime.Today.ToString("MM");
                 ImagePath += "_" + DateTime.Today.ToString("yyyy");
                 ImagePath += "\\Ngay" + DateTime.Today.ToString("dd") + "\\" + tbMaBenhNhan.Text;
                 string FolderPath = ImagePath;
