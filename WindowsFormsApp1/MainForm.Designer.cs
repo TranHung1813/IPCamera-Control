@@ -32,9 +32,9 @@ namespace IPCameraManager
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             this.panel1 = new System.Windows.Forms.Panel();
-            this.guna2ControlBox1 = new Guna.UI2.WinForms.Guna2ControlBox();
+            this.btMinForm = new Guna.UI2.WinForms.Guna2ControlBox();
+            this.btResizeForm = new Guna.UI2.WinForms.Guna2ControlBox();
             this.btSystemSetting = new Guna.UI2.WinForms.Guna2Button();
-            this.btMinimize = new Guna.UI2.WinForms.Guna2Button();
             this.btExit = new Guna.UI2.WinForms.Guna2Button();
             this.label1 = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
@@ -64,6 +64,8 @@ namespace IPCameraManager
             this.kiểmTraCậpNhậtToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.timer_GetRTC = new System.Windows.Forms.Timer(this.components);
             this.panelUnknown = new System.Windows.Forms.Panel();
+            this.guna2DragControl2 = new Guna.UI2.WinForms.Guna2DragControl(this.components);
+            this.guna2DragControl3 = new Guna.UI2.WinForms.Guna2DragControl(this.components);
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel2.SuspendLayout();
@@ -73,37 +75,54 @@ namespace IPCameraManager
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(50)))), ((int)(((byte)(70)))));
-            this.panel1.Controls.Add(this.guna2ControlBox1);
+            this.panel1.Controls.Add(this.btMinForm);
+            this.panel1.Controls.Add(this.btResizeForm);
             this.panel1.Controls.Add(this.btSystemSetting);
-            this.panel1.Controls.Add(this.btMinimize);
             this.panel1.Controls.Add(this.btExit);
             this.panel1.Controls.Add(this.label1);
             this.panel1.Controls.Add(this.pictureBox1);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1044, 37);
-            this.panel1.TabIndex = 6;
+            this.panel1.Size = new System.Drawing.Size(1043, 37);
+            this.panel1.TabIndex = 60;
             // 
-            // guna2ControlBox1
+            // btMinForm
             // 
-            this.guna2ControlBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.guna2ControlBox1.ControlBoxStyle = Guna.UI2.WinForms.Enums.ControlBoxStyle.Custom;
-            this.guna2ControlBox1.ControlBoxType = Guna.UI2.WinForms.Enums.ControlBoxType.MaximizeBox;
-            this.guna2ControlBox1.CustomIconSize = 13F;
-            this.guna2ControlBox1.FillColor = System.Drawing.Color.Transparent;
-            this.guna2ControlBox1.HoverState.FillColor = System.Drawing.Color.Gray;
-            this.guna2ControlBox1.HoverState.Parent = this.guna2ControlBox1;
-            this.guna2ControlBox1.IconColor = System.Drawing.Color.White;
-            this.guna2ControlBox1.Location = new System.Drawing.Point(933, 0);
-            this.guna2ControlBox1.Name = "guna2ControlBox1";
-            this.guna2ControlBox1.ShadowDecoration.Parent = this.guna2ControlBox1;
-            this.guna2ControlBox1.Size = new System.Drawing.Size(55, 37);
-            this.guna2ControlBox1.TabIndex = 37;
+            this.btMinForm.ControlBoxStyle = Guna.UI2.WinForms.Enums.ControlBoxStyle.Custom;
+            this.btMinForm.ControlBoxType = Guna.UI2.WinForms.Enums.ControlBoxType.MinimizeBox;
+            this.btMinForm.CustomIconSize = 13.5F;
+            this.btMinForm.Dock = System.Windows.Forms.DockStyle.Right;
+            this.btMinForm.FillColor = System.Drawing.Color.Transparent;
+            this.btMinForm.HoverState.FillColor = System.Drawing.Color.Gray;
+            this.btMinForm.HoverState.Parent = this.btMinForm;
+            this.btMinForm.IconColor = System.Drawing.Color.White;
+            this.btMinForm.Location = new System.Drawing.Point(878, 0);
+            this.btMinForm.Name = "btMinForm";
+            this.btMinForm.ShadowDecoration.Parent = this.btMinForm;
+            this.btMinForm.Size = new System.Drawing.Size(55, 37);
+            this.btMinForm.TabIndex = 37;
+            // 
+            // btResizeForm
+            // 
+            this.btResizeForm.ControlBoxStyle = Guna.UI2.WinForms.Enums.ControlBoxStyle.Custom;
+            this.btResizeForm.ControlBoxType = Guna.UI2.WinForms.Enums.ControlBoxType.MaximizeBox;
+            this.btResizeForm.CustomIconSize = 14F;
+            this.btResizeForm.Dock = System.Windows.Forms.DockStyle.Right;
+            this.btResizeForm.FillColor = System.Drawing.Color.Transparent;
+            this.btResizeForm.HoverState.FillColor = System.Drawing.Color.Gray;
+            this.btResizeForm.HoverState.Parent = this.btResizeForm;
+            this.btResizeForm.IconColor = System.Drawing.Color.White;
+            this.btResizeForm.Location = new System.Drawing.Point(933, 0);
+            this.btResizeForm.Name = "btResizeForm";
+            this.btResizeForm.ShadowDecoration.Parent = this.btResizeForm;
+            this.btResizeForm.Size = new System.Drawing.Size(55, 37);
+            this.btResizeForm.TabIndex = 0;
+            this.btResizeForm.Click += new System.EventHandler(this.btResizeForm_Click);
+            this.btResizeForm.MouseDown += new System.Windows.Forms.MouseEventHandler(this.btResizeForm_MouseDown);
             // 
             // btSystemSetting
             // 
-            this.btSystemSetting.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btSystemSetting.CheckedState.Parent = this.btSystemSetting;
             this.btSystemSetting.CustomImages.Parent = this.btSystemSetting;
             this.btSystemSetting.FillColor = System.Drawing.Color.Transparent;
@@ -121,35 +140,17 @@ namespace IPCameraManager
             this.btSystemSetting.TabIndex = 36;
             this.btSystemSetting.Click += new System.EventHandler(this.btSystemSetting_Click);
             // 
-            // btMinimize
-            // 
-            this.btMinimize.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btMinimize.CheckedState.Parent = this.btMinimize;
-            this.btMinimize.CustomImages.Parent = this.btMinimize;
-            this.btMinimize.FillColor = System.Drawing.Color.Transparent;
-            this.btMinimize.Font = new System.Drawing.Font("Segoe UI", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btMinimize.ForeColor = System.Drawing.Color.White;
-            this.btMinimize.HoverState.FillColor = System.Drawing.Color.Gray;
-            this.btMinimize.HoverState.Parent = this.btMinimize;
-            this.btMinimize.Location = new System.Drawing.Point(877, 0);
-            this.btMinimize.Name = "btMinimize";
-            this.btMinimize.ShadowDecoration.Parent = this.btMinimize;
-            this.btMinimize.Size = new System.Drawing.Size(55, 37);
-            this.btMinimize.TabIndex = 34;
-            this.btMinimize.Text = "-";
-            this.btMinimize.Click += new System.EventHandler(this.btMinimize_Click);
-            // 
             // btExit
             // 
             this.btExit.CheckedState.Parent = this.btExit;
             this.btExit.CustomImages.Parent = this.btExit;
             this.btExit.Dock = System.Windows.Forms.DockStyle.Right;
             this.btExit.FillColor = System.Drawing.Color.Transparent;
-            this.btExit.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btExit.Font = new System.Drawing.Font("Segoe UI Semibold", 13F, System.Drawing.FontStyle.Bold);
             this.btExit.ForeColor = System.Drawing.Color.White;
             this.btExit.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.btExit.HoverState.Parent = this.btExit;
-            this.btExit.Location = new System.Drawing.Point(989, 0);
+            this.btExit.Location = new System.Drawing.Point(988, 0);
             this.btExit.Name = "btExit";
             this.btExit.ShadowDecoration.Parent = this.btExit;
             this.btExit.Size = new System.Drawing.Size(55, 37);
@@ -160,20 +161,20 @@ namespace IPCameraManager
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Font = new System.Drawing.Font("Tahoma", 11.5F, System.Drawing.FontStyle.Bold);
             this.label1.ForeColor = System.Drawing.SystemColors.Control;
             this.label1.Location = new System.Drawing.Point(48, 9);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(210, 18);
-            this.label1.TabIndex = 1;
+            this.label1.Size = new System.Drawing.Size(227, 19);
+            this.label1.TabIndex = 61;
             this.label1.Text = "Phần mềm quản lý Camera";
             // 
             // pictureBox1
             // 
-            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(3, 3);
+            this.pictureBox1.Image = global::IPCameraManager.Properties.Resources.SecurityCameraPic6;
+            this.pictureBox1.Location = new System.Drawing.Point(5, 4);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(40, 31);
+            this.pictureBox1.Size = new System.Drawing.Size(36, 28);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
@@ -193,8 +194,8 @@ namespace IPCameraManager
             this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel2.Location = new System.Drawing.Point(0, 37);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(1044, 43);
-            this.panel2.TabIndex = 7;
+            this.panel2.Size = new System.Drawing.Size(1043, 43);
+            this.panel2.TabIndex = 67;
             // 
             // tabPageTimPhieu
             // 
@@ -213,12 +214,12 @@ namespace IPCameraManager
             this.tabPageTimPhieu.HoverState.Parent = this.tabPageTimPhieu;
             this.tabPageTimPhieu.Image = global::IPCameraManager.Properties.Resources.LookingIcon1;
             this.tabPageTimPhieu.ImageSize = new System.Drawing.Size(36, 36);
-            this.tabPageTimPhieu.Location = new System.Drawing.Point(555, 0);
+            this.tabPageTimPhieu.Location = new System.Drawing.Point(557, 0);
             this.tabPageTimPhieu.Name = "tabPageTimPhieu";
             this.tabPageTimPhieu.ShadowDecoration.Parent = this.tabPageTimPhieu;
             this.tabPageTimPhieu.Size = new System.Drawing.Size(186, 43);
-            this.tabPageTimPhieu.TabIndex = 6;
-            this.tabPageTimPhieu.Text = "Tìm phiếu khám (F8)";
+            this.tabPageTimPhieu.TabIndex = 60;
+            this.tabPageTimPhieu.Text = " Tìm phiếu khám (F8)";
             this.tabPageTimPhieu.UseTransparentBackground = true;
             this.tabPageTimPhieu.Click += new System.EventHandler(this.tabPageTimPhieu_Click);
             // 
@@ -237,14 +238,14 @@ namespace IPCameraManager
             this.tabPageCaidatCamera.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.tabPageCaidatCamera.HoverState.CustomBorderColor = System.Drawing.Color.Transparent;
             this.tabPageCaidatCamera.HoverState.Parent = this.tabPageCaidatCamera;
-            this.tabPageCaidatCamera.Image = global::IPCameraManager.Properties.Resources.Camera1;
+            this.tabPageCaidatCamera.Image = global::IPCameraManager.Properties.Resources.cameraPic;
             this.tabPageCaidatCamera.ImageSize = new System.Drawing.Size(32, 32);
-            this.tabPageCaidatCamera.Location = new System.Drawing.Point(364, 0);
+            this.tabPageCaidatCamera.Location = new System.Drawing.Point(365, 0);
             this.tabPageCaidatCamera.Name = "tabPageCaidatCamera";
             this.tabPageCaidatCamera.ShadowDecoration.Parent = this.tabPageCaidatCamera;
             this.tabPageCaidatCamera.Size = new System.Drawing.Size(192, 43);
-            this.tabPageCaidatCamera.TabIndex = 5;
-            this.tabPageCaidatCamera.Text = "Cài đặt Camera (F7)";
+            this.tabPageCaidatCamera.TabIndex = 60;
+            this.tabPageCaidatCamera.Text = " Cài đặt Camera (F7)";
             this.tabPageCaidatCamera.UseTransparentBackground = true;
             this.tabPageCaidatCamera.Click += new System.EventHandler(this.tabPageCaidatCamera_Click);
             // 
@@ -263,14 +264,14 @@ namespace IPCameraManager
             this.tabPage_InPhieu.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.tabPage_InPhieu.HoverState.CustomBorderColor = System.Drawing.Color.Transparent;
             this.tabPage_InPhieu.HoverState.Parent = this.tabPage_InPhieu;
-            this.tabPage_InPhieu.Image = ((System.Drawing.Image)(resources.GetObject("tabPage_InPhieu.Image")));
+            this.tabPage_InPhieu.Image = global::IPCameraManager.Properties.Resources.printerPic6_3;
             this.tabPage_InPhieu.ImageSize = new System.Drawing.Size(32, 32);
             this.tabPage_InPhieu.Location = new System.Drawing.Point(178, 0);
             this.tabPage_InPhieu.Name = "tabPage_InPhieu";
             this.tabPage_InPhieu.ShadowDecoration.Parent = this.tabPage_InPhieu;
             this.tabPage_InPhieu.Size = new System.Drawing.Size(187, 43);
-            this.tabPage_InPhieu.TabIndex = 1;
-            this.tabPage_InPhieu.Text = "In Phiếu Khám (F4)";
+            this.tabPage_InPhieu.TabIndex = 60;
+            this.tabPage_InPhieu.Text = " In Phiếu Khám (F4)";
             this.tabPage_InPhieu.UseTransparentBackground = true;
             this.tabPage_InPhieu.Click += new System.EventHandler(this.tabPageInPhieu_Click);
             // 
@@ -290,14 +291,14 @@ namespace IPCameraManager
             this.tabPage_KhamBenh.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.tabPage_KhamBenh.HoverState.CustomBorderColor = System.Drawing.Color.Transparent;
             this.tabPage_KhamBenh.HoverState.Parent = this.tabPage_KhamBenh;
-            this.tabPage_KhamBenh.Image = ((System.Drawing.Image)(resources.GetObject("tabPage_KhamBenh.Image")));
-            this.tabPage_KhamBenh.ImageSize = new System.Drawing.Size(32, 32);
-            this.tabPage_KhamBenh.Location = new System.Drawing.Point(2, 0);
+            this.tabPage_KhamBenh.Image = global::IPCameraManager.Properties.Resources.HealthPic3;
+            this.tabPage_KhamBenh.ImageSize = new System.Drawing.Size(30, 30);
+            this.tabPage_KhamBenh.Location = new System.Drawing.Point(1, 0);
             this.tabPage_KhamBenh.Name = "tabPage_KhamBenh";
             this.tabPage_KhamBenh.ShadowDecoration.Parent = this.tabPage_KhamBenh;
             this.tabPage_KhamBenh.Size = new System.Drawing.Size(177, 43);
             this.tabPage_KhamBenh.TabIndex = 0;
-            this.tabPage_KhamBenh.Text = "KHÁM BỆNH (F3)";
+            this.tabPage_KhamBenh.Text = " Khám Bệnh (F3)";
             this.tabPage_KhamBenh.UseTransparentBackground = true;
             this.tabPage_KhamBenh.Click += new System.EventHandler(this.tabPage_KhamBenh_Click);
             // 
@@ -312,16 +313,16 @@ namespace IPCameraManager
             this.panelBorder_Left.Location = new System.Drawing.Point(0, 80);
             this.panelBorder_Left.Name = "panelBorder_Left";
             this.panelBorder_Left.Size = new System.Drawing.Size(1, 640);
-            this.panelBorder_Left.TabIndex = 9;
+            this.panelBorder_Left.TabIndex = 69;
             // 
             // panelBorder_Right
             // 
-            this.panelBorder_Right.BackColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.panelBorder_Right.BackColor = System.Drawing.SystemColors.ControlDark;
             this.panelBorder_Right.Dock = System.Windows.Forms.DockStyle.Right;
-            this.panelBorder_Right.Location = new System.Drawing.Point(1042, 80);
+            this.panelBorder_Right.Location = new System.Drawing.Point(1041, 80);
             this.panelBorder_Right.Name = "panelBorder_Right";
             this.panelBorder_Right.Size = new System.Drawing.Size(2, 640);
-            this.panelBorder_Right.TabIndex = 0;
+            this.panelBorder_Right.TabIndex = 61;
             // 
             // timer_Update_PatientInfo_to_Page2
             // 
@@ -351,6 +352,7 @@ namespace IPCameraManager
             // 
             // btLogin_IPCamera
             // 
+            this.btLogin_IPCamera.AutoSize = false;
             this.btLogin_IPCamera.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btLogin_IPCamera.Name = "btLogin_IPCamera";
             this.btLogin_IPCamera.ShowShortcutKeys = false;
@@ -360,6 +362,7 @@ namespace IPCameraManager
             // 
             // btTimeCorrection
             // 
+            this.btTimeCorrection.AutoSize = false;
             this.btTimeCorrection.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btTimeCorrection.Name = "btTimeCorrection";
             this.btTimeCorrection.Size = new System.Drawing.Size(286, 24);
@@ -368,6 +371,7 @@ namespace IPCameraManager
             // 
             // toolStripMenuItem2
             // 
+            this.toolStripMenuItem2.AutoSize = false;
             this.toolStripMenuItem2.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.btReboot_MainCam,
             this.btReboot_Cam2});
@@ -378,22 +382,25 @@ namespace IPCameraManager
             // 
             // btReboot_MainCam
             // 
+            this.btReboot_MainCam.AutoSize = false;
             this.btReboot_MainCam.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btReboot_MainCam.Name = "btReboot_MainCam";
-            this.btReboot_MainCam.Size = new System.Drawing.Size(166, 22);
+            this.btReboot_MainCam.Size = new System.Drawing.Size(180, 22);
             this.btReboot_MainCam.Text = "Camera chính";
             this.btReboot_MainCam.Click += new System.EventHandler(this.btReboot_MainCam_Click);
             // 
             // btReboot_Cam2
             // 
+            this.btReboot_Cam2.AutoSize = false;
             this.btReboot_Cam2.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btReboot_Cam2.Name = "btReboot_Cam2";
-            this.btReboot_Cam2.Size = new System.Drawing.Size(166, 22);
+            this.btReboot_Cam2.Size = new System.Drawing.Size(180, 22);
             this.btReboot_Cam2.Text = "Camera phụ";
             this.btReboot_Cam2.Click += new System.EventHandler(this.btReboot_Cam2_Click);
             // 
             // toolStripMenuItem3
             // 
+            this.toolStripMenuItem3.AutoSize = false;
             this.toolStripMenuItem3.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.btResetConfig_MainCam,
             this.btResetConfig_Cam2});
@@ -404,22 +411,25 @@ namespace IPCameraManager
             // 
             // btResetConfig_MainCam
             // 
+            this.btResetConfig_MainCam.AutoSize = false;
             this.btResetConfig_MainCam.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btResetConfig_MainCam.Name = "btResetConfig_MainCam";
-            this.btResetConfig_MainCam.Size = new System.Drawing.Size(166, 22);
+            this.btResetConfig_MainCam.Size = new System.Drawing.Size(180, 22);
             this.btResetConfig_MainCam.Text = "Camera chính";
             this.btResetConfig_MainCam.Click += new System.EventHandler(this.btResetConfig_MainCam_Click);
             // 
             // btResetConfig_Cam2
             // 
+            this.btResetConfig_Cam2.AutoSize = false;
             this.btResetConfig_Cam2.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btResetConfig_Cam2.Name = "btResetConfig_Cam2";
-            this.btResetConfig_Cam2.Size = new System.Drawing.Size(166, 22);
+            this.btResetConfig_Cam2.Size = new System.Drawing.Size(180, 22);
             this.btResetConfig_Cam2.Text = "Camera phụ";
             this.btResetConfig_Cam2.Click += new System.EventHandler(this.btResetConfig_Cam2_Click);
             // 
             // btSetFolderchuaAnh
             // 
+            this.btSetFolderchuaAnh.AutoSize = false;
             this.btSetFolderchuaAnh.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btSetFolderchuaAnh.Name = "btSetFolderchuaAnh";
             this.btSetFolderchuaAnh.Size = new System.Drawing.Size(286, 24);
@@ -428,6 +438,7 @@ namespace IPCameraManager
             // 
             // btSetFile_MauPhieuKham
             // 
+            this.btSetFile_MauPhieuKham.AutoSize = false;
             this.btSetFile_MauPhieuKham.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btSetFile_MauPhieuKham.Name = "btSetFile_MauPhieuKham";
             this.btSetFile_MauPhieuKham.Size = new System.Drawing.Size(286, 24);
@@ -436,6 +447,7 @@ namespace IPCameraManager
             // 
             // btSetting_KeyboardShortcut
             // 
+            this.btSetting_KeyboardShortcut.AutoSize = false;
             this.btSetting_KeyboardShortcut.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btSetting_KeyboardShortcut.Name = "btSetting_KeyboardShortcut";
             this.btSetting_KeyboardShortcut.Size = new System.Drawing.Size(286, 24);
@@ -444,6 +456,7 @@ namespace IPCameraManager
             // 
             // kiểmTraCậpNhậtToolStripMenuItem
             // 
+            this.kiểmTraCậpNhậtToolStripMenuItem.AutoSize = false;
             this.kiểmTraCậpNhậtToolStripMenuItem.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.kiểmTraCậpNhậtToolStripMenuItem.Name = "kiểmTraCậpNhậtToolStripMenuItem";
             this.kiểmTraCậpNhậtToolStripMenuItem.Size = new System.Drawing.Size(286, 24);
@@ -457,28 +470,34 @@ namespace IPCameraManager
             // panelUnknown
             // 
             this.panelUnknown.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelUnknown.Location = new System.Drawing.Point(0, 80);
+            this.panelUnknown.Location = new System.Drawing.Point(1, 80);
             this.panelUnknown.Name = "panelUnknown";
-            this.panelUnknown.Size = new System.Drawing.Size(1044, 640);
-            this.panelUnknown.TabIndex = 8;
+            this.panelUnknown.Size = new System.Drawing.Size(1040, 640);
+            this.panelUnknown.TabIndex = 0;
+            // 
+            // guna2DragControl2
+            // 
+            this.guna2DragControl2.TargetControl = this.label1;
+            // 
+            // guna2DragControl3
+            // 
+            this.guna2DragControl3.TargetControl = this.pictureBox1;
             // 
             // MainForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
-            this.AutoSize = true;
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.ClientSize = new System.Drawing.Size(1044, 720);
+            this.ClientSize = new System.Drawing.Size(1043, 720);
+            this.Controls.Add(this.panelUnknown);
             this.Controls.Add(this.panelBorder_Right);
             this.Controls.Add(this.panelBorder_Left);
-            this.Controls.Add(this.panelUnknown);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "MainForm";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Phần mềm quản lý Camera";
+            this.Load += new System.EventHandler(this.MainForm_Load);
             this.Shown += new System.EventHandler(this.MainForm_Shown);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
@@ -498,14 +517,11 @@ namespace IPCameraManager
         private System.Windows.Forms.Label label1;
         private Guna.UI2.WinForms.Guna2Button tabPage_InPhieu;
         private Guna.UI2.WinForms.Guna2DragControl guna2DragControl1;
-        private Guna.UI2.WinForms.Guna2Button btMinimize;
         private System.Windows.Forms.Panel panelBorder_Right;
         private System.Windows.Forms.Panel panelBorder_Left;
-        private Guna.UI2.WinForms.Guna2Button btExit;
         private System.Windows.Forms.Timer timer_Update_PatientInfo_to_Page2;
         private System.Windows.Forms.Timer timer_GetCamStatus;
         private Guna.UI2.WinForms.Guna2Button tabPageTimPhieu;
-        private Guna.UI2.WinForms.Guna2Button tabPageCaidatCamera;
         private Guna.UI2.WinForms.Guna2Button btSystemSetting;
         private System.Windows.Forms.ContextMenuStrip cMStrip_Setting;
         private System.Windows.Forms.ToolStripMenuItem btLogin_IPCamera;
@@ -515,7 +531,6 @@ namespace IPCameraManager
         private System.Windows.Forms.ToolStripMenuItem btSetFile_MauPhieuKham;
         private System.Windows.Forms.ToolStripMenuItem btSetting_KeyboardShortcut;
         private System.Windows.Forms.Timer timer_GetRTC;
-        private Guna.UI2.WinForms.Guna2ControlBox guna2ControlBox1;
         private System.Windows.Forms.Panel panelUnknown;
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem2;
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem3;
@@ -523,6 +538,12 @@ namespace IPCameraManager
         private System.Windows.Forms.ToolStripMenuItem btReboot_Cam2;
         private System.Windows.Forms.ToolStripMenuItem btResetConfig_MainCam;
         private System.Windows.Forms.ToolStripMenuItem btResetConfig_Cam2;
+        private Guna.UI2.WinForms.Guna2Button tabPageCaidatCamera;
+        private Guna.UI2.WinForms.Guna2ControlBox btResizeForm;
+        private Guna.UI2.WinForms.Guna2ControlBox btMinForm;
+        private Guna.UI2.WinForms.Guna2Button btExit;
+        private Guna.UI2.WinForms.Guna2DragControl guna2DragControl2;
+        private Guna.UI2.WinForms.Guna2DragControl guna2DragControl3;
     }
 }
 

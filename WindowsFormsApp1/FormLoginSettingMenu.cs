@@ -1,6 +1,8 @@
 ﻿using FireSharp;
 using FireSharp.Config;
 using FireSharp.Interfaces;
+using FireSharp.Response;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -18,6 +20,10 @@ namespace IPCameraManager
         Password_Type _Password = new Password_Type();
         private const string _PrivateKey1 = "jcJQMP9Fz5YaUgAYBqjHofdk2PFJhq9S";
         private const string _PrivateKey2 = "NC72JtuaObxcsuIBjiUjhzbWOq";
+        private bool _isResize = false;
+
+        private const int ERR_OK = 0;
+        private const int ERR_NOT_OK = 1;
         public FormLoginSettingMenu()
         {
             InitializeComponent();
@@ -31,101 +37,122 @@ namespace IPCameraManager
 
         private void FormLoginSettingMenu_Load(object sender, EventArgs e)
         {
+            if (_isResize == false)
+            {
+                _isResize = true;
+                Utility.fitFormToScreen(this, 766, 1366);
+                tbPassword.Font = new Font(tbPassword.Font.FontFamily, (int)(tbPassword.Font.Size * ((float)Screen.PrimaryScreen.Bounds.Size.Width / (float)1366)), tbPassword.Font.Style);
+            }
             try
             {
                 Client = new FirebaseClient(firebaseConfig);
                 tbPassword.PlaceholderText = " Password";
-                Load_Password_Info();
-                GenerateCode();
+                Check_PasswordInfo_FromServer();
             }
             catch
             {
                 //MessageBox.Show("Problem!");
             }
         }
-        private void Load_Password_Info()
+        private async void Check_PasswordInfo_FromServer()
         {
-            // Get Password info
-            DataUser_Password_Info Password_Info = SqliteDataAccess.Load_Password_Info();
-
-            if (Password_Info != null)
+            int result_Day = ERR_OK;
+            int result_Month = ERR_OK;
+            int result_Year = ERR_OK;
+            int result_Pass = ERR_OK;
+            try
             {
-                _Password.PrivateCode = Password_Info.PrivateValue;
-                _Password.Day = Password_Info.Day;
-                _Password.Month = Password_Info.Month;
-                _Password.Year = Password_Info.Year;
-                _Password.UpdateStatus = Password_Info.UpdateStatus;
+                FirebaseResponse resp = await Client.GetAsync(@"IPCamera/Setting_Properties");
+                Dictionary<string, string > data = JsonConvert.DeserializeObject<Dictionary<string, string>>(resp.Body.ToString());
+                if(data.ContainsKey("Setting_Day"))
+                {
+                    if (data["Setting_Day"] != DateTime.Now.Day.ToString())
+                    {
+                        result_Day = ERR_NOT_OK;
+                    }
+                    else
+                    {
+                        try
+                        {
+                            _Password.Day = Int32.Parse(data["Setting_Day"]);
+                        }
+                        catch { }
+                    }
+                }
+                if (data.ContainsKey("Setting_Month"))
+                {
+                    if (data["Setting_Month"] != DateTime.Now.Month.ToString())
+                    {
+                        result_Month = ERR_NOT_OK;
+                    }
+                    else
+                    {
+                        try
+                        {
+                            _Password.Month = Int32.Parse(data["Setting_Month"]);
+                        }
+                        catch { }
+                    }
+                }
+                if (data.ContainsKey("Setting_Year"))
+                {
+                    if (data["Setting_Year"] != DateTime.Now.Year.ToString())
+                    {
+                        result_Year = ERR_NOT_OK;
+                    }
+                    else
+                    {
+                        try
+                        {
+                            _Password.Year = Int32.Parse(data["Setting_Year"]);
+                        }
+                        catch { }
+                    }
+                }
+                if (data.ContainsKey("Setting_Password"))
+                {
+                    if (data["Setting_Password"] == "")
+                    {
+                        result_Pass = ERR_NOT_OK;
+                    }
+                    else
+                    {
+                        _Password.PrivateCode = data["Setting_Password"];
+                    }
+                }
             }
-            else
+            catch
             {
-                // Handle when database = null
-                _Password.PrivateCode = "";
-                _Password.Day = 0;
-                _Password.Month = 0;
-                _Password.Year = 0;
-                _Password.UpdateStatus = 0;
+                result_Pass = ERR_NOT_OK;
+            }
+            if(result_Day == ERR_NOT_OK || result_Month == ERR_NOT_OK || result_Year == ERR_NOT_OK || result_Pass == ERR_NOT_OK) 
+            {
+                try
+                {
+                    GenerateCode();
+                }
+                catch { }
             }
         }
         private async void GenerateCode()
         {
-            if ((_Password.Day != DateTime.Now.Day) || (_Password.Month != DateTime.Now.Month)
-                                                    || (_Password.Year  != DateTime.Now.Year))
+            Random random = new Random();
+            int SeedKey = random.Next(100000, 1000000);
+
+            _Password.PrivateCode = Encode(SeedKey.ToString());
+            _Password.Month = DateTime.Now.Month;
+            _Password.Day = DateTime.Now.Day;
+            _Password.Year = DateTime.Now.Year;
+
+            try
             {
-                Random random = new Random();
-                int SeedKey = random.Next(100000, 1000000);
-                
-                _Password.PrivateCode = Encode(SeedKey.ToString());
-                _Password.Month = DateTime.Now.Month;
-                _Password.Day = DateTime.Now.Day;
-                _Password.Year = DateTime.Now.Year;
-                _Password.UpdateStatus = 0;
-
-                DataUser_Password_Info InfoSave = new DataUser_Password_Info();
-                InfoSave.Id = 1;
-                InfoSave.Day = _Password.Day;
-                InfoSave.Month = _Password.Month;
-                InfoSave.Year = _Password.Year;
-                InfoSave.PrivateValue = _Password.PrivateCode;
-
-                try
-                {
-                    await Client.SetAsync(@"IPCamera/Setting_Password", _Password.PrivateCode);
-                    _Password.UpdateStatus = 0;
-                }
-                catch
-                {
-                    // Update len database false
-                    _Password.UpdateStatus = 1;
-                }
-
-                // Save du lieu vao database (UpdateStatus = False khi Update len Server khong thanh cong)
-                InfoSave.UpdateStatus = _Password.UpdateStatus;
-                SqliteDataAccess.SaveInfo_Password(InfoSave);
+                await Client.SetAsync(@"IPCamera/Setting_Properties/Setting_Password", _Password.PrivateCode);
+                await Client.SetAsync(@"IPCamera/Setting_Properties/Setting_Month", _Password.Month.ToString());
+                await Client.SetAsync(@"IPCamera/Setting_Properties/Setting_Day", _Password.Day.ToString());
+                await Client.SetAsync(@"IPCamera/Setting_Properties/Setting_Year", _Password.Year.ToString());
             }
-            // Chua update len Server thanh cong => Thu Update lai
-            else if(_Password.UpdateStatus != 0)
-            {
-                try
-                {
-                    await Client.SetAsync(@"IPCamera/Setting_Password", _Password.PrivateCode);
-                    _Password.UpdateStatus = 0;
-                }
-                catch
-                {
-                    // Update len database false
-                    _Password.UpdateStatus = 1;
-                }
-
-                // Save du lieu vao database (UpdateStatus = False khi Update len Server khong thanh cong)
-                DataUser_Password_Info InfoSave = new DataUser_Password_Info();
-                InfoSave.Id = 1;
-                InfoSave.Day = _Password.Day;
-                InfoSave.Month = _Password.Month;
-                InfoSave.Year = _Password.Year;
-                InfoSave.PrivateValue = _Password.PrivateCode;
-                InfoSave.UpdateStatus = _Password.UpdateStatus;
-                SqliteDataAccess.SaveInfo_Password(InfoSave);
-            }
+            catch
+            { }
         }
         private string Encode (string SeedKey)
         {
@@ -174,7 +201,7 @@ namespace IPCameraManager
 
             return String.Join(" ", New_PrivateKey2_Bytes);
         }
-        private int NoInternet_Encode()
+        private string NoInternet_Encode()
         {
             int WeekDay = (int)DateTime.Today.DayOfWeek + 1;
             int DayTime = DateTime.Now.Day;
@@ -182,7 +209,10 @@ namespace IPCameraManager
             int YearTime = DateTime.Now.Year;
 
             int NoInternet_Code = Factorial(WeekDay) * MonthTime * DayTime + (DayTime + 2) * YearTime * (YearTime + 1) / 2 * (WeekDay + 1);
-            return (int)(NoInternet_Code % 1000000);
+            // Lay 6 chu so cuoi 
+            var digit = Convert.ToString(NoInternet_Code);
+            var SixlastDigit = digit.Substring(digit.Length - 6);
+            return SixlastDigit;
         }
         private int Factorial(int num)
         {
@@ -207,7 +237,7 @@ namespace IPCameraManager
                     DialogResult = DialogResult.OK;
                 }
                 // No Internet or Server is not working
-                else if (NoInternet_Encode().ToString() == tbPassword.Text)
+                else if (NoInternet_Encode() == tbPassword.Text)
                 {
                     DialogResult = DialogResult.OK;
                 }

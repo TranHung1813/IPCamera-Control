@@ -127,6 +127,18 @@
     <Reference Include="Squirrel, Version=1.9.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\squirrel.windows.1.9.0\lib\Net45\Squirrel.dll</HintPath>
     </Reference>
+    <Reference Include="Syncfusion.Core.WinForms, Version=20.4460.0.43, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89, processorArchitecture=MSIL">
+      <HintPath>..\packages\Syncfusion.Core.WinForms.20.4.0.43\lib\net46\Syncfusion.Core.WinForms.dll</HintPath>
+    </Reference>
+    <Reference Include="Syncfusion.Licensing, Version=20.4460.0.43, Culture=neutral, PublicKeyToken=632609b4d040f6b4, processorArchitecture=MSIL">
+      <HintPath>..\packages\Syncfusion.Licensing.20.4.0.43\lib\net46\Syncfusion.Licensing.dll</HintPath>
+    </Reference>
+    <Reference Include="Syncfusion.SfInput.WinForms, Version=20.4460.0.43, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89, processorArchitecture=MSIL">
+      <HintPath>..\packages\Syncfusion.SfInput.WinForms.20.4.0.43\lib\net46\Syncfusion.SfInput.WinForms.dll</HintPath>
+    </Reference>
+    <Reference Include="Syncfusion.Shared.Base, Version=20.4460.0.43, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89, processorArchitecture=MSIL">
+      <HintPath>..\packages\Syncfusion.Shared.Base.20.4.0.43\lib\net46\Syncfusion.Shared.Base.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Buffers, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
       <HintPath>..\packages\System.Buffers.4.5.1\lib\net461\System.Buffers.dll</HintPath>
@@ -292,8 +304,17 @@
     </Compile>
     <Compile Include="Utility.cs" />
     <Content Include="Doctor-icon.ico" />
-    <None Include="Resources\blue-key-lock-icon2.png" />
-    <None Include="Resources\blue-key-lock-icon1.png" />
+    <None Include="Resources\focus+3.png" />
+    <None Include="Resources\SecurityCameraPic6.png" />
+    <None Include="Resources\HealthPic3.png" />
+    <None Include="Resources\Removal-791.png" />
+    <None Include="Resources\focus-1.png" />
+    <None Include="Resources\exitPic-3.png" />
+    <None Include="Resources\printerPic6-3.png" />
+    <None Include="Resources\cameraPicture5.png" />
+    <None Include="Resources\CameraCaPhongPicture2.png" />
+    <None Include="Resources\cameraPic.png" />
+    <None Include="Resources\vinmec-icon.jpg" />
     <None Include="Resources\greenTick4.png" />
     <None Include="Resources\eye-hidden.png" />
     <None Include="Resources\eye-open.png" />

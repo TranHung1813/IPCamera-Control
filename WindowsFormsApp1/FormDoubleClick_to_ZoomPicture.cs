@@ -1,5 +1,6 @@
 ﻿using System.Drawing;
 using System.Windows.Forms;
+using Syncfusion.WinForms.Input;
 
 namespace IPCameraManager
 {
@@ -14,8 +15,10 @@ namespace IPCameraManager
 
         private void FormDoubleClick_to_ZoomPicture_Load(object sender, System.EventArgs e)
         {
+            Utility.fitFormToScreen(this, 766, 1366);
             pictureBox1.SizeMode = PictureBoxSizeMode.Zoom;
             pictureBox1.Image = _Image;
+            this.StartPosition= FormStartPosition.CenterScreen;
         }
 
         private void pictureBox1_DoubleClick(object sender, System.EventArgs e)

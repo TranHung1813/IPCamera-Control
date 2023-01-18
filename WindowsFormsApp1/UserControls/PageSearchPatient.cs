@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
+using System.Drawing;
 using System.IO;
 using System.Threading;
 using System.Windows.Forms;
@@ -56,6 +58,11 @@ namespace IPCameraManager
         private void PageSearchPatient_Load(object sender, EventArgs e)
         {
             //Load_Patients_Info();
+            StartFocus();
+        }
+        public void StartFocus()
+        {
+            if (tbMaBN.CanFocus) tbMaBN.Focus();
         }
 
         private void tbMaBN_KeyDown(object sender, KeyEventArgs e)
@@ -99,6 +106,7 @@ namespace IPCameraManager
                                                 MessageBoxButtons.OK, MessageBoxIcon.Warning);
                         }
                     }
+                    else picBox1.Image= null;
                     if (Patients_Info[index].Anh2_Path != "")
                     {
                         try
@@ -111,6 +119,7 @@ namespace IPCameraManager
                                                 MessageBoxButtons.OK, MessageBoxIcon.Warning);
                         }
                     }
+                    else picBox2.Image = null;
                 }
                 else
                 {
@@ -129,8 +138,13 @@ namespace IPCameraManager
         {
             if (picBox1.Image != null)
             {
-                FormDoubleClick_to_ZoomPicture form = new FormDoubleClick_to_ZoomPicture(picBox1.Image);
-                form.ShowDialog();
+                try
+                {
+                    Process.Start(Anh1_Path);
+                }
+                catch { }
+                //FormDoubleClick_to_ZoomPicture form = new FormDoubleClick_to_ZoomPicture(picBox1.Image);
+                //form.ShowDialog();
             }
         }
 
@@ -138,8 +152,13 @@ namespace IPCameraManager
         {
             if (picBox2.Image != null)
             {
-                FormDoubleClick_to_ZoomPicture form = new FormDoubleClick_to_ZoomPicture(picBox2.Image);
-                form.ShowDialog();
+                try
+                {
+                    Process.Start(Anh2_Path);
+                }
+                catch { }
+                //FormDoubleClick_to_ZoomPicture form = new FormDoubleClick_to_ZoomPicture(picBox2.Image);
+                //form.ShowDialog();
             }
         }
 
@@ -195,6 +214,69 @@ namespace IPCameraManager
                 {
                     MessageBox.Show("Không load được ảnh!", "Warning",
                                         MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
+            }
+        }
+
+        public void Page4_FitToContainer(int Height, int Width)
+        {
+            int h = this.Height;
+            Utility.FitUserControlToContainer(this, Height, Width);
+            tbMaBN.Font = new Font(tbMaBN.Font.FontFamily, (tbMaBN.Font.Size * ((float)Height / (float)h)), tbMaBN.Font.Style);
+            tbHoTenBN.Font = new Font(tbHoTenBN.Font.FontFamily, (tbHoTenBN.Font.Size * ((float)Height / (float)h)), tbHoTenBN.Font.Style);
+            tbTuoi.Font = new Font(tbTuoi.Font.FontFamily, (tbTuoi.Font.Size * ((float)Height / (float)h)), tbTuoi.Font.Style);
+            tbNgayKham.Font = new Font(tbNgayKham.Font.FontFamily, (tbNgayKham.Font.Size * (Height / (float)h)), tbNgayKham.Font.Style);
+            tbGioiTinh.Font = new Font(tbGioiTinh.Font.FontFamily, (tbGioiTinh.Font.Size * (Height / (float)h)), tbGioiTinh.Font.Style);
+
+            lbHoTen.Left = lbMaBN.Right - lbHoTen.Size.Width;
+            lbGioiTinh.Left = lbMaBN.Right - lbGioiTinh.Width;
+            lbDiaChi.Left = lbMaBN.Right - lbDiaChi.Width;
+            lbNgayKham.Left = lbMaBN.Right - lbNgayKham.Width;
+            lbTuoi.Left = lbMaBN.Right - lbTuoi.Width;
+
+            tbMaBN.IconRightSize = new Size((int)Math.Round(tbMaBN.IconRightSize.Width * ((float)Height / (float)h)),
+                                            (int)Math.Round(tbMaBN.IconRightSize.Height * ((float)Height / (float)h)));
+        }
+
+        private void btExit_F12_Click(object sender, EventArgs e)
+        {
+            if (btExit_F12.CanFocus)
+            {
+                btExit_F12.Focus();
+            }
+            if (MessageBox.Show("Bạn chắc chắn muốn thoát?", "Warning", MessageBoxButtons.OKCancel,
+                                                            MessageBoxIcon.Question) == DialogResult.OK)
+            {
+                Application.Exit();
+            }
+        }
+
+        private void btXemAnh1_Click(object sender, EventArgs e)
+        {
+            if (Anh1_Path != "")
+            {
+                try
+                {
+                    Process.Start(Anh1_Path);
+                }
+                catch
+                {
+                    MessageBox.Show("Không load được ảnh!", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
+            }
+        }
+
+        private void btXemAnh2_Click(object sender, EventArgs e)
+        {
+            if (Anh2_Path != "")
+            {
+                try
+                {
+                    Process.Start(Anh2_Path);
+                }
+                catch
+                {
+                    MessageBox.Show("Không load được ảnh!", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 }
             }
         }

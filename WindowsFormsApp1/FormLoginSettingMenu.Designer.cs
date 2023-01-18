@@ -69,6 +69,7 @@ namespace IPCameraManager
             this.guna2GroupBox1.Size = new System.Drawing.Size(300, 154);
             this.guna2GroupBox1.TabIndex = 2;
             this.guna2GroupBox1.Text = "Administrator";
+            this.guna2GroupBox1.TextOffset = new System.Drawing.Point(0, 1);
             // 
             // panel1
             // 
@@ -95,7 +96,6 @@ namespace IPCameraManager
             // 
             // btLogin
             // 
-            this.btLogin.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.btLogin.BackColor = System.Drawing.Color.Transparent;
             this.btLogin.BorderColor = System.Drawing.SystemColors.ControlDarkDark;
             this.btLogin.BorderRadius = 5;
@@ -153,8 +153,7 @@ namespace IPCameraManager
             // 
             // FormLoginSettingMenu
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.BackColor = System.Drawing.Color.WhiteSmoke;
             this.ClientSize = new System.Drawing.Size(301, 155);
             this.Controls.Add(this.guna2GroupBox1);

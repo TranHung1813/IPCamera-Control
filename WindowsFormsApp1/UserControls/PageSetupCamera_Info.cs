@@ -161,7 +161,7 @@ namespace IPCameraManager
         {
             if (MainCam_Manager.LoginInfo.LoginStatus < 0)
             {
-                MessageBox.Show("Camera chưa kết nối!\rHãy kết nối camera trước.", "Lỗi: Chưa kết nối camera", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                //MessageBox.Show("Camera chưa kết nối!\rHãy kết nối camera trước.", "Lỗi: Chưa kết nối camera", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 ResetImage_Main();
                 return ERR_NOT_OK;
             }
@@ -243,7 +243,7 @@ namespace IPCameraManager
         {
             if (SecondaryCam_Manager.LoginInfo.LoginStatus < 0)
             {
-                MessageBox.Show("Camera chưa kết nối!\rHãy kết nối camera trước.", "Lỗi: Chưa kết nối camera", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                //MessageBox.Show("Camera chưa kết nối!\rHãy kết nối camera trước.", "Lỗi: Chưa kết nối camera", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return ERR_NOT_OK;
             }
 
@@ -1259,18 +1259,18 @@ namespace IPCameraManager
                             ref Brightness_MainCam, ref Contrast_MainCam, ref Saturation_MainCam, ref hue_MainCam))
                 {
                     //Set value for Slider
-                    Slide_Brightness.Percentage = (int)Brightness_MainCam * 10;
-                    Slide_Contrast.Percentage = (int)Contrast_MainCam * 10;
-                    Slide_Saturation.Percentage = (int)Saturation_MainCam * 10;
-                    Slide_hue.Percentage = (int)hue_MainCam * 10;
+                    Slide_Brightness.Value = (int)Brightness_MainCam * 10;
+                    Slide_Contrast.Value = (int)Contrast_MainCam * 10;
+                    Slide_Saturation.Value = (int)Saturation_MainCam * 10;
+                    Slide_hue.Value = (int)hue_MainCam * 10;
                 }
                 else
                 {
                     //Set default value for Slider
-                    Slide_Brightness.Percentage = 50;
-                    Slide_Contrast.Percentage = 60;
-                    Slide_Saturation.Percentage = 70;
-                    Slide_hue.Percentage = 40;
+                    Slide_Brightness.Value = 50;
+                    Slide_Contrast.Value = 60;
+                    Slide_Saturation.Value = 70;
+                    Slide_hue.Value = 40;
                 }
             }
             else if (CurrentCamID == CAM2)
@@ -1280,26 +1280,40 @@ namespace IPCameraManager
                             ref Brightness_Cam2, ref Contrast_Cam2, ref Saturation_Cam2, ref hue_Cam2))
                 {
                     //Set value for Slider
-                    Slide_Brightness.Percentage = (int)Brightness_Cam2 * 10;
-                    Slide_Contrast.Percentage = (int)Contrast_Cam2 * 10;
-                    Slide_Saturation.Percentage = (int)Saturation_Cam2 * 10;
-                    Slide_hue.Percentage = (int)hue_Cam2 * 10;
+                    Slide_Brightness.Value = (int)Brightness_Cam2 * 10;
+                    Slide_Contrast.Value = (int)Contrast_Cam2 * 10;
+                    Slide_Saturation.Value = (int)Saturation_Cam2 * 10;
+                    Slide_hue.Value = (int)hue_Cam2 * 10;
                 }
                 else
                 {
                     //Set default value for Slider
-                    Slide_Brightness.Percentage = 50;
-                    Slide_Contrast.Percentage = 60;
-                    Slide_Saturation.Percentage = 70;
-                    Slide_hue.Percentage = 40;
+                    Slide_Brightness.Value = 50;
+                    Slide_Contrast.Value = 60;
+                    Slide_Saturation.Value = 70;
+                    Slide_hue.Value = 40;
                 }
             }
+        }
+        private void Slide_Brightness_Scroll(object sender, ScrollEventArgs e)
+        {
+            this.Invoke(new MethodInvoker(() =>
+            {
+                if (timerBrightness == null)
+                {
+                    timerBrightness = new System.Windows.Forms.Timer();
+                    timerBrightness.Tick += new EventHandler(Timer_BrightNess_Tick);
+
+                    timerBrightness.Interval = 400;
+                    timerBrightness.Start();
+                }
+            }));
         }
         private void Change_Brightness()
         {
             if (CurrentCamID == CAM1)
             {
-                uint Value = (uint)(Slide_Brightness.Percentage / 10);
+                uint Value = (uint)(Slide_Brightness.Value / 10);
                 if (Brightness_MainCam != Value)
                 {
                     // Set value for Main Camera
@@ -1314,7 +1328,7 @@ namespace IPCameraManager
             }
             else if (CurrentCamID == CAM2)
             {
-                uint Value = (uint)(Slide_Brightness.Percentage / 10);
+                uint Value = (uint)(Slide_Brightness.Value / 10);
                 if (Brightness_Cam2 != Value)
                 {
                     // Set value for Main Camera
@@ -1328,20 +1342,6 @@ namespace IPCameraManager
                 }
             }
         }
-        private void Slide_Brightness_Scroll(object sender, EventArgs e)
-        {
-            this.Invoke(new MethodInvoker(() =>
-            {
-                if (timerBrightness == null)
-                {
-                    timerBrightness = new System.Windows.Forms.Timer();
-                    timerBrightness.Tick += new EventHandler(Timer_BrightNess_Tick);
-
-                    timerBrightness.Interval = 400;
-                    timerBrightness.Start();
-                }
-            }));
-        }
         private void Timer_BrightNess_Tick(object sender, EventArgs e)
         {
             this.Invoke(new MethodInvoker(() =>
@@ -1351,11 +1351,25 @@ namespace IPCameraManager
                 timerBrightness = null;
             }));
         }
+        private void Slide_Contrast_Scroll(object sender, ScrollEventArgs e)
+        {
+            this.Invoke(new MethodInvoker(() =>
+            {
+                if (timerContrast == null)
+                {
+                    timerContrast = new System.Windows.Forms.Timer();
+                    timerContrast.Tick += new EventHandler(Timer_Contrast_Tick);
+
+                    timerContrast.Interval = 400;
+                    timerContrast.Start();
+                }
+            }));
+        }
         private void ChangeContrast()
         {
             if (CurrentCamID == CAM1)
             {
-                uint Value = (uint)(Slide_Contrast.Percentage / 10);
+                uint Value = (uint)(Slide_Contrast.Value / 10);
                 if (Contrast_MainCam != Value)
                 {
                     // Set value for Main Camera
@@ -1370,7 +1384,7 @@ namespace IPCameraManager
             }
             else if (CurrentCamID == CAM2)
             {
-                uint Value = (uint)(Slide_Contrast.Percentage / 10);
+                uint Value = (uint)(Slide_Contrast.Value / 10);
                 if (Contrast_Cam2 != Value)
                 {
                     // Set value for Main Camera
@@ -1384,20 +1398,6 @@ namespace IPCameraManager
                 }
             }
         }
-        private void Slide_Contrast_Scroll(object sender, EventArgs e)
-        {
-            this.Invoke(new MethodInvoker(() =>
-            {
-                if (timerContrast == null)
-                {
-                    timerContrast = new System.Windows.Forms.Timer();
-                    timerContrast.Tick += new EventHandler(Timer_Contrast_Tick);
-
-                    timerContrast.Interval = 400;
-                    timerContrast.Start();
-                }
-            }));
-        }
         private void Timer_Contrast_Tick(object sender, EventArgs e)
         {
             this.Invoke(new MethodInvoker(() =>
@@ -1407,11 +1407,25 @@ namespace IPCameraManager
                 timerContrast = null;
             }));
         }
+        private void Slide_Saturation_Scroll(object sender, ScrollEventArgs e)
+        {
+            this.Invoke(new MethodInvoker(() =>
+            {
+                if (timerSaturation == null)
+                {
+                    timerSaturation = new System.Windows.Forms.Timer();
+                    timerSaturation.Tick += new EventHandler(Timer_Saturation_Tick);
+
+                    timerSaturation.Interval = 400;
+                    timerSaturation.Start();
+                }
+            }));
+        }
         private void ChangeSaturation()
         {
             if (CurrentCamID == CAM1)
             {
-                uint Value = (uint)(Slide_Saturation.Percentage / 10);
+                uint Value = (uint)(Slide_Saturation.Value / 10);
                 if (Saturation_MainCam != Value)
                 {
                     // Set value for Main Camera
@@ -1426,7 +1440,7 @@ namespace IPCameraManager
             }
             else if (CurrentCamID == CAM2)
             {
-                uint Value = (uint)(Slide_Saturation.Percentage / 10);
+                uint Value = (uint)(Slide_Saturation.Value / 10);
                 if (Saturation_Cam2 != Value)
                 {
                     // Set value for Main Camera
@@ -1440,20 +1454,6 @@ namespace IPCameraManager
                 }
             }
         }
-        private void Slide_Saturation_Scroll(object sender, EventArgs e)
-        {
-            this.Invoke(new MethodInvoker(() =>
-            {
-                if (timerSaturation == null)
-                {
-                    timerSaturation = new System.Windows.Forms.Timer();
-                    timerSaturation.Tick += new EventHandler(Timer_Saturation_Tick);
-
-                    timerSaturation.Interval = 400;
-                    timerSaturation.Start();
-                }
-            }));
-        }
         private void Timer_Saturation_Tick(object sender, EventArgs e)
         {
             this.Invoke(new MethodInvoker(() =>
@@ -1463,12 +1463,25 @@ namespace IPCameraManager
                 timerSaturation = null;
             }));
         }
+        private void Slide_hue_Scroll(object sender, ScrollEventArgs e)
+        {
+            this.Invoke(new MethodInvoker(() =>
+            {
+                if (timerhue == null)
+                {
+                    timerhue = new System.Windows.Forms.Timer();
+                    timerhue.Tick += new EventHandler(Timer_hue_Tick);
 
+                    timerhue.Interval = 400;
+                    timerhue.Start();
+                }
+            }));
+        }
         private void Change_hue()
         {
             if (CurrentCamID == CAM1)
             {
-                uint Value = (uint)(Slide_hue.Percentage / 10);
+                uint Value = (uint)(Slide_hue.Value / 10);
                 if (hue_MainCam != Value)
                 {
                     // Set value for Main Camera
@@ -1483,7 +1496,7 @@ namespace IPCameraManager
             }
             else if (CurrentCamID == CAM2)
             {
-                uint Value = (uint)(Slide_hue.Percentage / 10);
+                uint Value = (uint)(Slide_hue.Value / 10);
                 if (hue_Cam2 != Value)
                 {
                     // Set value for Main Camera
@@ -1496,20 +1509,6 @@ namespace IPCameraManager
                     }
                 }
             }
-        }
-        private void Slide_hue_Scroll(object sender, EventArgs e)
-        {
-            this.Invoke(new MethodInvoker(() =>
-            {
-                if (timerhue == null)
-                {
-                    timerhue = new System.Windows.Forms.Timer();
-                    timerhue.Tick += new EventHandler(Timer_hue_Tick);
-
-                    timerhue.Interval = 400;
-                    timerhue.Start();
-                }
-            }));
         }
         private void Timer_hue_Tick(object sender, EventArgs e)
         {
@@ -1655,6 +1654,20 @@ namespace IPCameraManager
                     CHCNetSDK.NET_DVR_PTZControlWithSpeed_Other(SecondaryCam_Manager.LoginInfo.LoginStatus, 0, CHCNetSDK.FOCUS_NEAR, 1, (uint)(Default_Speed_PTZ_Cam2) + 3);
                 }
             }
+        }
+        public void Page3_FitToContainer(int Height, int Width)
+        {
+            Utility.FitUserControlToContainer(this, Height, Width);
+
+            lbTuongPhan.Left = lbDoSang.Right - lbTuongPhan.Size.Width;
+            lbBaoHoa.Left = lbDoSang.Right - lbBaoHoa.Width;
+            lbMauSac.Left = lbDoSang.Right - lbMauSac.Width;
+
+            // Chinh vi tri label lb_PanTilt
+            int Position_A = btLeft.Location.X + btLeft.Width;
+            int Position_B = btRight.Location.X;
+            int New_Pos = Position_A + (Position_B - Position_A - lb_PanTitl.Width) / 2;
+            lb_PanTitl.Location = new System.Drawing.Point(New_Pos, lb_PanTitl.Location.Y);
         }
     }
 }

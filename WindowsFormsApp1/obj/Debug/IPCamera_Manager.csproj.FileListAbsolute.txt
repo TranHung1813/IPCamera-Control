@@ -40,3 +40,189 @@ E:\Projects\IPCamera Control\WindowsFormsApp1\obj\Debug\IPCamera_Manager.csproj.
 E:\Projects\IPCamera Control\WindowsFormsApp1\obj\Debug\IPCamera_Manager.csproj.CopyComplete
 E:\Projects\IPCamera Control\WindowsFormsApp1\obj\Debug\IPCameraManager.exe
 E:\Projects\IPCamera Control\WindowsFormsApp1\obj\Debug\IPCameraManager.pdb
+C:\Users\Admin\Downloads\IPCameraControl\WindowsFormsApp1\bin\Debug\db\IPCameraManager.db
+C:\Users\Admin\Downloads\IPCameraControl\WindowsFormsApp1\bin\Debug\IPCameraManager.exe.config
+C:\Users\Admin\Downloads\IPCameraControl\WindowsFormsApp1\bin\Debug\IPCameraManager.exe
+C:\Users\Admin\Downloads\IPCameraControl\WindowsFormsApp1\bin\Debug\IPCameraManager.pdb
+C:\Users\Admin\Downloads\IPCameraControl\WindowsFormsApp1\bin\Debug\BitMiracle.LibTiff.NET.dll
+C:\Users\Admin\Downloads\IPCameraControl\WindowsFormsApp1\bin\Debug\Dapper.dll
+C:\Users\Admin\Downloads\IPCameraControl\WindowsFormsApp1\bin\Debug\DeltaCompressionDotNet.dll
+C:\Users\Admin\Downloads\IPCameraControl\WindowsFormsApp1\bin\Debug\DeltaCompressionDotNet.MsDelta.dll
+C:\Users\Admin\Downloads\IPCameraControl\WindowsFormsApp1\bin\Debug\DeltaCompressionDotNet.PatchApi.dll
+C:\Users\Admin\Downloads\IPCameraControl\WindowsFormsApp1\bin\Debug\FireSharp.dll
+C:\Users\Admin\Downloads\IPCameraControl\WindowsFormsApp1\bin\Debug\IronSoftware.Drawing.Common.dll
+C:\Users\Admin\Downloads\IPCameraControl\WindowsFormsApp1\bin\Debug\Microsoft.Threading.Tasks.dll
+C:\Users\Admin\Downloads\IPCameraControl\WindowsFormsApp1\bin\Debug\Microsoft.Threading.Tasks.Extensions.Desktop.dll
+C:\Users\Admin\Downloads\IPCameraControl\WindowsFormsApp1\bin\Debug\Microsoft.Threading.Tasks.Extensions.dll
+C:\Users\Admin\Downloads\IPCameraControl\WindowsFormsApp1\bin\Debug\Mono.Cecil.dll
+C:\Users\Admin\Downloads\IPCameraControl\WindowsFormsApp1\bin\Debug\Mono.Cecil.Mdb.dll
+C:\Users\Admin\Downloads\IPCameraControl\WindowsFormsApp1\bin\Debug\Mono.Cecil.Pdb.dll
+C:\Users\Admin\Downloads\IPCameraControl\WindowsFormsApp1\bin\Debug\Mono.Cecil.Rocks.dll
+C:\Users\Admin\Downloads\IPCameraControl\WindowsFormsApp1\bin\Debug\Newtonsoft.Json.dll
+C:\Users\Admin\Downloads\IPCameraControl\WindowsFormsApp1\bin\Debug\NuGet.Squirrel.dll
+C:\Users\Admin\Downloads\IPCameraControl\WindowsFormsApp1\bin\Debug\Ookii.Dialogs.WinForms.dll
+C:\Users\Admin\Downloads\IPCameraControl\WindowsFormsApp1\bin\Debug\SharpCompress.dll
+C:\Users\Admin\Downloads\IPCameraControl\WindowsFormsApp1\bin\Debug\SixLabors.ImageSharp.dll
+C:\Users\Admin\Downloads\IPCameraControl\WindowsFormsApp1\bin\Debug\Splat.dll
+C:\Users\Admin\Downloads\IPCameraControl\WindowsFormsApp1\bin\Debug\Squirrel.dll
+C:\Users\Admin\Downloads\IPCameraControl\WindowsFormsApp1\bin\Debug\System.Buffers.dll
+C:\Users\Admin\Downloads\IPCameraControl\WindowsFormsApp1\bin\Debug\System.Data.SQLite.dll
+C:\Users\Admin\Downloads\IPCameraControl\WindowsFormsApp1\bin\Debug\System.Drawing.Common.dll
+C:\Users\Admin\Downloads\IPCameraControl\WindowsFormsApp1\bin\Debug\System.Memory.dll
+C:\Users\Admin\Downloads\IPCameraControl\WindowsFormsApp1\bin\Debug\System.Net.Http.Extensions.dll
+C:\Users\Admin\Downloads\IPCameraControl\WindowsFormsApp1\bin\Debug\System.Net.Http.Primitives.dll
+C:\Users\Admin\Downloads\IPCameraControl\WindowsFormsApp1\bin\Debug\System.Numerics.Vectors.dll
+C:\Users\Admin\Downloads\IPCameraControl\WindowsFormsApp1\bin\Debug\System.Resources.Extensions.dll
+C:\Users\Admin\Downloads\IPCameraControl\WindowsFormsApp1\bin\Debug\System.Runtime.CompilerServices.Unsafe.dll
+C:\Users\Admin\Downloads\IPCameraControl\WindowsFormsApp1\bin\Debug\System.Text.Encoding.CodePages.dll
+C:\Users\Admin\Downloads\IPCameraControl\WindowsFormsApp1\bin\Debug\Tulpep.NotificationWindow.dll
+C:\Users\Admin\Downloads\IPCameraControl\WindowsFormsApp1\bin\Debug\XanderUI.dll
+C:\Users\Admin\Downloads\IPCameraControl\WindowsFormsApp1\bin\Debug\zxing.dll
+C:\Users\Admin\Downloads\IPCameraControl\WindowsFormsApp1\bin\Debug\ZXing.ImageSharp.V2.dll
+C:\Users\Admin\Downloads\IPCameraControl\WindowsFormsApp1\bin\Debug\zxing.presentation.dll
+C:\Users\Admin\Downloads\IPCameraControl\WindowsFormsApp1\bin\Debug\BitMiracle.LibTiff.NET.xml
+C:\Users\Admin\Downloads\IPCameraControl\WindowsFormsApp1\bin\Debug\Dapper.xml
+C:\Users\Admin\Downloads\IPCameraControl\WindowsFormsApp1\bin\Debug\IronSoftware.Drawing.Common.pdb
+C:\Users\Admin\Downloads\IPCameraControl\WindowsFormsApp1\bin\Debug\Microsoft.Threading.Tasks.xml
+C:\Users\Admin\Downloads\IPCameraControl\WindowsFormsApp1\bin\Debug\Microsoft.Threading.Tasks.Extensions.xml
+C:\Users\Admin\Downloads\IPCameraControl\WindowsFormsApp1\bin\Debug\Microsoft.Threading.Tasks.Extensions.Desktop.xml
+C:\Users\Admin\Downloads\IPCameraControl\WindowsFormsApp1\bin\Debug\Mono.Cecil.pdb
+C:\Users\Admin\Downloads\IPCameraControl\WindowsFormsApp1\bin\Debug\Mono.Cecil.Mdb.pdb
+C:\Users\Admin\Downloads\IPCameraControl\WindowsFormsApp1\bin\Debug\Mono.Cecil.Pdb.pdb
+C:\Users\Admin\Downloads\IPCameraControl\WindowsFormsApp1\bin\Debug\Mono.Cecil.Rocks.pdb
+C:\Users\Admin\Downloads\IPCameraControl\WindowsFormsApp1\bin\Debug\Newtonsoft.Json.xml
+C:\Users\Admin\Downloads\IPCameraControl\WindowsFormsApp1\bin\Debug\NuGet.Squirrel.pdb
+C:\Users\Admin\Downloads\IPCameraControl\WindowsFormsApp1\bin\Debug\Ookii.Dialogs.WinForms.pdb
+C:\Users\Admin\Downloads\IPCameraControl\WindowsFormsApp1\bin\Debug\SixLabors.ImageSharp.xml
+C:\Users\Admin\Downloads\IPCameraControl\WindowsFormsApp1\bin\Debug\Splat.pdb
+C:\Users\Admin\Downloads\IPCameraControl\WindowsFormsApp1\bin\Debug\Squirrel.pdb
+C:\Users\Admin\Downloads\IPCameraControl\WindowsFormsApp1\bin\Debug\System.Buffers.xml
+C:\Users\Admin\Downloads\IPCameraControl\WindowsFormsApp1\bin\Debug\System.Data.SQLite.xml
+C:\Users\Admin\Downloads\IPCameraControl\WindowsFormsApp1\bin\Debug\System.Drawing.Common.xml
+C:\Users\Admin\Downloads\IPCameraControl\WindowsFormsApp1\bin\Debug\System.Memory.xml
+C:\Users\Admin\Downloads\IPCameraControl\WindowsFormsApp1\bin\Debug\System.Net.Http.Extensions.xml
+C:\Users\Admin\Downloads\IPCameraControl\WindowsFormsApp1\bin\Debug\System.Net.Http.Primitives.xml
+C:\Users\Admin\Downloads\IPCameraControl\WindowsFormsApp1\bin\Debug\System.Numerics.Vectors.xml
+C:\Users\Admin\Downloads\IPCameraControl\WindowsFormsApp1\bin\Debug\System.Resources.Extensions.xml
+C:\Users\Admin\Downloads\IPCameraControl\WindowsFormsApp1\bin\Debug\System.Runtime.CompilerServices.Unsafe.xml
+C:\Users\Admin\Downloads\IPCameraControl\WindowsFormsApp1\bin\Debug\System.Text.Encoding.CodePages.xml
+C:\Users\Admin\Downloads\IPCameraControl\WindowsFormsApp1\bin\Debug\zxing.xml
+C:\Users\Admin\Downloads\IPCameraControl\WindowsFormsApp1\bin\Debug\ZXing.ImageSharp.V2.pdb
+C:\Users\Admin\Downloads\IPCameraControl\WindowsFormsApp1\bin\Debug\ZXing.ImageSharp.V2.xml
+C:\Users\Admin\Downloads\IPCameraControl\WindowsFormsApp1\bin\Debug\zxing.presentation.xml
+C:\Users\Admin\Downloads\IPCameraControl\WindowsFormsApp1\obj\Debug\IPCamera_Manager.csproj.App.config
+C:\Users\Admin\Downloads\IPCameraControl\WindowsFormsApp1\obj\Debug\IPCamera_Manager.csproj.AssemblyReference.cache
+C:\Users\Admin\Downloads\IPCameraControl\WindowsFormsApp1\obj\Debug\IPCamera_Manager.csproj.SuggestedBindingRedirects.cache
+C:\Users\Admin\Downloads\IPCameraControl\WindowsFormsApp1\obj\Debug\IPCamera_Manager.csproj.ResolveComReference.cache
+C:\Users\Admin\Downloads\IPCameraControl\WindowsFormsApp1\obj\Debug\IPCameraManager.FormDoubleClick_to_ZoomPicture.resources
+C:\Users\Admin\Downloads\IPCameraControl\WindowsFormsApp1\obj\Debug\IPCameraManager.FormLoginSettingMenu.resources
+C:\Users\Admin\Downloads\IPCameraControl\WindowsFormsApp1\obj\Debug\IPCameraManager.FormSetting_KeyboardShortcut.resources
+C:\Users\Admin\Downloads\IPCameraControl\WindowsFormsApp1\obj\Debug\IPCameraManager.FormTimeCorrect.resources
+C:\Users\Admin\Downloads\IPCameraControl\WindowsFormsApp1\obj\Debug\IPCameraManager.PageSetupCamera_Info.resources
+C:\Users\Admin\Downloads\IPCameraControl\WindowsFormsApp1\obj\Debug\IPCameraManager.FormSetTemplateDirectory.resources
+C:\Users\Admin\Downloads\IPCameraControl\WindowsFormsApp1\obj\Debug\IPCameraManager.PageSearchPatient.resources
+C:\Users\Admin\Downloads\IPCameraControl\WindowsFormsApp1\obj\Debug\IPCameraManager.FormLoginCamera.resources
+C:\Users\Admin\Downloads\IPCameraControl\WindowsFormsApp1\obj\Debug\IPCameraManager.MainForm.resources
+C:\Users\Admin\Downloads\IPCameraControl\WindowsFormsApp1\obj\Debug\IPCameraManager.SetFoldertoSaveFile_Form.resources
+C:\Users\Admin\Downloads\IPCameraControl\WindowsFormsApp1\obj\Debug\IPCameraManager.ShowCamera2Form.resources
+C:\Users\Admin\Downloads\IPCameraControl\WindowsFormsApp1\obj\Debug\IPCameraManager.Page1.resources
+C:\Users\Admin\Downloads\IPCameraControl\WindowsFormsApp1\obj\Debug\IPCameraManager.Properties.Resources.resources
+C:\Users\Admin\Downloads\IPCameraControl\WindowsFormsApp1\obj\Debug\IPCameraManager.Page2.resources
+C:\Users\Admin\Downloads\IPCameraControl\WindowsFormsApp1\obj\Debug\IPCamera_Manager.csproj.GenerateResource.cache
+C:\Users\Admin\Downloads\IPCameraControl\WindowsFormsApp1\obj\Debug\IPCamera_Manager.csproj.CoreCompileInputs.cache
+C:\Users\Admin\Downloads\IPCameraControl\WindowsFormsApp1\obj\Debug\IPCamera_Manager.csproj.CopyComplete
+C:\Users\Admin\Downloads\IPCameraControl\WindowsFormsApp1\obj\Debug\IPCameraManager.exe
+C:\Users\Admin\Downloads\IPCameraControl\WindowsFormsApp1\obj\Debug\IPCameraManager.pdb
+C:\Users\Admin\Downloads\IPCameraControl (1)\WindowsFormsApp1\bin\Debug\db\IPCameraManager.db
+C:\Users\Admin\Downloads\IPCameraControl (1)\WindowsFormsApp1\bin\Debug\IPCameraManager.exe.config
+C:\Users\Admin\Downloads\IPCameraControl (1)\WindowsFormsApp1\bin\Debug\IPCameraManager.exe
+C:\Users\Admin\Downloads\IPCameraControl (1)\WindowsFormsApp1\bin\Debug\IPCameraManager.pdb
+C:\Users\Admin\Downloads\IPCameraControl (1)\WindowsFormsApp1\bin\Debug\BitMiracle.LibTiff.NET.dll
+C:\Users\Admin\Downloads\IPCameraControl (1)\WindowsFormsApp1\bin\Debug\Dapper.dll
+C:\Users\Admin\Downloads\IPCameraControl (1)\WindowsFormsApp1\bin\Debug\DeltaCompressionDotNet.dll
+C:\Users\Admin\Downloads\IPCameraControl (1)\WindowsFormsApp1\bin\Debug\DeltaCompressionDotNet.MsDelta.dll
+C:\Users\Admin\Downloads\IPCameraControl (1)\WindowsFormsApp1\bin\Debug\DeltaCompressionDotNet.PatchApi.dll
+C:\Users\Admin\Downloads\IPCameraControl (1)\WindowsFormsApp1\bin\Debug\FireSharp.dll
+C:\Users\Admin\Downloads\IPCameraControl (1)\WindowsFormsApp1\bin\Debug\IronSoftware.Drawing.Common.dll
+C:\Users\Admin\Downloads\IPCameraControl (1)\WindowsFormsApp1\bin\Debug\Microsoft.Threading.Tasks.dll
+C:\Users\Admin\Downloads\IPCameraControl (1)\WindowsFormsApp1\bin\Debug\Microsoft.Threading.Tasks.Extensions.Desktop.dll
+C:\Users\Admin\Downloads\IPCameraControl (1)\WindowsFormsApp1\bin\Debug\Microsoft.Threading.Tasks.Extensions.dll
+C:\Users\Admin\Downloads\IPCameraControl (1)\WindowsFormsApp1\bin\Debug\Mono.Cecil.dll
+C:\Users\Admin\Downloads\IPCameraControl (1)\WindowsFormsApp1\bin\Debug\Mono.Cecil.Mdb.dll
+C:\Users\Admin\Downloads\IPCameraControl (1)\WindowsFormsApp1\bin\Debug\Mono.Cecil.Pdb.dll
+C:\Users\Admin\Downloads\IPCameraControl (1)\WindowsFormsApp1\bin\Debug\Mono.Cecil.Rocks.dll
+C:\Users\Admin\Downloads\IPCameraControl (1)\WindowsFormsApp1\bin\Debug\Newtonsoft.Json.dll
+C:\Users\Admin\Downloads\IPCameraControl (1)\WindowsFormsApp1\bin\Debug\NuGet.Squirrel.dll
+C:\Users\Admin\Downloads\IPCameraControl (1)\WindowsFormsApp1\bin\Debug\Ookii.Dialogs.WinForms.dll
+C:\Users\Admin\Downloads\IPCameraControl (1)\WindowsFormsApp1\bin\Debug\SharpCompress.dll
+C:\Users\Admin\Downloads\IPCameraControl (1)\WindowsFormsApp1\bin\Debug\SixLabors.ImageSharp.dll
+C:\Users\Admin\Downloads\IPCameraControl (1)\WindowsFormsApp1\bin\Debug\Splat.dll
+C:\Users\Admin\Downloads\IPCameraControl (1)\WindowsFormsApp1\bin\Debug\Squirrel.dll
+C:\Users\Admin\Downloads\IPCameraControl (1)\WindowsFormsApp1\bin\Debug\System.Buffers.dll
+C:\Users\Admin\Downloads\IPCameraControl (1)\WindowsFormsApp1\bin\Debug\System.Data.SQLite.dll
+C:\Users\Admin\Downloads\IPCameraControl (1)\WindowsFormsApp1\bin\Debug\System.Drawing.Common.dll
+C:\Users\Admin\Downloads\IPCameraControl (1)\WindowsFormsApp1\bin\Debug\System.Memory.dll
+C:\Users\Admin\Downloads\IPCameraControl (1)\WindowsFormsApp1\bin\Debug\System.Net.Http.Extensions.dll
+C:\Users\Admin\Downloads\IPCameraControl (1)\WindowsFormsApp1\bin\Debug\System.Net.Http.Primitives.dll
+C:\Users\Admin\Downloads\IPCameraControl (1)\WindowsFormsApp1\bin\Debug\System.Numerics.Vectors.dll
+C:\Users\Admin\Downloads\IPCameraControl (1)\WindowsFormsApp1\bin\Debug\System.Resources.Extensions.dll
+C:\Users\Admin\Downloads\IPCameraControl (1)\WindowsFormsApp1\bin\Debug\System.Runtime.CompilerServices.Unsafe.dll
+C:\Users\Admin\Downloads\IPCameraControl (1)\WindowsFormsApp1\bin\Debug\System.Text.Encoding.CodePages.dll
+C:\Users\Admin\Downloads\IPCameraControl (1)\WindowsFormsApp1\bin\Debug\Tulpep.NotificationWindow.dll
+C:\Users\Admin\Downloads\IPCameraControl (1)\WindowsFormsApp1\bin\Debug\XanderUI.dll
+C:\Users\Admin\Downloads\IPCameraControl (1)\WindowsFormsApp1\bin\Debug\zxing.dll
+C:\Users\Admin\Downloads\IPCameraControl (1)\WindowsFormsApp1\bin\Debug\ZXing.ImageSharp.V2.dll
+C:\Users\Admin\Downloads\IPCameraControl (1)\WindowsFormsApp1\bin\Debug\zxing.presentation.dll
+C:\Users\Admin\Downloads\IPCameraControl (1)\WindowsFormsApp1\bin\Debug\BitMiracle.LibTiff.NET.xml
+C:\Users\Admin\Downloads\IPCameraControl (1)\WindowsFormsApp1\bin\Debug\Dapper.xml
+C:\Users\Admin\Downloads\IPCameraControl (1)\WindowsFormsApp1\bin\Debug\IronSoftware.Drawing.Common.pdb
+C:\Users\Admin\Downloads\IPCameraControl (1)\WindowsFormsApp1\bin\Debug\Microsoft.Threading.Tasks.xml
+C:\Users\Admin\Downloads\IPCameraControl (1)\WindowsFormsApp1\bin\Debug\Microsoft.Threading.Tasks.Extensions.xml
+C:\Users\Admin\Downloads\IPCameraControl (1)\WindowsFormsApp1\bin\Debug\Microsoft.Threading.Tasks.Extensions.Desktop.xml
+C:\Users\Admin\Downloads\IPCameraControl (1)\WindowsFormsApp1\bin\Debug\Mono.Cecil.pdb
+C:\Users\Admin\Downloads\IPCameraControl (1)\WindowsFormsApp1\bin\Debug\Mono.Cecil.Mdb.pdb
+C:\Users\Admin\Downloads\IPCameraControl (1)\WindowsFormsApp1\bin\Debug\Mono.Cecil.Pdb.pdb
+C:\Users\Admin\Downloads\IPCameraControl (1)\WindowsFormsApp1\bin\Debug\Mono.Cecil.Rocks.pdb
+C:\Users\Admin\Downloads\IPCameraControl (1)\WindowsFormsApp1\bin\Debug\Newtonsoft.Json.xml
+C:\Users\Admin\Downloads\IPCameraControl (1)\WindowsFormsApp1\bin\Debug\NuGet.Squirrel.pdb
+C:\Users\Admin\Downloads\IPCameraControl (1)\WindowsFormsApp1\bin\Debug\Ookii.Dialogs.WinForms.pdb
+C:\Users\Admin\Downloads\IPCameraControl (1)\WindowsFormsApp1\bin\Debug\SixLabors.ImageSharp.xml
+C:\Users\Admin\Downloads\IPCameraControl (1)\WindowsFormsApp1\bin\Debug\Splat.pdb
+C:\Users\Admin\Downloads\IPCameraControl (1)\WindowsFormsApp1\bin\Debug\Squirrel.pdb
+C:\Users\Admin\Downloads\IPCameraControl (1)\WindowsFormsApp1\bin\Debug\System.Buffers.xml
+C:\Users\Admin\Downloads\IPCameraControl (1)\WindowsFormsApp1\bin\Debug\System.Data.SQLite.xml
+C:\Users\Admin\Downloads\IPCameraControl (1)\WindowsFormsApp1\bin\Debug\System.Drawing.Common.xml
+C:\Users\Admin\Downloads\IPCameraControl (1)\WindowsFormsApp1\bin\Debug\System.Memory.xml
+C:\Users\Admin\Downloads\IPCameraControl (1)\WindowsFormsApp1\bin\Debug\System.Net.Http.Extensions.xml
+C:\Users\Admin\Downloads\IPCameraControl (1)\WindowsFormsApp1\bin\Debug\System.Net.Http.Primitives.xml
+C:\Users\Admin\Downloads\IPCameraControl (1)\WindowsFormsApp1\bin\Debug\System.Numerics.Vectors.xml
+C:\Users\Admin\Downloads\IPCameraControl (1)\WindowsFormsApp1\bin\Debug\System.Resources.Extensions.xml
+C:\Users\Admin\Downloads\IPCameraControl (1)\WindowsFormsApp1\bin\Debug\System.Runtime.CompilerServices.Unsafe.xml
+C:\Users\Admin\Downloads\IPCameraControl (1)\WindowsFormsApp1\bin\Debug\System.Text.Encoding.CodePages.xml
+C:\Users\Admin\Downloads\IPCameraControl (1)\WindowsFormsApp1\bin\Debug\zxing.xml
+C:\Users\Admin\Downloads\IPCameraControl (1)\WindowsFormsApp1\bin\Debug\ZXing.ImageSharp.V2.pdb
+C:\Users\Admin\Downloads\IPCameraControl (1)\WindowsFormsApp1\bin\Debug\ZXing.ImageSharp.V2.xml
+C:\Users\Admin\Downloads\IPCameraControl (1)\WindowsFormsApp1\bin\Debug\zxing.presentation.xml
+C:\Users\Admin\Downloads\IPCameraControl (1)\WindowsFormsApp1\obj\Debug\IPCamera_Manager.csproj.App.config
+C:\Users\Admin\Downloads\IPCameraControl (1)\WindowsFormsApp1\obj\Debug\IPCamera_Manager.csproj.AssemblyReference.cache
+C:\Users\Admin\Downloads\IPCameraControl (1)\WindowsFormsApp1\obj\Debug\IPCamera_Manager.csproj.SuggestedBindingRedirects.cache
+C:\Users\Admin\Downloads\IPCameraControl (1)\WindowsFormsApp1\obj\Debug\IPCamera_Manager.csproj.ResolveComReference.cache
+C:\Users\Admin\Downloads\IPCameraControl (1)\WindowsFormsApp1\obj\Debug\IPCameraManager.FormDoubleClick_to_ZoomPicture.resources
+C:\Users\Admin\Downloads\IPCameraControl (1)\WindowsFormsApp1\obj\Debug\IPCameraManager.FormLoginSettingMenu.resources
+C:\Users\Admin\Downloads\IPCameraControl (1)\WindowsFormsApp1\obj\Debug\IPCameraManager.FormSetting_KeyboardShortcut.resources
+C:\Users\Admin\Downloads\IPCameraControl (1)\WindowsFormsApp1\obj\Debug\IPCameraManager.FormTimeCorrect.resources
+C:\Users\Admin\Downloads\IPCameraControl (1)\WindowsFormsApp1\obj\Debug\IPCameraManager.PageSetupCamera_Info.resources
+C:\Users\Admin\Downloads\IPCameraControl (1)\WindowsFormsApp1\obj\Debug\IPCameraManager.FormSetTemplateDirectory.resources
+C:\Users\Admin\Downloads\IPCameraControl (1)\WindowsFormsApp1\obj\Debug\IPCameraManager.PageSearchPatient.resources
+C:\Users\Admin\Downloads\IPCameraControl (1)\WindowsFormsApp1\obj\Debug\IPCameraManager.FormLoginCamera.resources
+C:\Users\Admin\Downloads\IPCameraControl (1)\WindowsFormsApp1\obj\Debug\IPCameraManager.MainForm.resources
+C:\Users\Admin\Downloads\IPCameraControl (1)\WindowsFormsApp1\obj\Debug\IPCameraManager.SetFoldertoSaveFile_Form.resources
+C:\Users\Admin\Downloads\IPCameraControl (1)\WindowsFormsApp1\obj\Debug\IPCameraManager.ShowCamera2Form.resources
+C:\Users\Admin\Downloads\IPCameraControl (1)\WindowsFormsApp1\obj\Debug\IPCameraManager.Page1.resources
+C:\Users\Admin\Downloads\IPCameraControl (1)\WindowsFormsApp1\obj\Debug\IPCameraManager.Properties.Resources.resources
+C:\Users\Admin\Downloads\IPCameraControl (1)\WindowsFormsApp1\obj\Debug\IPCameraManager.Page2.resources
+C:\Users\Admin\Downloads\IPCameraControl (1)\WindowsFormsApp1\obj\Debug\IPCamera_Manager.csproj.GenerateResource.cache
+C:\Users\Admin\Downloads\IPCameraControl (1)\WindowsFormsApp1\obj\Debug\IPCamera_Manager.csproj.CoreCompileInputs.cache
+C:\Users\Admin\Downloads\IPCameraControl (1)\WindowsFormsApp1\obj\Debug\IPCamera_Manager.csproj.CopyComplete
+C:\Users\Admin\Downloads\IPCameraControl (1)\WindowsFormsApp1\obj\Debug\IPCameraManager.exe
+C:\Users\Admin\Downloads\IPCameraControl (1)\WindowsFormsApp1\obj\Debug\IPCameraManager.pdb

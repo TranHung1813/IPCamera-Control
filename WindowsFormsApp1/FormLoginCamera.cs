@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Guna.UI2.WinForms;
+using System;
 using System.Collections.Generic;
 using System.Drawing;
 using System.Net;
@@ -33,6 +34,8 @@ namespace IPCameraManager
         private const int ERR_OK = 0;
         private const int ERR_NOT_OK = 1;
         private bool is_ButtonLogin_Pressed = false;
+
+        private bool _isResize = false;
 
         private void Init_Button()
         {
@@ -466,6 +469,15 @@ namespace IPCameraManager
 
         private void FormLoginCamera_Load(object sender, EventArgs e)
         {
+            if (_isResize == false)
+            {
+                _isResize = true;
+                Utility.fitFormToScreen(this, 766, 1366);
+                textBoxIP.Font = new Font(textBoxIP.Font.FontFamily, (int)(textBoxIP.Font.Size * ((float)Screen.PrimaryScreen.Bounds.Size.Width / (float)1366)), textBoxIP.Font.Style);
+                textBoxPort.Font = new Font(textBoxPort.Font.FontFamily, (int)(textBoxPort.Font.Size * ((float)Screen.PrimaryScreen.Bounds.Size.Width / (float)1366)), textBoxPort.Font.Style);
+                textBoxUserName.Font = new Font(textBoxUserName.Font.FontFamily, (int)(textBoxUserName.Font.Size * ((float)Screen.PrimaryScreen.Bounds.Size.Width / (float)1366)), textBoxUserName.Font.Style);
+                textBoxPassword.Font = new Font(textBoxPassword.Font.FontFamily, (int)(textBoxPassword.Font.Size * ((float)Screen.PrimaryScreen.Bounds.Size.Width / (float)1366)), textBoxPassword.Font.Style);
+            }
             is_ButtonLogin_Pressed = false;
             if (_Current_tabID == MAINTAB)
             {

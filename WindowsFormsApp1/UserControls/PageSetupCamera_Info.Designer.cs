@@ -30,6 +30,10 @@ namespace IPCameraManager
         private void InitializeComponent()
         {
             this.groupbox123 = new System.Windows.Forms.GroupBox();
+            this.bt_FocusNear = new Guna.UI2.WinForms.Guna2Button();
+            this.bt_FocusFar = new Guna.UI2.WinForms.Guna2Button();
+            this.label5 = new System.Windows.Forms.Label();
+            this.lbZoom = new System.Windows.Forms.Label();
             this.btZoomOut = new Guna.UI2.WinForms.Guna2Button();
             this.btZoomIn = new Guna.UI2.WinForms.Guna2Button();
             this.labelZoomIn = new System.Windows.Forms.Label();
@@ -38,30 +42,26 @@ namespace IPCameraManager
             this.btCrossRU = new Guna.UI2.WinForms.Guna2Button();
             this.btCross_LD = new Guna.UI2.WinForms.Guna2Button();
             this.btCross_RD = new Guna.UI2.WinForms.Guna2Button();
-            this.label7 = new System.Windows.Forms.Label();
+            this.lb_PanTitl = new System.Windows.Forms.Label();
             this.btUp = new Guna.UI2.WinForms.Guna2Button();
             this.btRight = new Guna.UI2.WinForms.Guna2Button();
             this.btLeft = new Guna.UI2.WinForms.Guna2Button();
             this.btDown = new Guna.UI2.WinForms.Guna2Button();
             this.labelZoomOut = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
-            this.lb_FocusFar = new System.Windows.Forms.Label();
-            this.lb_FocusNear = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.label6 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.Slide_hue = new XanderUI.XUISlider();
-            this.Slide_Saturation = new XanderUI.XUISlider();
-            this.Slide_Contrast = new XanderUI.XUISlider();
-            this.Slide_Brightness = new XanderUI.XUISlider();
+            this.Slide_hue = new Guna.UI2.WinForms.Guna2TrackBar();
+            this.Slide_Saturation = new Guna.UI2.WinForms.Guna2TrackBar();
+            this.Slide_Contrast = new Guna.UI2.WinForms.Guna2TrackBar();
+            this.Slide_Brightness = new Guna.UI2.WinForms.Guna2TrackBar();
+            this.lbMauSac = new System.Windows.Forms.Label();
+            this.lbBaoHoa = new System.Windows.Forms.Label();
+            this.lbTuongPhan = new System.Windows.Forms.Label();
+            this.lbDoSang = new System.Windows.Forms.Label();
             this.btCam2 = new Guna.UI2.WinForms.Guna2Button();
             this.btMainCam = new Guna.UI2.WinForms.Guna2Button();
             this.RealPlayWnd = new System.Windows.Forms.PictureBox();
-            this.lbZoom = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
             this.groupbox123.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.tB_Zoom)).BeginInit();
             this.groupBox1.SuspendLayout();
@@ -70,8 +70,8 @@ namespace IPCameraManager
             // 
             // groupbox123
             // 
-            this.groupbox123.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+            this.groupbox123.Controls.Add(this.bt_FocusNear);
+            this.groupbox123.Controls.Add(this.bt_FocusFar);
             this.groupbox123.Controls.Add(this.label5);
             this.groupbox123.Controls.Add(this.lbZoom);
             this.groupbox123.Controls.Add(this.btZoomOut);
@@ -82,15 +82,13 @@ namespace IPCameraManager
             this.groupbox123.Controls.Add(this.btCrossRU);
             this.groupbox123.Controls.Add(this.btCross_LD);
             this.groupbox123.Controls.Add(this.btCross_RD);
-            this.groupbox123.Controls.Add(this.label7);
+            this.groupbox123.Controls.Add(this.lb_PanTitl);
             this.groupbox123.Controls.Add(this.btUp);
             this.groupbox123.Controls.Add(this.btRight);
             this.groupbox123.Controls.Add(this.btLeft);
             this.groupbox123.Controls.Add(this.btDown);
             this.groupbox123.Controls.Add(this.labelZoomOut);
             this.groupbox123.Controls.Add(this.label9);
-            this.groupbox123.Controls.Add(this.lb_FocusFar);
-            this.groupbox123.Controls.Add(this.lb_FocusNear);
             this.groupbox123.Controls.Add(this.label1);
             this.groupbox123.Font = new System.Drawing.Font("Tahoma", 12F);
             this.groupbox123.Location = new System.Drawing.Point(691, 3);
@@ -99,6 +97,82 @@ namespace IPCameraManager
             this.groupbox123.TabIndex = 42;
             this.groupbox123.TabStop = false;
             this.groupbox123.Text = "Điều chỉnh PTZ";
+            // 
+            // bt_FocusNear
+            // 
+            this.bt_FocusNear.BackColor = System.Drawing.Color.Transparent;
+            this.bt_FocusNear.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.bt_FocusNear.BorderColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.bt_FocusNear.BorderRadius = 6;
+            this.bt_FocusNear.BorderThickness = 1;
+            this.bt_FocusNear.CheckedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
+            this.bt_FocusNear.CheckedState.CustomBorderColor = System.Drawing.Color.Transparent;
+            this.bt_FocusNear.CheckedState.FillColor = System.Drawing.Color.White;
+            this.bt_FocusNear.CheckedState.Parent = this.bt_FocusNear;
+            this.bt_FocusNear.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.bt_FocusNear.CustomImages.Parent = this.bt_FocusNear;
+            this.bt_FocusNear.FillColor = System.Drawing.Color.White;
+            this.bt_FocusNear.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.bt_FocusNear.ForeColor = System.Drawing.Color.Black;
+            this.bt_FocusNear.HoverState.FillColor = System.Drawing.Color.Transparent;
+            this.bt_FocusNear.HoverState.Parent = this.bt_FocusNear;
+            this.bt_FocusNear.Image = global::IPCameraManager.Properties.Resources.focus_1;
+            this.bt_FocusNear.ImageSize = new System.Drawing.Size(22, 22);
+            this.bt_FocusNear.Location = new System.Drawing.Point(141, 213);
+            this.bt_FocusNear.Name = "bt_FocusNear";
+            this.bt_FocusNear.ShadowDecoration.Parent = this.bt_FocusNear;
+            this.bt_FocusNear.Size = new System.Drawing.Size(37, 35);
+            this.bt_FocusNear.TabIndex = 61;
+            this.bt_FocusNear.MouseDown += new System.Windows.Forms.MouseEventHandler(this.lb_FocusNear_MouseDown);
+            this.bt_FocusNear.MouseUp += new System.Windows.Forms.MouseEventHandler(this.lb_FocusNear_MouseUp);
+            // 
+            // bt_FocusFar
+            // 
+            this.bt_FocusFar.BackColor = System.Drawing.Color.Transparent;
+            this.bt_FocusFar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.bt_FocusFar.BorderColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.bt_FocusFar.BorderRadius = 6;
+            this.bt_FocusFar.BorderThickness = 1;
+            this.bt_FocusFar.CheckedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
+            this.bt_FocusFar.CheckedState.CustomBorderColor = System.Drawing.Color.Transparent;
+            this.bt_FocusFar.CheckedState.FillColor = System.Drawing.Color.White;
+            this.bt_FocusFar.CheckedState.Parent = this.bt_FocusFar;
+            this.bt_FocusFar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.bt_FocusFar.CustomImages.Parent = this.bt_FocusFar;
+            this.bt_FocusFar.FillColor = System.Drawing.Color.White;
+            this.bt_FocusFar.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.bt_FocusFar.ForeColor = System.Drawing.Color.Black;
+            this.bt_FocusFar.HoverState.FillColor = System.Drawing.Color.Transparent;
+            this.bt_FocusFar.HoverState.Parent = this.bt_FocusFar;
+            this.bt_FocusFar.Image = global::IPCameraManager.Properties.Resources.focus_3;
+            this.bt_FocusFar.ImageSize = new System.Drawing.Size(26, 25);
+            this.bt_FocusFar.Location = new System.Drawing.Point(211, 213);
+            this.bt_FocusFar.Name = "bt_FocusFar";
+            this.bt_FocusFar.ShadowDecoration.Parent = this.bt_FocusFar;
+            this.bt_FocusFar.Size = new System.Drawing.Size(37, 35);
+            this.bt_FocusFar.TabIndex = 60;
+            this.bt_FocusFar.MouseDown += new System.Windows.Forms.MouseEventHandler(this.lb_FocusFar_MouseDown);
+            this.bt_FocusFar.MouseUp += new System.Windows.Forms.MouseEventHandler(this.lb_FocusFar_MouseUp);
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Tahoma", 11.8F);
+            this.label5.Location = new System.Drawing.Point(74, 221);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(0, 19);
+            this.label5.TabIndex = 59;
+            this.label5.Visible = false;
+            // 
+            // lbZoom
+            // 
+            this.lbZoom.AutoSize = true;
+            this.lbZoom.Font = new System.Drawing.Font("Tahoma", 12F);
+            this.lbZoom.Location = new System.Drawing.Point(12, 288);
+            this.lbZoom.Name = "lbZoom";
+            this.lbZoom.Size = new System.Drawing.Size(48, 19);
+            this.lbZoom.TabIndex = 58;
+            this.lbZoom.Text = "( x1 )";
             // 
             // btZoomOut
             // 
@@ -168,6 +242,7 @@ namespace IPCameraManager
             // tB_Zoom
             // 
             this.tB_Zoom.BackColor = System.Drawing.Color.White;
+            this.tB_Zoom.Cursor = System.Windows.Forms.Cursors.Hand;
             this.tB_Zoom.LargeChange = 1;
             this.tB_Zoom.Location = new System.Drawing.Point(90, 271);
             this.tB_Zoom.Minimum = 2;
@@ -194,7 +269,6 @@ namespace IPCameraManager
             this.btCross_LU.HoverState.FillColor = System.Drawing.Color.LightSteelBlue;
             this.btCross_LU.HoverState.Parent = this.btCross_LU;
             this.btCross_LU.Image = global::IPCameraManager.Properties.Resources.arrow_crosslu4;
-            this.btCross_LU.ImageAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.btCross_LU.ImageSize = new System.Drawing.Size(25, 25);
             this.btCross_LU.Location = new System.Drawing.Point(93, 32);
             this.btCross_LU.Name = "btCross_LU";
@@ -221,7 +295,6 @@ namespace IPCameraManager
             this.btCrossRU.HoverState.FillColor = System.Drawing.Color.LightSteelBlue;
             this.btCrossRU.HoverState.Parent = this.btCrossRU;
             this.btCrossRU.Image = global::IPCameraManager.Properties.Resources.arrow_crossru;
-            this.btCrossRU.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.btCrossRU.ImageSize = new System.Drawing.Size(25, 25);
             this.btCrossRU.Location = new System.Drawing.Point(211, 32);
             this.btCrossRU.Name = "btCrossRU";
@@ -248,7 +321,6 @@ namespace IPCameraManager
             this.btCross_LD.HoverState.FillColor = System.Drawing.Color.LightSteelBlue;
             this.btCross_LD.HoverState.Parent = this.btCross_LD;
             this.btCross_LD.Image = global::IPCameraManager.Properties.Resources.arrow_crossld1;
-            this.btCross_LD.ImageAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.btCross_LD.ImageSize = new System.Drawing.Size(25, 25);
             this.btCross_LD.Location = new System.Drawing.Point(93, 144);
             this.btCross_LD.Name = "btCross_LD";
@@ -275,7 +347,6 @@ namespace IPCameraManager
             this.btCross_RD.HoverState.FillColor = System.Drawing.Color.LightSteelBlue;
             this.btCross_RD.HoverState.Parent = this.btCross_RD;
             this.btCross_RD.Image = global::IPCameraManager.Properties.Resources.arrow_crossrd3;
-            this.btCross_RD.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.btCross_RD.ImageSize = new System.Drawing.Size(25, 25);
             this.btCross_RD.Location = new System.Drawing.Point(211, 144);
             this.btCross_RD.Name = "btCross_RD";
@@ -285,15 +356,15 @@ namespace IPCameraManager
             this.btCross_RD.MouseDown += new System.Windows.Forms.MouseEventHandler(this.btCross_RD_MouseDown);
             this.btCross_RD.MouseUp += new System.Windows.Forms.MouseEventHandler(this.btCross_RD_MouseUp);
             // 
-            // label7
+            // lb_PanTitl
             // 
-            this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(150, 103);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(57, 18);
-            this.label7.TabIndex = 48;
-            this.label7.Text = "Pan/Tilt";
+            this.lb_PanTitl.AutoSize = true;
+            this.lb_PanTitl.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lb_PanTitl.Location = new System.Drawing.Point(148, 103);
+            this.lb_PanTitl.Name = "lb_PanTitl";
+            this.lb_PanTitl.Size = new System.Drawing.Size(57, 18);
+            this.lb_PanTitl.TabIndex = 48;
+            this.lb_PanTitl.Text = "Pan/Tilt";
             // 
             // btUp
             // 
@@ -313,7 +384,7 @@ namespace IPCameraManager
             this.btUp.HoverState.Parent = this.btUp;
             this.btUp.Image = global::IPCameraManager.Properties.Resources.arrow_up31;
             this.btUp.ImageSize = new System.Drawing.Size(30, 30);
-            this.btUp.Location = new System.Drawing.Point(152, 31);
+            this.btUp.Location = new System.Drawing.Point(152, 32);
             this.btUp.Name = "btUp";
             this.btUp.ShadowDecoration.Parent = this.btUp;
             this.btUp.Size = new System.Drawing.Size(50, 50);
@@ -338,9 +409,8 @@ namespace IPCameraManager
             this.btRight.HoverState.FillColor = System.Drawing.Color.LightSteelBlue;
             this.btRight.HoverState.Parent = this.btRight;
             this.btRight.Image = global::IPCameraManager.Properties.Resources.arrow_right1;
-            this.btRight.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.btRight.ImageSize = new System.Drawing.Size(32, 32);
-            this.btRight.Location = new System.Drawing.Point(212, 88);
+            this.btRight.Location = new System.Drawing.Point(211, 88);
             this.btRight.Name = "btRight";
             this.btRight.ShadowDecoration.Parent = this.btRight;
             this.btRight.Size = new System.Drawing.Size(50, 50);
@@ -365,9 +435,8 @@ namespace IPCameraManager
             this.btLeft.HoverState.FillColor = System.Drawing.Color.LightSteelBlue;
             this.btLeft.HoverState.Parent = this.btLeft;
             this.btLeft.Image = global::IPCameraManager.Properties.Resources.arrow_left1;
-            this.btLeft.ImageAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.btLeft.ImageSize = new System.Drawing.Size(32, 32);
-            this.btLeft.Location = new System.Drawing.Point(92, 88);
+            this.btLeft.Location = new System.Drawing.Point(93, 88);
             this.btLeft.Name = "btLeft";
             this.btLeft.ShadowDecoration.Parent = this.btLeft;
             this.btLeft.Size = new System.Drawing.Size(50, 50);
@@ -393,7 +462,7 @@ namespace IPCameraManager
             this.btDown.HoverState.Parent = this.btDown;
             this.btDown.Image = global::IPCameraManager.Properties.Resources.arrow_down2;
             this.btDown.ImageSize = new System.Drawing.Size(32, 32);
-            this.btDown.Location = new System.Drawing.Point(152, 145);
+            this.btDown.Location = new System.Drawing.Point(152, 144);
             this.btDown.Name = "btDown";
             this.btDown.ShadowDecoration.Parent = this.btDown;
             this.btDown.Size = new System.Drawing.Size(50, 50);
@@ -416,43 +485,17 @@ namespace IPCameraManager
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(12, 277);
+            this.label9.Font = new System.Drawing.Font("Tahoma", 12F);
+            this.label9.Location = new System.Drawing.Point(12, 266);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(56, 19);
             this.label9.TabIndex = 38;
             this.label9.Text = "Zoom:";
             // 
-            // lb_FocusFar
-            // 
-            this.lb_FocusFar.BackColor = System.Drawing.Color.Transparent;
-            this.lb_FocusFar.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.lb_FocusFar.Font = new System.Drawing.Font("Tahoma", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lb_FocusFar.Location = new System.Drawing.Point(232, 213);
-            this.lb_FocusFar.Name = "lb_FocusFar";
-            this.lb_FocusFar.Size = new System.Drawing.Size(35, 35);
-            this.lb_FocusFar.TabIndex = 37;
-            this.lb_FocusFar.Text = "+";
-            this.lb_FocusFar.TextAlign = System.Drawing.ContentAlignment.TopRight;
-            this.lb_FocusFar.MouseDown += new System.Windows.Forms.MouseEventHandler(this.lb_FocusFar_MouseDown);
-            this.lb_FocusFar.MouseUp += new System.Windows.Forms.MouseEventHandler(this.lb_FocusFar_MouseUp);
-            // 
-            // lb_FocusNear
-            // 
-            this.lb_FocusNear.BackColor = System.Drawing.Color.Transparent;
-            this.lb_FocusNear.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.lb_FocusNear.Font = new System.Drawing.Font("Tahoma", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lb_FocusNear.Location = new System.Drawing.Point(143, 213);
-            this.lb_FocusNear.Name = "lb_FocusNear";
-            this.lb_FocusNear.Size = new System.Drawing.Size(32, 35);
-            this.lb_FocusNear.TabIndex = 36;
-            this.lb_FocusNear.Text = "-";
-            this.lb_FocusNear.TextAlign = System.Drawing.ContentAlignment.TopRight;
-            this.lb_FocusNear.MouseDown += new System.Windows.Forms.MouseEventHandler(this.lb_FocusNear_MouseDown);
-            this.lb_FocusNear.MouseUp += new System.Windows.Forms.MouseEventHandler(this.lb_FocusNear_MouseUp);
-            // 
             // label1
             // 
             this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Tahoma", 12F);
             this.label1.Location = new System.Drawing.Point(13, 221);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(55, 19);
@@ -461,15 +504,14 @@ namespace IPCameraManager
             // 
             // groupBox1
             // 
-            this.groupBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.groupBox1.Controls.Add(this.label6);
-            this.groupBox1.Controls.Add(this.label4);
-            this.groupBox1.Controls.Add(this.label3);
-            this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Controls.Add(this.Slide_hue);
             this.groupBox1.Controls.Add(this.Slide_Saturation);
             this.groupBox1.Controls.Add(this.Slide_Contrast);
             this.groupBox1.Controls.Add(this.Slide_Brightness);
+            this.groupBox1.Controls.Add(this.lbMauSac);
+            this.groupBox1.Controls.Add(this.lbBaoHoa);
+            this.groupBox1.Controls.Add(this.lbTuongPhan);
+            this.groupBox1.Controls.Add(this.lbDoSang);
             this.groupBox1.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox1.Location = new System.Drawing.Point(691, 401);
             this.groupBox1.Name = "groupBox1";
@@ -478,114 +520,96 @@ namespace IPCameraManager
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Điều chỉnh độ sáng";
             // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(24, 142);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(65, 19);
-            this.label6.TabIndex = 8;
-            this.label6.Text = "Màu sắc";
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(23, 110);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(66, 19);
-            this.label4.TabIndex = 7;
-            this.label4.Text = "Bão hòa";
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(-7, 75);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(96, 19);
-            this.label3.TabIndex = 6;
-            this.label3.Text = "Tương phản";
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(22, 40);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(67, 19);
-            this.label2.TabIndex = 5;
-            this.label2.Text = "Độ sáng";
-            // 
             // Slide_hue
             // 
-            this.Slide_hue.BarThickness = 4;
-            this.Slide_hue.BigStepIncrement = 10;
-            this.Slide_hue.FilledColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(119)))), ((int)(((byte)(215)))));
-            this.Slide_hue.KnobColor = System.Drawing.Color.Gray;
-            this.Slide_hue.KnobImage = null;
-            this.Slide_hue.Location = new System.Drawing.Point(86, 142);
+            this.Slide_hue.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.Slide_hue.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(193)))), ((int)(((byte)(200)))), ((int)(((byte)(207)))));
+            this.Slide_hue.HoverState.Parent = this.Slide_hue;
+            this.Slide_hue.Location = new System.Drawing.Point(96, 142);
             this.Slide_hue.Name = "Slide_hue";
-            this.Slide_hue.Percentage = 40;
-            this.Slide_hue.QuickHopping = true;
-            this.Slide_hue.Size = new System.Drawing.Size(250, 20);
-            this.Slide_hue.SliderStyle = XanderUI.XUISlider.Style.Material;
-            this.Slide_hue.TabIndex = 4;
-            this.Slide_hue.Text = "xuiSlider4";
-            this.Slide_hue.UnfilledColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(169)))), ((int)(((byte)(219)))));
-            this.Slide_hue.Scroll += new System.EventHandler(this.Slide_hue_Scroll);
+            this.Slide_hue.Size = new System.Drawing.Size(230, 20);
+            this.Slide_hue.TabIndex = 47;
+            this.Slide_hue.ThumbColor = System.Drawing.Color.Blue;
+            this.Slide_hue.Value = 40;
+            this.Slide_hue.Scroll += new System.Windows.Forms.ScrollEventHandler(this.Slide_hue_Scroll);
             // 
             // Slide_Saturation
             // 
-            this.Slide_Saturation.BarThickness = 4;
-            this.Slide_Saturation.BigStepIncrement = 10;
-            this.Slide_Saturation.FilledColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(119)))), ((int)(((byte)(215)))));
-            this.Slide_Saturation.KnobColor = System.Drawing.Color.Gray;
-            this.Slide_Saturation.KnobImage = null;
-            this.Slide_Saturation.Location = new System.Drawing.Point(86, 108);
+            this.Slide_Saturation.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.Slide_Saturation.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(193)))), ((int)(((byte)(200)))), ((int)(((byte)(207)))));
+            this.Slide_Saturation.HoverState.Parent = this.Slide_Saturation;
+            this.Slide_Saturation.Location = new System.Drawing.Point(96, 108);
             this.Slide_Saturation.Name = "Slide_Saturation";
-            this.Slide_Saturation.Percentage = 70;
-            this.Slide_Saturation.QuickHopping = true;
-            this.Slide_Saturation.Size = new System.Drawing.Size(250, 20);
-            this.Slide_Saturation.SliderStyle = XanderUI.XUISlider.Style.Material;
-            this.Slide_Saturation.TabIndex = 3;
-            this.Slide_Saturation.Text = "xuiSlider3";
-            this.Slide_Saturation.UnfilledColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(169)))), ((int)(((byte)(219)))));
-            this.Slide_Saturation.Scroll += new System.EventHandler(this.Slide_Saturation_Scroll);
+            this.Slide_Saturation.Size = new System.Drawing.Size(230, 20);
+            this.Slide_Saturation.TabIndex = 46;
+            this.Slide_Saturation.ThumbColor = System.Drawing.Color.FromArgb(((int)(((byte)(160)))), ((int)(((byte)(113)))), ((int)(((byte)(255)))));
+            this.Slide_Saturation.Value = 60;
+            this.Slide_Saturation.Scroll += new System.Windows.Forms.ScrollEventHandler(this.Slide_Saturation_Scroll);
             // 
             // Slide_Contrast
             // 
-            this.Slide_Contrast.BarThickness = 4;
-            this.Slide_Contrast.BigStepIncrement = 10;
-            this.Slide_Contrast.FilledColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(119)))), ((int)(((byte)(215)))));
-            this.Slide_Contrast.KnobColor = System.Drawing.Color.Gray;
-            this.Slide_Contrast.KnobImage = null;
-            this.Slide_Contrast.Location = new System.Drawing.Point(86, 74);
+            this.Slide_Contrast.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.Slide_Contrast.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(193)))), ((int)(((byte)(200)))), ((int)(((byte)(207)))));
+            this.Slide_Contrast.HoverState.Parent = this.Slide_Contrast;
+            this.Slide_Contrast.Location = new System.Drawing.Point(96, 74);
             this.Slide_Contrast.Name = "Slide_Contrast";
-            this.Slide_Contrast.Percentage = 60;
-            this.Slide_Contrast.QuickHopping = true;
-            this.Slide_Contrast.Size = new System.Drawing.Size(250, 20);
-            this.Slide_Contrast.SliderStyle = XanderUI.XUISlider.Style.Material;
-            this.Slide_Contrast.TabIndex = 2;
-            this.Slide_Contrast.Text = "xuiSlider2";
-            this.Slide_Contrast.UnfilledColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(169)))), ((int)(((byte)(219)))));
-            this.Slide_Contrast.Scroll += new System.EventHandler(this.Slide_Contrast_Scroll);
+            this.Slide_Contrast.Size = new System.Drawing.Size(230, 20);
+            this.Slide_Contrast.TabIndex = 45;
+            this.Slide_Contrast.ThumbColor = System.Drawing.Color.Blue;
+            this.Slide_Contrast.Value = 70;
+            this.Slide_Contrast.Scroll += new System.Windows.Forms.ScrollEventHandler(this.Slide_Contrast_Scroll);
             // 
             // Slide_Brightness
             // 
-            this.Slide_Brightness.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.Slide_Brightness.BarThickness = 4;
-            this.Slide_Brightness.BigStepIncrement = 10;
-            this.Slide_Brightness.FilledColor = System.Drawing.Color.Silver;
-            this.Slide_Brightness.KnobColor = System.Drawing.Color.Blue;
-            this.Slide_Brightness.KnobImage = null;
-            this.Slide_Brightness.Location = new System.Drawing.Point(86, 40);
+            this.Slide_Brightness.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.Slide_Brightness.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(193)))), ((int)(((byte)(200)))), ((int)(((byte)(207)))));
+            this.Slide_Brightness.HoverState.Parent = this.Slide_Brightness;
+            this.Slide_Brightness.Location = new System.Drawing.Point(96, 40);
             this.Slide_Brightness.Name = "Slide_Brightness";
-            this.Slide_Brightness.Percentage = 50;
-            this.Slide_Brightness.QuickHopping = true;
-            this.Slide_Brightness.Size = new System.Drawing.Size(250, 20);
-            this.Slide_Brightness.SliderStyle = XanderUI.XUISlider.Style.Material;
-            this.Slide_Brightness.TabIndex = 1;
-            this.Slide_Brightness.Text = "xuiSlider1";
-            this.Slide_Brightness.UnfilledColor = System.Drawing.Color.Silver;
-            this.Slide_Brightness.Scroll += new System.EventHandler(this.Slide_Brightness_Scroll);
+            this.Slide_Brightness.Size = new System.Drawing.Size(230, 20);
+            this.Slide_Brightness.TabIndex = 44;
+            this.Slide_Brightness.ThumbColor = System.Drawing.Color.FromArgb(((int)(((byte)(160)))), ((int)(((byte)(113)))), ((int)(((byte)(255)))));
+            this.Slide_Brightness.Scroll += new System.Windows.Forms.ScrollEventHandler(this.Slide_Brightness_Scroll);
+            // 
+            // lbMauSac
+            // 
+            this.lbMauSac.AutoSize = true;
+            this.lbMauSac.Font = new System.Drawing.Font("Tahoma", 12F);
+            this.lbMauSac.Location = new System.Drawing.Point(24, 142);
+            this.lbMauSac.Name = "lbMauSac";
+            this.lbMauSac.Size = new System.Drawing.Size(65, 19);
+            this.lbMauSac.TabIndex = 8;
+            this.lbMauSac.Text = "Màu sắc";
+            // 
+            // lbBaoHoa
+            // 
+            this.lbBaoHoa.AutoSize = true;
+            this.lbBaoHoa.Font = new System.Drawing.Font("Tahoma", 12F);
+            this.lbBaoHoa.Location = new System.Drawing.Point(23, 110);
+            this.lbBaoHoa.Name = "lbBaoHoa";
+            this.lbBaoHoa.Size = new System.Drawing.Size(66, 19);
+            this.lbBaoHoa.TabIndex = 7;
+            this.lbBaoHoa.Text = "Bão hòa";
+            // 
+            // lbTuongPhan
+            // 
+            this.lbTuongPhan.AutoSize = true;
+            this.lbTuongPhan.Font = new System.Drawing.Font("Tahoma", 12F);
+            this.lbTuongPhan.Location = new System.Drawing.Point(-7, 75);
+            this.lbTuongPhan.Name = "lbTuongPhan";
+            this.lbTuongPhan.Size = new System.Drawing.Size(96, 19);
+            this.lbTuongPhan.TabIndex = 6;
+            this.lbTuongPhan.Text = "Tương phản";
+            // 
+            // lbDoSang
+            // 
+            this.lbDoSang.AutoSize = true;
+            this.lbDoSang.Font = new System.Drawing.Font("Tahoma", 12F);
+            this.lbDoSang.Location = new System.Drawing.Point(22, 40);
+            this.lbDoSang.Name = "lbDoSang";
+            this.lbDoSang.Size = new System.Drawing.Size(67, 19);
+            this.lbDoSang.TabIndex = 5;
+            this.lbDoSang.Text = "Độ sáng";
             // 
             // btCam2
             // 
@@ -645,9 +669,6 @@ namespace IPCameraManager
             // 
             // RealPlayWnd
             // 
-            this.RealPlayWnd.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
             this.RealPlayWnd.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.RealPlayWnd.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.RealPlayWnd.Image = global::IPCameraManager.Properties.Resources.Loading;
@@ -658,27 +679,9 @@ namespace IPCameraManager
             this.RealPlayWnd.TabIndex = 30;
             this.RealPlayWnd.TabStop = false;
             // 
-            // lbZoom
-            // 
-            this.lbZoom.AutoSize = true;
-            this.lbZoom.Location = new System.Drawing.Point(15, 297);
-            this.lbZoom.Name = "lbZoom";
-            this.lbZoom.Size = new System.Drawing.Size(26, 19);
-            this.lbZoom.TabIndex = 58;
-            this.lbZoom.Text = "x1";
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(74, 221);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(0, 19);
-            this.label5.TabIndex = 59;
-            // 
             // PageSetupCamera_Info
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.AutoSize = true;
             this.Controls.Add(this.btCam2);
             this.Controls.Add(this.groupBox1);
@@ -703,17 +706,12 @@ namespace IPCameraManager
         private System.Windows.Forms.PictureBox RealPlayWnd;
         private System.Windows.Forms.GroupBox groupbox123;
         private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label label2;
-        private XanderUI.XUISlider Slide_hue;
-        private XanderUI.XUISlider Slide_Saturation;
-        private XanderUI.XUISlider Slide_Contrast;
-        private XanderUI.XUISlider Slide_Brightness;
+        private System.Windows.Forms.Label lbMauSac;
+        private System.Windows.Forms.Label lbBaoHoa;
+        private System.Windows.Forms.Label lbTuongPhan;
+        private System.Windows.Forms.Label lbDoSang;
         private System.Windows.Forms.Label labelZoomOut;
         private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.Label lb_FocusFar;
         private System.Windows.Forms.Label label1;
         private Guna.UI2.WinForms.Guna2Button btCam2;
         private Guna.UI2.WinForms.Guna2Button btMainCam;
@@ -721,17 +719,22 @@ namespace IPCameraManager
         private Guna.UI2.WinForms.Guna2Button btLeft;
         private Guna.UI2.WinForms.Guna2Button btRight;
         private Guna.UI2.WinForms.Guna2Button btUp;
-        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Label lb_PanTitl;
         private Guna.UI2.WinForms.Guna2Button btCross_LU;
         private Guna.UI2.WinForms.Guna2Button btCrossRU;
         private Guna.UI2.WinForms.Guna2Button btCross_LD;
         private Guna.UI2.WinForms.Guna2Button btCross_RD;
         private System.Windows.Forms.TrackBar tB_Zoom;
-        private System.Windows.Forms.Label lb_FocusNear;
         private System.Windows.Forms.Label labelZoomIn;
         private Guna.UI2.WinForms.Guna2Button btZoomOut;
         private Guna.UI2.WinForms.Guna2Button btZoomIn;
         private System.Windows.Forms.Label lbZoom;
         private System.Windows.Forms.Label label5;
+        private Guna.UI2.WinForms.Guna2TrackBar Slide_Brightness;
+        private Guna.UI2.WinForms.Guna2TrackBar Slide_hue;
+        private Guna.UI2.WinForms.Guna2TrackBar Slide_Saturation;
+        private Guna.UI2.WinForms.Guna2TrackBar Slide_Contrast;
+        private Guna.UI2.WinForms.Guna2Button bt_FocusFar;
+        private Guna.UI2.WinForms.Guna2Button bt_FocusNear;
     }
 }

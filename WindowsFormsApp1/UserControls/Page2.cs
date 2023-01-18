@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Drawing;
 using System.IO;
 using System.Linq;
@@ -21,6 +22,9 @@ namespace IPCameraManager
         private string MauPhieuKham1_Path = "";
         private string MauPhieuKham2_Path = "";
         private string FolderPath = "";
+
+        private string Picture1_Path = "";
+        private string Picture2_Path = "";
 
         private int Number_Patients = 0;
         private void Init_Button()
@@ -92,7 +96,9 @@ namespace IPCameraManager
             if (openFileDialog.ShowDialog() == DialogResult.OK)
             {
                 txtPath1.Text = openFileDialog.FileName;
-                picBox1.Load(txtPath1.Text);
+                Picture1_Path = txtPath1.Text;
+                picBox1.Load(Picture1_Path);
+                btZoomPicBox1.Visible = true;
             }
         }
 
@@ -116,7 +122,9 @@ namespace IPCameraManager
             if (openFileDialog.ShowDialog() == DialogResult.OK)
             {
                 txtPath2.Text = openFileDialog.FileName;
-                picBox2.Load(txtPath2.Text);
+                Picture2_Path = txtPath2.Text;
+                picBox2.Load(Picture2_Path);
+                btZoomPicBox2.Visible = true;
             }
         }
 
@@ -124,12 +132,14 @@ namespace IPCameraManager
         {
             txtPath1.Text = "";
             picBox1.Image = null;
+            btZoomPicBox1.Visible = false;
         }
 
         private void btXoaChonAnh2_Click(object sender, EventArgs e)
         {
             txtPath2.Text = "";
             picBox2.Image = null;
+            btZoomPicBox2.Visible = false;
         }
         private void TaoPhieuKhamVaIn()
         {
@@ -440,8 +450,13 @@ namespace IPCameraManager
         {
             if(picBox1.Image != null)
             {
-                FormDoubleClick_to_ZoomPicture form = new FormDoubleClick_to_ZoomPicture(picBox1.Image);
-                form.ShowDialog();
+                try
+                {
+                    Process.Start(Picture1_Path);
+                }
+                catch { }
+                //FormDoubleClick_to_ZoomPicture form = new FormDoubleClick_to_ZoomPicture(picBox1.Image);
+                //form.ShowDialog();
             }
         }
 
@@ -449,14 +464,41 @@ namespace IPCameraManager
         {
             if (picBox2.Image != null)
             {
-                FormDoubleClick_to_ZoomPicture form = new FormDoubleClick_to_ZoomPicture(picBox2.Image);
-                form.ShowDialog();
+                try
+                {
+                    Process.Start(Picture2_Path);
+                }
+                catch { }
+                //FormDoubleClick_to_ZoomPicture form = new FormDoubleClick_to_ZoomPicture(picBox2.Image);
+                //form.ShowDialog();
             }
         }
 
-        private void Page2_Load(object sender, EventArgs e)
+        public void Page2_FitToContainer(int Height, int Width)
         {
-            Utility.fitUserControlToScreen(this, 766, 1366);
+            int h = this.Height;
+            Utility.FitUserControlToContainer(this, Height, Width);
+            tbMaBN_IN.Font = new Font(tbMaBN_IN.Font.FontFamily, (tbMaBN_IN.Font.Size * ((float)Height / (float)h)), tbMaBN_IN.Font.Style);
+            tbHoTenBN_IN.Font = new Font(tbHoTenBN_IN.Font.FontFamily, (tbHoTenBN_IN.Font.Size * ((float)Height / (float)h)), tbHoTenBN_IN.Font.Style);
+            tbTuoi_IN.Font = new Font(tbTuoi_IN.Font.FontFamily, (tbTuoi_IN.Font.Size * ((float)Height / (float)h)), tbTuoi_IN.Font.Style);
+            tbNgayKham_IN.Font = new Font(tbNgayKham_IN.Font.FontFamily, (tbNgayKham_IN.Font.Size * (Height / (float)h)), tbNgayKham_IN.Font.Style);
+            tbGioiTinh_IN.Font = new Font(tbGioiTinh_IN.Font.FontFamily, (tbGioiTinh_IN.Font.Size * (Height / (float)h)), tbGioiTinh_IN.Font.Style);
+
+            lbHoTen.Left = lbMaBN.Right - lbHoTen.Size.Width;
+            lbGioiTinh.Left = lbMaBN.Right - lbGioiTinh.Width;
+            lbDiaChi.Left = lbMaBN.Right - lbDiaChi.Width;
+            lbNgayKham.Left = lbMaBN.Right - lbNgayKham.Width;
+            lbTuoi.Left = lbMaBN.Right - lbTuoi.Width;
+        }
+
+        private void btZoomPicBox1_Click(object sender, EventArgs e)
+        {
+            picBox1_DoubleClick(sender, e);
+        }
+
+        private void btZoomPicBox2_Click(object sender, EventArgs e)
+        {
+            picBox2_DoubleClick(sender, e);
         }
     }
     public struct PatientInfo_Type

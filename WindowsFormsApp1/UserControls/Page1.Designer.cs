@@ -29,22 +29,21 @@ namespace IPCameraManager
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Page1));
             this.btOpen_Cam2 = new System.Windows.Forms.Button();
             this.btnOpen_MainCam = new System.Windows.Forms.Button();
-            this.label12 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
+            this.lbDiaChi = new System.Windows.Forms.Label();
+            this.lbNgayKham = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.cbGioiTinh = new System.Windows.Forms.ComboBox();
-            this.label5 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.MaBN = new System.Windows.Forms.Label();
+            this.lbGioiTinh = new System.Windows.Forms.Label();
+            this.lbHoTen = new System.Windows.Forms.Label();
+            this.lbMaBN = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.tbMaBenhNhan = new Guna.UI2.WinForms.Guna2TextBox();
+            this.tbNgayKham = new Guna.UI2.WinForms.Guna2TextBox();
             this.tbTuoi = new Guna.UI2.WinForms.Guna2TextBox();
             this.tbDiaChi = new System.Windows.Forms.TextBox();
-            this.tbNgayKham = new Guna.UI2.WinForms.Guna2TextBox();
             this.tbHoTen = new Guna.UI2.WinForms.Guna2TextBox();
-            this.tbMaBenhNhan = new Guna.UI2.WinForms.Guna2TextBox();
             this.imgPreview = new System.Windows.Forms.PictureBox();
             this.btExit_F12 = new Guna.UI2.WinForms.Guna2Button();
             this.btShowCamera2 = new Guna.UI2.WinForms.Guna2Button();
@@ -64,7 +63,7 @@ namespace IPCameraManager
             this.btOpen_Cam2.Location = new System.Drawing.Point(101, 282);
             this.btOpen_Cam2.Name = "btOpen_Cam2";
             this.btOpen_Cam2.Size = new System.Drawing.Size(170, 61);
-            this.btOpen_Cam2.TabIndex = 32;
+            this.btOpen_Cam2.TabIndex = 21;
             this.btOpen_Cam2.Text = "Camera Phụ";
             this.btOpen_Cam2.Visible = false;
             // 
@@ -74,35 +73,38 @@ namespace IPCameraManager
             this.btnOpen_MainCam.Location = new System.Drawing.Point(101, 189);
             this.btnOpen_MainCam.Name = "btnOpen_MainCam";
             this.btnOpen_MainCam.Size = new System.Drawing.Size(170, 61);
-            this.btnOpen_MainCam.TabIndex = 31;
+            this.btnOpen_MainCam.TabIndex = 20;
             this.btnOpen_MainCam.Text = "Bật Camera";
             this.btnOpen_MainCam.Visible = false;
             this.btnOpen_MainCam.Click += new System.EventHandler(this.btOpen_MainCam_Click);
             // 
-            // label12
+            // lbDiaChi
             // 
-            this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(46, 156);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(63, 19);
-            this.label12.TabIndex = 22;
-            this.label12.Text = "Địa chỉ:";
-            this.label12.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.lbDiaChi.AutoSize = true;
+            this.lbDiaChi.Font = new System.Drawing.Font("Tahoma", 11.8F);
+            this.lbDiaChi.Location = new System.Drawing.Point(46, 158);
+            this.lbDiaChi.Name = "lbDiaChi";
+            this.lbDiaChi.Size = new System.Drawing.Size(63, 19);
+            this.lbDiaChi.TabIndex = 22;
+            this.lbDiaChi.Text = "Địa chỉ:";
+            this.lbDiaChi.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
-            // label4
+            // lbNgayKham
             // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(13, 126);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(96, 19);
-            this.label4.TabIndex = 12;
-            this.label4.Text = "Ngày Khám:";
-            this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.lbNgayKham.AutoSize = true;
+            this.lbNgayKham.Font = new System.Drawing.Font("Tahoma", 11.8F);
+            this.lbNgayKham.Location = new System.Drawing.Point(13, 128);
+            this.lbNgayKham.Name = "lbNgayKham";
+            this.lbNgayKham.Size = new System.Drawing.Size(96, 19);
+            this.lbNgayKham.TabIndex = 12;
+            this.lbNgayKham.Text = "Ngày Khám:";
+            this.lbNgayKham.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(226, 94);
+            this.label7.Font = new System.Drawing.Font("Tahoma", 11.8F);
+            this.label7.Location = new System.Drawing.Point(226, 97);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(47, 19);
             this.label7.TabIndex = 10;
@@ -111,71 +113,131 @@ namespace IPCameraManager
             // 
             // cbGioiTinh
             // 
+            this.cbGioiTinh.FlatStyle = System.Windows.Forms.FlatStyle.System;
+            this.cbGioiTinh.Font = new System.Drawing.Font("Tahoma", 12F);
+            this.cbGioiTinh.ForeColor = System.Drawing.Color.Black;
             this.cbGioiTinh.Items.AddRange(new object[] {
             " NAM",
             " NỮ",
             " KHÁC"});
-            this.cbGioiTinh.Location = new System.Drawing.Point(114, 93);
+            this.cbGioiTinh.Location = new System.Drawing.Point(114, 94);
             this.cbGioiTinh.Name = "cbGioiTinh";
             this.cbGioiTinh.Size = new System.Drawing.Size(106, 27);
-            this.cbGioiTinh.TabIndex = 40;
+            this.cbGioiTinh.TabIndex = 2;
             this.cbGioiTinh.Text = " NAM";
             this.cbGioiTinh.Click += new System.EventHandler(this.cbGioiTinh_Click);
             // 
-            // label5
+            // lbGioiTinh
             // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(29, 95);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(80, 19);
-            this.label5.TabIndex = 6;
-            this.label5.Text = "Giới Tính:";
-            this.label5.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.lbGioiTinh.AutoSize = true;
+            this.lbGioiTinh.Font = new System.Drawing.Font("Tahoma", 11.8F);
+            this.lbGioiTinh.Location = new System.Drawing.Point(29, 97);
+            this.lbGioiTinh.Name = "lbGioiTinh";
+            this.lbGioiTinh.Size = new System.Drawing.Size(80, 19);
+            this.lbGioiTinh.TabIndex = 6;
+            this.lbGioiTinh.Text = "Giới Tính:";
+            this.lbGioiTinh.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
-            // label3
+            // lbHoTen
             // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(19, 64);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(90, 19);
-            this.label3.TabIndex = 2;
-            this.label3.Text = "Họ Và Tên:";
-            this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.lbHoTen.AutoSize = true;
+            this.lbHoTen.Font = new System.Drawing.Font("Tahoma", 11.8F);
+            this.lbHoTen.Location = new System.Drawing.Point(19, 66);
+            this.lbHoTen.Name = "lbHoTen";
+            this.lbHoTen.Size = new System.Drawing.Size(90, 19);
+            this.lbHoTen.TabIndex = 2;
+            this.lbHoTen.Text = "Họ Và Tên:";
+            this.lbHoTen.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
-            // MaBN
+            // lbMaBN
             // 
-            this.MaBN.AutoSize = true;
-            this.MaBN.Location = new System.Drawing.Point(51, 33);
-            this.MaBN.Name = "MaBN";
-            this.MaBN.Size = new System.Drawing.Size(58, 19);
-            this.MaBN.TabIndex = 0;
-            this.MaBN.Text = "Mã Số:";
-            this.MaBN.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.lbMaBN.AutoSize = true;
+            this.lbMaBN.Font = new System.Drawing.Font("Tahoma", 11.8F);
+            this.lbMaBN.Location = new System.Drawing.Point(51, 35);
+            this.lbMaBN.Name = "lbMaBN";
+            this.lbMaBN.Size = new System.Drawing.Size(58, 19);
+            this.lbMaBN.TabIndex = 0;
+            this.lbMaBN.Text = "Mã Số:";
+            this.lbMaBN.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // groupBox1
             // 
-            this.groupBox1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+            this.groupBox1.Controls.Add(this.tbMaBenhNhan);
+            this.groupBox1.Controls.Add(this.tbNgayKham);
             this.groupBox1.Controls.Add(this.tbTuoi);
             this.groupBox1.Controls.Add(this.tbDiaChi);
-            this.groupBox1.Controls.Add(this.tbNgayKham);
             this.groupBox1.Controls.Add(this.tbHoTen);
-            this.groupBox1.Controls.Add(this.tbMaBenhNhan);
-            this.groupBox1.Controls.Add(this.label12);
+            this.groupBox1.Controls.Add(this.lbDiaChi);
             this.groupBox1.Controls.Add(this.imgPreview);
-            this.groupBox1.Controls.Add(this.label4);
+            this.groupBox1.Controls.Add(this.lbNgayKham);
             this.groupBox1.Controls.Add(this.label7);
             this.groupBox1.Controls.Add(this.cbGioiTinh);
-            this.groupBox1.Controls.Add(this.label5);
-            this.groupBox1.Controls.Add(this.label3);
-            this.groupBox1.Controls.Add(this.MaBN);
-            this.groupBox1.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupBox1.Controls.Add(this.lbGioiTinh);
+            this.groupBox1.Controls.Add(this.lbHoTen);
+            this.groupBox1.Controls.Add(this.lbMaBN);
+            this.groupBox1.Font = new System.Drawing.Font("Tahoma", 12.1F);
             this.groupBox1.Location = new System.Drawing.Point(670, 156);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(361, 446);
-            this.groupBox1.TabIndex = 33;
+            this.groupBox1.TabIndex = 1;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Nhập Thông Tin Bệnh Nhân";
+            // 
+            // tbMaBenhNhan
+            // 
+            this.tbMaBenhNhan.BackColor = System.Drawing.Color.Transparent;
+            this.tbMaBenhNhan.BorderColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.tbMaBenhNhan.BorderRadius = 4;
+            this.tbMaBenhNhan.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.tbMaBenhNhan.DefaultText = "";
+            this.tbMaBenhNhan.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
+            this.tbMaBenhNhan.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
+            this.tbMaBenhNhan.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.tbMaBenhNhan.DisabledState.Parent = this.tbMaBenhNhan;
+            this.tbMaBenhNhan.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.tbMaBenhNhan.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.tbMaBenhNhan.FocusedState.Parent = this.tbMaBenhNhan;
+            this.tbMaBenhNhan.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbMaBenhNhan.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.tbMaBenhNhan.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.tbMaBenhNhan.HoverState.Parent = this.tbMaBenhNhan;
+            this.tbMaBenhNhan.Location = new System.Drawing.Point(114, 31);
+            this.tbMaBenhNhan.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tbMaBenhNhan.Name = "tbMaBenhNhan";
+            this.tbMaBenhNhan.PasswordChar = '\0';
+            this.tbMaBenhNhan.PlaceholderText = "";
+            this.tbMaBenhNhan.SelectedText = "";
+            this.tbMaBenhNhan.ShadowDecoration.Parent = this.tbMaBenhNhan;
+            this.tbMaBenhNhan.Size = new System.Drawing.Size(226, 27);
+            this.tbMaBenhNhan.TabIndex = 0;
+            // 
+            // tbNgayKham
+            // 
+            this.tbNgayKham.BorderColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.tbNgayKham.BorderRadius = 4;
+            this.tbNgayKham.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.tbNgayKham.DefaultText = "";
+            this.tbNgayKham.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
+            this.tbNgayKham.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
+            this.tbNgayKham.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.tbNgayKham.DisabledState.Parent = this.tbNgayKham;
+            this.tbNgayKham.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.tbNgayKham.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.tbNgayKham.FocusedState.Parent = this.tbNgayKham;
+            this.tbNgayKham.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbNgayKham.ForeColor = System.Drawing.Color.Black;
+            this.tbNgayKham.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.tbNgayKham.HoverState.Parent = this.tbNgayKham;
+            this.tbNgayKham.Location = new System.Drawing.Point(114, 124);
+            this.tbNgayKham.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tbNgayKham.Name = "tbNgayKham";
+            this.tbNgayKham.PasswordChar = '\0';
+            this.tbNgayKham.PlaceholderText = "";
+            this.tbNgayKham.ReadOnly = true;
+            this.tbNgayKham.SelectedText = "";
+            this.tbNgayKham.ShadowDecoration.Parent = this.tbNgayKham;
+            this.tbNgayKham.Size = new System.Drawing.Size(226, 27);
+            this.tbNgayKham.TabIndex = 4;
             // 
             // tbTuoi
             // 
@@ -203,45 +265,18 @@ namespace IPCameraManager
             this.tbTuoi.SelectedText = "";
             this.tbTuoi.ShadowDecoration.Parent = this.tbTuoi;
             this.tbTuoi.Size = new System.Drawing.Size(62, 27);
-            this.tbTuoi.TabIndex = 41;
+            this.tbTuoi.TabIndex = 3;
             // 
             // tbDiaChi
             // 
             this.tbDiaChi.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.tbDiaChi.Location = new System.Drawing.Point(114, 156);
+            this.tbDiaChi.Font = new System.Drawing.Font("Tahoma", 12F);
+            this.tbDiaChi.ForeColor = System.Drawing.Color.Black;
+            this.tbDiaChi.Location = new System.Drawing.Point(114, 155);
             this.tbDiaChi.Multiline = true;
             this.tbDiaChi.Name = "tbDiaChi";
             this.tbDiaChi.Size = new System.Drawing.Size(226, 82);
-            this.tbDiaChi.TabIndex = 43;
-            // 
-            // tbNgayKham
-            // 
-            this.tbNgayKham.BackColor = System.Drawing.Color.Transparent;
-            this.tbNgayKham.BorderColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.tbNgayKham.BorderRadius = 4;
-            this.tbNgayKham.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.tbNgayKham.DefaultText = "";
-            this.tbNgayKham.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
-            this.tbNgayKham.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
-            this.tbNgayKham.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.tbNgayKham.DisabledState.Parent = this.tbNgayKham;
-            this.tbNgayKham.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.tbNgayKham.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.tbNgayKham.FocusedState.Parent = this.tbNgayKham;
-            this.tbNgayKham.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tbNgayKham.ForeColor = System.Drawing.Color.Black;
-            this.tbNgayKham.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.tbNgayKham.HoverState.Parent = this.tbNgayKham;
-            this.tbNgayKham.Location = new System.Drawing.Point(114, 124);
-            this.tbNgayKham.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.tbNgayKham.Name = "tbNgayKham";
-            this.tbNgayKham.PasswordChar = '\0';
-            this.tbNgayKham.PlaceholderText = "";
-            this.tbNgayKham.ReadOnly = true;
-            this.tbNgayKham.SelectedText = "";
-            this.tbNgayKham.ShadowDecoration.Parent = this.tbNgayKham;
-            this.tbNgayKham.Size = new System.Drawing.Size(226, 27);
-            this.tbNgayKham.TabIndex = 42;
+            this.tbDiaChi.TabIndex = 5;
             // 
             // tbHoTen
             // 
@@ -258,7 +293,7 @@ namespace IPCameraManager
             this.tbHoTen.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.tbHoTen.FocusedState.Parent = this.tbHoTen;
             this.tbHoTen.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tbHoTen.ForeColor = System.Drawing.Color.Black;
+            this.tbHoTen.ForeColor = System.Drawing.SystemColors.ControlText;
             this.tbHoTen.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.tbHoTen.HoverState.Parent = this.tbHoTen;
             this.tbHoTen.Location = new System.Drawing.Point(114, 62);
@@ -269,41 +304,10 @@ namespace IPCameraManager
             this.tbHoTen.SelectedText = "";
             this.tbHoTen.ShadowDecoration.Parent = this.tbHoTen;
             this.tbHoTen.Size = new System.Drawing.Size(226, 27);
-            this.tbHoTen.TabIndex = 39;
-            // 
-            // tbMaBenhNhan
-            // 
-            this.tbMaBenhNhan.BackColor = System.Drawing.Color.Transparent;
-            this.tbMaBenhNhan.BorderColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.tbMaBenhNhan.BorderRadius = 4;
-            this.tbMaBenhNhan.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.tbMaBenhNhan.DefaultText = "";
-            this.tbMaBenhNhan.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
-            this.tbMaBenhNhan.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
-            this.tbMaBenhNhan.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.tbMaBenhNhan.DisabledState.Parent = this.tbMaBenhNhan;
-            this.tbMaBenhNhan.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.tbMaBenhNhan.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.tbMaBenhNhan.FocusedState.Parent = this.tbMaBenhNhan;
-            this.tbMaBenhNhan.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tbMaBenhNhan.ForeColor = System.Drawing.Color.Black;
-            this.tbMaBenhNhan.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.tbMaBenhNhan.HoverState.Parent = this.tbMaBenhNhan;
-            this.tbMaBenhNhan.Location = new System.Drawing.Point(114, 31);
-            this.tbMaBenhNhan.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.tbMaBenhNhan.Name = "tbMaBenhNhan";
-            this.tbMaBenhNhan.PasswordChar = '\0';
-            this.tbMaBenhNhan.PlaceholderText = "";
-            this.tbMaBenhNhan.SelectedText = "";
-            this.tbMaBenhNhan.ShadowDecoration.Parent = this.tbMaBenhNhan;
-            this.tbMaBenhNhan.Size = new System.Drawing.Size(226, 27);
-            this.tbMaBenhNhan.TabIndex = 38;
+            this.tbHoTen.TabIndex = 1;
             // 
             // imgPreview
             // 
-            this.imgPreview.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
             this.imgPreview.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.imgPreview.Image = global::IPCameraManager.Properties.Resources.Loading_Cam2;
             this.imgPreview.Location = new System.Drawing.Point(55, 246);
@@ -316,7 +320,6 @@ namespace IPCameraManager
             // 
             // btExit_F12
             // 
-            this.btExit_F12.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.btExit_F12.BackColor = System.Drawing.Color.Transparent;
             this.btExit_F12.BorderColor = System.Drawing.SystemColors.ControlDarkDark;
             this.btExit_F12.BorderRadius = 5;
@@ -329,20 +332,19 @@ namespace IPCameraManager
             this.btExit_F12.ForeColor = System.Drawing.Color.Black;
             this.btExit_F12.HoverState.FillColor = System.Drawing.Color.LightSteelBlue;
             this.btExit_F12.HoverState.Parent = this.btExit_F12;
-            this.btExit_F12.Image = ((System.Drawing.Image)(resources.GetObject("btExit_F12.Image")));
+            this.btExit_F12.Image = global::IPCameraManager.Properties.Resources.exitPic_3;
             this.btExit_F12.ImageSize = new System.Drawing.Size(35, 35);
             this.btExit_F12.Location = new System.Drawing.Point(472, 526);
             this.btExit_F12.Name = "btExit_F12";
             this.btExit_F12.ShadowDecoration.Parent = this.btExit_F12;
             this.btExit_F12.Size = new System.Drawing.Size(152, 61);
-            this.btExit_F12.TabIndex = 37;
+            this.btExit_F12.TabIndex = 17;
             this.btExit_F12.Text = "  Thoát (F12)";
             this.btExit_F12.UseTransparentBackground = true;
             this.btExit_F12.Click += new System.EventHandler(this.btExit_F12_Click);
             // 
             // btShowCamera2
             // 
-            this.btShowCamera2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.btShowCamera2.BackColor = System.Drawing.Color.Transparent;
             this.btShowCamera2.BorderColor = System.Drawing.SystemColors.ControlDarkDark;
             this.btShowCamera2.BorderRadius = 5;
@@ -355,20 +357,19 @@ namespace IPCameraManager
             this.btShowCamera2.ForeColor = System.Drawing.Color.Black;
             this.btShowCamera2.HoverState.FillColor = System.Drawing.Color.LightSteelBlue;
             this.btShowCamera2.HoverState.Parent = this.btShowCamera2;
-            this.btShowCamera2.Image = ((System.Drawing.Image)(resources.GetObject("btShowCamera2.Image")));
+            this.btShowCamera2.Image = global::IPCameraManager.Properties.Resources.CameraCaPhongPicture2;
             this.btShowCamera2.ImageSize = new System.Drawing.Size(35, 35);
             this.btShowCamera2.Location = new System.Drawing.Point(270, 526);
             this.btShowCamera2.Name = "btShowCamera2";
             this.btShowCamera2.ShadowDecoration.Parent = this.btShowCamera2;
             this.btShowCamera2.Size = new System.Drawing.Size(152, 61);
-            this.btShowCamera2.TabIndex = 36;
-            this.btShowCamera2.Text = "Cả Phòng (F6)";
+            this.btShowCamera2.TabIndex = 16;
+            this.btShowCamera2.Text = " Cả Phòng (F6)";
             this.btShowCamera2.UseTransparentBackground = true;
             this.btShowCamera2.Click += new System.EventHandler(this.btShowCamera2_Click);
             // 
             // btTakePicture
             // 
-            this.btTakePicture.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.btTakePicture.BackColor = System.Drawing.Color.Transparent;
             this.btTakePicture.BorderColor = System.Drawing.SystemColors.ControlDarkDark;
             this.btTakePicture.BorderRadius = 5;
@@ -380,33 +381,30 @@ namespace IPCameraManager
             this.btTakePicture.ForeColor = System.Drawing.Color.Black;
             this.btTakePicture.HoverState.FillColor = System.Drawing.Color.LightSteelBlue;
             this.btTakePicture.HoverState.Parent = this.btTakePicture;
-            this.btTakePicture.Image = ((System.Drawing.Image)(resources.GetObject("btTakePicture.Image")));
-            this.btTakePicture.ImageSize = new System.Drawing.Size(35, 35);
+            this.btTakePicture.Image = global::IPCameraManager.Properties.Resources.cameraPicture5;
+            this.btTakePicture.ImageOffset = new System.Drawing.Point(0, 2);
+            this.btTakePicture.ImageSize = new System.Drawing.Size(37, 32);
             this.btTakePicture.Location = new System.Drawing.Point(68, 526);
             this.btTakePicture.Name = "btTakePicture";
             this.btTakePicture.ShadowDecoration.Parent = this.btTakePicture;
             this.btTakePicture.Size = new System.Drawing.Size(152, 61);
-            this.btTakePicture.TabIndex = 35;
-            this.btTakePicture.Text = "Chụp Ảnh (F5)";
+            this.btTakePicture.TabIndex = 6;
+            this.btTakePicture.Text = " Chụp Ảnh (F5)";
             this.btTakePicture.UseTransparentBackground = true;
             this.btTakePicture.MouseUp += new System.Windows.Forms.MouseEventHandler(this.btTakePicture_MouseUp);
             // 
             // pictureBox2
             // 
-            this.pictureBox2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
-            this.pictureBox2.Location = new System.Drawing.Point(720, 3);
+            this.pictureBox2.Image = global::IPCameraManager.Properties.Resources.vinmec_icon;
+            this.pictureBox2.Location = new System.Drawing.Point(752, 8);
             this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(265, 147);
-            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
+            this.pictureBox2.Size = new System.Drawing.Size(194, 139);
+            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox2.TabIndex = 34;
             this.pictureBox2.TabStop = false;
             // 
             // RealPlayWnd
             // 
-            this.RealPlayWnd.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
             this.RealPlayWnd.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.RealPlayWnd.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.RealPlayWnd.Image = global::IPCameraManager.Properties.Resources.Loading;
@@ -444,8 +442,7 @@ namespace IPCameraManager
             // 
             // Page1
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.AutoSize = true;
             this.Controls.Add(this.btExit_F12);
             this.Controls.Add(this.btShowCamera2);
@@ -471,24 +468,24 @@ namespace IPCameraManager
         private System.Windows.Forms.Button btOpen_Cam2;
         private System.Windows.Forms.Button btnOpen_MainCam;
         private System.Windows.Forms.PictureBox RealPlayWnd;
-        private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.Label lbDiaChi;
         private System.Windows.Forms.PictureBox imgPreview;
-        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label lbNgayKham;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.ComboBox cbGioiTinh;
-        private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label MaBN;
+        private System.Windows.Forms.Label lbGioiTinh;
+        private System.Windows.Forms.Label lbHoTen;
+        private System.Windows.Forms.Label lbMaBN;
         private System.Windows.Forms.PictureBox pictureBox2;
         private System.Windows.Forms.GroupBox groupBox1;
         private Guna.UI2.WinForms.Guna2Button btExit_F12;
         private Guna.UI2.WinForms.Guna2Button btShowCamera2;
         private Guna.UI2.WinForms.Guna2Button btTakePicture;
-        private Guna.UI2.WinForms.Guna2TextBox tbMaBenhNhan;
         private Guna.UI2.WinForms.Guna2TextBox tbHoTen;
-        private Guna.UI2.WinForms.Guna2TextBox tbNgayKham;
         private System.Windows.Forms.TextBox tbDiaChi;
         private Guna.UI2.WinForms.Guna2TextBox tbTuoi;
         private Tulpep.NotificationWindow.PopupNotifier popupNotifier1;
+        private Guna.UI2.WinForms.Guna2TextBox tbNgayKham;
+        private Guna.UI2.WinForms.Guna2TextBox tbMaBenhNhan;
     }
 }

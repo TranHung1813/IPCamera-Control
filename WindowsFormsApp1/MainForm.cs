@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Guna.UI2.WinForms;
+using System;
 using System.Collections.Generic;
 using System.Drawing;
 using System.Text;
@@ -64,13 +65,13 @@ namespace IPCameraManager
         //38. Thêm thứ ngày tháng vào thanh StatusBar (done)
         //47. Bo thong bao chup anh thanh cong (done, popup kieu thong bao moi)
         //48. Double Click -> phong to anh (done)
-        //49. Them duong dan vao anh trong form Find Patient
+        //49. Them duong dan vao anh trong form Find Patient (no need)
         //50. Thời gian thong bao "chua chon anh" qua lau khi bam button In Phieu (done)
 
-        //51. Load Patient Info trong form F8 take time
+        //51. Load Patient Info trong form F8 take time (done)
         //52. Click event vào notification form (done)
-        //53. Vi tri luu file word Phieu Kham cua BN
-        //54. Debug voi man hinh to FUll HD
+        //53. Vi tri luu file word Phieu Kham cua BN (done)
+        //54. Debug voi man hinh to FUll HD (done)
         //55. Encode IP Address, Port (done, need test)
         private const int ERR_OK = 0;
         private const int ERR_NOT_OK = 1;
@@ -125,9 +126,6 @@ namespace IPCameraManager
             this.KeyPreview = true;
             this.KeyUp += new KeyEventHandler(RoomView_KeyUp);
             this.KeyDown += new KeyEventHandler(RoomView_KeyDown);
-            //Add user control to form
-            Add_UserControl(ucPage1);
-            TabPageID = PAGE1;
             // Setup menu Setting
             ToolStripLabel tSL1 = new ToolStripLabel();
             tSL1.Text = "Camera";
@@ -215,6 +213,7 @@ namespace IPCameraManager
 
             mainStatusBar.Font = new Font("Tahoma", 12F);
             mainStatusBar.ShowPanels = true;
+            //mainStatusBar.SizingGrip = false;
             Controls.Add(mainStatusBar);
 
             // Set second panel properties and add to StatusBar  
@@ -226,7 +225,7 @@ namespace IPCameraManager
             if (day1 == 0) DayNumber = "Chủ nhật";
             else DayNumber = "Thứ " + (day1 + 1).ToString();
             datetimePanel.ToolTipText = DateTime.Now.ToLongDateString();
-            datetimePanel.Text = DayNumber + ", " + DateTime.UtcNow.Date.ToString("d/M/yyyy") + "  " + DateTime.Now.ToLongTimeString();
+            datetimePanel.Text = DayNumber + ", " + DateTime.Now.Date.ToString("d/M/yyyy") + "  " + DateTime.Now.ToLongTimeString();
             mainStatusBar.Panels.Add(datetimePanel);
             timer_GetRTC.Start();
 
@@ -259,6 +258,7 @@ namespace IPCameraManager
                             tabPage_KhamBenh.Focus();
                             tabPage_KhamBenh.Checked = true;
                         }
+                        ucPage1.StartFocus();
                     }
                     break;
                 case Keys.F4:
@@ -309,6 +309,7 @@ namespace IPCameraManager
                             tabPageTimPhieu.Focus();
                             tabPageTimPhieu.Checked = true;
                         }
+                        ucPageSearchPatient.StartFocus();
                     }
                     break;
                 case Keys.F9:
@@ -370,12 +371,40 @@ namespace IPCameraManager
                 }
             }
         }
-        private void Add_UserControl(UserControl uc)
+        private void Add_UserControl(int TabPageID)
         {
-            uc.Dock = DockStyle.Fill;
-            panelUnknown.Controls.Clear();
-            panelUnknown.Controls.Add(uc);
-            uc.BringToFront();
+            switch (TabPageID)
+            {
+                case PAGE1:
+                    //ucPage1.Dock = DockStyle.Fill;
+                    panelUnknown.Controls.Clear();
+                    panelUnknown.Controls.Add(ucPage1);
+                    ucPage1.BringToFront();
+                    ucPage1.StartFocus();
+                    break;
+
+                case PAGE2:
+                    //ucPage2.Dock = DockStyle.Fill;
+                    panelUnknown.Controls.Clear();
+                    panelUnknown.Controls.Add(ucPage2);
+                    ucPage2.BringToFront();
+                    break;
+
+                case PAGE3:
+                    //ucPageSetupCamera_Info.Dock = DockStyle.Fill;
+                    panelUnknown.Controls.Clear();
+                    panelUnknown.Controls.Add(ucPageSetupCamera_Info);
+                    ucPageSetupCamera_Info.BringToFront();
+                    break;
+
+                case PAGE4:
+                    //ucPageSearchPatient.Dock = DockStyle.Fill;
+                    panelUnknown.Controls.Clear();
+                    panelUnknown.Controls.Add(ucPageSearchPatient);
+                    ucPageSearchPatient.BringToFront();
+                    ucPageSearchPatient.StartFocus();
+                    break;
+            }
         }
 
         private void btExit_Click(object sender, EventArgs e)
@@ -406,8 +435,9 @@ namespace IPCameraManager
         {
             if (TabPageID != PAGE1)
             {
-                Add_UserControl(ucPage1);
+                Add_UserControl(PAGE1);
                 TabPageID = PAGE1;
+                ucPage1.StartFocus();
             }
         }
 
@@ -415,7 +445,7 @@ namespace IPCameraManager
         {
             if (TabPageID != PAGE2)
             {
-                Add_UserControl(ucPage2);
+                Add_UserControl(PAGE2);
                 TabPageID = PAGE2;
             }
         }
@@ -423,7 +453,7 @@ namespace IPCameraManager
         {
             if (TabPageID != PAGE3)
             {
-                Add_UserControl(ucPageSetupCamera_Info);
+                Add_UserControl(PAGE3);
                 TabPageID = PAGE3;
             }
         }
@@ -432,9 +462,10 @@ namespace IPCameraManager
         {
             if (TabPageID != PAGE4)
             {
-                Add_UserControl(ucPageSearchPatient);
+                Add_UserControl(PAGE4);
                 TabPageID = PAGE4;
                 ucPageSearchPatient.Load_Patients_Info();
+                ucPageSearchPatient.StartFocus();
             }
         }
 
@@ -796,7 +827,10 @@ namespace IPCameraManager
 
         private void MainForm_Shown(object sender, EventArgs e)
         {
-            Utility.fitFormToScreen(this, 766, 1366);
+            //Add user control to form
+            Add_UserControl(PAGE1);
+            //ucPage1.Page1_FitToContainer(panelUnknown.Height, panelUnknown.Width);
+            TabPageID = PAGE1;
             Application.DoEvents();
             // Thread load Main Camera
             Loading_MainCam_Trd = new Thread(new ThreadStart(this.ThreadTask_LoadMainCam));
@@ -1037,6 +1071,8 @@ namespace IPCameraManager
                     Admin_Allow = true;
                     Point point = this.PointToScreen(btSystemSetting.Location);
                     point.Y += btSystemSetting.Height;
+                    //Utility.fitControlsToScreen(cMStrip_Setting, 766, 1366);
+                    //cMStrip_Setting.AutoSize = true;
                     cMStrip_Setting.Show(point);
                 }
             }
@@ -1044,6 +1080,8 @@ namespace IPCameraManager
             {
                 Point point = this.PointToScreen(btSystemSetting.Location);
                 point.Y += btSystemSetting.Height;
+                //Utility.fitControlsToScreen(cMStrip_Setting, 766, 1366);
+                //cMStrip_Setting.AutoSize = true;
                 cMStrip_Setting.Show(point);
             }
         }
@@ -1104,7 +1142,7 @@ namespace IPCameraManager
             if (day1 == 0) DayNumber = "Chủ nhật";
             else DayNumber = "Thứ " + (day1 + 1).ToString();
             datetimePanel.ToolTipText = DateTime.Now.ToLongDateString();
-            datetimePanel.Text = DayNumber + ", " + DateTime.UtcNow.Date.ToString("d/M/yyyy") + "  " + DateTime.Now.ToLongTimeString();
+            datetimePanel.Text = DayNumber + ", " + DateTime.Now.Date.ToString("d/M/yyyy") + "  " + DateTime.Now.ToLongTimeString();
         }
         private void btReboot_MainCam_Click(object sender, EventArgs e)
         {
@@ -1190,6 +1228,73 @@ namespace IPCameraManager
         private void btSetting_KeyboardShortcut_Click(object sender, EventArgs e)
         {
             formSetting.ShowDialog();
+        }
+
+        private void MainForm_Load(object sender, EventArgs e)
+        {
+            Utility.fitFormToScreen(this, 766, 1366);
+            tabPage_InPhieu.Location = new Point( tabPage_KhamBenh.Location.X + tabPage_KhamBenh.Size.Width, tabPage_InPhieu.Location.Y);
+            tabPageCaidatCamera.Location = new Point(tabPage_InPhieu.Location.X + tabPage_InPhieu.Size.Width, tabPageCaidatCamera.Location.Y);
+            tabPageTimPhieu.Location = new Point(tabPageCaidatCamera.Location.X + tabPageCaidatCamera.Size.Width, tabPageTimPhieu.Location.Y);
+            ucPage1.Page1_FitToContainer(panelUnknown.Height, panelUnknown.Width);
+            ucPage2.Page2_FitToContainer(panelUnknown.Height, panelUnknown.Width);
+            ucPageSearchPatient.Page4_FitToContainer(panelUnknown.Height, panelUnknown.Width);
+            ucPageSetupCamera_Info.Page3_FitToContainer(panelUnknown.Height, panelUnknown.Width);
+        }
+        private static int Normal_FormHeight = 0;
+        private static int Normal_FormWidth = 0;
+        private bool _is_Resize_Max = false;
+        private void btResizeForm_Click(object sender, EventArgs e)
+        {
+            if (_is_Resize_Max == false)
+            {
+                _is_Resize_Max = true;
+                guna2DragControl1.TargetControl = null;
+                guna2DragControl2.TargetControl = null;
+                guna2DragControl3.TargetControl = null;
+                guna2Elipse1.BorderRadius = 0;
+                panelUnknown.Controls.Clear();
+                // Fit Main form
+                Utility.fitFormToContainer(this, Normal_FormHeight, Normal_FormWidth, Screen.PrimaryScreen.Bounds.Size.Height, Screen.PrimaryScreen.Bounds.Size.Width);
+                tabPage_InPhieu.Location = new Point(tabPage_KhamBenh.Location.X + tabPage_KhamBenh.Size.Width, tabPage_InPhieu.Location.Y);
+                tabPageCaidatCamera.Location = new Point(tabPage_InPhieu.Location.X + tabPage_InPhieu.Size.Width, tabPageCaidatCamera.Location.Y);
+                tabPageTimPhieu.Location = new Point(tabPageCaidatCamera.Location.X + tabPageCaidatCamera.Size.Width, tabPageTimPhieu.Location.Y);
+                //panelUnknown.Size = new Size(1913, 927);
+                ucPage1.Page1_FitToContainer(panelUnknown.Height, panelUnknown.Width);
+                ucPage2.Page2_FitToContainer(panelUnknown.Height, panelUnknown.Width);
+                ucPageSearchPatient.Page4_FitToContainer(panelUnknown.Height, panelUnknown.Width);
+                ucPageSetupCamera_Info.Page3_FitToContainer(panelUnknown.Height, panelUnknown.Width);
+                Add_UserControl(TabPageID);
+            }
+            else
+            {
+                _is_Resize_Max = false;
+                guna2DragControl1.TargetControl = panel1;
+                guna2DragControl2.TargetControl = label1;
+                guna2DragControl3.TargetControl = pictureBox1;
+                guna2Elipse1.BorderRadius = 22;
+                panelUnknown.Controls.Clear();
+                // Fit Main form
+                Utility.fitFormToContainer(this, Screen.PrimaryScreen.Bounds.Size.Height, Screen.PrimaryScreen.Bounds.Size.Width, Normal_FormHeight, Normal_FormWidth);
+                tabPage_InPhieu.Location = new Point(tabPage_KhamBenh.Location.X + tabPage_KhamBenh.Size.Width, tabPage_InPhieu.Location.Y);
+                tabPageCaidatCamera.Location = new Point(tabPage_InPhieu.Location.X + tabPage_InPhieu.Size.Width, tabPageCaidatCamera.Location.Y);
+                tabPageTimPhieu.Location = new Point(tabPageCaidatCamera.Location.X + tabPageCaidatCamera.Size.Width, tabPageTimPhieu.Location.Y);
+                //panelUnknown.Size = new Size(1467, 872);
+                ucPage1.Page1_FitToContainer(panelUnknown.Height, panelUnknown.Width);
+                ucPage2.Page2_FitToContainer(panelUnknown.Height, panelUnknown.Width);
+                ucPageSearchPatient.Page4_FitToContainer(panelUnknown.Height, panelUnknown.Width);
+                ucPageSetupCamera_Info.Page3_FitToContainer(panelUnknown.Height, panelUnknown.Width);
+                Add_UserControl(TabPageID);
+            }
+        }
+
+        private void btResizeForm_MouseDown(object sender, MouseEventArgs e)
+        {
+            if (_is_Resize_Max == false)
+            {
+                Normal_FormHeight = this.Height;
+                Normal_FormWidth = this.Width;
+            }
         }
     }
 

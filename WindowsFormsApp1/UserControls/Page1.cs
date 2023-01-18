@@ -372,6 +372,7 @@ namespace IPCameraManager
             {
                 OpenFolder(ImagePath);
             };
+            Utility.fitPopupToScreen(popup, 766, 1366);
             popup.Popup();
         }
         private void SaveBmpAsJPG()
@@ -619,7 +620,7 @@ namespace IPCameraManager
                 m_struShowStrCfg.struStringInfo[0].sString = str_MBN;
                 m_struShowStrCfg.struStringInfo[0].wStringSize = (ushort)m_struShowStrCfg.struStringInfo[0].sString.Length;
                 m_struShowStrCfg.struStringInfo[0].wShowStringTopLeftX = 18;
-                m_struShowStrCfg.struStringInfo[0].wShowStringTopLeftY = 112;
+                m_struShowStrCfg.struStringInfo[0].wShowStringTopLeftY = 62;
 
                 if (tbHoTen.Text != "") m_struShowStrCfg.struStringInfo[1].wShowString = 1;
                 else m_struShowStrCfg.struStringInfo[1].wShowString = 0;
@@ -627,7 +628,7 @@ namespace IPCameraManager
                 m_struShowStrCfg.struStringInfo[1].sString = str_HvT;
                 m_struShowStrCfg.struStringInfo[1].wStringSize = (ushort)m_struShowStrCfg.struStringInfo[1].sString.Length;
                 m_struShowStrCfg.struStringInfo[1].wShowStringTopLeftX = 18;
-                m_struShowStrCfg.struStringInfo[1].wShowStringTopLeftY = 132;
+                m_struShowStrCfg.struStringInfo[1].wShowStringTopLeftY = 80;
 
                 if (tbTuoi.Text != "") m_struShowStrCfg.struStringInfo[2].wShowString = 1;
                 else m_struShowStrCfg.struStringInfo[2].wShowString = 0;
@@ -635,7 +636,7 @@ namespace IPCameraManager
                 m_struShowStrCfg.struStringInfo[2].sString = str_T;
                 m_struShowStrCfg.struStringInfo[2].wStringSize = (ushort)m_struShowStrCfg.struStringInfo[2].sString.Length;
                 m_struShowStrCfg.struStringInfo[2].wShowStringTopLeftX = 18;
-                m_struShowStrCfg.struStringInfo[2].wShowStringTopLeftY = 152;
+                m_struShowStrCfg.struStringInfo[2].wShowStringTopLeftY = 115;
 
                 //if (tbNgayKham.Text != "") m_struShowStrCfg.struStringInfo[3].wShowString = 1;
                 //else m_struShowStrCfg.struStringInfo[3].wShowString = 0;
@@ -708,10 +709,28 @@ namespace IPCameraManager
             }
             return str;
         }
+        public void Page1_FitToContainer(int Height, int Width)
+        {
+            int h = this.Height;
+            Utility.FitUserControlToContainer(this, Height, Width);
+            tbMaBenhNhan.Font = new Font(tbMaBenhNhan.Font.FontFamily, (tbMaBenhNhan.Font.Size * ((float)Height / (float)h)), tbMaBenhNhan.Font.Style);
+            tbHoTen.Font = new Font(tbHoTen.Font.FontFamily, (tbHoTen.Font.Size * ((float)Height / (float)h)), tbHoTen.Font.Style);
+            tbTuoi.Font = new Font(tbTuoi.Font.FontFamily, (tbTuoi.Font.Size * ((float)Height / (float)h)), tbTuoi.Font.Style);
+            tbNgayKham.Font = new Font(tbNgayKham.Font.FontFamily, (tbNgayKham.Font.Size * (Height / (float)h)), tbNgayKham.Font.Style);
+            cbGioiTinh.Font = tbTuoi.Font;
 
+            lbHoTen.Left = lbMaBN.Right - lbHoTen.Size.Width;
+            lbGioiTinh.Left = lbMaBN.Right - lbGioiTinh.Width;
+            lbDiaChi.Left = lbMaBN.Right - lbDiaChi.Width;
+            lbNgayKham.Left = lbMaBN.Right - lbNgayKham.Width;
+        }
+        public void StartFocus()
+        {
+            if (tbMaBenhNhan.CanFocus) tbMaBenhNhan.Focus();
+        }
         private void Page1_Load(object sender, EventArgs e)
         {
-            Utility.fitUserControlToScreen(this, 766, 1366);
+            StartFocus();
         }
     }
     public class NotifyConnectMainCam : EventArgs
